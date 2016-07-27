@@ -1,0 +1,115 @@
+<include  file='public:header'/>
+
+<body>
+	<header>
+		<a  href="<{:U('coupon/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">优惠券详情</div>
+	</header>
+	<div class="bdcolor">
+        <div class="bdcolor_bg"></div>
+        <div class="bdsharebuttonbox" data-tag="share_1">
+            <a class="bds_weixin" data-cmd="weixin">微信</a>
+            <a class="bds_qzone" data-cmd="qzone" href="#">QQ空间</a>
+            <a class="bds_sqq" data-cmd="sqq">腾讯QQ</a>
+            <a class="bds_tqq" data-cmd="tqq">腾讯微博</a>
+            <a class="bds_tsina" data-cmd="tsina">新浪微博</a>
+            <div class="bd-share-popup-footer">
+                <a class="bd-share-popup-close" onclick="$('.bdcolor').hide();" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".share").click(function () {
+                $(".bdcolor").show();
+            });
+        });
+        window._bd_share_config = {
+            common: {
+                bdText: '<{$shop.shop_name}>-<{$detail.title}>',
+                bdDesc: '<{$shop.shop_name}>-<{$detail.title}>',
+                bdUrl: encodeURIComponent(location.href),
+                bdPic: 'http://<{$Think.SERVER.HTTP_HOST}>__ROOT__/attachs/<{$detail.photo|default='default.jpg'}>'
+            },
+            share: [{
+                "bdSize": 32,
+            }],
+        }
+        with (document)
+            0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+	<div id="sell" class="page-center-box">
+		<div id="scroll">
+			<!-- BANNER图 -->
+			<div class="seat-banner">
+				<a href="javacript:;">
+					<img src="__ROOT__/attachs/<{$detail.photo}>" width="100%" height="100%"/>
+					<div class="shade"></div>
+					<div class="shade-content">
+						<p><{$detail.title}></p>
+					</div>
+				</a>
+			</div>
+			<!-- 评分 -->
+			<div class="point">
+				<div class="point-left favou-left">
+					<div>下载：<{$detail.downloads}>次<span class="mall-num">浏览<{$detail.views}>人</span></div>
+				</div>
+				<div class="point-right">
+					<a href="<{:U('coupon/download',array('coupon_id'=>$detail['coupon_id']))}>" class="btn">立即下载</a>
+				</div>
+			</div>
+			
+            <div class="mall-our">
+                <span class="mall-fen share"><a ><img src="__TMPL__statics/img/tp9.png"><span>分 享</span></a></span> 
+                <!--<span class="mall-fen"><a href=""><img src="__TMPL__statics/img/icon-sc.png"><span>收 藏</span></a></span>-->
+            </div>
+			<div class="spread-intro">
+				<ul>
+					<li class="spread-tui">优惠券简介</li>
+					<li class="favou-more"><{$detail.intro}></li>
+				</ul>
+			</div>
+			<div class="spread-intro">
+				<ul>
+					<li class="spread-tui"><{$shop.shop_name}><span style="float:right;"><{$ex.near}></span></li>
+					<li>
+						<P>联系电话：<{$shop.tel}><php>if(!empty($shop['extension']))echo '转'.$shop['extension'];</php></P>
+						<p>公司地点：<{$shop.addr}></p>
+					</li>
+					<li>
+                    	<a href="<{:U('shop/gps',array('shop_id'=>$detail['shop_id']))}>" class="work-go">到这去<img src="__TMPL__statics/img/tp26.png" class="work-img"></a>	     
+                    	<a href="tel:<{:str_replace('-','',$shop['tel'])}>" class="work-phone"><{$shop.tel}><php>if(!empty($shop['extension']))echo '转'.$shop['extension'];</php>
+                    		<img src="__TMPL__statics/img/tp27.png" class="work-img2">
+                    	</a> 
+                    	<div class="clear"></div>   
+
+		        	</li>
+				</ul>
+			</div>
+
+			<div class="spread-intro">
+				<ul>
+					<li class="spread-tui">小编精选</li>
+					<li class="favou-image">
+						<calldata mdl="Recommend" order="orderby asc" where="group_id = 7 AND bg_date ELT '{$today}' AND end_date EGT '{$today}'" cache="3600" limit="0,2">
+                		<div class="fl">
+                    		<a title="<{$item.title}>" href="<{$item.link_url}>" >\
+                    			<img src="__ROOT__/attachs/<{$item.photo}>" width="100%"/>
+                    			<p><{$item.title}></p>
+                			</a>
+                		</div>
+            			</calldata>
+                    	<div class="clear"></div> 
+		        	</li>
+				</ul>
+			</div>
+			<div class="spread-intro">
+				<ul>
+					<li><img src="__TMPL__statics/img/icn12.png" class="favou-process"></li>
+				</ul>
+			</div>
+			<!-- 循环 -->
+		</div>
+	</div>
+<include file="public:footer"/>

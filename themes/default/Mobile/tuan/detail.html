@@ -1,0 +1,135 @@
+<include file="public:header"/>
+<body>
+	<header>
+		<a href="<{:U('/mobile/tuan')}>"><i class="icon-goback"></i></a>
+		<div class="title">抢购详情</div>
+	</header>
+	
+	<div class="bdcolor">
+        <div class="bdcolor_bg"></div>
+        <div class="bdsharebuttonbox" data-tag="share_1">
+            <a class="bds_weixin" data-cmd="weixin">微信</a>
+            <a class="bds_qzone" data-cmd="qzone" href="#">QQ空间</a>
+            <a class="bds_sqq" data-cmd="sqq">腾讯QQ</a>
+            <a class="bds_tqq" data-cmd="tqq">腾讯微博</a>
+            <a class="bds_tsina" data-cmd="tsina">新浪微博</a>
+            <div class="bd-share-popup-footer">
+            	<a class="bd-share-popup-close" onClick="$('.bdcolor').hide();" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+    </div>
+	<script>
+        $(document).ready(function () {
+            $(".share").click(function () {
+                $(".bdcolor").show();
+            });
+        });
+        window._bd_share_config = {
+            common: {
+                bdText: '<{$detail.title}>',
+                bdDesc: '<{$detail.title}>',
+                bdUrl: encodeURIComponent(location.href),
+                bdPic: 'http://<{$Think.SERVER.HTTP_HOST}>__ROOT__/attachs/<{$detail.photo|default='default.jpg'}>'
+            },
+            share: [{
+                "bdSize": 32,
+            }],
+        }
+        with (document)
+            0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+	<div id="sell" class="page-center-box">
+		<div id="scroll">
+			<!-- BANNER图 -->
+			<div class="seat-banner">
+				<a href="<{:U('shop/detail',array('shop_id'=>$detail['shop_id']))}>" target="_blank">
+					<img src="__ROOT__/attachs/<{$detail.photo}>" width="100%" height="100%" />
+					<div class="shade"></div>
+					<div class="shade-content order-ti">
+						<p><span class="left"><{:bao_msubstr($detail['title'],0,18,false)}></span><span class="right order-font">已售<{$detail.sold_num}></span></p>
+					</div>
+				</a>
+			</div>
+			<!-- 评分 -->
+			<div class="point">
+				<div class="point-left">
+					<div>
+						<span class="mall-price order-money">￥<{$detail.tuan_price}></span> 
+						<del>￥<{$detail.price}></del>					
+					</div>
+				</div>
+				<div class="point-right">
+					<a href="<{:U('tuan/buy',array('tuan_id'=>$detail['tuan_id']))}>" class="btn">立即购买</a>
+				</div>
+			</div>
+			<div class="order-style">
+				<ul>
+					<li><i class="rush-ig-10"></i><span>支持随时退</span></li>
+					<li><i class="rush-ig-11"></i><span>过期自动退</span></li>
+					<li><i class="rush-ig-10"></i><span>免预约</span></li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<!-- 地址 -->
+			<div class="order-adress">
+				<div class="order-shop">
+	                <div>
+	                	<a href="<{:U('shop/detail',array('shop_id'=>$detail['shop_id']))}>"><span class="left order-name"><{$shop.shop_name}></span></a>
+	                	<div class="point-star order-star left"><div style="width: 0.7rem;"></div></div>
+	                </div>
+	                <div class="clear"></div>
+	                <div class="order-nr">
+	                	<a href=""><span class="left"><{:bao_msubstr($shop['addr'],0,20)}></span></a>
+	                	<div class="right">
+	                		<i class="rush-ig-13"></i>
+	                		<span class="order-km">1km</span>
+	                		<a href="tel:<{$shop.tel}>"><img src="__TMPL__statics/img/tp103.png"></a>
+	                	</div>
+	                </div>
+	                <div class="clear"></div>
+	            </div>
+	            <div class="mall-our">	                
+	                <span class="mall-fen"><a href="<{:U('shop/gps',array('shop_id'=>$detail['shop_id']))}>"><img src="__TMPL__statics/img/tp104.png"><span>到这去</span></a></span>  
+	                <span class="mall-fen share"><a ><img src="__TMPL__statics/img/tp9.png"><span>分享</span></a></span>          
+	            </div>
+            </div>
+            
+			<div class="spread-intro">
+				<ul>
+					<li class="spread-tui">团购详情</li>
+                    
+					<li class="li_table">
+						<p><{$tuandetails.details}></p>
+					</li>
+				</ul>
+			</div>
+			<div class="spread-intro">
+				<ul>
+					<li class="spread-tui">购买须知</li>
+					<li>
+						<p><{$tuandetails.instructions}></p>
+					</li>
+				</ul>
+			</div>
+			<div class="spread-intro">
+				<ul>
+					<li class="spread-tui">本店其他团购</li>
+                    
+                    <volist name="tuans" id="item" key="index">
+                        <li>
+                            
+                                <div class="left"><span class="order-prices" style="color:#ff4200;">￥<{:round($item['tuan_price']/100,2)}></span> <del style="color:#666666;">￥<{:round($item['price']/100,2)}></del>
+                                <a href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>" title="<{$item.title}>"><span><{:bao_msubstr($item['title'],0,8)}></span></a>
+                                </div>
+                                <span class="right">》</span>
+                                <div class="clear"></div>
+                            </a>
+                        </li>
+
+                    </volist>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+<include file="public:footer"/>

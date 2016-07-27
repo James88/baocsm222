@@ -1,0 +1,110 @@
+<include  file='public:head'/>    
+<body>	
+
+	<!-- 头部 -->	
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+		<a href="<{:U('tieba/main')}>" class="mui-pull-left miui-block">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+		</a>
+		<h1 class="mui-title"><{$cate['cate_name']}>发帖</h1>
+		<a class="mui-pull-right miui-block" href="javascript:;" id="submit">
+			<button class="mui-btn">
+				发表
+			</button>
+		</a>
+	</header>
+	
+	<!-- 主体 -->
+	<div id="main">
+		<div class="blank-10"></div>
+		<iframe id="w-frame" name="w-frame" style="display:none;"></iframe>
+		<form id="tie-post" action="<{:U('tieba/post')}>" method="post" target="w-frame">	
+		<input type="hidden" id="photo" name="data[photo]" value="" />
+		<input type="hidden" name="data[cate_id]" value="<{$cate['cate_id']}>" />
+		<div class="post-title">
+			<input type="text" name="data[title]" value="" placeholder="标题"  />
+		</div>
+		
+		<div class="post-content">
+			<textarea name="data[details]" placeholder="文明上网，登陆发言"></textarea>
+		</div>
+		
+		<div class="post-photo">
+			<script src="/static/default/mob/js/ajaxfileupload.js"></script>
+			<ul id="pic-brd" class="pic-brd">
+				<li id="last" class="last">
+					<a href="javascript:;" class="a-upload">
+						<input type="file" id="fileToUpload" name="fileToUpload" data-role="none" value=""/>
+						选择图片
+					</a> 
+				</li>
+			</ul>
+		</div>
+		
+		</form>
+	</div>
+	
+<script type="text/javascript">
+
+	function ajaxupload(){
+		var last = $("#last");
+		$.ajaxFileUpload({
+			url: '<{:U("public/upload",array("model"=>"tieba"))}>',
+			type: 'post',
+			fileElementId: 'fileToUpload',
+			dataType: 'text',
+			secureuri: false, //一般设置为false
+			success: function (data, status) {
+
+				var photo = $("#photo").val();
+				strs = data.split("<");
+				data = strs[0];
+				var str = "<li><img src=\"/Attach/" + data + "\"></li>";
+				var sec = cntest(data);
+				if(photo!="" && sec == true){
+					var nval = photo + "," + data;
+					$(str).insertBefore(last);
+				}else if(sec == true){
+					var nval = data;
+					$(str).insertBefore(last);
+				}
+				$("#photo").val(nval);
+				
+				$("#fileToUpload").unbind('change');
+				$("#fileToUpload").change(function () {
+					ajaxupload();
+				});
+				
+			}
+		});
+	}
+	
+
+	function cntest(text){
+	  var reg=/[\u4e00-\u9fa5]+/;
+	  if(reg.test(text)){
+		return false;
+	  }else{
+		return true;
+	  }
+	}
+	
+
+	
+	$(document).ready(function(){
+	
+		$("#fileToUpload").change(function () {
+			ajaxupload();
+		});
+		
+		$("#submit").click(function (){
+			$("#tie-post").submit();
+		});
+		
+	});
+	
+		
+</script>
+<include  file='public:foot'/>

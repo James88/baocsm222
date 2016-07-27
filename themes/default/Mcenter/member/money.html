@@ -1,0 +1,35 @@
+<include file='public:header'/>
+<body>
+    <header>
+        <div class="header_color">
+            <a class="back" href="<{:U('member/index')}>"><img  src="__TMPL__statics/img/back_icon.png"></a>
+            充值管理
+        </div>
+    </header>
+    <section class="order_se">
+        <ul class="money">
+            <li class="current"><a href="<{:U('member/money')}>">余额充值</a></li>
+            <li><a href="<{:U('member/recharge')}>">代金券充值</a></li>
+            <li><a href="<{:U('member/gold')}>">金块充值</a></li>
+        </ul>
+    </section>
+    <div class="ui-content" style="margin-top: 10px;">
+        <form method="post" action="<{:U('member/moneypay')}>" class="register">
+            <ul>
+                <li>充值金额：<input style="width:80%;" class="Confirm" type="text" name="money" placeholder="请输入充值金额" /></li>
+                <li class="paymentmethod"><div class="fl">支付方式：</div>
+                    <foreach name="payment" item="var">
+                        <eq name="var.is_open" value="1">
+                        <if condition="$var['code'] neq 'money' and  $var['code'] neq 'weixin' ">
+                            <label><input class="fl" style="width: 20px; height: 20px; margin-left: 5px;  margin-right: 15px;" value="<{$var.code}>" name="code" type="radio" /><img class="fl" src="__PUBLIC__/images/<{$var.logo}>" /></label>
+                        </if>
+                        </eq>
+                    </foreach>
+                </li>
+            </ul>
+            <div class="radius">
+                <input type="submit" value="确认信息" class="aniu">
+            </div>
+        </form>
+    </div>
+<include file='public:footer'/>

@@ -1,0 +1,26 @@
+<include file="public:header"/>
+<body>
+	<header>
+		<i class="icon-goback"></i>
+		<div class="title">商家点评</div>
+		<i class="icon-menu"></i>
+	</header>
+	<div id="sell" class="page-center-box">
+		<div id="scroll">
+
+			
+			<!-- 点评 -->
+			<div class="guest">
+				
+				
+			</div>
+            
+            <script>
+				$(document).ready(function () {
+					loaddata('<{:U("shop/dianpingloading",array("shop_id"=>$detail["shop_id"],"p"=>"0000"))}>',  $(".guest"),true);
+				});
+			</script>
+            
+		</div>
+	</div>
+<include  file='public:footer'/>

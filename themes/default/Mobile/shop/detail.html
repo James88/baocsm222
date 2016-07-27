@@ -1,0 +1,108 @@
+<include file="public:header"/>
+<body>
+	<header>
+            <a href="<{:U('shop/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">商家详情</div>
+	</header>
+	<div id="sell" class="page-center-box">
+		<div id="scroll">
+			<!-- BANNER图 -->
+			<div class="seat-banner">
+				<div class="seat-img">
+					<img src="__ROOT__/attachs/<{$detail.photo|default='default.jpg'}>"/>
+				</div>
+				<div class="shade"></div>
+				<div class="shade-content">
+					<p><{$detail.shop_name}> / 人均：<span style="color:#f22200;">￥<{$ex['price']}></span></p>
+				</div>
+			</div>
+			<!-- 评分 -->
+			<div class="point">
+				<div class="point-left">
+					<div class="point-star point-star-sell"><div style="width:0.<php>$star = intval($item['score_num']/5.5);if($star > 9){$star = 9;}echo $star;</php>rem;"></div></div>
+					<div class="guest-num"><{$totalnum}>条评论</div>
+					<div class="tag"><{$shopcates[$shopcates[$detail['cate_id']]['parent_id']]['cate_name']}> / <{$shopcates[$detail['cate_id']]['cate_name']}></div>
+				</div>
+				<div class="point-right">
+					<div class="btn"><a href="<{:U('shop/favorites/',array('shop_id'=>$detail['shop_id']))}>" target="_blank" style="color:#FFFFFF;">关注商家</a></div>
+				</div>
+			</div>
+			<div class="point">
+				<div class="point-left brn">
+					<span>口味：<{:round($detail['d1']/10,1)}></span>
+					<span>环境：<{:round($detail['d2']/10,1)}></span>
+					<span>服务：<{:round($detail['d3']/10,1)}></span>
+				</div>
+				<!--<div class="btn share">分享</div>-->
+			</div>
+			<!-- 地址 -->
+			<div class="address">
+				<ul>
+					<li class="address-here"><{:bao_msubstr($detail['addr'],0,20)}></li>
+					<li><div class="b-1"><a href="<{:U('shop/gps',array('shop_id'=>$detail['shop_id']))}>" style="color:#FFFFFF;">到这去</a><i></i></div></li>
+					<li><div class="b-2">
+						<a href="tel:<{:str_replace('-','',$detail['tel'])}>" style="color:#FFFFFF;"><{$detail.tel}>
+						<php>if(!empty($detail['extension']))echo '转 '.$detail['extension'];</php>
+						</a><i></i>
+						</div></li>
+				</ul>
+			</div>
+			<!-- 商家信息 -->
+			<div class="info">
+				<ul>
+					<li class="title">商家信息</li>
+					<li>营业时间：<{$ex.business_time}></li>
+                    <php>$sb = D('ShopBranch');$rsb = $sb -> where('shop_id ='.$detail['shop_id']) -> count();</php>
+					<notempty name="rsb"><li class="other"><a href="<{:U('shop/branch/',array('shop_id'=>$detail['shop_id']))}>">查看其他<{$rsb}>家分店 >></a></li></notempty>
+				</ul>
+			</div>
+			<!-- 商家抢购 -->
+			<div class="buy">
+				<div class="title">商家抢购<span>更多抢购>></span></div>
+				<div class="buy-box">
+				<!-- 循环 -->
+                <volist name="tuans" id="item" key="index">
+				<div>
+					<a href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>" title="<{$item.title}>"><img src="__ROOT__/attachs/<{$item.photo|default='default.jpg'}>" width="100%" height="" /></a>
+					<div class="shade"></div>
+					<div class="shade-content"><em><{:bao_msubstr($item['title'],0,8)}></em><span>￥<{:round($item['tuan_price']/100,2)}></span></div>
+				</div>
+                </volist>
+
+				<!-- 循环 -->
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- 点评 -->
+			<div class="guest">
+				<div class="title">
+					<span>网友点评(<{$all_ping}>)</span>
+					<span class="guest-add"><a href="<{:U('/mcenter/dianping/index',array('shop_id'=>$detail['shop_id']))}>">我要评论</a></span>
+					<a href="<{:U('shop/dianping',array('shop_id'=>$detail['shop_id']))}>"><em>全部评论>></em></a>
+				</div>
+				<!-- 循环 -->
+
+                <volist name="list" id="var" key="index">
+				<div class="guest-box">
+					<div class="icon" style="background-image: url(__ROOT__/attachs/<{$users[$var['user_id']]['face']|default='default.jpg'}>);"></div>
+					<div class="guest-box-content">
+						<p><{$users[$var['user_id']]['nickname']}><span><{$var.create_time='Y-m-d H:i:s',###}></span></p>
+						<div class="point-star"><div style="width: 0.<php>$star = intval($var['score_num']/5.5);if($star > 9){$star = 9;}echo $star;</php>rem;"></div></div>
+						<p class="c_h"><{$var.contents}></p>
+						<p class="img">
+							<volist name="pics" id="pic" key="index">
+                                <eq name="pic.dianping_id" value="$var['dianping_id']">
+                                <img <if condition="$index%3 eq 1">class="fst"</if>  src="__ROOT__/attachs/<{$pic.pic|default='default.jpg'}>">
+                                </eq>
+                            </volist>
+						</p>
+					</div>
+				</div>
+                </volist>
+				
+				<!-- 循环 -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

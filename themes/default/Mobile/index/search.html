@@ -1,0 +1,58 @@
+<include  file='public:header'/>  
+
+<body>	
+	<header>
+		<a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">搜索</div>
+         <script>
+			$(document).ready(function () {
+				$("#search_type").change(function () {
+					$("#search_form").prop('action', $(this).val())
+				});
+			});
+		</script>
+	</header>	
+    
+    <div id="personal" class="page-center-box">
+		<div id="scroll">
+        	<div class="searchNry">
+                <div class="searchNry_serBox">
+                    <form id="search_form"  method="post" action="<{:U('shop/index')}>">
+                        <div class="searchNry_sele">
+                            <select id="search_type" class="topSelect">
+                                <option value="/mobile/shop/index.html">商家</option>
+                                <option value="/mobile/tuan/index.html">抢购</option>
+                                <option value="/mobile/mall/index.html">商品</option>
+                                <option value="/mobile/life/index.html">生活信息</option>
+                                <option value="/mobile/huodong/index.html">活动</option>
+                            </select>
+                        </div>
+                        <div class="searchNry_sr">
+                            <input type="text" placeholder="输入您要搜索的内容" value="<{$keyword}>" name="keyword"/>
+                        </div>
+                        <div class="searchNry_but">
+                            <input type="submit" rel="search_form" value="  搜索" />
+                        </div>
+                    </form>
+                    
+                    
+                </div>
+                <div class="hotSer">
+                    <div class="hotSer_t">热词搜索</div>
+                     <ul class="hotSer_ul">
+                 <volist name="keys" id="item" key="index">
+                    <li class="hotSer_li" <if condition="$index%4 eq 0">style="margin-right:0px;"</if> ><a <if condition="$item['type'] eq 1 || $item['type'] eq 0">  href="<{:U('shop/index',array('keyword'=>$item['keyword']))}>"<elseif condition="$item['type'] eq 2"/> href="<{:U('tuan/index',array('keyword'=>$item['keyword']))}>"<elseif condition="$item['type'] eq 4"/>  href="<{:U('mall/index',array('keyword'=>$item['keyword']))}>"<elseif condition="$item['type'] eq 3"/>  href="<{:U('life/index',array('keyword'=>$item['keyword']))}>"</if>  ><{$item.keyword}></a></li>
+                </volist>
+                 </ul>
+                </div>
+            </div>         
+		</div>
+	</div>
+ 	 <script>
+        $(document).ready(function () {
+            loaddata('<{$nextpage}>', $(".campaign"), true);
+        });
+    </script>
+<include  file='public:footer'/>   
+
+

@@ -1,0 +1,103 @@
+<div class="loading-div"></div>
+
+<div class="send-out">
+
+<foreach name="list" item="order">
+
+
+
+    <div class="list-have-pic shop-list">
+
+        <!-- 循环 -->
+
+        <div class="list-box">
+
+            <div class="shop-order">
+
+                <p class="left">订单：<{$order.order_id}> <span>&yen;<{:round($order['total_price']/100,2)}></span></p>
+
+                <p class="right"><a class="order_detail" href="<{:U('eleorder/detail',array('order_id'=>$order['order_id']))}>">查看详情</a><{$order.create_time|date='Y-m-d',###}></p>
+
+            </div>
+
+        </div>
+
+        <foreach name="products" item="product">
+
+        	<if condition="$product['order_id'] eq $order['order_id']">
+
+        	<div class="list-box">
+
+                <div class="list-img">
+
+                    <img width="60" src="__ROOT__/attachs/<{$eleproducts[$product['product_id']]['photo']}>" />
+
+                </div>
+
+                <div class="list-content activ-list-content">
+
+                    <p id="order-title">名称：<{$eleproducts[$product['product_id']]['product_name']}></p>
+
+                    <p class="spread-for">数量：<{$product.num}> 单价：￥<{:round($eleproducts[$product['product_id']]['price']/100,2)}></p>
+
+                    <div class="spread-looker">总计：<span>￥<{:round($product['total_price']/100,2)}></span></div>
+
+                </div>
+
+            </div>
+
+			</if>
+
+        </foreach>
+
+                
+
+        <div class="list-box">
+
+            <div class="activ-list-content shop-button">
+
+                <eq name="order.is_pay" value="1">
+
+                    <eq name="order.status" value="0">
+
+                        <a href="<{:U('mobile/ele/pay',array('order_id'=>$order['order_id']))}>" target="_blank"><span class="shop-pay">去付款</span></a>
+
+                    <else />
+
+                    <a class="shop-status" href="javascript:void(0);"><{$cfg[$order['status']]}></a> 
+
+                    <if condition="$order['status'] eq 1"><span class="shop-del"><a style="color: #fff;" mini='confirm' href="<{:U('mcenter/eleorder/del',array('order_id'=>$order['order_id']))}>">取消订单</a></span>
+
+                        </if>
+
+                    </eq>
+
+                <else />
+
+                    <eq name="order.status" value="0"> <a href="<{:U('mobile/ele/pay',array('order_id'=>$order['order_id']))}>" target="_blank"><span class="shop-pay">去付款</span></a>
+
+                    <else />
+
+                    <span class="pay-wait">餐到付款</span>&nbsp;&nbsp;<span class="pay-wait"><{$cfg[$order['status']]}></span>
+
+                    </eq>
+
+                </eq>
+
+                
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 循环 -->
+
+    </div>
+
+
+
+</foreach>
+
+</div>

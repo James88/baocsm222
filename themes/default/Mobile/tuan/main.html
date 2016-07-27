@@ -1,0 +1,101 @@
+<include  file='public:header'/>
+<body>
+	<header>
+		<a href="<{:U('/mobile/tuan')}>"><i class="icon-goback"></i></a>
+		<div class="title">
+        	<div class="box_search overflow_clear">
+                <a href="<{:U('index/search')}>">
+                <i></i>
+                输入商户名/品类/商品
+                </a>
+            </div>
+        </div>
+		<i class="icon-menu"></i>
+	</header>
+	<!-- 筛选TAB -->
+	
+	<div id="life" class="page-center-box">
+		<div id="scroll"> 
+        
+        	 <div class="rush-main">
+           		
+                
+           		<php>$a = $b =0;</php>
+
+                <volist name="tuancates" id="item">
+                		<eq name="i" value="1"><ul class="rush-nav"></eq>
+                        <eq name="i" value="4"><ul class="rush-nav"></eq>
+                        <eq name="i" value="7"><ul class="rush-nav"></eq>
+                        <eq name="item.parent_id" value="0">
+                        <php>$a++;</php>    
+                        <if condition="$a lt 9"> 
+                            <li rel="<{$item.cate_id}>"><a title="<{$item.cate_name}>"  href="<{:U('tuan/index',array('cat'=>$item['cate_id']))}>"><i class="rush-ig-<{$i}>" <eq name="i" value="9">style="background:url(__TMPL__statics/img/tp98.png) no-repeat;"</eq> ></i><span><{:bao_msubstr($item['cate_name'],0,2,false)}></span></a></li>
+                        </if>
+                        </eq>
+                        <eq name="i" value="4"><div class="clear"></div></ul></eq>
+                        <eq name="i" value="7"><div class="clear"></div></ul></eq>
+                </volist>
+                
+                <li><a href=""><i class="rush-ig-9"></i><span>全部</span></a></li><div class="clear"></div></ul>
+
+           
+		   </div>
+        
+        <!--
+        	 <div class="rush-main">
+		   		<ul class="rush-nav">
+		   			<li><a href=""><i class="rush-ig-1"></i><span>美食</span></a></li>
+		   			<li><a href=""><i class="rush-ig-2"></i><span>休闲</span></a></li>
+		   			<li><a href=""><i class="rush-ig-3"></i><span>酒店</span></a></li>
+		   			<div class="clear"></div>
+		   		</ul>
+		   		<ul class="rush-nav">
+		   			<li><a href=""><i class="rush-ig-4"></i><span>旅游</span></a></li>
+		   			<li><a href=""><i class="rush-ig-5"></i><span>购物</span></a></li>
+		   			<li><a href=""><i class="rush-ig-6"></i><span>生活</span></a></li>
+		   			<div class="clear"></div>
+		   		</ul>
+		   		<ul class="rush-nav rush-bian">
+		   			<li><a href=""><i class="rush-ig-7"></i><span>购物</span></a></li>
+		   			<li><a href=""><i class="rush-ig-8"></i><span>亲子</span></a></li>
+		   			<li><a href=""><i class="rush-ig-9"></i><span>全部</span></a></li>
+		   			<div class="clear"></div>
+		   		</ul>
+		   </div>
+        
+        -->
+		  
+			<!-- 列表 -->
+			<div class="list-have-pic">
+				<!-- 循环 -->
+				<div class="list-box rush-box">
+					<div>
+						<div class="rush-top">
+							<ul>
+								<a href="<{:LinkTo('tuan/main',array('aready'=>1))}>"><li <eq name="aready" value="1">class="on"</eq>>今日新单</li></a>
+								<a href="<{:LinkTo('tuan/main',array('aready'=>2))}>"><li <eq name="aready" value="2">class="on"</eq>>最热抢购</li></a>
+								<a href="<{:LinkTo('tuan/main',array('aready'=>3))}>"><li <eq name="aready" value="3">class="on"</eq>>热门关注</li></a>
+								<div class="clear"></div>
+							</ul>
+						</div>
+                        
+                        <div id="load">
+                        
+                        </div>
+                        
+                        
+					<script>
+						$(document).ready(function () {
+							loaddata('<{:U("tuan/mainload",array("aready"=>$aready,"p"=>"0000","t"=>$nowtime))}>',$("#load"),true);
+						});
+					</script>
+
+						
+						
+					</div>
+					<!-- 循环 -->
+				</div>
+			</div>
+		</div>
+	</div>
+<include  file='public:footer'/>

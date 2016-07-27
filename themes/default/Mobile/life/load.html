@@ -1,0 +1,35 @@
+<volist name="list" id="var">
+	<div class="list-box">
+		<div class="list-img">
+			<a href="<{:U('life/detail',array('life_id'=>$var['life_id']))}>">
+               <img src="__ROOT__/attachs/<{$var.photo|default='default.jpg'}>" />
+            </a>
+        </div>
+		<div class="list-content">
+		<p> 
+                    <a href="<{:U('life/detail',array('life_id'=>$var['life_id']))}>"><{:msubstr($var['title'],0,10)}></a>
+            <span class="life_infor_liBq">顶</span> <span class="life_infor_liBq">急</span>
+        </p>
+		<p class="life_infor_liP">联系：<{$var.mobile}><{$var.contact}>;<{$var.addr}></p>
+        <p class="life_infor_liP">
+        	<span>
+        	<if condition="!empty($cate['num1'])"><{$cate.num1}>:
+                <{$var.num1|default='面议'}>
+               <if condition="!empty($var['num1'])">
+                    <{$cate.unit1}>
+               </if>
+            </if>
+            </span>
+            <span>
+            <if condition="!empty($cate['num2'])"><{$cate.num2}>:
+                <{$var.num2|default='面议'}>
+                <if condition="!empty($var['num2'])">
+                    <{$cate.unit2}>
+                </if>
+            </if>
+            </span>
+        	 <{:formatt($var['create_time'])}>
+        </p>
+	</div>
+        </div>
+</volist>

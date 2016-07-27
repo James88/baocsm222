@@ -1,0 +1,12 @@
+<volist name="list" id="item" key="index ">
+<div class="list-box">
+    <div class="list-img">
+        <a class="gai_pic" title="<{$item.shop_name}>" href="<{:U('mart/lists',array('shop_id'=>$item['shop_id']))}>"><img src="__ROOT__/attachs/<{$item.photo}>"></a>
+    </div>
+    <div class="list-content">
+        <p><b><a class="overflow_clear" title="<{$item.shop_name}>" href="<{:U('mart/lists',array('shop_id'=>$item['shop_id']))}>"><{:bao_msubstr($item['shop_name'],0,10,false)}></a></b><span class="range"><{$item.d}></span></p>
+        <a href="<{:U('mart/index',array('cat'=>$item['cate_id']))}>"><p class="c_h micro_c_1">类型：<{$shopcates[$item['cate_id']]['cate_name']}></p></a>
+        <p class="c_h overflow_clear">地址：<{$item['addr']}></p>
+    </div>
+</div>
+</volist>        

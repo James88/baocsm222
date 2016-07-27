@@ -1,0 +1,84 @@
+﻿@charset "utf-8";
+/* 筛选器 */
+.row-filter{border: 1px solid #EEE; padding: 0px 15px 15px; background: #FFF;}
+.row-filter dl{display: block; padding: 15px 0px; border-bottom: 1px dotted #EEE;}
+.row-filter dl.bottom{display: block; padding: 15px 0px 0px; border-bottom: 0px none;}
+.row-filter dl dt{float: left;display: block; width: 50px; padding: 2px 5px; height: 18px; line-height: 18px;}
+.row-filter dl dd{width: 1000px; float: left; display: block;}
+.row-filter ul{overflow:hidden;}
+.row-filter ul li{float: left; display: block;}
+.row-filter ul li a{white-space: nowrap; display: inline-block; padding: 2px 10px; height: 18px; line-height: 18px; margin: 0px 5px 3px 0px; border-radius: 3px;}
+.row-filter li.current a ,.row-filter li a:hover{background: #E74C3C; color: #FFF;}
+.row-filter .more-list{margin-top:5px;border: 1px dotted #FFA4A8;padding: 10px;}
+
+/* 排序器 */
+.row-sort{height:30px; border: 1px solid #EEE; background: #FFF;}
+.row-sort ul{overflow:hidden;}
+.row-sort ul li{float:left;display: block;border-right:1px solid #EEE;height:30px;padding:0px 20px;line-height:30px;}
+.row-sort ul li.current{border-top: 2px solid #E74C3C;}
+.row-sort ul li a{float: left; display: block;position: relative;}
+.row-sort ul li.current a{line-height: 28px; color: #E74C3C;}
+.row-sort ul li input{border:1px solid #EEE;visibility: hidden;}
+
+/* 左右分栏 */
+.hd-left{width:960px;height:auto;float:left;border:1px solid #EEE;}
+.hd-right{width:225px;height:auto;float:right;}
+
+
+
+/* 活动列表 */
+.hd-list{padding:10px;}
+.hd-list ul{margin-bottom:20px;}
+.hd-list li {overflow:hidden;padding:10px 0;border-bottom:1px dashed #EEE;}
+.hd-list li .hd-pic {float:left;}
+.hd-list li .hd-pic img{width:180px;}
+.hd-list li .hd-des {float:left;margin:0 20px;}
+.hd-list li .hd-des h2{font-size:14px;line-height:25px;}
+.hd-list li .hd-des p{line-height:25px;color:#999;}
+.hd-list li .hd-ctrl{float:right;padding:20px;}
+.hd-list li .hd-ctrl a{display:block;padding:5px 20px;background:#DA000A;color:#FFF;font-size:14px;}
+.hd-list li .hd-ctrl p{line-height:40px;}
+.hd-list li .hd-ctrl span{color:#DA000A;padding:0 5px;}
+
+
+
+/* 侧栏列表 */
+.side-deal{border: 1px solid #EEE; background: #FFF none repeat scroll 0% 0%; padding: 10px 13px 7px 12px; width: 198px;}
+.side-deal .title-row{font-size: 14px; font-weight: bolder; height: 22px; line-height: 22px; margin-bottom: 15px;}
+.side-deal .side-deal-list li{display: block; margin-bottom: 15px;}
+.side-deal .side-deal-list .deal-img{display: block; border: 1px solid #FFF; width: 198px; margin-bottom: 10px;}
+.side-deal .side-deal-list .deal-img img{width: 198px; height: 134px;}
+.side-deal .side-deal-list .deal-info{height: 35px; line-height: 35px;}
+.side-deal .side-deal-list .deal-info .deal-price .current-price{font-size: 20px; font-weight: bolder; color: #E74C3C; padding-right: 2px;}
+.side-deal .side-deal-list .deal-info .deal-price .origin-price{text-decoration: line-through;}
+.side-deal .side-deal-list .deal-info .sale-count span{color: #E74C3C;}
+
+
+
+/* 活动内容 */
+.hd-pro{border:1px solid #EEE;padding:10px;overflow:hidden;}
+.hd-pro .pro-l{float:left;width:350px;margin-right:10px;}
+.hd-pro .pro-l img{width:350px;height:250px;}
+.hd-pro .pro-m{float:left;width:550px;height:250px;}
+.hd-pro .pro-m h1{height:30px;font-size:14px;}
+.hd-pro .pro-m p{height:25px;line-height:25px;}
+.hd-pro .pro-m .pro-m-bm{margin-top:10px;}
+.hd-pro .pro-m .pro-m-bm a{display:block;padding:10px 20px;font-size:14px;float:left;background:#f5f5f5;font-weight:bold;}
+.hd-pro .pro-m .pro-m-bm a.current{background:#D24132;color:#FFF;}
+.hd-pro .pro-r{width:250px;height:250px;float:right;}
+.hd-pro .pro-r .pro-r-tg{overflow:hidden;margin:15px 0;}
+.hd-pro .pro-r .pro-r-tg span{float:left;margin-right:10px;display: inline-block;background: #FF9600;font-size: 12px;line-height: 20px;padding-right: 4px;padding-left: 4px;color: #FFF;margin-right: 15px;box-shadow: 7px 4px 1px #E8E8E8;}
+.hd-pro .pro-r .pro-r-tg span.ab{background-color: #F06E93;}
+.hd-pro .pro-r .pro-r-tg span.ah{background-color: #F88EED;}
+.hd-pro .pro-r .pro-r-tg span.stg{background-color: #3EBDDD; padding-right: 12px; padding-left: 12px;}
+.hd-pro .pro-r .pro-r-qr img{width:160px;height:160px;}
+
+.hd-con .con-hd{height:38px;line-height:38px;border-bottom:1px solid #EEE;}
+.hd-con .con-hd h3{padding:0 15px;font-size:14px;float:left;background:#D90009;color:#FFF;}
+.hd-con .con-bd {padding:10px;overflow:hidden;}
+.hd-con .con-bd img{max-width:935px!important;}
+
+
+
+
+

@@ -1,0 +1,45 @@
+<include file="public:header"/>
+<body>
+    <header>
+        <a href="<{:U('information/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">修改图像</div>
+    </header>
+    <form method="post"  action="<{:U('set/face')}>"  target="baocms_frm">
+        <div class="Upload-img-box">
+            <div class="Upload-btn"><input type="file" id="fileToUpload" name="fileToUpload" data-role="none">上传图片</div>
+            <div class="Upload-img">
+                <div class="list-img loading" style="display:none;"><img src=""></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="__TMPL__statics/js/ajaxfileupload.js"></script>
+        <script>
+            function ajaxupload() {
+                $(".loading").show();
+                $.ajaxFileUpload({
+                    url: '<{:U("app/upload/upload",array("model"=>"life"))}>',
+                    type: 'post',
+                    fileElementId: 'fileToUpload',
+                    dataType: 'text',
+                    secureuri: false, //一般设置为false
+                    success: function (data, status) {
+                        $(".loading").hide();
+                        var str = '<div class="list-img"><img src="__ROOT__/attachs/' + data + '"><input type="hidden" name="data[photo]" value="' + data + '" /></div>';
+                        $(".loading").before(str);
+                        $("#fileToUpload").unbind('change');
+                        $("#fileToUpload").change(function () {
+                            ajaxupload();
+                        });
+                    }
+                });
+            }
+            $(document).ready(function () {
+                $("#fileToUpload").change(function () {
+                    ajaxupload();
+                });
+                $(document).on("click", ".photo img", function () {
+                    $(this).parent().remove();
+                });
+            });
+        </script>
+
+        <include  file='public:footer'/> 

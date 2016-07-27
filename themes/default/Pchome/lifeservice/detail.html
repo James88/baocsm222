@@ -1,0 +1,54 @@
+<include file="public:header" /> 
+<include file="public:top"/>
+<include file="public:nav2"/>
+<div class="zy_doorSer_detail">
+    <div class="banner">
+        <div class="pagewd"><img src="__TMPL__statics/images/doorSer_top.png" width="310" height="105" /></div>
+    </div>
+    <div class="pagewd">
+        <div class="left nrL mt10">
+            <div class="nr_box">
+                <h2><{$detail.t}></h2>
+                <div class="infor_box">
+                    <p><{$detail.title}></p>
+                    <div class="infor">
+                        <!--<img src="__TMPL__statics/images/jz_07.jpg" width="240" height="170" />-->
+                        <img src="__ROOT__/attachs/<{$detail.photo}>" width="240" height="170" />
+                        <p>计件方式：<b class="pointcl"><{:round($detail['price']/100,2)}></b>元/<{$detail.unit}></p>
+                        <p>工具：<{$detail.gongju}></p>
+                        <p>服务时间:<{$detail.biz_time}></p>
+                        <p>预约人数：<{$detail.yuyue_num}>&nbsp;&nbsp;&nbsp;&nbsp;点击量：<{$detail.views}></p>
+                    </div>
+                </div>
+            </div>
+            <div class="nr_box">
+                <{$detail.contents}>
+            </div>
+        </div>
+        <script src="__PUBLIC__/js/my97/WdatePicker.js"></script>
+        <div class="right nrForm">
+            <form method="post" target="baocms_frm" action="<{:U('lifeservice/create',array('svc_id'=>$detail['id']))}>">
+                <p>服务时间</p>
+                <div class="int_box">
+                    <input class="search_form_time" type="text" name="date" value="<{$today}>" onfocus="WdatePicker({minDate: '<{$tmr}>'});"  />
+                    <select name="time">
+                        <for start="$h" end="21">
+                            <option value="<{$i}>:00"><{$i}>:00</option>
+                            <option value="<{$i}>:30"><{$i}>:30</option>
+                        </for>
+                    </select>
+                </div>
+                <p>服务地址</p>
+                <input type="text" name="addr" placeholder="请输入详细服务地址" />
+                <p>联系方式</p>
+                <input type="text" name="name" placeholder="请输入联系人" />
+                <input type="text" name="tel" placeholder="请输入联系电话" />
+                <p>更多需求</p>
+                <input type="text" name="contents" placeholder="您可以在这里填写更多需求" />
+                <input type="submit" class="btn" value="立即预约" />
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<include file="public:footer" /> 

@@ -1,0 +1,144 @@
+	<if condition="$ctl eq 'index'">
+	<!--商家分类选择对话框-->
+	 <div id="shop-cate">
+		<div class="dialog radius">
+			<div class="dialog-head">
+				<span class="close rotate-hover"></span>
+				<strong>选择商家分类</strong>
+			</div>
+			<div class="dialog-body">
+				<foreach name="shopcate"  item="item">
+				<eq name="item.parent_id" value="0">
+				<div class="cate-dialog">
+					<span><a href="<{:U('shop/index',array('cat'=>$item['cate_id']))}>"><{$item[cate_name]}></a></span>
+					<foreach name="shopcate" item="var">
+					<eq name="var.parent_id" value="$item[cate_id]">
+					<a href="<{:U('shop/index',array('cat'=>$var['cate_id']))}>"><{$var[cate_name]}></a>
+					</eq>
+					</foreach>
+				</div>
+				</eq>
+				</foreach>
+			</div>
+			<div class="dialog-foot">
+				<button class="button dialog-close">关闭</button>
+			</div>
+		</div>
+	</div>
+	</if>
+	
+
+	
+	<div class="layout footer">
+		<div class="container">
+			<div class="line">
+				<div class="x7">
+					<ul class="nav nav-sitemap">
+						<li><a href="/article/system/content_id/1.html">关于我们</a>
+							<ul>
+								<li><a href="/article/system/content_id/2.html">服务条款</a></li>
+								<li><a href="/article/system/content_id/3.html">公司招聘</a></li>
+								<li><a href="/article/system/content_id/4.html">联系我们</a></li>
+							</ul>
+						</li>
+						<li><a href="/passport/login.html">会员中心</a>
+							<ul>
+								<li><a href="/article/system/content_id/8.html">注册登录</a></li>
+								<li><a href="#">会员权利</a></li>
+								<li><a href="/article/system/content_id/7.html">找回密码</a></li>
+							</ul>
+						</li>
+						<li><a href="/article/system/content_id/9.html">商家指南</a>
+							<ul>
+								<li><a href="/article/system/content_id/6.html">商家入驻</a></li>
+								<li><a href="#">优惠发布</a></li>
+								<li><a href="#">团购发布</a></li>
+							</ul>
+						</li>
+						<li><a href="#">物业指南</a>
+							<ul>
+								<li><a href="#">智慧小区</a></li>
+								<li><a href="#">物业入驻</a></li>
+								<li><a href="#">物业管理</a></li>
+							</ul>
+						</li>
+						<li><a href="#">智能建站</a>
+							<ul>
+								<li><a href="#">企业入驻</a></li>
+								<li><a href="#">三网建站</a></li>
+								<li><a href="#">微信接入</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="x2">
+					<div class="footer-code">
+						<h5>关注微信</h5>
+						<p><img src="/static/default/pc/image/wx.png" alt="微信公众号" /></p>
+					</div>
+				</div>
+				<div class="x3">
+					<div class="footer-contact">
+						<p class="tel"><{$CONFIG.site.tel}></p>
+						<p>工作时间：周一至周六 8:00-17:30</p>
+						<p>客服邮箱：<{$CONFIG.site.email}></p>
+						<php>$qq = explode(',',$CONFIG[site][qq]);</php>
+						<p>在线客服：<foreach name="qq" item="var">
+							<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<{$var}>&amp;site=qq&amp;menu=yes"><img src="http://wpa.qq.com/pa?p=2:<{$var}>:51" alt="点击这里给我发消息" title="点击这里给我发消息" border="0"></a>
+						
+						</foreach></p>
+					</div>
+				</div>
+			</div>
+			<div class="blank-10"></div>
+			<div class="line">
+				<div class="x2">
+					<div class="footer-logo">
+						<img src="/static/default/pc/image/foot-logo.png" alt="<{$CONFIG.site.cityname}>网">
+					</div>
+				</div>
+				<div class="x7">
+					<div class="footer-copy">
+						<p>Copyright (c) 2015-2017 <{$Think.SERVER.HTTP_HOST}> All Rights Reserved  网站备案：<{$CONFIG.site.icp}>
+						<p><{$CONFIG.site.sitename}>版权所有(NIUCMS核心支持) 本站信息均由会员发表，不代表本站立场，如有侵权请发帖投诉。 <{$CONFIG.site.tongji}></p>
+					</div>
+				</div>
+				<div class="x3">
+					<div class="footer-icon">
+						<span><img src="/static/default/pc/image/foot-tui.png" /><a href="#">随时退</a></span>
+						<span><img src="/static/default/pc/image/foot-mian.png" /><a href="#">不满意免单</a></span>
+						<span><img src="/static/default/pc/image/foot-guo.png" /><a href="#">过期退款</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="sider">
+		<div class="button-group-y">
+			 <div class="button sider-mob">
+				<span>手机</span>
+				<div class="now-tip">
+					<img src="/static/default/pc/image/mob.png" />
+					<p>扫描二维码访问</p>
+				</div>
+			 </div>
+			 <div class="button sider-wei">
+				<span>微信</span>
+				<div class="now-tip">
+					<img src="/static/default/pc/image/wx.png" />
+					<p>微信二维码关注</p>
+				</div>
+			</div>
+			<if condition="$ctl neq 'index'">
+			<a href="/" class="button sider-hme"></a>
+			</if>
+			<if condition="$ctl eq 'index'">
+			<a href="javascript:;" class="button sider-biz dialogs" data-toggle="click" data-target="#shop-cate" data-mask="1" data-width="60%"></a>
+			</if>
+			<a href="javascript:up();" class="button sider-top"></a>
+		</div>
+	</div>
+	<script src="/static/default/pc/js/mod/<{$ctl}>.js"></script>
+	</body>
+</html>

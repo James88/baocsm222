@@ -1,0 +1,79 @@
+<include  file='public:header'/>
+	<header> 
+        <i class="left"><a href="<{:U('store/index/index')}>" id="icon_goback"></a></i>
+        <div class="title">微店产品</div>
+        <i class="right"><a class="sh_waimai_cate_add" href="<{:U('store/mart/goodscate')}>">+分类管理</a></i>
+    </header>
+<section>
+	
+    <form method="post" action="<{:U('goods/index')}>">
+	<div class="sh_search_box">
+        <div class="sh_search_int">
+            <span>优惠券名称</span>
+            <input type="text" name="keyword" value="<{$keyword}>" >
+            <input type="submit" class="btn" value="搜索">
+        </div>
+    </div>    
+    </form>
+  
+    <div class="sh_micro_tab mb10">
+	    <ul>
+	        <li class="on"><a href="<{:U('mart/index')}>">商城商品</a></li>
+            <li><a href="<{:U('mart/order')}>">卖出商品</a></li>
+            <li><a href="<{:U('mart/wait')}>">付款订单</a></li>
+            <li><a href="<{:U('mart/wait2')}>">货到付款</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+    
+    <style type="text/css">
+    	.sh_micro_tab li{width:25%;}
+    </style>
+    
+    <div class="sh_micro_tab_box" style="display:;">
+    	<div class="sh_list_public_box">
+            <ul>
+            	<foreach name="list" item="var">
+                <li class="list_box mb10">
+                    <div>
+                    	<div class="sh_micro_bt">
+                            <div class="fl sh_micro_num">创建时间：<{$var.create_time|date='Y-m-d H:i:s',###}></div>
+                            <div class="fr sh_micro_state"><eq name="var.audit" value="0">等待审核<else/>正常</eq></div>
+                        </div>
+                        <div class="sh_micro_nr">
+                        	<div class="img"><img src="__ROOT__/attachs/<{$var.photo}>"  style="width:100px;height:100px;" /></div>
+                            <div class="wz">
+                            	<p class="black3"><{$var.title}></p>
+                                <p>商家：<{$shops[$var['shop_id']]['shop_name']}></p>
+                            </div>
+                        </div>
+                        <div class="sh_micro_wz">
+                            <p><span class="mr20">市场价：￥<{$var.price}></span><span class="mr20">商城价：￥<{$var.mall_price}></span></p>
+                            <p><span class="mr20">卖出数量：<{$var.sold_num}></span><span class="mr20">浏览量：<{$var.views}></span></p>
+                        </div>
+                        <div class="btn_box"><a class="btn" href="<{:U('goods/edit',array('goods_id'=>$var['goods_id']))}>">编辑</a></div>
+                    </div>
+                </li>
+				</foreach>
+            </ul>
+        </div>
+    </div>
+   
+   	<div class="jobNr_span"><{$page}></div>
+    
+</section>
+<script>
+	$(function(){
+		$(".sh_checkbox input").click(function(){
+			if($(".sh_checkbox label").hasClass("on")){
+				$(".sh_checkbox").find("label").removeClass("on");
+			}
+			else{
+				$(this).parent("label").addClass("on");
+			}
+		});
+	});
+</script>
+
+</body>
+</html>

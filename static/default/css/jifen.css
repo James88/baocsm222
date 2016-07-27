@@ -1,0 +1,38 @@
+.vip-top{overflow:hidden;}
+.vip-top .top-l{width:950px;float:left;}
+.vip-top .top-l .vip-roll{width:950px;height:360px;}
+
+.vip-top .top-r{width:230px;height:360px;float:right;background:#FAFAFA;}
+.vip-top .top-r .vip-get{display:block;background:#990000;color:#FFF;text-align:center;font-size:14px;font-weight:bold;height:40px;line-height:40px;margin:10px 0;}
+.vip-top .top-r .vip-tip{margin-top:20px;border-top:1px solid #EEE;font-size:14px;line-height:25px;padding-top:15px;}
+
+.vip-shop {border:1px solid #EEE;}
+.vip-shop ul{overflow:hidden;}
+.vip-shop .shop-hd{height:40px;line-height:40px;border-bottom:1px solid #EEE;background:url("../images/vip/tit-bg.png");}
+.vip-shop .shop-hd h3{font-size:14px;float:left;margin:0 10px;}
+.vip-shop .shop-hd span {float:left;line-height:45px;color:#999;}
+.vip-shop .shop-hd a {float:right;margin:0 10px;}
+.vip-shop .shop-bd {padding:10px;}
+.vip-shop .shop-bd ul{width:1250px;}
+.vip-shop .shop-bd li{float:left;width:165px;height:230px;margin-right:11px;border:1px solid #FFF;padding:10px;margin-bottom:10px;}
+.vip-shop .shop-bd li:hover{border:1px solid #EEE;background:#FAFAFA;}
+.vip-shop .shop-bd li:hover img{filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;}
+.vip-shop .shop-bd img{width:165px;}
+.vip-shop .shop-bd p{height:20px;line-height:20px;width:165px;overflow:hidden;}
+
+.vip-goods {border:1px solid #EEE;}
+.vip-goods ul{overflow:hidden;}
+.vip-goods .goods-hd{height:40px;line-height:40px;border-bottom:1px solid #EEE;background:url("../images/vip/tit-bg.png");}
+.vip-goods .goods-hd h3{font-size:14px;float:left;margin:0 10px;}
+.vip-goods .goods-hd span {float:left;line-height:45px;color:#999;}
+.vip-goods .goods-hd a {float:right;margin:0 10px;}
+.vip-goods .goods-bd {padding:10px;}
+.vip-goods .goods-bd ul{width:1250px;}
+.vip-goods .goods-bd li{float:left;width:165px;height:210px;margin-right:11px;border:1px solid #FFF;padding:10px;margin-bottom:10px;}
+.vip-goods .goods-bd li:hover{border:1px solid #EEE;background:#FAFAFA;}
+.vip-goods .goods-bd li:hover img{filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;}
+.vip-goods .goods-bd img{width:165px;}
+.vip-goods .goods-bd p{height:20px;line-height:20px;width:165px;overflow:hidden;}
+.vip-goods .goods-bd .jifen{float:left;}
+.vip-goods .goods-bd .jifen em{color:#FF0000;font-weight:bold;}
+.vip-goods .goods-bd .jiazhi{float:right;}

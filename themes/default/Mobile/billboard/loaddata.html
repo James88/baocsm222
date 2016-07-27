@@ -1,0 +1,16 @@
+<volist name="list" id="item">
+<div class="billboard-list">
+    <div class="title">
+        <div class="fl left"><span class="c_1"></span><{$item.title}></div>
+        <div class="fr right">浏览:<span class="c_1"><{$item.looknum}></span>人</div>
+    </div>
+    <a href="<{:U('billboard/bddetails',array('list_id'=>$item['list_id']))}>"><div class="img">
+        <div class="billboard-list-bq"></div>
+        <img src="__ROOT__/attachs/<{$item.photo}>"/>
+    </div>
+    <div class="wz">
+        <p>上榜时间：<{$item.create_time|date="Y-m-d",###}></p>
+        <p>榜单简介：<{$item.intro|msubstr=0,30,'utf-8',true}></p>
+    </div></a>
+</div>
+</volist>

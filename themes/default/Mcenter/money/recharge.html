@@ -1,0 +1,44 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+		<a href="javascript:history.back(-1);"><i class="icon-goback"></i></a>
+		<div class="title">代金券充值</div>
+		<i class="icon-menu"></i>
+	</header>
+    
+    
+   
+
+    
+    <div id="seat" class="page-center-box">
+    	<form method="post"  action="<{:U('money/recharge')}>" target="baocms_frm">
+		<div id="scroll" class="pay">
+        
+        	 <div class="shop-lie" style="position:relative;top:0;">
+                <ul>
+                    <li><a href="<{:U('money/index')}>" >余额充值</a></li>
+                    <li class="on"><a href="<{:U('money/recharge')}>" >代金券充值</a></li>
+                    <li><a href="<{:U('money/gold')}>" >金块充值</a></li>
+                </ul>
+            </div>
+
+        
+			<div class="order-content">
+                <ul class="list">
+
+	            	<li>
+	            		<span class="left">充值卡密</span><span class="right"><input type="text" name="card_key" class="cjinput"  /></span>
+	            		<div class="clear"></div>
+	            	</li>
+            	</ul>
+            </div>
+
+            
+			<div class="sure-pay-but">
+				<p class="left"></p>
+            	<div class="sure-pay right"><input type="submit" class="aniu" value="立刻充值" style="background:none;border:none;color:#FFFFFF;font-size:0.16rem;width:100%;" ></div>
+            </div>
+		</div>
+        </form>
+	</div>
+<include file="public:footer"/>

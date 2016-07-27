@@ -1,0 +1,12 @@
+body{background:#FAFAFA;}
+.login-box{overflow:hidden;}
+.login-box .box-l{float:left;width:780px;}
+.login-box .box-r{float:right;}
+.box-form{border:1px solid #EEE;width:398px;background:#FFF;}
+.box-form .form-hd{height:59px;line-height:59px;border-bottom:1px solid #EEE;}
+.box-form .form-hd h2{font-size:24px;font-family:"Microsoft YaHei";font-weight:normal;text-align:center;}
+.box-form .form-bd{padding:20px;}
+.reg-tab .hd{height:50px;line-height:50px;}
+.reg-tab .hd li{float:left;width:50%;text-align:center;}
+.reg-tab .hd li span{height:49px;display:inline-block;font-size:20px;font-family:"Microsoft YaHei";font-weight:normal;text-align:center;border-bottom:2px solid #FFF;cursor:pointer;}
+.reg-tab .hd li.on span{color:#FB3203;border-bottom:2px solid #FB3203;}

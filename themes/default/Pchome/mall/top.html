@@ -1,0 +1,66 @@
+<include file="public:topOne" />
+    <div class="topTwo">
+        <div class="left">
+            <if condition="!empty($CONFIG['site']['logo'])">
+                <h1><a href="<{:U('index/index')}>"><img width="214" height="53" src="__ROOT__/attachs/<{$CONFIG.site.logo}>" /></a></h1>
+                <else/>
+                <h1><a href="<{:U('index/index')}>"><img width="214" height="53" src="__PUBLIC__/img/logo_03.png" /></a></h1>
+            </if> 
+            <div class="changeCity"><{$city_name}><a href="<{:U('city/index')}>" class="change">[切换城市]</a></div>
+        </div>
+        <div class="left center">
+            <div class="searchBox">
+                <script>
+                    $(document).ready(function () {
+                        $(".selectList li a").click(function () {
+                            $("#search_form").prop('action', $(this).attr('rel'));
+                            $("#selectBoxInput").html($(this).html());
+                            $('.selectList').hide();
+                        });
+                    });
+                </script>
+                <form id="search_form"  method="post" action="<{:U('shop/index')}>">
+                    <div class="selectBox"> 
+                        <span class="select"  id="selectBoxInput">商家</span>
+                        <div  class="selectList">
+                            <ul>
+                                <li><a href="javascript:void(0);" rel="<{:U('shop/index')}>">商家</a></li>
+                                <li><a href="javascript:void(0);" rel="<{:U('tuan/index')}>">抢购</a></li>
+                                <li><a href="javascript:void(0);" rel="<{:U('life/index')}>">生活信息</a></li>
+                                <li><a href="javascript:void(0);" rel="<{:U('mall/index')}>">商品</a></li>
+                                <li><a href="javascript:void(0);" rel="<{:U('share/index')}>">分享</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <input type="text" class="text" value="输入您要搜索的内容" onclick="if (value == defaultValue) {
+                                value = '';
+                                this.style.color = '#000'
+                            }"  onBlur="if (!value) {
+                                        value = defaultValue;
+                                        this.style.color = '#999'
+                                    }" />
+                    <input type="submit" class="submit" value="搜索" />
+                </form>
+            </div>
+
+
+
+            <div class="hotSearch">热门搜索：
+                <php>$a =1;</php>
+                <calldata mdl="Keyword" where="" limit="0,6" cache="43200" order="key_id desc">
+                    <if condition="$item['type'] eq 0 or $item['type'] eq 1">
+                        <a href="<{:U('shop/index',array('keyword'=>$item['keyword']))}>"><{$item.keyword}></a>
+                    <elseif condition="$item['type'] eq 2"/>
+                        <a href="<{:U('tuan/index',array('keyword'=>$item['keyword']))}>"><{$item.keyword}></a>
+                    <elseif condition="$item['type'] eq 3"/>
+                        <a href="<{:U('life/index',array('keyword'=>$item['keyword']))}>"><{$item.keyword}></a>
+                    <elseif condition="$item['type'] eq 4"/>
+                        <a href="<{:U('mall/index',array('keyword'=>$item['keyword']))}>"><{$item.keyword}></a>
+                    <else/>
+                        <a href="<{:U('share/index',array('keyword'=>$item['keyword']))}>"><{$item.keyword}></a>
+                    </if>
+                </calldata>
+            </div>
+        </div>
+        <div class="rightss right"><a class="radius20" href="<{:U('mall/cart')}>">购物车<span id="num" class="radius100"><{$cartnum|default='0'}></span></a></div>
+    </div>

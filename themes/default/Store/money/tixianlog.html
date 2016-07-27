@@ -1,0 +1,58 @@
+<include file='public:header'/>
+
+<header> 
+	<i class="left"><a href="<{:U('index/index')}>" id="icon_goback"></a></i>
+    <div class="title">资金记录</div></header>
+<section>
+
+	<div class="sh_search_box">
+<form method="post" action="<{:U('money/index')}>">
+     <script src="__PUBLIC__/js/my97/WdatePicker.js"></script>
+        <div class="sh_search_more_time mb10">
+            <div class="fl left"><input  type="text" name="bg_date" placeholder="开始时间"  value="<{$bg_date}>" onFocus="WdatePicker({startDate: '%y-%M-01', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"  class="inputData" ></div>
+            <div class="fr right"><input type="text" name="end_date" placeholder="结束时间"  value="<{$end_date}>" onFocus="WdatePicker({startDate: '%y-%M-01', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"  class="inputData"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="sh_login_nr"><input class="btn mt30" type="submit" value="搜索"></div>
+   
+ </form>
+  </div>
+    <div class="sh_buy_tab mb10">
+	    <ul>
+	        <li <if condition="$act eq index"> class="on" </if>><a href="<{:U('money/index')}>">余额日志</a></li>
+           	<li <if condition="$act eq shopmoney">  class="on" </if>><a href="<{:U('money/shopmoney')}>">商家资金</a></li>
+            <li <if condition="$act eq tixianlog">  class="on" </if>><a href="<{:U('money/tixianlog')}>">提现日志</a></li>
+            <li <if condition="$act eq tixian">  class="on" </if>><a href="<{:U('money/tixian')}>">提现</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+	
+     <div class="sh_infor_tab_box" style="display:;">
+    	<div class="sh_buy_fabu">
+            <div class="sh_list_public_box">
+                <ul>
+                	<foreach name="list" item="var">
+                        <li class="list_box mb10">
+                            <div>
+                                <div class="sh_buy_bt">
+                                    <div class="fl">金额：<{:round($var['money']/100,2)}>元</div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">状态：<if condition="$var.status eq 0">未审核<elseif condition="$var.status eq 1" />
+                        <font color="green">通过</font><else /><font color="red">拒绝</font> </if></div>
+                                </div>
+                                <div class="sh_buy_date"><{$var.addtime|date='Y-m-d H:i:s',###}></div>
+                            </div>
+                        </li>
+                    </foreach>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jobNr_span">
+    <{$page}>
+    </div>
+   
+</section>
+</body>
+</html>

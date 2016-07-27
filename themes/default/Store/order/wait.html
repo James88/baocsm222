@@ -1,0 +1,104 @@
+<include file="public:header"/>
+
+<header>
+    <div class="headerTop">
+        <div class="headerTop_back"><a href="<{:U('index/index')}>"></a></div>
+        <div class="headerTop_t">付款订单</div>
+    </div> 
+</header>
+<section class="fixed_pad">
+    <div class="sygg">
+        <div class="sygg_closs">&nbsp;</div>
+        捡货单是你怎么捡货的，要在捡货单列表打印配货单 进行配送！然后配送完成后 要定时将已经完成的配送的订单ID 整理 给平台！平台将订单完成，资金就会进入商家的流水！有在线付款，那么将不产生结算金额记录！  
+    </div>
+    <form method="post" action="<{:U('Order/wait')}>">
+        <div class="FundR_ser">
+            <div class="left FundR_ser_l"><input class="FundR_time start_time" type="text" name="bg_date" placeholder="开始时间"  value="<{$bg_date}>" onFocus="WdatePicker({startDate: '%y-%M-01', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"  class="inputData" />-<input class="FundR_time end_time" type="text" name="end_date" placeholder="结束时间"  value="<{$end_date}>" onFocus="WdatePicker({startDate: '%y-%M-01', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"  class="inputData" /></div>
+            <div class="right FundR_ser_r">
+                <div class="FundR_sjserBox">
+                    <input class="FundR_time FundR_sjser" type="text" placeholder="订单号" name="keyword" value="<{$keyword}>"/>
+                    <input type="submit" class="FundR_serAn" value="搜索"/>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="setGl_tab jiazheng_tab">
+        <ul>
+            <li class="setGl_tabLi waiMai_tabLi <if condition='$act eq index'>on</if>"><a href="<{:U('order/index')}>" class="remberBtn">订单列表</a></li>
+            <li class="setGl_tabLi waiMai_tabLi <if condition='$act eq picks'>on</if>"><a href="<{:U('order/picks')}>" class="remberBtn">拣货单</a></li> 
+            <li class="setGl_tabLi waiMai_tabLi <if condition='$act eq wait'>on</if>"><a href="<{:U('order/wait')}>" class="remberBtn">付款订单</a></li> 
+            <li class="setGl_tabLi waiMai_tabLi <if condition='$act eq wait2'>on</if>"> <a href="<{:U('order/wait2')}>" class="remberBtn">货到付款</a></li> 
+        </ul>
+    </div>
+    <form  target="baocms_frm" method="post">
+        <foreach name="list" item="order">
+            <div class="jobList jiazhengList on">
+                <ul>
+                    <li class="jobLi">
+                        <table  class="jobTable"width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td class="jobLi_l"><input class="child_order_id" <if condition="isset($picks[$order['order_id']])"> checked="checked"</if>  name="order_id[]"  type="checkbox" value="<{$order.order_id}>" /></td>
+                            <td class="jobNr_td">
+
+                                <div class="jobNr">
+                                    <p class="left jobNr_p">订单ID:<{$order.order_id}></p>
+                                </div>
+                                <div class="jobNr">
+                                    <p class="jobNr_span mall_span"><span class="mall_l">买家:</span><{$users[$order['user_id']]['nickname']}>（电话:<{$users[$order['user_id']]['account']}>)</p>             </div>
+                                <div class="jobNr">
+                                    <p class="jobNr_span mall_span">创建时间:<{$order.create_time|date='Y-m-d H:i:s',###}></p>
+                                </div>
+                                <div class="jobNr">
+                                    <p class="jobNr_span mall_span">收货地址:<{$areas[$addrs[$order['addr_id']]['area_id']]['area_name']}>、
+                                        <{$business[$addrs[$order['addr_id']]['business_id']]['business_name']}>、
+                                        <{$addrs[$order['addr_id']]['addr']}>
+                                        <br/>
+                                        <{$addrs[$order['addr_id']]['name']}>
+                                        <{$addrs[$order['addr_id']]['mobile']}></p>
+                                </div>
+                                <div class="jobNr">
+                                    <p class="jobNr_span mall_span">状态: <eq name="order.is_daofu" value="1">货到付款 ---</eq>
+                                        <{$types[$order['status']]}></p>
+
+
+
+                                </div>	
+                            <foreach name="goods" item="good">
+                                <eq name="good.order_id" value="$order.order_id">
+                                <table  class="jobTable"width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">商品名:<{$products[$good['goods_id']]['title']}></p>
+                                    </div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span"><span class="mall_l"> 单价:</span><{:round($good['price']/100)}><span class="mall_l"> 数量:</span><{$good.num}><span class="mall_l"> 总价:</span><{:round($good['total_price']/100)}></p></div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span"  style="color: red;">
+                                        <if condition="$order['status'] neq 0  && $order['is_daofu'] neq 0">
+
+                                            <{$goodtypes[$good['status']]}>
+                                        </if></p>
+                                    </div>
+
+                                </table>
+                                </eq>
+                            </foreach>
+                            </td>
+
+                            </tr>
+                    </li>
+                </ul>
+            </div>
+        </foreach>
+                    
+    <div class="pages"><{$page}></div>
+    <div class="setGl_tab tab_bottom">
+            <ul> 
+                <li class="setGl_tabLi order_tabLi"><a href="<{:U('Order/pick')}>" mini='list' class="remberBtn">加入捡货列表</a></li> 
+                <li class="setGl_tabLi order_tabLi"><a href="<{:U('Order/clean')}>" mini='act' class="remberBtn">清空捡货队列</a></li> 
+                <li class="setGl_tabLi order_tabLi"><a href="<{:U('Order/create')}>" mini='act' class="remberBtn">创建捡货单</a></li>
+            </ul>
+        </div>
+    </form> 
+</section>
+</body>
+</html>

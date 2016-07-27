@@ -1,0 +1,68 @@
+<include  file='public:header'/>   
+<header>
+    <a href="/mcenter/member/"><i class="icon-goback"></i></a>
+    <div class="title">订单详情</div>
+    <i class=" icon-more"></i>
+</header>
+
+<section class="sec_pad" style="padding-top: 44px;">
+    <div class="order_zt">
+        <div class="left">
+            <p class="order_p">订单编号：<{$detail.order_id}></p>
+            <p class="order_p">订单金额：¥<{:round($detail['need_pay']/100,2)}></p>
+        </div>
+        <div class="right">
+            
+            <p class="order_p">下单时间：<{$detail.create_time|date='Y-m-d H:i',###}></p>
+            <p class="order_p">订单状态：<eq name="detail.is_pay" value="1"><eq name="detail.status" value="0"><a class="myInfor_sx myInfor_sx_fk" href="<{:U('mobile/ele/pay',array('order_id'=>$detail['order_id']))}>" target="_blank">去付款</a><else /><{$cfg[$detail['status']]}> <if condition="$detail['status'] eq 1"><a mini='confirm' class="orderDet" href="<{:U('mcenter/eleorder/del',array('order_id'=>$detail['order_id']))}>">取消订单</a></if></eq><else /><eq name="detail.status" value="0"><a class="myInfor_sx myInfor_sx_fk" href="<{:U('mobile/ele/pay',array('order_id'=>$detail['order_id']))}>" target="_blank">去付款</a><else />餐到付款&nbsp;&nbsp;<{$cfg[$detail['status']]}></eq></eq></p>
+        </div>
+    </div>
+    <div class="order_ztbg">&nbsp;</div>
+    <div class="orderBox">
+        <div class="order_bg">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="order_trt">
+                    <td>商品</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>总价</td>
+                </tr>
+                <foreach name="eleproducts" item="item">
+                    <tr class="order_trnr">
+                        <td><{$products[$item['product_id']]['product_name']}></td>
+                        <td>&yen;<{:round($products[$item['product_id']]['price']/100,2)}></td>
+                        <td><{$item.num}></td>
+                        <td>&yen;<{:round($item['total_price']/100,2)}></td>
+                    </tr>
+                </foreach>                    
+            </table>
+            <div class="order_mjzt">
+                <ul>
+                    <li class="order_mjp">配送费用：<span>
+                            &yen;<{:round($detail['logistics']/100,2)}>              </span>
+                    </li>
+                    <if condition="!empty($detail['new_money'])">
+                    <li class="order_mjp">新单立减：<span>
+                            &yen; <{:round($detail['new_money']/100,2)}>              </span>
+                    </li>
+                    </if>
+                     <if condition="!empty($detail['fan_money'])">
+                    <li class="order_mjp">下单返利：<span>
+                            &yen; <{:round($detail['fan_money']/100,2)}>              </span>
+                    </li>
+                    </if>
+                </ul>
+            </div>
+            <div class="order_shzt">
+                <div class="left">
+                    <p class="order_shp">收货人：<span><{$addr['name']}>        <{$addr.mobile}></span></p>
+                    <p class="order_shp">地址：<span><{$citys[$addr['city_id']]['name']}> <{$areas[$addr['area_id']]['area_name']}> <{$bizs[$addr['business_id']]['business_name']}> <{$addr.addr}></span></p>
+                </div>
+            </div>
+            <div class="order_back"><a class="order_fhan" href="<{:U('eleorder/index')}>">返回订单</a></div>
+        </div>
+    </div>
+</section>
+
+</div>
+<include  file='public:footer'/>   

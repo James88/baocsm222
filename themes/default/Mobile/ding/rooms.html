@@ -1,0 +1,77 @@
+<include file="public:header"/>
+
+<body>
+	<header>
+		<a href="<{:U('ding/detail',array('shop_id'=>$shop_id))}>"><i class="icon-goback"></i></a>
+		<div class="title">包厢详情</div>
+		<i class="icon-menu" id="ico_1"></i>
+	</header>
+	<!-- 筛选TAB -->
+    <script>
+		$(function(){
+			$(".seat_order_room").each(function(e){
+				$(this).find("a").click(function(){
+					$(".seat_order_room").removeClass("active");
+					$(this).parent(".seat_order_room").addClass("active");
+					$(".seat_order_room_list").each(function(i){
+						if(e==i){
+							$(".seat_order_room_list").hide();
+							$(this).show();
+						}
+						else{
+							$(this).hide();
+						}
+					});
+				});
+			});
+		});
+	</script>
+     		<script>
+				$(function(){
+					
+					$(".check-label input").on("click",function(){
+						$(".check-label").removeClass("on");
+						if($(this).parent().hasClass("on")){
+							$(this).parent().removeClass("on");
+						}
+						else{
+							var v = $(this).parent().attr('val');
+							$('#room').val(v);
+							$(this).parent().addClass("on");
+						}
+					});
+				});
+			</script>
+            <form method="post" action="<{:U('ding/menu',array('shop_id'=>$shop_id,'yuyue_id'=>$yuyue_id))}>">
+       		<div id="seat" class="page-center-box">
+            <div id="scroll">
+                <div class="seat_order_room_list">
+                    <div class="list-pic">
+                        <volist name='room_detail' id='item' >
+                                <volist name='item' id='v'>
+                                     <div class="box">
+                                        <i></i>
+                                        <div><img src="__ROOT__/attachs/<{$v.photo}>" width="100%" height="100%" /></div>
+                                        <p><{$v.name}></p>
+                                        <if condition="$v['is_yuyue'] eq 1">
+                                             <p style="float:right; margin-top:-22px;">约满</p>
+                                        <else/>
+                                            <label class="check-label" val="<{$v.room_id}>"><input type="checkbox"></label>
+                                        </if>
+                                    </div>
+                                </volist>
+                        </volist>
+                        <input type="hidden" id='room' name="roomid" value="">
+                        <input type="hidden"  name="is_room" value="1">
+                    </div>
+                </div>
+            
+            
+		</div>
+	</div>
+	<footer class="footer-cart">
+		<input type="submit"  value="去点菜" >
+	</footer>
+    </form>
+</body>
+</html>

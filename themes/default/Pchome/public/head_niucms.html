@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<title><{$seo_title}></title>
+		<meta name="keywords" content="<{$seo_keywords}>" />
+		<meta name="description" content="<{$seo_description}>" />
+		<link rel="stylesheet" href="/static/default/pc/css/base.css" />
+		<link rel="stylesheet" href="/static/default/pc/css/<{$ctl}>.css" />
+		<script src="/static/default/pc/js/jquery.js"></script>
+		<script src="/static/default/pc/js/respond.js"></script>
+		<script src="/static/default/pc/js/load.js"></script>
+		<script src="/static/default/pc/js/base.js"></script>
+	</head>
+	<body>
+		<iframe id="x-frame" name="x-frame" style="display:none;"></iframe>
+		<!-- 顶部导航 -->
+		<div class="layout toper">
+			<div class="container">
+				<div class="float-left">
+					<ul class="nav-bar">
+						<li class="pipe"></li>
+						<li id="mo-drop" class="item mo-drop">
+							<a href="javascript:;"><i class="icon icon-mobile"></i> 手机访问</a>
+							<span style="display:none;">
+								<img src="/static/default/images/mob.png" alt="<{$CONFIG['site']['cityname']}>网手机版二维码">
+							</span>
+						</li>
+						<li class="pipe"></li>
+						<li id="wx-drop" class="item wx-drop">
+							<a href="javascript:;"><i class="icon icon-weixin"></i> 关注微信</a>
+							<span style="display: none;">
+								<img src="/static/default/images/wx.png" alt="<{$CONFIG['site']['cityname']}>网微信二维码">
+							</span>
+						</li>
+						<li class="pipe"></li>
+					</ul>
+				</div>
+				<div class="float-right">
+					<ul class="tip-bar">
+						<if condition="!empty($CONFIG['connect']['wx_app_id']) AND empty($MEMBER)">
+						<li class="pipe"></li>
+						<li class="item"><a href="<{:U('passport/wxlogin')}>">微信登录</a></li>
+						</if>
+						<li class="pipe"></li>
+						<li id="me-drop" class="item me-drop">
+							<if condition="empty($MEMBER)">
+							<span>请先 [ <a href="<{:U('passport/login')}>">登录</a> ] 或 [ <a href="<{:U('passport/register')}>">注册</a> ]</span>
+							<else/>
+							<span>
+								欢迎您，<{$MEMBER.nickname}> <em class="level-bg level-<{$MEMBER.rank_id}>"></em> <i class="icon icon-angle-down"></i>
+							</span>
+							<ul>
+								<li><a href="<{:U('member/index')}>">用户中心</a></li>
+								<li class="line"></li>
+								<li><a href="<{:U('passport/logout')}>">注销登录</a></li>
+							</ul>
+							</if>
+						</li>
+						<li class="pipe"></li>
+						<li class="item bold"><a href="<{:U('shangjia/index/index')}>">商家平台</a></li>
+						<li class="pipe"></li>
+						<li id="nv-drop" class="item nv-drop">
+							<a href="javascript:;">功能导航 <i class="icon icon-angle-down"></i></a>
+							<ul>
+								<li><a href="<{:U('seller/index')}>">商家新闻</a></li>
+								<li class="line"></li>
+								<li><a href="<{:U('news/index')}>">生活资讯</a></li>
+								<li class="line"></li>
+								<li><a href="<{:U('jifen/index')}>">积分商城</a></li>
+								<li class="line"></li>
+								<li><a href="<{:U('mall/index')}>">商城购物</a></li>
+							</ul>
+						</li>
+						<li class="pipe"></li>
+						<li class="item"><i class="icon icon-truck"></i> <a href="<{:U('mall/cart')}>">购物车<em id="cart-num" class="cart-num"><{$cartnum|default='0'}></em>件</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- LOGO栏 -->
+		<div class="container head">
+			<div class="blank-10"></div>
+			<div class="line">
+				<div class="x3">
+					<a href="/">
+                    
+                    
+                      <if condition="!empty($CONFIG['site']['logo'])">
+
+                <h1><a href="<{:U('pchome/index/index')}>"><img width="214" height="53" src="__ROOT__/attachs/<{$CONFIG.site.logo}>" /></a></h1>
+
+                <else/>
+
+                <h1><a href="<{:U('pchome/index/index')}>"><img width="214" height="53" src="__PUBLIC__/img/logo_03.png" /></a></h1>
+
+            </if> 
+            
+            
+				
+					</a>
+				</div>
+				<div class="x7">
+					<div class="soso">
+						<if condition="$ctl eq 'tuan'">
+						<php>$soustr = '团购';</php>
+						<form id="search_form"  method="post" action="<{:U('tuan/index')}>">
+						<elseif condition="$ctl eq 'life'" />
+						<php>$soustr = '信息';</php>
+						<form id="search_form"  method="post" action="<{:U('life/index')}>">
+						<elseif condition="$ctl eq 'mall'" />
+						<php>$soustr = '商品';</php>
+						<form id="search_form"  method="post" action="<{:U('mall/index')}>">
+						<elseif condition="$ctl eq 'tieba'" />
+						<php>$soustr = '贴吧';</php>
+						<form id="search_form"  method="post" action="<{:U('mall/tieba')}>">
+						<elseif condition="$ctl eq 'huodong'" />
+						<php>$soustr = '活动';</php>
+						<form id="search_form"  method="post" action="<{:U('mall/huodong')}>">
+						<elseif condition="$ctl eq 'biz'" />
+						<php>$soustr = '黄页';</php>
+						<form id="search_form"  method="post" action="<{:U('mall/biz')}>">
+						<else />
+						<php>$soustr = '商家';</php>
+						<form id="search_form"  method="post" action="<{:U('shop/index')}>">
+						</if>
+							<dl class="soso-type">
+								<dt><span><{$soustr}></span> <i class="icon icon-caret-down"></i></dt>
+								<dd>
+									<a href="javascript:void(0);" rel="<{:U('shop/index')}>">商家</a>
+									<a href="javascript:void(0);" rel="<{:U('tuan/index')}>">抢购</a>
+									<a href="javascript:void(0);" rel="<{:U('life/index')}>">信息</a>
+									<a href="javascript:void(0);" rel="<{:U('mall/index')}>">商品</a>
+									<a href="javascript:void(0);" rel="<{:U('huodong/index')}>">活动</a>
+									<a href="javascript:void(0);" rel="<{:U('tieba/index')}>">贴吧</a>
+									<a href="javascript:void(0);" rel="<{:U('biz/index')}>">黄页</a>
+								</dd>
+							</dl>
+							<input class="soso-txt" placeholder="请输入您要搜索的关键词" value="<{$keyword}>" name="keyword" type="text">
+							<button type="submit" class="soso-btn" ><i class="icon icon-search"></i></button>
+						</form>
+					</div>
+					<p class="keyword">热门搜索：<php>$a =1;</php><foreach name="kw" item="item"><if condition="($item['type'] eq 1) or ($item['type'] eq 0)"><php>$a++;if($a <= 6){</php><a href="<{:U('shop/index',array('keyword'=>$item['keyword']))}>"><{$item.keyword}></a>&nbsp;<php>}</php></if></foreach>
+					</p>
+				</div>
+				<div class="x2">
+					<div class="post">
+						<a class="tip-btn" href="<{:U('life/fabu')}>"><i class="icon icon-pencil-square-o"></i> 免费发布信息</a>
+						<p>
+							<a href="<{:U('wei/index')}>" class="float-left"><i class="icon icon-key"></i> 开启微生活</a>
+							<a href="<{:U('life/index')}>" class="float-right"><i class="icon icon-send"></i> 分类信息</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<hr />

@@ -1,0 +1,79 @@
+<include file='public:header'/>
+
+<body>
+<header> 
+	<i class="left"><a href="<{:U('ding/index')}>" id="icon_goback"></a></i>
+    <div class="title">订座订单详情</div> </header>
+<section>
+	
+   
+    
+    <div class="sh_infor_tab_box" style="display:;">
+    	<div class="sh_buy_fabu">
+            <div class="sh_list_public_box">
+                <ul>
+                    <li class="list_box mb10">
+                        <div>
+                        	<div class="sh_buy_bt">
+                                <div class="fl">订单号:<{$arr.order_no}></div>
+                            </div>
+                            <if condition="$arr[menu][0][0] gt 0">
+                                <div class="sh_waimai_order_nr">
+                                    <div class="wz">
+                                        <ul>
+                                        	 <volist name='arr.menu' id='item'>
+                                                <li><div class="fl left overflow_clear"><{$menu[$item[0]][menu_name]}></div><div class="fr">x<{$item[1]}><span class="ml10 main_color">￥<{:round($menu[$item[0]][ding_price]/100,2)}></span></div>
+                                                <div class="clear"></div>
+                                                </li>
+                                            </volist>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </if>
+                            <div class="sh_waimai_order_price">
+                                <div>地点：<{$arr.room_id}></div>
+                                <div>预计人数:<{$arr.number}> </div>
+                                <div>预约日期:<{$arr.last_date}> &nbsp;<{$arr.last_t}></div>
+                                <div><span class="mr10">联系人:<{$arr.name}> &nbsp;（<if condition="$sex eq 2">女士<else/>先生</if>）</span><{$arr.mobile}></div>
+                            </div>
+                            <div class="sh_waimai_order_price">
+                            	<div class="fl">支付定金：￥<{:round($arr['need_price']/100,2)}></div>
+                                <div class="fr">结算价格：￥<{:round($order[total_price]/100,2)}></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="sh_waimai_order_price">
+                                <div>买家留言：<{$arr.tip}></div>
+                            </div>
+                            <div class="sh_buy_date">支付定金： <{:round($arr['need_price']/100,2)}> 元 &nbsp;&nbsp; (<if condition="$arr[status] eq 1"> 未消费 <elseif condition="$arr[status] eq 2"/> 已消费 <elseif condition="$arr[status] eq -1"/> 已退款 <else/>未支付</if>)</div>
+                            <div class="btn_box">
+                            	<if condition="$arr[status] eq 1">
+                                <div class="btn_label">
+                                	<form id='myform' target="baocms_frm" action="<{:U('ding/edit',array('order_id'=>$order_id))}>" method="post">
+                                        <input type="hidden" name="status" value="-1" />
+                                        <input type="button" onclick="msg()" class="btn" value="退款" />
+                                    </form>
+                                </div>
+                            	<div class="btn_label">
+                                	<form target="baocms_frm" action="<{:U('ding/edit',array('order_id'=>$order_id))}>" method="post">
+                                        <input type="hidden" name="status" value="2" />
+                                        <input type="submit" class="btn" value="设为已消费" />
+                                    </form>
+                                </div>
+                                <div class="clear"></div>
+                                </if>
+                            </div> 
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   <script language="javascript">
+		 function msg(){
+		 if (confirm("您确认要退款吗？"))
+		 	$('#myform').submit();
+		 }
+		</script>
+</section>
+</body>
+</html>

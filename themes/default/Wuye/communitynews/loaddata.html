@@ -1,0 +1,15 @@
+<foreach name="list" item="item">
+    <li>
+        <div class="news_con fl">
+            <a title="<{$item.title}>" href="<{:U('communitynews/detail',array('news_id'=>$item['news_id']))}>">
+                <h1><{:bao_msubstr($item['title'],0,14,false)}></h1>
+                <p><{:bao_msubstr($item['intro'],0,16,false)}></p>
+                <div class="time">时间:<{$item.create_time|date='Y-m-d',###}></div>
+            </a>
+        </div>
+        <div class="operation fr">
+            <div class="btn fabu fr"><if condition="$item['audit'] eq 0"><a href="<{:U('communitynews/audit',array('news_id'=>$item['news_id']))}>">发布</a><else/><a href="javascript:void(0);">已发布</a></if></div>
+            <div class="btn shanchu fr"><a href="<{:U('communitynews/delete',array('news_id'=>$item['news_id']))}>">删除</a></div>  
+        </div>
+    </li>
+</foreach>

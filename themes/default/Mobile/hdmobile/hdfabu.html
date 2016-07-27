@@ -1,0 +1,127 @@
+<include  file='public:header'/>
+
+<body id="life_add">
+    <header>
+            <a href="<{:U('hdmobile/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">发布附近活动</div>
+    </header>
+    <div class="page-center-box">
+        <iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+        <form method="post" target="baocms_frm" action="<{:U('hdmobile/hdfabu')}>">
+            <div class="scroll">
+                <div class="pb50">
+                    <div class="Upload-img-box">
+                        <div class="Upload-btn"><input type="file" id="fileToUpload" name="fileToUpload" data-role="none">上传图片</div>
+                        <div class="Upload-img">
+                            <div class="list-img loading" style="display:none;"><img src=""></div>
+                            <div class="list-img jq_photo" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="__TMPL__statics/js/ajaxfileupload.js"></script>
+                    <script>
+                        function ajaxupload() {
+                            $(".loading").show();
+                            $.ajaxFileUpload({
+                                url: '<{:U("app/upload/upload",array("model"=>"life"))}>',
+                                type: 'post',
+                                fileElementId: 'fileToUpload',
+                                dataType: 'text',
+                                secureuri: false, //一般设置为false
+                                success: function (data, status) {
+                                    $(".loading").hide();
+                                    var str = '<img src="__ROOT__/attachs/' + data + '"><input type="hidden" name="data[photo]" value="' + data + '" />';
+                                    $(".jq_photo").show().html(str);
+                                    $("#fileToUpload").unbind('change');
+                                    $("#fileToUpload").change(function () {
+                                        ajaxupload();
+                                    });
+                                }
+                            });
+                        }
+                        $(document).ready(function () {
+                            $("#fileToUpload").change(function () {
+                                ajaxupload();
+                            });
+                            $(document).on("click", ".photo img", function () {
+                                $(this).parent().remove();
+                            });
+                        });
+                    </script>
+                    <div id="login-input">
+                        <input data-role="none" type="text" name="data[title]" value="<{$detail.title|default=''}>"  placeholder="标题"/>
+                       
+                    </div>
+                    <script>
+                        $(function () {
+                            $(".life-infor-pull").click(function () {
+                                if ($(this).find(".seat-btn-pull-down").css("display") == 'block') {
+                                    $(".seat-btn-pull-down").hide();
+                                    $(this).find(".seat-btn-pull-down").hide();
+                                } else {
+                                    $(".seat-btn-pull-down").hide()
+                                    $(this).find(".seat-btn-pull-down").show();
+                                }
+                                if ($(this).find("i").hasClass("on")) {
+                                    $(".life-infor-pull").find("i").removeClass("on");
+                                    $(this).find("i").removeClass("on");
+                                } else {
+                                    $(".life-infor-pull").find("i").removeClass("on");
+                                    $(this).find("i").addClass("on");
+                                }
+                            });
+                            $(".jq_select_list li").click(function () {
+                                $(this).parent().find("li").removeClass("on");
+                                $(this).addClass("on");
+                                $(this).parents(".life-infor-pull").find("input").val($(this).find("a").html());
+                                 var o = $(this).find('a').attr('rel');
+                                $(this).parent().find("input[type='hidden']").val(o);
+                            });
+                         
+                        });
+                    </script>
+                <div id="login-input">
+                    <div class="regist-code life-infor-pull"><input type="text" placeholder="类型" value="" readonly /><i></i>
+                        <div class="seat-btn-pull-down jq_select_list">
+                            <ul>
+                                <foreach name="getHuoCate" item="var" key="index">                         
+                                      <li ><a rel="<{$index}>" ><{$var}></a></li>
+                                </foreach>   
+                                <input type="hidden" id="select1_id" name="data[cate_id]" value=""/>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div id="login-input">
+                    <div class="regist-code life-infor-pull"><input type="text" placeholder="对象" value="" readonly /><i></i>
+                        <div class="seat-btn-pull-down jq_select_list">
+                            <ul>
+                                <foreach name="getPeopleCate" item="var" key="index1">                         
+                                      <li ><a rel="<{$index1}>" ><{$var}></a></li>
+                                </foreach>   
+                                <input type="hidden" id="select2_id" name="data[sex]" value=""/>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <link href="__TMPL__statics/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+                <link href="__TMPL__statics/css/mobiscroll.scroller.android-ics.css" rel="stylesheet" type="text/css" />
+                <script src="__TMPL__statics/js/datetime2.js"></script>
+                <div class="wap-form">
+                    <ul>
+
+                            <li><input type="text" placeholder="活动时间"  class="svctime" name="data[time]"/></li>
+                            <li><input type="text" placeholder="地址" name="data[addr]" /></li>
+                            <li class="integral"><textarea name="data[intro]" placeholder="活动说明.."></textarea></li>
+                        </ul>
+                    </div>
+                  
+                </div>
+                <footer class="footer-cart">
+                    <input class="btn-long" data-role="none" type="submit" value="免费发布" name="submitBtn" />
+                </footer>
+        </form>
+
+
+</body>
+</html>

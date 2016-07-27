@@ -1,0 +1,175 @@
+<include  file='public:header'/>
+<body style="overflow-x:hidden;">
+    <header>
+        <a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">
+            <div class="box_search overflow_clear">
+                <a href="<{:U('index/search')}>">
+                    <i></i>
+                    输入商户名/品类/商品词
+                </a>
+            </div>
+        </div>
+        <i class="icon-menu" id="ico_1"></i>
+    </header>
+
+    <script>
+        $(function () {
+            $("header #ico_1").click(function () {
+                $(".header_pull_box").toggle();
+            });
+        });
+    </script>
+    <div class="header_pull_box" style="display:none;">
+        <em></em>
+        <div class="header_pull_list">
+            <ul>
+                <volist name="all_gc" id="a">
+                    <li><a href="<{:U('mall/main',array('cate_id'=>$a['cate_id']))}>"><{$a.cate_name}></a></li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+
+    <div id="ele" class="page-center-box">
+        <div id="scroll">
+            <!-- 广告 -->
+            <div class="ads">
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+
+                        $(".main_image").touchSlider({
+                            flexible: true,
+                            speed: 200,
+                            btn_prev: $("#btn_prev"),
+                            btn_next: $("#btn_next"),
+                            paging: $(".flicking_con a"),
+                            counter: function (e) {
+                                $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+                            }
+                        });
+
+                        $(".main_image").bind("mousedown", function () {
+                            $dragBln = false;
+                        });
+
+                        $(".main_image").bind("dragstart", function () {
+                            $dragBln = true;
+                        });
+
+                        $(".main_image a").click(function () {
+                            if ($dragBln) {
+                                return false;
+                            }
+                        });
+
+                        timer = setInterval(function () {
+                            $("#btn_next").click();
+                        }, 5000);
+
+                        $(".ele_banner").hover(function () {
+                            clearInterval(timer);
+                        }, function () {
+                            timer = setInterval(function () {
+                                $("#btn_next").click();
+                            }, 5000);
+                        });
+
+                        $(".main_image").bind("touchstart", function () {
+                            clearInterval(timer);
+                        }).bind("touchend", function () {
+                            timer = setInterval(function () {
+                                $("#btn_next").click();
+                            }, 5000);
+                        });
+
+                    });
+                </script>
+                <div class="ele_banner">
+                    <div class="flicking_con">
+                        <calldata mdl="Ad" where=" closed=0 AND site_id=30 AND city_id IN ({$city_ids})  and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,3" cache="7200" order="orderby asc">
+                            <a href="#"></a>
+                        </calldata>
+                    </div>
+                    <div class="main_image">
+                        <ul>
+                            <calldata mdl="Ad" where=" closed=0 AND site_id=30 AND city_id IN ({$city_ids}) and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,3" cache="7200" order="orderby asc">
+                                <li>
+                                    <a href="<{$item.link_url}>" title="<{$item.title}>">
+                                        <img src="__ROOT__/attachs/<{$item.photo}>" alt="<{$item.title}>" height="100%" />
+                                    </a>
+                                </li>
+                            </calldata> 
+                        </ul>
+                    </div>
+                    <a href="javascript:;" id="btn_prev"></a>
+                    <a href="javascript:;" id="btn_next"></a>
+                </div>
+            </div>
+            <!-- 分类 -->
+            <div class="mydate-style shang-style">
+                <ul>
+                    <volist name="rgc" id="r">
+                        <li>
+                            <a href="<{:U('mall/main',array('cate_id'=>$r['cate_id']))}>">
+                                <span class="mydate-yuan mall-yuan <if condition="$r['cate_id'] eq $cate_id">on</if>"><img src="__TMPL__statics/img/bz0<{$i}>.png" style="max-width:none;" <if condition="$r['cate_id'] eq $cate_id">class="tp-img"</if> /></span>
+                                <p><{$r.cate_name}></p>
+                            </a>
+                        </li>
+                    </volist>
+                    <li>
+                        <a href="<{:U('mall/index')}>">
+                            <span class="mydate-yuan mall-yuan"><img src="__TMPL__statics/img/bz08.png" style="max-width:none;"></span>
+                            <p>更多</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 列表 -->
+            <div class="list-have-pic" id="mall-main">
+                <div class="mall-title">
+                    <hr class="left">
+                    <span class="left"><notempty name="gc_name"><{$gc_name}><else/>全部</notempty></span>
+                    <hr class="left">
+                </div>
+                <!-- 循环 -->
+                <div class="list-boxed">
+                    <ul>
+
+
+                        <foreach name="list" item="item">
+                            <li>
+                                <div class="mall-food">
+                                    <a class="pic" title="<{$item.title}>" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id']))}>"><img src="__ROOT__/attachs/<{$item.photo}>"></a>
+                                    <p><a title="<{$item.title}>" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id']))}>"><{:bao_msubstr($item['title'],0,10,false)}></a></p>
+                                    <p><span>&yen;<{:round($item['mall_price']/100,2)}></span></p>
+                                </div>
+                            </li>
+                        </foreach>
+
+
+                    </ul>
+                </div>
+
+                <!-- 循环 -->
+            </div>
+        </div>
+    </div>
+<include  file='public:footer'/>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $(".mall-yuan").each(function () {
+            $(this).click(function () {
+                $(".mall-yuan").removeClass("on");
+                $(".mall-yuan").children("img").removeClass("tp-img");
+                $(this).addClass("on");
+                $(this).children("img").addClass("tp-img");
+            });
+        });
+    });
+</script>

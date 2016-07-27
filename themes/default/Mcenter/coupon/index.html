@@ -1,0 +1,24 @@
+<include  file='public:header'/>  
+<body>
+    <header> <a href="<{:U('member/index')}>"><i class="icon-goback"></i></a>
+    <div class="title">我的优惠券</div>
+    </header>
+<!-- 筛选TAB -->
+<div class="shop-lie">
+    <ul>
+        <li <php>if($aready ==null){echo 'class=on';}</php>><a href="<{:LinkTo('coupon/index')}>"><span>全部</span></a></li>
+        <li <eq name="aready" value="1">class="on"</eq>><a href="<{:LinkTo('coupon/index',array('aready'=>1))}>"><span>未使用</span></a></li>
+        <li <eq name="aready" value="2">class="on"</eq>><a href="<{:LinkTo('coupon/index',array('aready'=>2))}>"><span>已使用</span></a></li>
+    </ul>
+</div>
+<div id="personal-coupon" class="page-center-box">
+    <div id="scroll">
+    </div>
+    <script>
+        $(document).ready(function () {
+            loaddata('<{:U("/mcenter/coupon/couponloading",array("t"=>$nowtime,"p"=>"0000","aready"=>$aready))}>', $("#scroll"), true);
+        });
+    </script>
+</div>
+</div>
+<include  file='public:footer'/>

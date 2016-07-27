@@ -1,0 +1,79 @@
+<include file="public:header"/>
+<include file="public:top"/>
+<div class="content zy_content" id="qg-test" style="min-height: 600px;">
+    <div class="left test-left">
+        <ul>
+            <script>
+                $(function () {
+                    $(".test-list a").click(function () {
+                        $(".test-list a").removeClass("on");
+                        $(this).addClass("on");
+                    });
+                });
+            </script>
+            <li class="test-list">
+                <h3>验证管理</h3>
+                <ul>
+                     <li><a href="<{:U('check/index',array('shop_id'=>$shop_id,'branch_id'=>$branch_id))}>">验证抢购券</a></li>
+                    <li><a href="<{:U('check/coupon',array('shop_id'=>$shop_id,'branch_id'=>$branch_id))}>">验证优惠券</a></li>
+                </ul>
+            </li>
+            <li class="test-list">
+                <h3>消费记录</h3>
+                <ul>
+                   <li><a href="<{:U('check/tuanlist',array('shop_id'=>$shop_id,'branch_id'=>$branch_id))}>">抢购消费明细</a></li>
+                    <li><a class="on" href="<{:U('check/couponlist',array('shop_id'=>$shop_id,'branch_id'=>$branch_id))}>">优惠券消费明细</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="left test-right">
+        <div style="min-height:600px;">
+            <div class="test-tab">
+                <ul>
+                    <li class="on"><a href="#">优惠券消费明细</a></li>
+                </ul>
+            </div>
+            <div class="test-tab-table">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr bgcolor="#f7f7f7">
+                        <td>优惠券名称</td>
+                        <td>会员</td>
+                        <td>下载时间</td>
+                        <td>过期时间</td>
+                        <td>消费门店</td>
+                        <td>消费时间</td>
+                    </tr>
+                    <tr>
+                        <td>消费50抵扣50</td>
+                        <td>18205514135</td>
+                        <td>2015-05-27 08:15:37</td>
+                        <td>永久消费</td>
+                        <td>桥亭活鱼小镇（万象城店）</td>
+                        <td>未消费</td>
+                    </tr>
+                    <tr>
+                        <td>消费50抵扣50</td>
+                        <td>18205514135</td>
+                        <td>2015-05-27 08:15:37</td>
+                        <td>永久消费</td>
+                        <td>桥亭活鱼小镇（万象城店）</td>
+                        <td>未消费</td>
+                    </tr><tr>
+                        <td>消费50抵扣50</td>
+                        <td>18205514135</td>
+                        <td>2015-05-27 08:15:37</td>
+                        <td>永久消费</td>
+                        <td>桥亭活鱼小镇（万象城店）</td>
+                        <td>未消费</td>
+                    </tr>
+
+                </table>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<include file="public:footer"/>

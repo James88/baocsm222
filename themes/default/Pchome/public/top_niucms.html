@@ -1,0 +1,88 @@
+﻿		<div class="layout">
+			<div class="navbar">
+				<div class="container">			
+					<div class="navbar-body">
+						<div class="main-drop float-left">
+							<span class="main-drop-title">商家分类 <span class="arrow"></span></span>
+							<div class="main-drop-menu <if condition="$ctl neq 'index'">out-index</if>">
+								<foreach name="shopcates" item="item">
+								<eq name="item.parent_id" value="0"> 
+								<dl>
+									<dt><a href="<{:U('shop/index',array('cat'=>$item['cate_id']))}>"><{$item['cate_name']}></a></dt>
+									<dd class="sub-nav">
+										<php>$i=0;</php>
+										<foreach name="shopcates" item="var">
+										<if condition="$var['parent_id'] eq $item['cate_id'] AND $i lt 5">
+										<php>$i++;</php>
+										<if condition="$i lt 5">
+										<a href="<{:U('shop/index',array('cat'=>$var['cate_id']))}>"><{$var['cate_name']}></a>
+										</if>
+										</if>
+										</foreach>
+									</dd>
+									<dd class="pop-nav">
+										<span><{$item['cate_name']}></span>
+										<ul>
+											<foreach name="shopcates" item="var">
+											<if condition="$var['parent_id'] eq $item['cate_id']">
+											<li><a href="<{:U('shop/index',array('cat'=>$var['cate_id']))}>"><{$var['cate_name']}></a></li>
+											</if>
+											</foreach>
+										</ul>
+									</dd>
+									<span class="icon icon-angle-right"></span>
+								</dl>
+								</eq>
+								</foreach>
+							</div>
+						</div>
+						<ul class="nav nav-inline nav-menu">
+							<li <if condition="$ctl eq 'index'">class="active"</if> ><a href="/">首页</a></li>
+							<li <if condition="$ctl eq 'news'">class="active"</if> ><a href="<{:U('news/index')}>">快报</a></li>
+							<li <if condition="in_array($ctl,array('seller','billboard','biz','shop'))">class="active"</if>>
+								<a href="<{:U('shop/index')}>">商家<span class="arrow"></span></a>
+								<ul class="drop-menu">
+									<li><a href="<{:U('seller/index')}>">商家新闻</a></li>
+									<li><a href="<{:U('billboard/index')}>">推荐榜单</a></li>
+									<li><a href="<{:U('biz/index')}>">商家黄页</a></li>
+								</ul>
+							</li>
+							<li <if condition="in_array($ctl,array('tuan','mall'))">class="active"</if>>
+								<a href="javascript:;">购物<span class="arrow"></span></a>
+								<ul class="drop-menu">
+									<li><a href="<{:U('tuan/main')}>">火爆团购</a></li>
+									<li><a href="<{:U('mall/main')}>">在线商城</a></li>
+								</ul>
+							</li>
+							<li <if condition="in_array($ctl,array('coupon','huodong'))">class="active"</if>>
+								<a href="javascript:;">智惠<span class="arrow"></span></a>
+								<ul class="drop-menu">
+									<li><a href="<{:U('huodong/index')}>">精彩活动</a></li>
+									<li><a href="<{:U('coupon/index')}>">优惠折扣</a></li>
+								</ul>
+							</li>
+							<li <if condition="$ctl eq 'ele'">class="active"</if>><a href="<{:U('ele/index')}>">餐饮</a></li>
+							<li <if condition="in_array($ctl,array('life','community','tieba'))">class="active"</if>>
+								<a href="javascript:;">生活<span class="arrow"></span></a>
+								<ul class="drop-menu">
+									<li><a href="<{:U('life/index')}>">生活信息</a></li>
+									<li><a href="<{:U('community/index')}>">小区圈子</a></li>
+									<li><a href="<{:U('tieba/index')}>">交流贴吧</a></li>
+								</ul>
+							</li>
+							<li <if condition="in_array($ctl,array('wei','vip','jifen'))">class="active"</if>>
+								<a href="javascript:;">V · Life<span class="arrow"></span></a>
+								<ul class="drop-menu">
+									<li><a href="<{:U('wei/index')}>">微信生活</a></li>
+									<li><a href="<{:U('vip/index')}>">全城会员</a></li>
+									<li><a href="<{:U('jifen/index')}>">积分兑换</a></li>
+								</ul>
+							</li>
+						</ul>
+						<if condition="$ctl eq 'index'">
+						<div class="navbar-text navbar-right"><a class="dialogs" href="javascript:;" data-toggle="click" data-target="#shop-cate" data-mask="1" data-width="60%"><i class="icon icon-bars"></i> 选商家</a></div>
+						</if>
+					</div>
+				</div>
+			</div>
+		</div>

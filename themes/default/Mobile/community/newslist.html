@@ -1,0 +1,102 @@
+<include  file='public:header'/>
+
+<body id="micro_shop">
+	<header>
+		<a href="<{:U('community/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">物业通知 
+        </div>
+	</header>
+    
+    <div id="seat" class="page-center-box">
+    	<div id="scroll">
+           <div class="micro_top commu-top">
+                <div class="city_stores_ads">
+                    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+                    <script src="js/jquery.event.drag-1.5.min.js" type="text/javascript"></script>
+                    <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                        
+                            
+                            $(".main_image").touchSlider({
+                                flexible : true,
+                                speed : 200,
+                                btn_prev : $("#btn_prev"),
+                                btn_next : $("#btn_next"),
+                                paging : $(".flicking_con a"),
+                                counter : function (e){
+                                    $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+                                }
+                            });
+                            
+                            $(".main_image").bind("mousedown", function() {
+                                $dragBln = false;
+                            });
+                            
+                            $(".main_image").bind("dragstart", function() {
+                                $dragBln = true;
+                            });
+                            
+                            $(".main_image a").click(function(){
+                                if($dragBln) {
+                                    return false;
+                                }
+                            });
+                            
+                            timer = setInterval(function(){
+                                $("#btn_next").click();
+                            }, 5000);
+                            
+                            $(".ele_banner").hover(function(){
+                                clearInterval(timer);
+                            },function(){
+                                timer = setInterval(function(){
+                                    $("#btn_next").click();
+                                },5000);
+                            });
+                            
+                            $(".main_image").bind("touchstart",function(){
+                                clearInterval(timer);
+                            }).bind("touchend", function(){
+                                timer = setInterval(function(){
+                                    $("#btn_next").click();
+                                }, 5000);
+                            });
+                            
+                        });
+                    </script>
+                    <div class="ele_banner">
+                        <div class="flicking_con">
+                            <calldata mdl="Ad" where=" closed=0 AND site_id=39  and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,5" cache="7200" order="orderby asc">
+                            <a href="#">2</a>
+                            </calldata> 
+                        </div>
+                        <div class="main_image">
+                            <ul>
+                               <calldata mdl="Ad" where=" closed=0 AND site_id=39  and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,5" cache="7200" order="orderby asc">
+                                    <li>
+                                        <a href="<{$item.link_url}>" title="<{$item.title}>">
+                                            <img src="__ROOT__/attachs/<{$item.photo}>" alt="<{$item.title}>" />
+                                        </a>
+                                    </li>
+                                </calldata> 
+                            </ul>
+                        </div>
+                        <a href="javascript:;" id="btn_prev"></a>
+                        <a href="javascript:;" id="btn_next"></a>
+                    </div>
+                </div>
+            <div class="commu-icon">
+            	<ul>    		
+            		<script>
+                        $(document).ready(function () {
+                         loaddata('<{$next}>', $(".commu-icon ul"), true);
+                        });
+                    </script>
+            	</ul>
+            </div> 
+        </div>
+    
+    </div>
+<include file="public:footer"/>
+

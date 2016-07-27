@@ -1,0 +1,34 @@
+
+
+
+<include  file='public:header'/>
+
+
+<header>
+	<i class="left"><a href="<{:U('dingping/index')}>" id="icon_goback"></a></i>
+    <div class="title">点评回复</div>
+</header>
+
+<section>
+<div class="sh_buy_fabu">
+	<form method="post"  action="<{:U('dianping/elereply',array('order_id'=>$detail['order_id']))}>"  target="baocms_frm">
+    <div class="sh_list_public_box">
+        <ul>
+            <li class="list_box">
+                <div class="sh_input_public"><span>回复：</span></div> 
+            </li>
+            <li class="list_box mb10">
+                <div class="sh_textarea_public">
+                    <textarea name="reply" cols="50" rows="10">
+                    </textarea>
+                </div> 
+            </li>
+        </ul>
+    </div>
+    <div class="sh_login_nr"><input class="btn mt30" type="submit" value="确认回复"></div>
+    </form>
+</div>
+</section>
+
+</body>
+</html>

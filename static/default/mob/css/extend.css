@@ -1,0 +1,21 @@
+		.tui-list{overflow:hidden;}
+		.tui-list li{width:50%;float:left;padding:5px;margin-bottom:5px;}
+		.tui-list li .list-con{width:100%;background:#FFF;}
+		.tui-list li .list-pic{width:100%;position:relative;}
+		.tui-list li .list-pic img{width:100%;}
+		.tui-list li .list-pic des{width:100%;overflow:hidden;}
+		.tui-list li .list-des h1{font-size:14px;height:40px;line-height:20px;overflow:hidden;padding:0 5px;font-weight:normal;}
+		.tui-list li .list-des .col-1{overflow:hidden;height:20px;line-height:20px;padding:0 5px;width:100%;}
+		.tui-list li .list-des .col-1 span{margin-right:10px;float:left;font-size:12px;}
+		.tui-list li .list-des .col-1 em{color:#F60;}
+		.tui-list li .list-des .col-2{width:100%;padding:0 5px;text-align:center;background:#F60;}
+		.tui-list li .list-des .col-2 a{color:#FFF;width:100%;height:40px;line-height:40px;}
+		
+		.tui-detail .detail-pic{width:100%;}
+		.tui-detail .detail-pic img{width:100%;}
+		.tui-detail .detail-tit{line-height:20px;background:#FFF;padding:10px;}
+		.tui-detail .detail-des{padding:10px;background:#FFF;}
+		.tui-detail .detail-des p{line-height:20px;font-size:14px;}
+		.tui-detail .detail-btn{padding:10px;}
+		.tui-detail .detail-itr{line-height:20px;font-size:14px;padding:10px;background:#FFF;}
+		.tui-detail .detail-itr img{max-width:100%;}

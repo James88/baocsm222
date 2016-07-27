@@ -1,0 +1,52 @@
+<script src="__PUBLIC__/js/my97/WdatePicker.js"></script>    
+<div class="dhPop">
+    <h2><span class="bao_closed"></span>预约"<{$detail.shop_name}>"</h2>
+    <form method="post" target="baocms_frm" action="<{:U('shop/yuyue',array('shop_id'=>$detail['shop_id']))}>">
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td align="right">联系人：</td>
+                <td><input type="text" name="data[name]" class="dhInput" value="" /></td>
+            </tr>
+            <tr>
+                <td align="right">手机号：</td>
+                <td><input type="text" class="dhInput" name="data[mobile]" value="" /></td>
+            </tr>
+            <tr>
+                <td align="right">预约日期：</td>
+                <td>
+                    <input type="text" class="dhInput" name="data[yuyue_date]" value="<{$yuyue_date}>" onfocus="WdatePicker({minDate: '<{$today}>'});" />
+                    <select id="yuyue_time" name="data[yuyue_time]" class="dhInput" >
+                        <for start="0" end="24">
+                            <option value="<{$i}>:00"><{$i}>:00</option>
+                            <option value="<{$i}>:30"><{$i}>:30</option>
+                        </for>
+                    </select>
+                    <script>
+                        $("#yuyue_time").val('<{$yuyue_time}>');
+                    </script>
+
+                </td>
+            </tr>
+            <tr>
+                <td align="right">人数：</td>
+                <td>
+                    <select id="number" name="data[number]" class="dhInput">
+                        <for start="1" end="10">
+                            <option <eq name="number" value="$i">selected="selected"</eq> value="<{$i}>"><{$i}>人</option>
+                        </for>
+                        <option value="10"  <eq name="number" value="10">selected="selected"</eq>>10人及以上</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td  align="right">留言：</td>
+                <td><textarea rows="6" cols="50" name="data[content]"></textarea></td>
+            </tr> 
+            <tr>
+                <td align="right"></td>
+                <td><input style="cursor: pointer; margin-bottom: 20px;" class="subBtn" type="submit" value="立即预约" /></td>
+            </tr>
+        </table>
+    </form>
+</div>

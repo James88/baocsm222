@@ -1,0 +1,43 @@
+<div id="life" class="page-center-box" style="margin-top:0.54rem;">
+		<div id="scroll">
+			<!-- 列表 -->
+			<div class="list-have-pic">
+				<!-- 循环 -->
+				<foreach name="list" item="order">
+                    <div class="list-box list-box-two">
+                        <div class="list-img">
+                            <a target="_blank" href="<{:U('mobile/shop/detail',array('shop_id'=>$yuyue[$order['ding_id']]['shop_id']))}>"><img src="__ROOT__/attachs/<{$shops[$yuyue[$order['ding_id']]['shop_id']]['photo']}>" /></a>
+                        </div>
+                        <div class="buy-content">
+                            <div class="distance">
+                                <p class="left"><a target="_blank" href="<{:U('mobile/shop/detail',array('shop_id'=>$yuyue[$order['ding_id']]['shop_id']))}>"><{$shops[$yuyue[$order['ding_id']]['shop_id']]['shop_name']}></a></p>
+                            </div>
+                            <p>地址：<{$shops[$yuyue[$order['ding_id']]['shop_id']]['addr']}></p>
+                            <div class="ordering-main">
+                                <div class="left">
+                                    <span class="ordering-house"><if condition="$yuyue[$order['ding_id']]['room_id'] eq 0">大厅<else/>包厢</if></span>
+                                    <span class="ordering-house"><if condition="empty($yuyue[$order['ding_id']]['menu'])">未点菜<else/>已点菜</if></span>
+                                </div>
+                                <span class="right expense2">
+                                <a class="myInfor_sx" href="<{:U('ding/detail',array('order_id'=>$order['order_id']))}>">查看</a>
+                                <if condition="$order[status] eq 0">
+                                 
+                                        <a class="myInfor_sx"
+                                        <if condition="!empty($order['name']) && !empty($order['mobile'])"> href="<{:U('mobile/ding/pay2',array('order_id'=>$order['order_id']))}>" <else/> href="<{:U('mobile/ding/pay',array('order_id'=>$order['order_id']))}></if>
+                                         target="_blank">去付款</a>
+                                <elseif condition="$order[status] eq 1" />
+                                        已付款
+                                <elseif condition="$order[status] eq 2" />
+                                        已消费
+                                <elseif condition="$order[status] eq -1" />
+                                        已退款       
+                                </if>
+                                </span>			
+                            </div>
+                        </div>
+                    </div>
+               </foreach>
+				<!-- 循环 -->
+			</div>
+		</div>
+	</div>

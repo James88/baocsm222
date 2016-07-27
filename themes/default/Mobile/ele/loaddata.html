@@ -1,0 +1,21 @@
+<foreach name="list" item="item">
+
+	<div class="list-box">
+        <div class="list-img">
+            <a href="<{:U('ele/shop',array('shop_id'=>$item['shop_id']))}>"><img src="__ROOT__/attachs/<{$shops[$item['shop_id']]['photo']}>" /></a>
+        </div>
+        <div class="list-content">
+            <p><a href="<{:U('ele/shop',array('shop_id'=>$item['shop_id']))}>"><b><{$item.shop_name}></b></a><span class="range"><{$item.d}></span></p>
+            <p class="c_h">
+                月售：<{$item.month_num}>单
+                <eq name="item.is_fan" value="1"><em class="c_1">减</em></eq>
+                <em class="c_2">配</em>
+                <eq name="item.is_new" value="1"><em class="c_3">返</em></eq>
+                <eq name="item.is_pay" value="1"><em class="c_4">付</em></eq>
+            </p>
+            <p class="c_h overflow_clear">地址：<{$shops[$item['shop_id']]['addr']}></p>
+        </div>
+    </div>
+
+
+</foreach>

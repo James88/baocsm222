@@ -1,0 +1,81 @@
+.index-top{border:thin solid #DDD;position:relative;width:845px;}
+
+.tou-tiao{padding:5px 10px;width:100%;}
+.tou-tiao h1{font-family:'Microsoft YaHei';height:40px;line-height:40px;text-align:center;}
+.tou-tiao a {color:#F00;}
+.tou-tiao p{color:#999;}
+
+.index-fcos{width:355px;height:236px;position:absolute;left:-1px;}
+.index-fcos img{width:355px;height:236px;}
+
+.top-news{border-top:thin solid #DDD;height:235px;list-style:none;padding:2px 15px;}
+.top-news li{height:28px;line-height:28px;}
+.top-news em{color:#999;float:right;}
+
+.news-list{width:845px;}
+.news-list .list-hd{height:40px;line-height:40px;overflow:hidden;}
+.news-list .list-hd h3{font-size:14px;vertical-align:bottom;font-weight:bold;float:left;}
+.news-list .list-hd h3 span{font-size:12px;color:#999;margin-left:5px;}
+.news-list .list-hd ul{float:right;font-size:12px;overflow:hidden;list-style:none;}
+.news-list .list-hd ul li{float:left;margin-left:15px;}
+.news-list .list-bd {padding:0 10px;border:thin solid #DDD;}
+.news-list .list-bd ul{padding:0;list-style:none;}
+.news-list .list-bd ul li{overflow:hidden;padding:10px 0;border-bottom:thin dashed #DDD;position:relative;}
+.news-list .list-bd ul li:last-child{border:none;}
+.news-list .list-bd ul li .photo{float:left;width:250px;height:160px;}
+.news-list .list-bd ul li .photo img{float:left;width:250px;height:160px;}
+.news-list .list-bd ul li .desc {float:left;width:545px;margin-left:10px;} 
+.news-list .list-bd ul li .desc h3{font-size:14px;font-weight:bold;margin-bottom:10px;}
+.news-list .list-bd ul li .desc  p{color:#999;line-height:20px;}
+.news-list .list-bd ul li .info span{margin-right:10px;color:#666;}
+.news-list .list-bd ul li .info em{color:#F60;}
+.news-list .list-bd ul li .tags{position:absolute;top:0px;right:30px;z-index:5;}
+.news-list .list-bd ul li .tags span{display:block;text-align:center;padding:5px 10px;margin-right:10px;color:#FFF;}
+.news-list .list-bd ul li .tags span.tt{background:#BA26C0;}
+.news-list .list-bd ul li .tags span.hd{background:#F60;}
+
+.index-just{height:350px;overflow:hidden;background:#FAFAFA;}
+.index-just h5{font-size:14px;font-weight:bold;text-align:center;margin:35px 0;}
+.index-just .code{overflow:hidden;padding:0 20px;}
+.index-just .code .code-item{overflow:hidden;float:left;width:122px;text-align:center;}
+.index-just .code .code-item img{width:100px;height:100px;}
+.index-just .code .code-item p{height:30px;line-height:30px;}
+.index-just .tool {overflow:hidden;padding:20px 35px;}
+.index-just .tool button{height:35px;}
+
+
+.index-tieba .tieba-hd{height:40px;line-height:40px;overflow:hidden;}
+.index-tieba .tieba-hd h3{font-size:14px;vertical-align:bottom;font-weight:bold;float:left;}
+.index-tieba .tieba-hd h3 span{font-size:12px;color:#999;margin-left:5px;}
+.index-tieba .tieba-bd {width:285px;}
+.index-tieba .tieba-bd blockquote{margin-bottom:10px;text-align:left;}
+.index-tieba .tieba-bd a{padding:10px 0;display:block;}
+.index-tieba .tieba-bd .quote-left{background:#FAFAFA url("../image/news/right-quote.png") no-repeat right 5px bottom 5px;}
+.index-tieba .tieba-bd .quote-right{background:#FAFAFA url("../image/news/left-quote.png") no-repeat left 5px top 5px;}
+
+.side-list .list-hd{height:40px;line-height:40px;overflow:hidden;}
+.side-list .list-hd h3{font-size:14px;vertical-align:bottom;font-weight:bold;float:left;}
+.side-list .list-hd h3 span{font-size:12px;color:#999;margin-left:5px;}
+.side-list .list-bd {width:285px;border:thin solid #DDD;padding:10px;}
+.side-list .list-bd ul{list-style:none;padding:0;}
+.side-list .list-bd li{height:28px;line-height:28px;overflow:hidden;}
+
+.news-detail,.news-comment{border:thin solid #DDD;padding:10px;width:845px;}
+.news-detail h1{font-family:"Microsoft YaHei";margin-top:10px;}
+.news-detail .text-center{color:#999;border-bottom:thin solid #DDD;padding:10px 0;}
+.news-detail .text-center span{margin:0 10px;}
+.news-detail {font-size:14px;line-height:25px;}
+.news-detail img{max-width:100%;}
+.news-detail .detail{width:820px;word-break:break-all;}
+
+
+
+
+.news-comment h2{font-size:20px;font-family:"Microsoft YaHei";}
+.news-comment img{width:40px;height:40px;border-radius:40px!important;}
+.news-comment  .txt-reply{width:100%;height:60px;}
+.news-comment .level-1 p{border-bottom:thin solid #EEE;}
+.news-comment .level-2 p{border-bottom:thin dashed #EEE;}
+.news-comment  p{padding-bottom:15px!important;overflow:hidden;color:#999;}
+.news-comment  p a{margin-left:15px;color:#999;}
+.news-comment  p i{margin-right:2px;}

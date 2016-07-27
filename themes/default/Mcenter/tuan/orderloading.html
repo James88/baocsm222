@@ -1,0 +1,78 @@
+<foreach name="list" item="item">
+
+    <!-- 循环 -->
+
+    <div class="list-box">
+
+        <div class="list-img">
+
+            <a href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"><img src="__ROOT__/attachs/<{$tuans[$item['tuan_id']]['photo']}>"></a>
+
+        </div>
+
+        <div class="buy-content">
+
+            <p class="overflow_clear"><a href="<{:U('mobile/tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"><{$tuans[$item['tuan_id']]['title']}></a><a class="order_detail" href="<{:U('tuan/detail',array('order_id'=>$item['order_id']))}>">详情</a></p>
+
+            <p><span class="spread-money">总价：￥<{:round($item['total_price']/100,2)}></span><span class="spread-money2">数量：<{$item['num']}></span></p>
+
+            <p class="spread-for">
+
+                <eq name="item.status" value="0">
+
+                等待付款
+
+            <else /> 
+
+            已完成
+
+            </eq>
+
+            </p>
+
+            <eq name="item.status" value="0">
+
+            <a style="color:#fff;"  href="<{:U('tuan/delete',array('order_id'=>$item['order_id']))}>" class="button">取消</a>
+
+            <a style="color:#fff;"  href="<{:U('mobile/tuan/pay',array('order_id'=>$item['order_id']))}>" class="button2">付款</a>
+
+            <else /> 
+
+            <php>
+
+                $tc = D('TuanCode');
+
+                $rtc = $tc -> where('order_id ='.$item['order_id']) -> find();
+
+            </php>
+            </eq>
+
+            <eq name="rtc.is_used" value="1">
+
+                <a style="color:#fff;" href="javascript:void(0)">已完成</a>
+
+                <eq name="item.is_dianping" value="0">
+
+                    <a style="color:#fff;"  href="<{:U('tuan/dianping',array('order_id'=>$item['order_id']))}>" class="button2">点评</a>
+
+                <else/>
+
+                    <a style="color:#fff;" href="javascript:void(0)">已评价</a>
+
+                </eq>
+
+            <else/>
+
+                <a style="color:#fff;" href="javascript:void(0)">已付款</a><a style="color:#fff;" href="javascript:void(0)">未消费</a>
+
+            </eq>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- 循环 -->
+
+</foreach>

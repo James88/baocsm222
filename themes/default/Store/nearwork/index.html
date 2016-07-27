@@ -1,0 +1,54 @@
+<include file="public:header"/>
+
+<body>
+<header> <i class="left"><a href="<{:U('index/index')}>" id="icon_goback"></a></i>
+    <div class="title">人才招聘</div></header>
+<section>
+	<script>
+		$(function(){
+			$(".sh_prompt_infor_closs").click(function(){
+				$(".sh_prompt_infor_box").hide();
+			});
+		});
+    </script>
+	<div class="sh_prompt_infor_box">
+    	<p>缺人才怎么办，这里可以发布您的招聘信息，为您找到您需要的人才！</p>
+        <div class="sh_prompt_infor_closs"></div>
+    </div>
+    <div class="sh_search_box mb10">
+    <form method="post" action="<{:U('nearwork/index')}>">
+        <div class="sh_search_int"> <span>输入标题</span>
+            <input type="text" name="keyword" value="<{$keyword}>">
+            <input type="submit" class="btn" value="搜索">
+        </div>
+    </form> 
+    </div>
+    <div class="sh_coupon_tab_box">
+    	<div class="sh_list_public_box">
+            <ul>
+            
+            	 <foreach name="list" item="item">
+                     <li class="list_box mb10" style="border-top:1px solid #dedede;">
+                        <div>
+                            <div class="sh_coupon_nr">
+                                <div class="wz">
+                                    <p><b class="fl overflow_clear"><{$item.title}></b><span class="fr"><if condition="$item['audit'] eq 1">正常<else/>未审核</if></span>
+                                        <div class="clear"></div>
+                                    </p>
+                                    <p><span class="mr20">有效期:<{$item.expir_date}></span><span class="mr20">浏览量：<{$item.views}></span></p>
+                                </div>
+                            </div>
+                            <div class="btn_box" style="border-top:1px solid #dedede;"><a class="btn" href="<{:U('nearwork/edit',array('work_id'=>$item['work_id']))}>">编辑</a></div>
+                        </div>
+                    </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="jobNr_span">
+    <{$page}>
+    </div>
+</section>
+</body>
+</html>

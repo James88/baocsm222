@@ -1,0 +1,137 @@
+<include  file='public:header'/>   
+<body>
+    <header>
+        <div class="header_color">
+           <a href="<{:U('ding/index')}>"><i class="icon-goback"></i></a>
+            <div class="title">订座订单详情</div>
+        </div>
+    </header>
+    <div class="page-center-box">
+    	<div id="scroll">
+        	<div class="sh_list_public_box">
+                <ul>
+                    <li class="list_box mb10">
+                    	
+                        
+                        <div>
+                            <div class="sh_buy_bt">
+                                <div class="fl">订单号：<{$arr.order_no}></div>
+                                <div class="fr sh_buy_bt_time">预约时间：<{$arr.last_date}> &nbsp;<{$arr.last_t}></div>
+                            </div>
+                            <div class="buy_nr" style="border-bottom:1px solid #dedede;">
+                                
+                                <p><span class="fl mr20">预计人数：<{$arr.number}></span><span class="fr">支付定金：<{:round($arr['need_price']/100,2)}> 元 &nbsp;&nbsp; (<if condition="$arr[status] eq 1"> 未消费 <elseif condition="$arr[status] eq 2"/> 已消费 <elseif condition="$arr[status] eq -1"/> 已退款 <else/>未支付</if>)</span></p>
+                                <p><span class="fl mr20">地点：<{$arr.room_id}></span><span class="fr">联系人：<{$arr.name}> &nbsp;（<if condition="$sex eq 2">女士<else/>先生</if>）</span></p>
+                                <p><span class="fl">电话：<{$arr.mobile}></span></p>
+                                
+                            </div>
+                            <if condition="$arr[menu][0][0] gt 0">
+                            <volist name='arr.menu' id='item'>
+                            <div class="sh_buy_nr">
+                                <div class="img"><img width="148" height="100" src="__ROOT__/attachs/<{$menu[$item[0]][photo]}>" /></div>
+                                <div class="wz">
+                                    <p><{$menu[$item[0]][menu_name]}></p>
+                                    <p><span class="mr20">优惠价：<{:round($menu[$item[0]][ding_price]/100,2)}>元</span>数量：<{$item[1]}></p>
+                                    <p class="con_ri"><span class="mr20">单价：<{:round($menu[$item[0]][ding_price]*$item[1]/100,2)}>元</span></p>
+                                </div>
+                            </div>
+                            </volist>
+                            </if>
+                            
+                            <div class="sh_buy_date"><span></span><span>总计： <{:round($order[total_price]/100,2)}>元</span></div>
+                            <div class="buy_nr" style="border-bottom:1px solid #dedede;">
+                                <p>买家留言：<{$arr.tip}></p>
+                            </div>              
+                        </div>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--<div class="af_content">
+    	 <table  border="0" cellspacing="0" width="100%"  style=" border-collapse: collapse; margin:0px; vertical-align:middle; text-align:center;">
+            <tr>
+                <td width="120"><p class="tuanfabu_t">订单号：</p></td>
+                <td><div class="tuanfabu_nr">
+                <{$arr.order_no}>
+                </div></td>
+            </tr>
+            
+             <tr>
+                <td width="120"><p class="tuanfabu_t">地点：</p></td>
+                <td><div class="tuanfabu_nr">
+                <{$arr.room_id}>
+                </div></td>
+            </tr>
+            
+             <tr>
+                <td width="120"><p class="tuanfabu_t">预约时间：</p></td>
+                <td><div class="tuanfabu_nr">
+                <{$arr.last_date}> &nbsp;<{$arr.last_t}>
+                </div></td>
+            </tr>
+            
+            <tr>
+                <td width="120"><p class="tuanfabu_t">预计人数：</p></td>
+                <td><div class="tuanfabu_nr">
+                <{$arr.number}> 
+                </div></td>
+            </tr>
+            
+             <tr>
+                <td width="120"><p class="tuanfabu_t">支付定金：</p></td>
+                <td><div class="tuanfabu_nr">
+                <{:round($arr['need_price']/100,2)}> 元 &nbsp;&nbsp; (<if condition="$arr[status] eq 1"> 未消费 <elseif condition="$arr[status] eq 2"/> 已消费 <elseif condition="$arr[status] eq -1"/> 已退款 <else/>未支付</if>)
+                </div></td>
+            </tr>
+            
+             <tr>
+                <td width="120"><p class="tuanfabu_t">联系人：</p></td>
+                <td><div class="tuanfabu_nr">
+                <{$arr.name}> &nbsp;（<if condition="$sex eq 2">女士<else/>先生</if>）
+                </div></td>
+            </tr>
+            
+            <tr>
+                <td width="120"><p class="tuanfabu_t">电话：</p></td>
+                <td><div class="tuanfabu_nr">
+                	<{$arr.mobile}> 
+                </div></td>
+            </tr>
+            
+            <tr>
+                <td width="120"><p class="tuanfabu_t">买家留言：</p></td>
+                <td><div class="tuanfabu_nr">
+                	<{$arr.tip}> 
+                </div></td>
+            </tr>
+        </table>
+         <if condition="$arr[menu][0][0] gt 0">
+        <div style="margin-top:10px;"></div>
+        <table class="tuanfabu_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+        	
+            <tr>
+                <td width="20%"><p class="tuanfabu_nr">菜名</p></td>
+                <td width="20%"><div class="tuanfabu_nr">缩略图</div></td>
+                <td width="20%"><p class="tuanfabu_nr">优惠价</p></td>
+                <td width="20%"><p class="tuanfabu_nr">数量</p></td>
+                <td width="20%"><p class="tuanfabu_nr">单价</p></td>
+            </tr>
+            <volist name='arr.menu' id='item'>
+            	<tr>
+                    <td width="20%"><p class="tuanfabu_nr"><{$menu[$item[0]][menu_name]}></p></td>
+                    <td width="20%"><div class="tuanfabu_nr"><img style="margin: 10px auto; width: 120px;" src="__ROOT__/attachs/<{$menu[$item[0]][photo]}>" /></div></td>
+                    <td width="20%"><p class="tuanfabu_nr"><{:round($menu[$item[0]][ding_price]/100,2)}>元</p></td>
+                    <td width="20%"><p class="tuanfabu_nr"><{$item[1]}></p></td>
+                    <td width="20%"><p class="tuanfabu_nr"><{:round($menu[$item[0]][ding_price]*$item[1]/100,2)}>元</p></td>
+                </tr>
+            </volist>
+            <tr>
+            	<td colspan="6" class="tuanfabu_t"> 总价 ： <{:round($order[total_price]/100,2)}>元 &nbsp; 支付定金：  <{:round($order[need_price]/100,2)}>元</td>
+            </tr>
+            
+        </table>
+    </div>-->
+</div>
+<include  file='public:footer'/>

@@ -1,0 +1,67 @@
+<include file="public:header"/>
+<header>
+	<i class="left"><a id="icon_goback" href="<{:U('index/index')}>"></a></i>
+    <div class="title">家政服务</div>
+    <i class="right"></i>
+</header>
+<section>
+	<script>
+		$(function(){
+			$(".sh_prompt_infor_closs").click(function(){
+				$(".sh_prompt_infor_box").hide();;
+			});
+		});
+    </script>
+	<div class="sh_prompt_infor_box">
+    	<p>家政需要用金块查看用户联系方式滴</p>
+        <div class="sh_prompt_infor_closs"></div>
+    </div>
+    <div class="sh_search_box">
+    <form action="<{:U('housework/index')}>" method="post">
+        <div class="sh_search_int">
+            <span>输入昵称</span>
+            <input type="text" name="keyword" placeholder="请输入服务内容！" value="<{$keyword}>">
+            <input type="submit" class="btn" value="搜索">
+        </div>
+   </form>
+    </div>
+    <div class="sh_list_public_box">
+        <ul>
+           <foreach name="list" item="item">
+            <li class="list_box mb10">
+            	<div class="sh_housekeeping_service_list">
+                    <div class="nr">
+                        <p><b class="fl"><{$workTypes[$item['svc_id']]}></b><span class="fr">服务时间：<{$item.svctime}></span></p>
+                        <p>内容：<{$item.contents}></p>
+                       
+                         <if condition="!empty($looks[$item['housework_id']])">
+                             <p>地址：<{$item.addr}></p>
+                        <else/>
+                             <p>地址：<{:msubstr($item['addr'],0,5)}></p>
+                        </if>
+                        <p>限制商家： <font color='red'><{$item.buy_num}></font>/<{$item.num}></p>
+                    </div>
+                    <p class="time"><span class="fl">创建时间:<{$item.create_time|date="Y-m-d",###}></span><span class="fr"><eq name="item.is_real" value="1">真实需求<else/>未确认</eq></span></p>
+                    
+                    <if condition="!empty($looks[$item['housework_id']])">
+                    	<p class="contact bg1"><span class="fl mr20">姓名：<{$item.name}></span><span class="fl">电话：<{$item.tel}></span></p>
+                    <else/>
+                    	 <p class="contact bg1"><span class="fl mr20">姓名：***</span><span class="fl">电话：***</span></p>
+                    </if>
+                   
+                    <div class="btn_box">
+                    <if condition="!empty($looks[$item['housework_id']])">           已经购买
+                                     <else/>
+                            <a mini="act"    style="color:red" class="btn" href="<{:U('housework/look',array('housework_id'=>$item['housework_id']))}>">立刻花<{$item.gold}>金块查看</a>
+                                </if>
+                                </div>
+                </div>
+            </li>
+            </foreach>
+        </ul>
+    </div>
+<div class="jobNr_span">
+<{$page}>
+</div>
+</section>
+<include file="public:footer"/>

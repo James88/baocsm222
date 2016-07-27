@@ -1,0 +1,137 @@
+<include  file='public:header'/>    
+
+<body>
+	<header>
+		<a href="<{:U('life/index')}>"><i class="icon-goback"></i></a>
+		<div class="title"> <{$cate.cate_name}></div>
+        <i class="icon-menu" style="margin-right:0.30rem;"><a href="<{:U('life/fabu',array('cat'=>$_GET['cat']))}>">发布</i>
+		<i class="icon-menu" id="ico_6"></i></a>
+	</header>
+	<!-- 筛选TAB -->
+    <script>
+		$(function(){
+			$("#search-bar li").each(function(e){
+				$(this).click(function(){
+					if($(this).hasClass("on")){
+						$(this).parent().find("li").removeClass("on");
+						$(this).removeClass("on");
+						$(".serch-bar-mask").hide();
+					}
+					else{
+						$(this).parent().find("li").removeClass("on");
+						$(this).addClass("on");
+						$(".serch-bar-mask").show();
+					}
+					$(".serch-bar-mask .serch-bar-mask-list").each(function(i){
+						
+						if(e==i){
+							$(this).parent().find(".serch-bar-mask-list").hide();
+							$(this).show();
+						}
+						else{
+							$(this).hide();
+						}
+						$(this).find("li").click(function(){
+							$(this).parent().find("li").removeClass("on");
+							$(this).addClass("on");
+						});
+					});
+				});
+			});
+		});
+    </script>
+    
+	<div id="search-bar">
+		<ul>
+			<li><span>区域</span><i></i></li>
+			<li><span><{$cate['select1']}></span><i></i></li>
+			<li><span><{$cate['select2']}></span><i></i></li>
+			<li><span><{$cate['select3']}></span><i></i></li>
+		</ul>
+	</div>
+	<div class="serch-bar-mask" style="display:none;">
+        <div class="serch-bar-mask-list">
+            <ul>
+                <li class="on"><a href="<{:LinkTo('life/lists',$linkArr,array('area'=>0))}>">全部地区</a></li>
+                <volist name="areas" id="ae">
+                	<li><a href="<{:LinkTo('life/lists',$linkArr,array('area'=>$ae['area_id']))}>"><{$ae.area_name}></a></li>
+                </volist>
+            </ul>
+        </div>
+        <div class="serch-bar-mask-list">
+            <ul>
+                <li class="on"><a href="<{:LinkTo('life/lists',$linkArr,array('s1'=>0))}>">全部</a></li>
+                <volist name="attrs['select1']" id="select1">
+                	<li><a href="<{:LinkTo('life/lists',$linkArr,array('s1'=>$select1['attr_id']))}>"><{$select1['attr_name']}></a></li>
+                </volist>
+            </ul>
+        </div>
+        <div class="serch-bar-mask-list">
+            <ul>
+                <li class="on"><a href="<{:LinkTo('life/lists',$linkArr,array('s2'=>0))}>">全部</a></li>
+                <volist name="attrs['select2']" id="select2">
+                	<li><a href="<{:LinkTo('life/lists',$linkArr,array('s2'=>$select2['attr_id']))}>"><{$select2['attr_name']}></a></li>
+                </volist>
+            </ul>
+        </div>
+        <div class="serch-bar-mask-list">
+            <ul>
+                <li class="on"><a href="<{:LinkTo('life/lists',$linkArr,array('s3'=>0))}>">全部</a></li>
+                 <volist name="attrs['select3']" id="select3">
+                	<li><a href="<{:LinkTo('life/lists',$linkArr,array('s3'=>$select3['attr_id']))}>"><{$select3['attr_name']}></a></li>
+                </volist>
+            </ul>
+        </div>
+        <div class="serch-bar-mask-bg"></div>
+    </div>
+	<div id="life" class="page-center-box">
+		<div id="scroll">
+
+        	<div class="serch-bar-mask" style="display:none;">
+                <div class="serch-bar-mask-list">
+                    <ul>
+                        <li <if condition="$_GET['area']==0">class="on"</if> ><a href="<{:LinkTo('life/lists',$linkArr,array('area'=>0))}>">全部地区</a></li>
+                        <volist name="areas" id="ae">
+                        	<li <if condition="$_GET['area']==$ae['area_id']">class="on"</if>><a href="<{:LinkTo('life/lists',$linkArr,array('area'=>$ae['area_id']))}>"><{$ae.area_name}></a></li>
+                        </volist>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-list">
+                    <ul>
+                        <li <if condition="$_GET['s1']==0">class="on"</if>><a href="<{:LinkTo('life/lists',$linkArr,array('s1'=>0))}>">全部</a></li>
+                        <volist name="attrs['select1']" id="select1">
+                        	<li <if condition="$_GET['s1']==$select1['attr_id']">class="on"</if>><a href="<{:LinkTo('life/lists',$linkArr,array('s1'=>$select1['attr_id']))}>"><{$select1['attr_name']}></a></li>
+                        </volist>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-list">
+                    <ul>
+                        <li  <if condition="$_GET['s2']==0">class="on"</if>><a href="<{:LinkTo('life/lists',$linkArr,array('s2'=>0))}>">全部</a></li>
+                        <volist name="attrs['select2']" id="select2">
+                        	<li <if condition="$_GET['s2']==$select2['attr_id']">class="on"</if>><a href="<{:LinkTo('life/lists',$linkArr,array('s2'=>$select2['attr_id']))}>"><{$select2['attr_name']}></a></li>
+                        </volist>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-list">
+                    <ul>
+                       <li <if condition="$_GET['s3']==0">class="on"</if>><a href="<{:LinkTo('life/lists',$linkArr,array('s3'=>0))}>">全部</a></li>
+                         <volist name="attrs['select3']" id="select3">
+                        	<li <if condition="$_GET['s3']==$select3['attr_id']">class="on"</if>><a href="<{:LinkTo('life/lists',$linkArr,array('s3'=>$select3['attr_id']))}>"><{$select3['attr_name']}></a></li>
+                        </volist>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-bg"></div>
+            </div>
+			<!-- 列表 -->
+			<div class="list-have-pic">
+				
+
+			</div>
+			<script>
+        		$(document).ready(function () {
+            		loaddata('<{$nextpage}>', $(".list-have-pic"), true);
+       		    });
+    		</script>
+		</div>
+	</div>
+<include file="public:footer"/>

@@ -1,0 +1,13 @@
+<foreach name="list" item="item">
+    <li>
+        <div class="feedback_con fl">
+            <a href="<{:U('feedback/detail',array('feed_id'=>$item['feed_id']))}>">
+                <p><{:bao_msubstr($item['title'],0,16,false)}></p>
+                <div class="time">时间:<{$item.create_time|date='Y-m-d',###}></div>
+            </a>
+        </div>
+        <div class="operation fr">
+            <div class="huifu fr"><if condition="$item['reply'] eq null"><a href="<{:U('feedback/reply',array('feed_id'=>$item['feed_id']))}>">回复</a><else/><a href="javascript:void(0);">已回复</a></if></div>  
+        </div>
+    </li>
+</foreach>

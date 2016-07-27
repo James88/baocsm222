@@ -1,0 +1,35 @@
+<include  file='public:header'/> 
+<body id="micro_shop">
+	<header>
+		<a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">附近工作</div>
+		<div ><a  href="<{:U('index/search')}>" ><i class="icon-menu" id="ico_2"></i></a></div>
+		
+		
+	</header>
+	<script>
+		$(function(){
+			$(".icon-menu").click(function(){
+				$().show();
+				
+			});
+			
+		});
+	</script>
+    <div id="seat" class="page-center-box">
+    	<div id="scroll">
+            <div class="micro_top">
+                <calldata mdl="Ad" where=" closed=0 AND site_id=36 AND city_id IN ({$city_ids})  and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,1" cache="7200" order="orderby asc">
+                    <img src="__ROOT__/attachs/<{$item.photo}>" />
+                </calldata>
+            </div>
+            <div class="work-here">附近职位</div> 
+        </div> 
+    </div>
+	<script>
+            $(document).ready(function () {
+                loaddata('<{$nextpage}>', $(".work-here"), true);
+            });
+    </script>
+    <iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+<include file="public:footer"/>

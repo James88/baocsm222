@@ -1,0 +1,29 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+        <h1>消息详情</h1>
+    </header>     
+
+    <section class="exchange_yes">
+        <div class="container">
+            <if condition="$message neq null" >
+                <div class="lable01"></div>
+                <div class="text_column">
+                    <php> echo($message); </php>
+                    <div class="lable"></div>
+                </div>
+                <else/>
+                <div class="lable02"></div>
+                <div class="text_column">
+                    <php> echo($error); </php>
+                    <div class="lable"></div>
+                </div>
+            </if>
+            <a href="<{:U('index/index')}>"><div class="tbn_01">返回首页</div></a>
+            <a href="<{$jumpUrl}>"><div class="tbn_02">我知道了</div></a>
+
+            <div class="cartoon02"></div>
+        </div>
+    </section>
+
+<include  file='public:footer'/> 

@@ -1,0 +1,61 @@
+
+
+
+<include file="public:header"/>
+<body>
+	<header>
+		<a href="<{:U('mall/main')}>"><i class="icon-goback"></i></a>
+		<div class="title">购物详情</div>
+		<i class="icon-menu" id="ico_1"></i>
+	</header>
+	<div id="life" class="page-center-box">
+		<div id="scroll">
+			<div class="mall-form">
+				<ul>
+					<li class="mall-bt">购买须知</li>
+					<li class="mall-notice">
+						<{$detail.instructions}>
+					</li>
+				</ul>
+			</div>
+			<div class="mall-form mall-details">
+				<ul>
+					<li class="mall-bt">本单详情</li>
+					<li class="mall-notice">
+						<ul class="mall-xq">
+							<li>商品名称</li>
+							<li>单价</li>
+							<li>数量/规格</li>
+							<li>小计</li>
+						</ul>
+						<a href="">
+							<ul class="mall-xq mall-xq2">
+								<li><{:bao_msubstr($detail['title'],0,12,false)}></li>
+								<li>&yen;<{:round($detail['mall_price']/100,2)}></li>
+								<li><{:round($detail['mall_price']/$detail['price']*10,1)}>折</li>
+								<li>&yen;<{:round($detail['mall_price']/100,2)}></li>
+							</ul>
+						</a>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<{$detail.title}>
+					</li>
+
+				</ul>
+			</div>
+			<div class="mall-form mall-details">
+				<ul>
+					<li class="mall-bt">商家介绍</li>					
+					<li>
+						<a href=""> <img src="__ROOT__/attachs/<{$detail.photo}>" width="100%"></a>
+						<p></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+    
+	<footer class="footer-cart">
+		<a href="<{:U('mall/buy',array('goods_id'=>$detail['goods_id']))}>"><div class="btn-long">立即购买</div></a>
+	</footer>

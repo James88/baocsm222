@@ -1,0 +1,81 @@
+<include file='public:header'/>
+
+<body>
+<header> 
+	<i class="left"><a href="<{:U('index/index')}>" id="icon_goback"></a></i>
+    <div class="title">订座订单管理</div></header>
+<section>
+	<div class="sh_search_box">
+        <script>
+			$(function(){
+				$(".sh_search_more_int .center").click(function(){
+						$(this).find(".sh_search_more_pull").toggle();
+				});
+				$(".sh_search_more_pull li").click(function(){
+						$(".sh_search_more_int .center input").val($(this).html());
+				});
+			});
+		</script>
+        <div class="sh_search_more">
+            <form method="post" action="<{:U('ding/index')}>">
+            <div class="sh_search_int"> <span>订单编号</span>
+           	 <input type="hidden" value='<{$status}>' name='status'>
+                <input type="text"  name="order_no" value="<{$order_no}>">
+                <input type="submit" class="btn" value="搜索">
+            </div>
+             </form>
+        </div>
+    </div>
+    <div class="sh_buy_tab mb10">
+	    <ul>
+	        <li <if condition="empty($status) || $status eq 3"> class="on" </if>><a href="<{:U('ding/index',array('status'=>'3'))}>">未消费</a></li>
+           	<li <if condition="$status eq 4">  class="on" </if>><a href="<{:U('ding/index',array('status'=>'4'))}>">已消费</a></li>
+            <li <if condition="$status eq 2">  class="on" </if>><a href="<{:U('ding/index',array('status'=>'2'))}>">未支付</a></li>
+            <li <if condition="$status eq 1">  class="on" </if>><a href="<{:U('ding/index',array('status'=>'1'))}>">已退款</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+    <div class="sh_infor_tab_box" style="display:;">
+    	<div class="sh_buy_fabu">
+            <div class="sh_list_public_box">
+                <ul>
+                	
+                	 <foreach name="list" item="var">
+                       
+                        
+                         <li class="list_box mb10">
+                            <div>
+                                <div class="sh_buy_bt">
+                                    <div class="fl">订单号:<{$var.order_no}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">
+                                        <p class="black3">预计人数:<{$arr[$var['ding_id']]['number']}></p>
+                                        <p class="black3">支付定金：<{:round($var['need_price']/100,2)}>元</p>
+                                        <p class="black3"><span class="mr10"><{$var.name}></span><{$var.mobile}></p>
+                                    </div>
+                                </div>
+                                
+                                <if condition="empty($status) || $status eq 3 || $status eq 4">  
+                                <div class="sh_buy_date">预约时间:<{$arr[$var['ding_id']]['last_date']}> <{$arr[$var['ding_id']]['last_t']}></div>
+                                <div class="btn_box"><a class="btn" href="<{:U('ding/detail',array('order_id'=>$var['order_id']))}>">查看</a></div>						
+                                <else/>
+                                 <div class="sh_buy_date" style="border-bottom:none 0px;">预约时间:<{$arr[$var['ding_id']]['last_date']}> <{$arr[$var['ding_id']]['last_t']}></div>
+                                </if>
+                                
+                            </div>
+                        </li>
+                    </foreach>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jobNr_span">
+    <{$page}>
+    </div>
+   
+</section>
+</body>
+</html>
+

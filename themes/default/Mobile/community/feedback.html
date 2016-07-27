@@ -1,0 +1,27 @@
+<include  file='public:header'/>
+<body id="life_service">
+	<header>
+		<a href="<{:U('community/index',array('community_id'=>$community_id))}>"><i class="icon-goback"></i></a>
+		<div class="title">意见反馈</div>
+	</header>
+	<form action="<{:U('community/feedback',array('community_id'=>$community_id))}>" method="POST">
+	<div class="page-center-box">
+		<div class="scroll">
+			<div class="idea-form">
+				<ul>
+					<li>主题</li>
+					<li><textarea name="data[title]" class="idea-text"></textarea></li>
+					<li>留言</li>
+					<li><textarea name="data[content]" placeholder="在这里留下您的意见吧..." class="idea-text2"></textarea></li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+	<footer class="idea-input">
+		<input type="submit" value="提 交" class="idea-sub">
+		<input type="button" value="重 置" class="idea-but">
+	</footer>
+    </form>
+</body>
+</html>

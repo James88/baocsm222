@@ -1,0 +1,90 @@
+<include  file='public:header'/>  
+<script> var BAO_PUBLIC = '__PUBLIC__';
+    var BAO_ROOT = '__ROOT__';</script>
+
+<body>
+    <iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+    <header>
+
+        <i class="icon-goback"></i>
+        <div class="title">找回密码</div>
+    </header>
+    <script>
+        var mobile_timeout;
+        var mobile_count = 100;
+        var mobile_lock = 0;
+        $(function () {
+            $("#m_zcyz").click(function () {
+                if (mobile_lock == 0) {
+                    mobile_lock = 1;
+                    $.ajax({
+                        url: '<{:U("passport/findsms")}>',
+                        data: 'mobile=' + $("#mobile").val() + '&account=' + $("#account").val(),
+                        type: 'post',
+                        success: function (data) {
+                            if (data == 1) {
+                                mobile_count = 60;
+                                BtnCount();
+                            } else {
+                                mobile_lock = 0;
+                                alert(data);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        BtnCount = function () {
+            if (mobile_count == 0) {
+                $('#m_zcyz').html("重新发送");
+                mobile_lock = 0;
+                clearTimeout(mobile_timeout);
+            }
+            else {
+                mobile_count--;
+                $('#m_zcyz').html("获取(" + mobile_count.toString() + ")秒");
+                mobile_timeout = setTimeout(BtnCount, 1000);
+            }
+        };
+
+        $(document).ready(function (e) {
+            $(document).on('click', '.yzm_code', function () {
+                $("#" + $(this).attr('rel')).attr('src', BAO_ROOT + '/index.php?g=app&m=verify&a=index&mt=' + Math.random());
+            });
+        });
+
+    </script>    
+    <section class="item_content">
+        <div class="forget_sub_area">
+            <a href="<{:U('passport/forget',array('way'=>2))}>" class="findmm_tab <if condition='$way eq 2'>on</if> u_mobile">通过手机</a>
+            <a href="<{:U('passport/forget',array('way'=>1))}>" class="findmm_tab <if condition='$way eq 1'>on</if> u_email">通过邮箱</a>
+        </div>
+        <div class="loginBox">
+            <form  action="<{:U('passport/newpwd')}>" method="post" target="baocms_frm">
+                <if condition="$way eq 2">
+                    <div class="inputBox on" rel="2">
+                        <input type="text" class="line icon_user" name="mobile" id="mobile" placeholder="请输入手机号" value="" />
+                        <input type="text" class="line icon_user" name="account" id="account" placeholder="请输入用户名" value="" />
+                        <div class="lineBox">
+                            <input type="text" class="line line_yzm" name="scode" placeholder="请输入验证码" value="" />
+                            <a class="regist-code-get" id="m_zcyz" href="javascript:void(0);">获取验证码</a>
+                        </div>
+                    </div>
+                    <elseif condition="$way eq 1"/>    
+                    <div class="inputBox on" rel="1">
+                        <input type="text" class="line icon_user" name="email"  placeholder="请输入邮箱" value="" />
+                        <input type="text" class="line icon_psw" name="account" placeholder="请输入用户名" value="" />
+                        <div class="lineBox">
+                            <input name="yzm" type="text"  placeholder="请输入验证码" class="line line_yzm" /><a href="javascript:void(0);" class="baott_yzm_getA" rel="bao_yzm_code"><img style="height:36px;" id="bao_yzm_code"  src="__ROOT__/index.php?g=app&m=verify&a=index&mt=<{:time()}>" /> </a>
+                        </div>
+                    </div>
+                </if>
+                <div class="">
+                    <input type="hidden" name="way" id="way" value="<{$way}>" />
+                    <input type="submit" value="获取新密码" class="submit-btn"/>
+                </div>
+            </form> 
+
+        </div>
+    </section>
+<include file="public:footer"/>

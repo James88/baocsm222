@@ -1,0 +1,57 @@
+<include  file='public:header'/>       
+<header> 
+	<a href="<{:U('store/index/index')}>"><i class="left" id="icon_goback"></i></a>
+    <div class="title">分店地址</div>
+    <!--<i class="right"><a href="#">+添加分店</a></i> -->
+</header>
+
+<section>
+	<script>
+		$(function(){
+			$(".sh_prompt_infor_closs").click(function(){
+				$(".sh_prompt_infor_box").hide();
+			});
+		});
+    </script>
+    <form method="post" action="<{:U('branch/index')}>">
+    <div class="sh_search_box">
+        <div class="sh_search_int"> <span>分店名称/地址</span>
+            <input type="text"  name="keyword" value="<{$keyword}>">
+            <input type="submit" class="btn" value="搜索">
+        </div>
+    </div>
+    </form>
+    <div class="sh_coupon_tab_box">
+    	<div class="sh_list_public_box">
+            <ul>
+            
+            	<volist name="list" id="var">
+
+                    <li class="list_box mb10" style="border-top:1px solid #dedede;">
+                        <div>
+                            <div class="sh_coupon_nr">
+                                <div class="wz">
+                                    <p class="black3"><{$var.name}></p>
+                                    <p><span class="mr20"><{$city[$var['city_id']]['name']}></p>
+                                </div>
+                            </div>
+                            <div class="sh_buy_date bg1">
+                                <p><{$var.create_time|date='Y-m-d H:i',###}><span><eq name="var.audit" value="0">等待审核<else/>正常</eq></span></p>
+                                <p class="addr"><span class="fl"><{$area[$var['area_id']]['area_name']}><{$business[$var['business_id']]['business_name']}></span><span class="fr"><{$var.score}>分</span>
+                                    <div class="clear"></div>
+                                </p>
+                            </div>
+                            <div class="btn_box"><a class="btn" mini="confirm" href="<{:U('branch/delete',array('branch_id'=>$var['branch_id']))}>">删除</a></div>
+                        </div>
+                    </li>
+                
+                
+                </volist>
+            
+            </ul>
+        </div>
+        <div class="jobNr_span"><{$page}></div>
+    </div>
+</section>
+</body>
+</html>

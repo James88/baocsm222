@@ -1,0 +1,25 @@
+            <foreach name='list' item='item'>
+            <div class="send-out">
+                <div class="list-have-pic shop-list">
+                    <!-- 循环 -->
+                    <div class="list-box">
+                        <a href="<{:U('jifen/detail',array('goods_id'=>$item['goods_id']))}>">
+                            <div class="list-img">
+                                <img src="__ROOT__/attachs/<{$item.face_pic}>" />
+                            </div>
+                            <div class="list-content activ-list-content">
+                                <p id="order-title" class="activ-title"><{:bao_msubstr($item['title'],0,28,false)}></p>
+                                <p class="integral_mall_lp"><span class="mr25">积分：<{$item.integral}></span><span class="mr25" style='text-decoration:line-through;'>原价:&yen;<{$item.price}></span></p>
+                                <div class="integral_mall_sy_btn">
+                                    <p class="integral_mall_lp fl"><span class="mr25">数量：<{$item.num}></span><span class="mr25">已兑:<{$item.exchange_num}></span></p>
+                                    <a class="btn fr"  href="<{:U('jifen/detail',array('goods_id'=>$item['goods_id']))}>">兑换</a>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 循环 -->
+                </div>
+            </div>
+            </foreach>
+            

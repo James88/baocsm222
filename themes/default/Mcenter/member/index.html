@@ -1,0 +1,98 @@
+<include file="public:header"/>
+
+<body>
+	<header>
+            <a href="<{:U('mobile/index/index')}>"><i class="icon-goback"></i></a>
+            <div class="title">我的中心</div>
+	</header>
+    <div id="personal" class="page-center-box">
+        <div id="scroll">
+            <div class="info">
+            	<a style="display:block" href="<{:U('/mcenter/information')}>">
+                <div class="info-img"><img src="__ROOT__/attachs/<{$MEMBER.face|default='default.jpg'}>" /></div>
+                <div class="info-content">
+                	<p><{$MEMBER.nickname}></p>
+                    <p class="icon"><{$MEMBER.mobile}></p>
+                    <i></i>
+                    </a>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div class="mine-list">
+                <ul>
+                    <li>
+                        <div class="mine-list-content"><p><big><{$MEMBER.integral}></big>分</p>我的积分</div>
+                    </li>
+                    <li>
+                        <div class="mine-list-content"><p class="c2"><big><{:round($MEMBER['money']/100,2)}></big>元</p>我的余额</div>
+                    </li>
+                    <li>
+                        <div class="mine-list-content"><p class="c3"><big><{$order}></big>个</p>我的订单</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-box">
+                <ul>
+                    <li>
+                        <a href="<{:U('/mcenter/tuan')}>" class="i-1">我的抢购
+                        <i></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mcenter/goods')}>" class="i-2">我的购物
+                        <i></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mcenter/eleorder')}>" class="i-3">我的订餐
+                        <i></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mcenter/ding')}>" class="i-4">我的订座
+                        <i></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-box">
+                <ul>
+                    <li>
+                        <a href="<{:U('/mcenter/tuancode')}>" class="i-5">我的抢购券
+                        <i></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mcenter/coupon')}>" class="i-6">我的优惠券
+                        <i></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mcenter/hdmobile')}>" class="i-7">我的活动
+                        <i></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mobile/favorites')}>" class="i-9">我的收藏
+                        <i><{$rsf}></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mcenter/yuyue/index',array('status'=>2))}>" class="i-1">我的预约
+                        <i></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-box">
+                <ul>
+                    <li>
+                        <a href="<{:U('/mcenter/exchange')}>" class="i-10">积分兑换
+                        <i></i></a>
+                    </li>
+         
+                    <li>
+                        <a href="<{:U('/mcenter/cash')}>" class="i-12">提现申请
+                        <i></i></a>
+                    </li>
+                    <li>
+                        <a href="<{:U('/mcenter/message')}>" class="i-8">消息中心
+                        <i></i></a>
+                    </li>
+                </ul>
+            </div>
+            <input type="button" class="submit" value="退出当前账号" onClick="javascript:window.location.href='<{:U('mobile/passport/logout')}>';">
+        </div>
+    </div>
+<include  file='public:footer'/>

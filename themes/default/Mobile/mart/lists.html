@@ -1,0 +1,160 @@
+<include  file='public:header'/>
+<body style="overflow-x:hidden;"  id="micro_shop">
+    <header>
+        <a href="<{:U('mart/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">“<{$detail.shop_name}>”的微店</div>
+        <i class="icon-menu" id="ico_2"></i>
+    </header>
+    <div id="ele" class="page-center-box">
+        <div id="scroll">
+            <!-- 广告 -->
+            <div class="ads">
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $(".main_image").touchSlider({
+                            flexible: true,
+                            speed: 200,
+                            btn_prev: $("#btn_prev"),
+                            btn_next: $("#btn_next"),
+                            paging: $(".flicking_con a"),
+                            counter: function (e) {
+                                $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+                            }
+                        });
+                        $(".main_image").bind("mousedown", function () {
+                            $dragBln = false;
+                        });
+                        $(".main_image").bind("dragstart", function () {
+                            $dragBln = true;
+                        });
+                        $(".main_image a").click(function () {
+                            if ($dragBln) {
+                                return false;
+                            }
+                        });
+                        timer = setInterval(function () {
+                            $("#btn_next").click();
+                        }, 5000);
+                        $(".ele_banner").hover(function () {
+                            clearInterval(timer);
+                        }, function () {
+                            timer = setInterval(function () {
+                                $("#btn_next").click();
+                            }, 5000);
+                        });
+                        $(".main_image").bind("touchstart", function () {
+                            clearInterval(timer);
+                        }).bind("touchend", function () {
+                            timer = setInterval(function () {
+                                $("#btn_next").click();
+                            }, 5000);
+                        });
+                    });
+                </script>
+                <div class="ele_banner">
+                    <div class="flicking_con">
+                        <calldata mdl="Ad" where=" closed=0 AND site_id=35 AND city_id IN ({$city_ids})  and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,3" cache="7200" order="orderby asc">
+                            <a href="#"></a>
+                        </calldata>
+                    </div>
+                    <div class="main_image">
+                        <ul>
+                            <calldata mdl="Ad" where=" closed=0 AND site_id=35 AND city_id IN ({$city_ids}) and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,3" cache="7200" order="orderby asc">
+                                <li>
+                                    <a href="<{$item.link_url}>" title="<{$item.title}>">
+                                        <img src="__ROOT__/attachs/<{$item.photo}>" alt="<{$item.title}>" height="100%" />
+                                    </a>
+                                </li>
+                            </calldata> 
+                        </ul>
+                    </div>
+                    <a href="javascript:;" id="btn_prev"></a>
+                    <a href="javascript:;" id="btn_next"></a>
+                </div>
+            </div>
+            <div class="billboard-content">
+                <script>
+                    $(function () {
+                        $(".billboard-tab li").each(function (e) {
+                            $(this).click(function () {
+                                if ($(this).hasClass("on")) {
+                                    $(this).parent().find("li").removeClass("on");
+                                    $(this).removeClass("on");
+                                    $(".serch-bar-mask").hide();
+                                }
+                                else {
+                                    $(this).parent().find("li").removeClass("on");
+                                    $(this).addClass("on");
+                                    $(".serch-bar-mask").show();
+                                }
+                                $(".serch-bar-mask .serch-bar-mask-list").each(function (i) {
+
+                                    if (e == i) {
+                                        $(this).parent().find(".serch-bar-mask-list").hide();
+                                        $(this).show();
+                                    }
+                                    else {
+                                        $(this).hide();
+                                    }
+                                    $(this).find("li").click(function () {
+                                        $(this).parent().find("li").removeClass("on");
+                                        $(this).addClass("on");
+                                    });
+                                });
+                            });
+                        });
+                    });
+                </script>
+                <div class="billboard-tab">
+                    <ul>
+                        <li style="width:50%;"><span>分类</span><i></i></li>
+                        <li style="width:50%;"><span>排序</span><i></i></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask" style="display:none;">
+                    <div class="serch-bar-mask-list">
+                        <ul>
+                            <li <eq name="cate_id" value="0">class="on"</eq>><a href="?cate_id=0">全部</a></li>
+                            <volist name="autocates" id="a">
+                                <li <eq name="cate_id" value="$a.cate_id">class="on"</eq>><a href="?cate_id=<{$a.cate_id}>"><{$a.cate_name}></a></li>
+                            </volist>
+                        </ul>
+                    </div>
+                    <div class="serch-bar-mask-list">
+                        <ul>
+                            <li <eq name="tt" value="1">class="on"</eq>><a href="?tt=1">时间排序</a></li>
+                            <li <eq name="tt" value="2">class="on"</eq>><a href="?tt=2">销量排序</a></li>
+                        </ul>
+                    </div>
+                    <div class="serch-bar-mask-bg"></div>
+                </div>
+                <ul class="list" id="list-ul">
+                </ul>
+                <script>
+                    var num = '<{$cartnum}>';
+                    $(document).ready(function (e) {
+                        loaddata('<{$next}>', $(".list"), true);
+                        $(document).on('click', '.jq_addcart', function (e) {
+                            e.preventDefault();
+                            $.get($(this).attr('href'), function (data) {
+                                if (data == 0) {
+                                    num++;
+                                    $("#num").html(num);
+                                } else {
+                                    alert(data);
+                                }
+                            }, 'html');
+                        });
+                    });
+                </script>
+            </div> 
+        </div>
+    </div>
+    <footer class="footer-cart">
+        <div class="cart">
+            <a style="color: #fff;" href="<{:U('mart/cart',array('shop_id'=>$detail['shop_id']))}>"><div class="cart-num" id="num"><{$cartnum}></div></a>
+        </div>
+        <div class="price"></div>
+        <div class="btn"><a href="<{:U('mart/cart',array('shop_id'=>$detail['shop_id']))}>" style="color:#FFFFFF;">结算</a></div>
+    </footer>

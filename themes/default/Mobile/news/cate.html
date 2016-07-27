@@ -1,0 +1,110 @@
+<include  file='public:head_niucms'/>
+
+<body>	
+
+	<!-- 头部 -->	
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+		<a href="<{:U('index/index')}>" class="mui-pull-left miui-block">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+		</a>
+		<h1 class="mui-title"><{$cate['cate_name']}></h1>
+		
+		<a href="javascript:void(0);" id="share" class="mui-pull-right miui-block">
+			<button id="cate-btn"	class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-bars"></span>
+			</button>
+		</a>
+	</header>
+
+	<!-- 主体 -->
+	<div id="main">
+	
+		<div class="cate_menu_list" id="cate_menu">
+			<div class="cate_menu_list_ul">
+				<ul>
+					<foreach name="cates" item="item">
+					<eq name="item.parent_id" value="0">
+					<li class="cate_menu_list_li">
+						<a  href="<{:U('news/cate',array('cat'=>$item['cate_id']))}>"><{$item.cate_name}></a>
+					</li>  
+					</eq>
+					</foreach>
+				</ul>
+			</div>
+		</div>
+
+		
+	<script>
+		$(document).ready(function () {
+			$("#cate-btn").click(function () {
+				$("#cate_menu").toggle();
+			});
+			
+			$("#cate_menu ul li a").click(function () {
+				$("#cate_menu").toggle();
+			});
+
+		});
+
+	</script>
+		
+		
+	
+	<!-- 首页最新 -->	
+
+		<foreach name="list" item="var">
+		<a class="egret-flex-item" href="<{:U('news/detail',array('article_id'=>$var['article_id']))}>">	
+			<div class="egret-flex-item-logo">	
+				<img src="__ROOT__/Attach/<{$var['photo']|default='default.jpg'}>" />	
+			</div>	
+			<div class="egret-flex-item-shelf">	
+				<div class="egret-flex-item-shelf01"><{$var.title}></div>	
+				<div class="egret-flex-item-shelf02"><{:niuMsubstr($var['details'],0,150)}></div>
+				<div class="egret-flex-item-shelf02">
+					<i class="iconfont">&#xe73c;</i> <{$var.views}>
+					<i class="iconfont">&#xe65e;</i> <{$var.create_time|date='Y-m-d',###}>
+				</div>	
+			</div>	
+			<div class="egret-flex-item-arrow">	
+				<img src="/static/default/mob/images/arrow.png" />	
+			</div>	
+		</a>	
+		</foreach>
+		
+	</div>
+
+
+	
+	
+
+
+<script type="text/javascript" src="/static/default/mob/js/swipe.js"></script>	
+<script type="text/javascript">	
+    function initSlide() {	
+        var $pointer = $api.byId('pointer');	
+        window.mySlide = Swipe(slide, {	
+            continuous: true,	
+            disableScroll: true,	
+            stopPropagation: true,	
+            callback: function (index, element) {	
+                var $actA = $api.dom($pointer, 'a.active');	
+                $api.removeCls($actA, 'active');	
+                $api.addCls($api.eq($pointer, index + 1), 'active');	
+                $api.html($api.byId('banner-title'), $api.attr(element, 'data-value'))	
+            },	
+            transitionEnd: function (index, element) {	
+            }	
+        });	
+    }	
+    initSlide();	
+	apiready = function(){}
+	
+	
+</script>
+
+
+
+
+<include file="public:foot_niucms"/>

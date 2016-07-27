@@ -1,0 +1,92 @@
+<include  file='public:header'/>    
+<body>
+	<header>
+		<i class="city">
+			<a href="<{:U('city/index')}>">
+				<{$city_name}>
+			</a>
+		</i>
+		<div class="title">
+        	<div class="box_search overflow_clear">
+                <a href="<{:U('index/search')}>">
+                <i></i>
+                输入商户名/品类/商品词
+                </a>
+            </div>
+        </div>
+		<i class="icon-menu" style="margin-right:0.30rem;"><a href="<{:U('sign/signed')}>">签到</i></a>
+		<a href="<{:U('sign/signed')}>"><i class="icon-menu" id="ico_7"></i></a>
+	</header>
+	<div class="page-center-box">
+		<div id="scroll">
+        	<div class="housekeeping">
+                <div class="banner">
+                    <calldata mdl="Ad" where=" closed=0 AND site_id=31 AND city_id IN ({$city_ids}) AND bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,1" cache="43200" order="orderby asc">
+                        <img src="__ROOT__/attachs/<{$item.photo}>">
+                    </calldata>
+                </div>
+                <ul class="main_service">
+                    <li>
+                        <a href="<{:U('housekeeping/appointment',array('svc_id'=>1))}>">
+                            <div class="pic"><img src="__TMPL__statics/img/hk01.png"></div>		 
+                            <div class="wenan">
+                                <p>家庭保洁</p>
+                                <span>最专业的小时工</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<{:U('housekeeping/appointment',array('svc_id'=>3))}>">
+                            <div class="pic"><img src="__TMPL__statics/img/hk02.png"></div>		 
+                            <div class="wenan">
+                                <p style="color:#2396e6;">洗衣洗鞋</p>
+                                <span>满26元免费送</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+        
+                <div class="other_service">
+                    <ul>
+                        <li>
+                            <a href="<{:U('housekeeping/appointment',array('svc_id'=>11))}>">
+                                <i><img src="__TMPL__statics/img/hk03.png"></i>
+                                <span>擦玻璃</span>
+                            </a>
+                        </li>
+                        <li  class="border_LR">
+                            <a href="<{:U('housekeeping/appointment',array('svc_id'=>6))}>">
+                                <i><img src="__TMPL__statics/img/hk04.png"></i>
+                                <span>油烟机清洗</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<{:U('housekeeping/appointment',array('svc_id'=>12))}>">
+                                <i><img src="__TMPL__statics/img/hk05.png"></i>
+                                <span>厨房保养</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<{:U('housekeeping/appointment',array('svc_id'=>2))}>">
+                                <i><img src="__TMPL__statics/img/hk06.png"></i>
+                                <span>新居开荒</span>
+                            </a>
+                        </li>
+                        <li class="border_LR">
+                            <a href="<{:U('housekeeping/appointment',array('svc_id'=>14))}>">
+                                <i><img src="__TMPL__statics/img/hk07.png"></i>
+                                <span>地板打蜡</span>
+                            </a>
+                        </li>
+                        <li class="flexbox">
+                            <a href="<{:U('housekeeping/index')}>">
+                                <i><img src="__TMPL__statics/img/hk08.png"></i>
+                                <span>更多服务</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+	</div>
+<include file="public:footer"/>

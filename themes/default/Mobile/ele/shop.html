@@ -1,0 +1,54 @@
+<include  file='public:header'/>
+<script src = "__TMPL__statics/js/elecart.js?v=20150822" ></script>
+
+	<header>
+		<a href="<{:U('mobile/ele/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">店铺菜单</div>
+	</header>
+	<div id="ele">
+		<!-- 分类 -->
+		<div class="frame-set-left">
+			<ul>
+                <li <if condition="$cat eq 0"> class="active" </if> ><a href="<{:U('ele/shop',array('shop_id'=>$detail['shop_id']))}>">全部分类</a></li>
+                <foreach name="cates" item="item">
+                    <li <if condition="$item['cate_id'] eq $cat"> class="active" </if> ><a href="<{:U('ele/shop',array('shop_id'=>$detail['shop_id'],'cat'=>$item['cate_id']))}>"><{$item.cate_name}></a></li>
+                </foreach>
+			</ul>
+		</div>
+		<div class="frame-set-right page-center-box">
+			<div id="scroll">
+				<div class="list-have-pic">
+					
+				</div>
+                 <script>
+					$(document).ready(function (e) {
+						loaddata('<{$next}>', $(".list-have-pic"), true);
+					});
+				</script>
+                
+			</div>
+		</div>
+	</div>
+	<footer class="footer-cart">
+		<div class="cart">
+			<div class="cart-num" id="num"> </div>
+		</div>
+		<div class="btn"><a href="<{:U('ele/cart')}>" style="color:#FFFFFF;">结算</a></div>
+	</footer>
+</body>
+<!--JS 购物车-->
+<script type="text/javascript">
+function addcart(o){
+	var data = {}, shop_id = "<{$_GET['shop_id']}>";
+        data['product_id'] = $(o).attr('did');
+        data['price']      = $(o).attr('val');
+        window.ele.addcart(shop_id,data);
+        $("#num").text(window.ele.count());
+}
+//初始化购物城数据
+~function(){
+	var count = window.ele.count();
+	$("#num").text(count);
+}();
+</script>
+</html>

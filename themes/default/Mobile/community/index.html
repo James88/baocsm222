@@ -1,0 +1,69 @@
+<include  file='public:header'/>
+
+<body>
+    <header>
+        <a href="<{:U('mobile/index/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">全城<i class="icon-con"  id="icon-con-1"></i></div>        
+    </header>
+    <!-- 筛选TAB -->
+    <script>
+        $(document).ready(function(){
+             $(".title").click(function(){
+                $(".serch-bar-mask").toggle();
+            });
+
+             $(".commu-qy li a").each(function(){
+                $(".commu-qy li a").click(function(){
+                    $(".commu-qy li a").removeClass("on");
+                    $(this).addClass("on");
+                })
+             })
+        });
+    </script>
+    <div class="serch-bar-mask"  style="display:none; top:1rem;">
+        <div class="commu-city">
+            <div>
+                <p><img src="__TMPL__statics/img/tp87.png"> 当前城市:<span> <{$CONFIG.site.cityname}></span></p>                   
+                <ul class="commu-qy">
+                    <li><a <if condition="$area_id  eq null">class="on"</if> href="<{:LinkTo('community/index',array('change'=>1))}>">全部</a></li>
+                    <volist name="areas" id="var" key="index">
+                        <li <if condition="$index%3 eq 2">class="area_spe"</if> >
+                            <a <if condition="$var.area_id eq $area_id">class="on"</if>  href="<{:LinkTo('community/index',array('area'=>$var['area_id'],'change'=>1))}>"><{$var.area_name}></a>
+                        </li>
+                    </volist>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="commu-quyu" class="page-center-box">
+        <div id="scroll">
+                
+                <div class="search_box">
+                   <form method="post"  action="<{:U('community/index',array('change'=>1))}>" id="form1" class="form1">
+                    <div class="search_div">
+                        <div id="sd_left">
+                            <div id="input">
+                                 <input name="keyword" value="<{$keyword}>" placeholder="输入小区名" >
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div id="sd_right">
+                              <input type="submit" class="search_btn" value="搜索">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    </form>
+                </div>
+                <div class="commu-place">
+                   <script type="text/javascript">
+                        $(document).ready(function () {
+                            loaddata('<{$nextpage}>', $(".commu-place"), true);
+                        });
+                    </script>
+                </div>
+        </div>
+    </div>
+
+<include file="public:footer"/>
+

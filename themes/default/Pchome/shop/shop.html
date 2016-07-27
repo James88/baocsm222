@@ -1,0 +1,224 @@
+<include file="public:header" /> 
+<include file="public:top"/>
+<include file="public:nav2"/>
+<div class="content zy_content" style="position: relative;">
+    <div class="spxq_xqT spxq_xqT2">
+        <ul>
+            <li class="jq_spxq_xqBt1 on"><code rel="spxq_xqBt1">商家商品</code><em></em></li>
+            <li class="jq_spxq_xqBt2"><code rel="spxq_xqBt2">商家抢购</code><em></em></li>
+            <li class="jq_spxq_xqBt3"><code rel="spxq_xqBt3">商家详情</code><em></em></li>
+            <li class="jq_spxq_xqBt4"><code rel="spxq_xqBt4">会员评价</code><em></em></li>
+        </ul>
+    </div>
+
+    <script>
+        // $(document).ready(function () {
+        //     var href = window.location.href;
+        //     var param = href.split('#');
+        //     if (param[1] != undefined) {
+        //         var _targetTop2 = $('#' + param[1]).offset().top;//获取位置
+        //         jQuery("html,body").animate({scrollTop: _targetTop2}, 300);//跳转
+        //     }
+        //     $(".spxq_xqT2 ul li").click(function () {
+        //         $(".spxq_xqT2 ul li").removeClass("on");
+        //         $(this).addClass("on");
+        //         var _targetTop = $('.' + $(this).find('code').attr('rel')).offset().top;//获取位置
+        //         jQuery("html,body").stop(true).animate({scrollTop: _targetTop}, 300);//跳转
+        //     });
+        // });
+    </script>
+    <div class="evalOne">
+        <ul class="subbr_ul">
+            <div class="subbr_main">
+                <div class="left">
+                    <li class="subbr_li2">
+                        <img src="__ROOT__/attachs/<{$detail.logo}>" width="110" height="110" class="eval_img">
+                    </li>
+                    <li class="subbr_li3">
+                        <p class="furit"><{$detail.shop_name}><if condition="!empty($detail['name'])">(<{$detail['name']}>)</if></p>
+                    <p><span class="spxq_qgpstarBg"><span class="spxq_qgpstar spxq_qgpstar<{$detail.score}>">&nbsp;</span></span><span style="margin-left: 10px;"><{:round($detail['score']/10,1)}></span></p>
+                    <p>58元起送 免费配送 由商家配送</p>
+                    </li>
+                    <li class="subbr_li">
+                    <if condition="!empty($branch)">
+                        <div class="subbr_ck">
+                            查看其他分店
+                            <div class="subbr_dls">
+                                <php>$i=0;</php>
+                                <foreach name="branch" item="item">
+                                    <php>$i++;if($i<=3){</php>
+                                    <p>
+                                        <span><a href="<{:U('shop/shop',array('shop_id'=>$item['shop_id'],'branch_id'=>$item['branch_id']))}>"><{$detail['shop_name']}><if condition="!empty($item['branch_id'])">(<{$item['name']}>)</if></a></span><br>
+                                        <span class="spxq_qgpstarBg"><span class="spxq_qgpstar spxq_qgpstar<{$item['score']}>">&nbsp;</span></span> &nbsp&nbsp<span><{:round($item['score']/10,1)}></span>
+                                        &nbsp&nbsp<{$item.addr}>
+                                    </p>
+                                    <php>}</php>
+                                </foreach>
+                                <php>if($i>3){</php>
+                                <p><a href="<{:U('shop/branch',array('shop_id'=>$detail['shop_id']))}>">查看全部<{$i}>家分店>></a></p>
+                                <php>}</php>
+                            </div>
+                        </div>
+                    </if>
+                        <p>餐厅地址：<{$detail.addr}></p>
+                        <p>营业时间：<{$detail.business_time}></p>
+                    </li>
+                </div>
+                <div class="right">
+                    <ul class="subbr_coll">
+                        <li>
+                        <if condition="$detail['fav'] eq 1">
+                            <a href="javascript:void(0);">
+                            <div></div>
+                            <p style="margin-left: -7px;">已收藏</p>
+                            <p class="app_red">(<{$detail.fans_num}>)</p>
+                            </a>
+                            <else/>
+                           
+                            <div></div>
+                            <p> <a mini='confirm' href="<{:U('shop/favorites',array('shop_id'=>$detail['shop_id']))}>">收藏</a></p>
+                            <p class="app_red">(<{$detail.fans_num}>)</p>
+                        </if>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ul>
+
+    </div>
+    <div class="app" style="height: 42px;">
+        <div class="spxq_xqT">
+            <ul>
+                <li class="on"><code rel="spxq_xqBt1">商家商品</code><em></em></li>
+                <li><code rel="spxq_xqBt2">商家抢购</code><em></em></li>
+                <li><code rel="spxq_xqBt3">商家详情</code><em></em></li>
+                <li><code rel="spxq_xqBt4">会员评价</code><em></em></li>
+            </ul>
+        </div>
+        <script>
+            $(document).ready(function () {
+                $(".spxq_xqT li").click(function () {
+                    $(".spxq_xqT2 ul li").removeClass("on");
+                    $(".jq_" + $(this).find('code').attr('rel')).addClass("on");
+                    var _targetTop = $('.' + $(this).find('code').attr('rel')).offset().top-50;//获取位置
+                    jQuery("html,body").stop(true).animate({scrollTop: _targetTop}, 300);//跳转
+                });
+             $(window).scroll(function () {
+                $('.spxq_xqT2 ul li').each(function(i){                   
+                    if($("."+$(this).find('code').attr("rel")).offset().top - $(window).scrollTop() < 50){
+                        $(this).addClass('on').siblings().removeClass('on');
+                    }
+                });
+            });               
+            });
+        </script>
+    </div>
+    <div class="between">
+        <div class="chart_left left">
+            <div class="tabNew newDiv spxq_xqBt1 spxq_xqBt">
+                <div class="tabNew_1" style="padding: 5px 0px 0px 0px;">
+                <p style=" padding-top: 0px; border-bottom: none;" class="subbr_quck">商城商品</p>
+                </div>
+                <div class="chart_apple">
+                    <ul>
+                        <php>$i=0;</php>
+                        <foreach name="goods" item="item">
+                            <php>$i++;if($i<=12){</php>
+                            <li>                           
+                                <div class="chart_div">
+                                    <if condition="!empty($branch_id)"><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id'],'branch_id'=>$branch_id))}>"><else/><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id']))}>"></if><img src="__ROOT__/attachs/<{$item.photo}>" width="213" height="169"></a>
+                                    <div class="chart_div3"><if condition="!empty($branch_id)"><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id'],'branch_id'=>$branch_id))}>"><else/><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id']))}>"></if><{$item.title}></a></div>
+                                </div>                            
+                                <div class="chart_div2">
+                                    <div class="left">    
+                                        <p><if condition="!empty($branch_id)"><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id'],'branch_id'=>$branch_id))}>"><else/><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id']))}>"></if><{:bao_msubstr($item['title'],0,10,false)}></a></p>
+                                        <span class="chart_price">￥<{:round($item['mall_price']/100,2)}></span>
+                                        <del>￥<{:round($item['price']/100,2)}></del>                                  
+                                    </div>
+                                    <div class="right">
+                                       <if condition="!empty($branch_id)"><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id'],'branch_id'=>$branch_id))}>"><else/><a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id']))}>"></if><img src="__TMPL__statics/images/tp_33.png"></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <php>}</php>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <div class="subbr-qiang spxq_xqBt2 spxq_xqBt">
+                <p class="subbr_quck">商家抢购</p>
+                <foreach name="tuan" item="item">
+                    <div class="subbr_cenone">
+                        <div class="left">
+                            <div class="left"><if condition="!empty($branch_id)"><a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id'],'branch_id'=>$branch_id))}>"> <else/><a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"></if><img width="117" height="70" src="__ROOT__/attachs/<{$item.photo}>"></a></div>
+                            <div class="left subbr_pug">
+                                <p><if condition="!empty($branch_id)"><a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id'],'branch_id'=>$branch_id))}>"> <else/><a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"></if><{$item.title}></a></p>
+                                <span>已售<{$item.sold_num}></span>
+                            </div>
+                            <div class="left subbr_pug2">
+                                <p><if condition="!empty($branch_id)"><a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id'],'branch_id'=>$branch_id))}>"> <else/><a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"></if><{$item.intro}></a></p>
+                            </div>
+                        </div>
+                        <div class="right subbr_pug3">
+                            <div class="subbr-money left">
+                                <span>￥<{:round($item['tuan_price']/100,2)}></span><br>
+                                <del>￥<{:round($item['price']/100,2)}></del>
+                            </div>
+                            <if condition="!empty($branch_id)">
+                            <a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id'],'branch_id'=>$branch_id))}>" class="subbr_btn">立即抢购</a>
+                            <else/>
+                            <a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>" class="subbr_btn">立即抢购</a>
+                            </if>
+                        </div>
+                    </div>
+                </foreach>
+            </div>
+            <div id="shop" class="spxq_xqBt spxq_xqBt3">
+                <p class="subbr_quck">商家详情</p>
+                <div class="spxq_xqNr"><{$detail.details}></div>
+            </div>
+            <div class="spxq_xqBt spxq_xqBt4" style="border-bottom: none;">
+                <p class="subbr_quck">会员评价</p>
+            <div class="spxq_xqNr">
+                <!--<div class="sjxq_tab">
+                    <ul>
+                        <li class="sjxq_tabLi"><a href="javascript:void(0);">全部</a></li>
+                        <li class="sjxq_tabLi on"><a href="javascript:void(0);">晒图评价</a></li>
+                    </ul>
+                </div>-->
+                <div class="spxq_pjListBox">
+                    <ul>
+                        <volist name="list" id="var">
+                            <li class="spxq_pjList">
+                                <div class="left spxq_pjList_l">
+                                    <div class="spxq_pjTx"><img src="__ROOT__/attachs/<{$users[$var['user_id']]['face']|default='default.jpg'}>" width="50" height="50" /></div>
+                                    <p class="spxq_pjYh"><{$users[$var['user_id']]['nickname']}></p>
+                                </div>
+                                <div class="left spxq_pjList_r sjxq_pjList_r">
+                                    <div><span class="spxq_qgpstarBg"><span class="spxq_qgpstar spxq_qgpstar<{:round($var['score']*10,1)}>">&nbsp;</span></span><span class="spxq_pjTime"><{$var.create_time|date='Y-m-d H:i',###}></span></div>
+                                    <p class="spxq_pjP"><{$var.contents}></p>
+                                    <if condition="!empty($var['reply'])"><p class="spxq_pjP"><{$var.reply}></p></if>
+                                    <ul class="spxq_pjUl">
+                                        <foreach name="pics" item="pic">
+                                            <eq name="pic.dianping_id" value="$var.dianping_id">
+                                            <li class="spxq_pjLi"><a href="javascript:void(0);" rel="__ROOT__/attachs/<{$pic.pic}>" ><img src="__ROOT__/attachs/<{$pic.pic}>" width="100" height="100" /></a></li>
+                                            </eq>
+                                        </foreach>
+                                    </ul>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                    <div class="x"><{$page}></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="chart_right right">        
+        </div>
+    </div>
+</div>
+<div class="mask_bg mask_spxq_pjLi_img_mask">
+	<div class="mask_spxq_pjLi_img"><img src="" width="300" height="300" /></div>
+</div>
+<include file="public:footer"/>

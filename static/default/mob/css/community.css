@@ -1,0 +1,35 @@
+/*  小区搜索 */
+.search_container{height:50px;padding:10px;background:#CCC;}
+.search_container .search_box{height: 30px;border-radius: 20px;background-color: #fff;text-indent: 20px;line-height: 30px;color: #a8a8a8;}
+.search_container .search_box .search_btn{display: inline-block;width: 24%;background-color: #a7a7a7;text-align: center;height: 26px;line-height: 24px;font-size: 14px;border:none;border-radius: 20px;color: #fff;float: right;margin: 2px;padding: 0px;text-indent: 0px;background-image: none;cursor: pointer;}
+.search_container .search_box .search_btn:hover{background-color: #ff2121;}
+.search_container .search_box input{width: 66%;height: 28px;border: none;color: #666;text-indent: 24px;background: url(../imgaes/search02.png) no-repeat left center;}
+
+/* 地区选择 */
+.area_container{display: none;width: 100%;padding: 4%;height:100%;height: auto;background-color: #ccc;left: 0;position: fixed;z-index: 100;top: 43px;}
+.area_container.on{display: block;}
+.area_nav.on{display: block;}
+.area_nav li{text-align: center;float: left;height: 40px;line-height: 40px;text-align: center;width: 30%;margin-right: 5%;margin-bottom: 5%;background-color: #fff;}
+.area_nav li a{display: block;}
+.area_nav li a:hover{color: #fff;background-color: #ff2121;}
+.area_nav li a.current{color: #fff;background-color: #ff2121;}
+.area_nav .area_spe{margin-right: 0;}
+.area_container .current_city{height: 30px;line-height: 30px;margin-bottom: 20px;border-bottom: solid 1px #999;font-size: 14px;color: #333;padding-left: 20px;}
+
+
+/* 小区列表 */
+.hightitem {background-color: #fff;}	
+.community_list .item{position: relative;display: block;width:100%;padding:0 10px;}
+.community_list .cnt{padding: 7px 10px 10px 0;display: box;display: -webkit-box;display: -webkit-flex;display: flex;height: 78px;background-size: auto 1px;}
+.community_list .pic{margin-right: 10px;background: center;}
+.community_list img{width: 90px;height: 66px;margin-top: 7px;margin-bottom: 5px;border-radius: 3px;}
+.community_list .wrap{-webkit-box-flex: 1;-webkit-flex: 1;flex: 1;}
+.community_list .wrap2{display: table;height: 88px;width: 100%;}
+.community_list .content{-webkit-box-flex: 1;-webkit-flex: 1;flex: 1;box-flex: 1;vertical-align: middle;}
+.community_list .shopname{color: #333;font-size: 17px;max-width: 11em;white-space: nowrap;word-wrap: normal;text-overflow: ellipsis;overflow: hidden;min-height: 10px;padding-bottom: 2px;padding-top: 3px;display: inline-block;}
+.community_list .title{color: #666;line-height: 16px;font-size: 13px;max-height: 30px;overflow: hidden;display: -webkit-box;display: -webkit-flex;display: flex;-webkit-line-clamp: 2;-webkit-box-orient: vertical;-webkit-flex-flow: column;flex-flow: column;}
+.community_list .distance{-webkit-box-flex: 1;box-flex: 1;flex: 1;-ms-box-flex: 1;-ms-flex: 1;text-align: right;line-height: 10px;margin-top: 5px;color: #999;float: right;font-size: 12px;}
+.community_list .classify{color: #666;font-size: 14px;width:80%;overflow:hidden;height:20px;float:left;line-height:20px;}
+.community_list .comment{position: relative;line-height:15px;}
+.community_list .comment span{vertical-align: middle;color: #666;font-size: 12px;}
+.community_list .iconfont{font-size:12px;line-height:15px;}

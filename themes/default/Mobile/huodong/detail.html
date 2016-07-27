@@ -1,0 +1,121 @@
+<include  file='public:header'/>  
+<body>
+    <header>
+        <a href="<{:U('huodong/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">活动详情</div>
+        <a class="share" href="javascript:void(0);" id="share"><i class="icon-menu"></i></a>
+    </header>
+    <div class="bdcolor">
+        <div class="bdcolor_bg"></div>
+        <div class="bdsharebuttonbox" data-tag="share_1">
+            <a class="bds_weixin" data-cmd="weixin">微信</a>
+            <a class="bds_qzone" data-cmd="qzone" href="#">QQ空间</a>
+            <a class="bds_sqq" data-cmd="sqq">腾讯QQ</a>
+            <a class="bds_tqq" data-cmd="tqq">腾讯微博</a>
+            <a class="bds_tsina" data-cmd="tsina">新浪微博</a>
+            <div class="bd-share-popup-footer">
+                <a class="bd-share-popup-close" onclick="$('.bdcolor').hide();" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".share").click(function () {
+                $(".bdcolor").show();
+            });
+        });
+        window._bd_share_config = {
+            common: {
+                bdText: '<{$detail.title}>',
+                bdDesc: '<{$detail.title}>',
+                bdUrl: encodeURIComponent(location.href),
+                bdPic: 'http://<{$Think.SERVER.HTTP_HOST}>__ROOT__/attachs/<{$detail.photo|default='default.jpg'}>'
+            },
+            share: [{
+                "bdSize": 32,
+            }],
+        }
+        with (document)
+            0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+    <div id="sell" class="page-center-box">
+        <div id="scroll">
+            <!-- BANNER图 -->
+            <div class="seat-banner">
+                <img src="__ROOT__/attachs/<{$detail.photo|default='default.jpg'}>" width="100%" height="100%"/>
+                <div class="shade"></div>
+                <div class="shade-content">
+                    <p><{$detail.title}></p>
+                </div>
+            </div>
+            <!-- 评分 -->
+            <div class="point">
+                <div class="point-left">
+                    <img src="__TMPL__statics/img/tp5.png"><span><{$detail.sign_num}>人已报名</span>
+                    <a href="javascript:void"><div class="event-share share"><img src="__TMPL__statics/img/tp9.png"><span>分享</span></div></a>
+                </div>
+                <div class="point-right">
+                    <eq name="detail['sign']" value="0"><a href="<{:U('huodong/sign',array('activity_id'=>$detail['activity_id']))}>"><div class="btn">立即报名</div></a>
+                    <else/>
+                    <a href="javascript:void(0);"><div class="btn">已报名</div></a>
+                    </eq> 
+                </div>
+            </div>
+            <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $(".share").click(function () {
+                        $(".bdcolor").show();
+                    });
+                });
+                wx.config({
+                    debug: true,
+                    appId: '{$signPackage.appid}',
+                    timestamp: {$signPackage.timestamp},
+                    nonceStr: '{$signPackage.noncestr}',
+                    signature: '{$signPackage.signature}',
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage'
+                    ]
+                });
+                wx.ready(function () {
+                    document.querySelector('#onMenuShareTimeline').onclick = function () {
+                        wx.onMenuShareTimeline({
+                            title: '促销易幸运大抽奖', // 分享标题
+                            link: 'http://movie.douban.com/subject/25785114/', // 分享链接
+                            imgUrl: 'http://demo.open.weixin.qq.com/jssdk/images/p2166127561.jpg', // 分享图标
+                            success: function (res) {
+                                console.log(res);
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                    }
+                });
+            </script>
+            <div class="event-shop">
+                <ul>
+                    <li>商家：<span class="shop-name"><{$shop.shop_name}></span></li>
+                    <li>地址：<{$detail.addr}></li>
+                    <li>时间：<{$detail.time}></li>
+                </ul>
+            </div>
+            <!-- 地址 -->
+            <div class="spread-intro">
+                <ul>
+                    <li class="spread-tui">活动简介</li>
+                    <li><{$detail.intro}></li>
+                </ul>
+            </div>
+            <div class="spread-intro">
+                <ul>
+                    <li class="spread-tui">活动详情</li>
+                    <li><{$detail.details}></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<include  file='public:footer'/>  

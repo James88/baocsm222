@@ -1,0 +1,89 @@
+<div style="clear:both;"></div>
+
+<div class="footerOut">
+    <div class="footer">
+        <div class="footNav">
+            <div class="left topTwo_b">
+                <div class="tel"><{$CONFIG.site.tel}><p>周一至周日 9:00-22:00</p><p>客服电话 免长途费</p></div>
+                <div class="protect">
+                    <ul>
+                        <li><em>&nbsp;</em><a href="javascript:void(0);">随时退</a></li>
+                        <li class="protectLi2"><em>&nbsp;</em><a href="javascript:void(0);">不满意免单</a></li>
+                        <li class="protectLi3"><em>&nbsp;</em><a href="javascript:void(0);">过期退款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="center">
+                <div class="footNavLi">
+                    <ul>
+                        <li class="footerLi">
+                            <h3>公司信息</h3>
+                            <ul>
+                                <li><a target="_blank" title="关于我们" href="<{:U('pchome/article/system',array('content_id'=>1))}>">关于我们</a></li>
+                                <li><a target="_blank" title="联系我们" href="<{:U('pchome/article/system',array('content_id'=>3))}>">联系我们</a></li>
+                                <li><a target="_blank" title="人才招聘" href="<{:U('pchome/article/system',array('content_id'=>2))}>">人才招聘</a></li>
+                                <li><a target="_blank" title="免责声明" href="<{:U('pchome/article/system',array('content_id'=>6))}>">免责声明</a></li>
+                            </ul>
+                        </li>
+                        <li class="footerLi">
+                            <h3>商户合作</h3>
+                            <ul>
+                                <li><a href="<{:U('pchome/shop/apply')}>">商家入驻</a></li>
+                                <li><a target="_blank" title="广告合作" href="<{:U('pchome/article/system',array('content_id'=>5))}>">广告合作</a></li>
+                                <li><a href="<{:U('pchome/shop/news')}>">商家新闻</a></li>
+                            </ul>
+                        </li>
+                        <li class="footerLi">
+                            <h3>用户帮助</h3>
+                            <ul>
+                                <li><a target="_blank" title="服务协议" href="<{:U('pchome/article/system',array('content_id'=>7))}>">服务协议</a></li>
+                                <li><a target="_blank" title="退款承诺" href="<{:U('pchome/article/refund')}>">退款承诺</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copy">copyright 2013-2113 <{$Think.SERVER.HTTP_HOST}> All Rights Reserved <{$CONFIG.site.sitename}>版权所有 - <{$CONFIG.site.icp}> <{$CONFIG.site.tongji}></div>
+            </div>
+            <div class="right"><img src="__PUBLIC__/img/wx.png" width="149" height="149" /><p>扫一扫关注BAOCMS</p></div>
+        </div>
+    </div>
+</div>
+<div class="topUp">
+    <ul>
+        <li class="topBack"><div class="topBackOn">回到<br />顶部</div></li>
+        <li class="topUpWx"><div class="topUpWxk"><img src="__PUBLIC__/img/wx.png" width="149" height="149" /><p>扫描二维码关注微信</p></div></li>
+    </ul>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 100) {
+                $(".topUp").show();
+                $(".indexpop").show();
+            } else {
+                $(".topUp").hide();
+                $(".indexpop").hide();
+            }
+            var ctl = "<{$ctl}>";
+            if(ctl == 'coupon'){
+                if ($(window).scrollTop() > 665) {
+                    $(".spxq_xqT2").show();
+                } else {
+                    $(".spxq_xqT2").hide();
+                }
+            }else{
+                if ($(window).scrollTop() > 750) {
+                    $(".spxq_xqT2").show();
+                } else {
+                    $(".spxq_xqT2").hide();
+                }
+            }
+        });
+        $(".topBack").click(function () {
+            $("html,body").animate({scrollTop: 0}, 200);
+        });
+    });
+</script>
+</body>
+</html>

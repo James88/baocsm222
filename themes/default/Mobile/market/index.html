@@ -1,0 +1,172 @@
+<include  file='public:header'/>    
+<body id="micro_shop">
+<header> 
+     <a class="back" href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+    <div class="title">同城大卖场</div>
+    <i class="icon-menu"></i> 
+</header>
+<div id="seat" class="page-center-box">
+    <div id="scroll">
+    	<!-- 广告 -->
+        <div class="city_stores_ads">
+			<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+            <script src="js/jquery.event.drag-1.5.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                
+                    
+                    $(".main_image").touchSlider({
+                        flexible : true,
+                        speed : 200,
+                        btn_prev : $("#btn_prev"),
+                        btn_next : $("#btn_next"),
+                        paging : $(".flicking_con a"),
+                        counter : function (e){
+                            $(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+                        }
+                    });
+                    
+                    $(".main_image").bind("mousedown", function() {
+                        $dragBln = false;
+                    });
+                    
+                    $(".main_image").bind("dragstart", function() {
+                        $dragBln = true;
+                    });
+                    
+                    $(".main_image a").click(function(){
+                        if($dragBln) {
+                            return false;
+                        }
+                    });
+                    
+                    timer = setInterval(function(){
+                        $("#btn_next").click();
+                    }, 5000);
+                    
+                    $(".ele_banner").hover(function(){
+                        clearInterval(timer);
+                    },function(){
+                        timer = setInterval(function(){
+                            $("#btn_next").click();
+                        },5000);
+                    });
+                    
+                    $(".main_image").bind("touchstart",function(){
+                        clearInterval(timer);
+                    }).bind("touchend", function(){
+                        timer = setInterval(function(){
+                            $("#btn_next").click();
+                        }, 5000);
+                    });
+                    
+                });
+            </script>
+            <div class="ele_banner">
+                <div class="flicking_con">
+                 <calldata mdl="Ad" where=" closed=0 AND site_id=34 AND city_id IN ({$city_ids})  and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,5" cache="7200" order="orderby asc">
+                    <a href="#"></a>
+                </calldata>
+                </div>
+                <div class="main_image">
+                    <ul>
+                        <calldata mdl="Ad" where=" closed=0 AND site_id=34 AND city_id IN ({$city_ids}) and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,5" cache="7200" order="orderby asc">
+                            <li>
+                                <a href="<{$item.link_url}>" title="<{$item.title}>">
+                                    <img src="__ROOT__/attachs/<{$item.photo}>" alt="<{$item.title}>" height="100%" />
+                                </a>
+                            </li>
+                        </calldata> 
+                    </ul>
+                </div>
+                <a href="javascript:;" id="btn_prev"></a>
+                <a href="javascript:;" id="btn_next"></a>
+            </div>
+        </div>
+        <div class="billboard-content">
+            <script>
+				$(function(){
+					$(".billboard-tab li").each(function(e){
+						$(this).click(function(){
+							if($(this).hasClass("on")){
+								$(this).parent().find("li").removeClass("on");
+								$(this).removeClass("on");
+								$(".serch-bar-mask").hide();
+							}
+							else{
+								$(this).parent().find("li").removeClass("on");
+								$(this).addClass("on");
+								$(".serch-bar-mask").show();
+							}
+							$(".serch-bar-mask .serch-bar-mask-list").each(function(i){
+								
+								if(e==i){
+									$(this).parent().find(".serch-bar-mask-list").hide();
+									$(this).show();
+								}
+								else{
+									$(this).hide();
+								}
+								$(this).find("li").click(function(){
+									$(this).parent().find("li").removeClass("on");
+									$(this).addClass("on");
+								});
+							});
+						});
+					});
+				});
+			</script>
+            <div class="billboard-tab">
+                <ul>
+                    <li><span>地区</span><i></i></li>
+                    <li><span>商圈</span><i></i></li>
+                    <li><span>排序</span><i></i></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="serch-bar-mask" style="display:none;">
+                <div class="serch-bar-mask-list">
+                    <ul>
+                        <li class="on"><a href="#">全部地区</a></li>
+                        <foreach name="areas" item="var">
+                            <li><a   <if condition="$var.area_id eq $area_id"> style="color:red;" </if>   href="<{:LinkTo('market/index',array('area'=>$var['area_id']))}>"><{$var.area_name}>
+                            </a></li>
+                        </foreach>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-list">
+                    <ul>
+                        <li class="on"><a href="#">全部商圈</a></li>
+                        <foreach name="biz" item="var">
+                            <eq name="var.area_id" value="$area_id">
+                            <li><a  <if condition="$var.business_id eq $business_id"> 
+                                        style="color:red;"
+                                    </if>  href="<{:LinkTo('market/index',array('area'=>$area_id,'business'=>$var['business_id']))}>"><{$var.business_name}></a></li>
+                            </eq>
+                        </foreach>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-list">
+                    <ul>
+                       <li ><a  <if condition="$order eq 1"> 
+                                    style="color:red;"
+                                </if> href="<{:LinkTo('market/index',array('area'=>$area_id,'business'=>$business_id,'order'=>1))}>">距离优先</a></li>
+                        <li><a  <if condition="$order eq 2"> 
+                                    style="color:red;"
+                                </if> href="<{:LinkTo('market/index',array('area'=>$area_id,'business'=>$business_id,'order'=>2))}>">推荐排序</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list-have-pic">
+                <script>
+                    $(document).ready(function () {
+                        loaddata('<{$nextpage}>', $(".list-have-pic"), true);
+                    });
+                </script>
+				<!-- 循环 -->
+			</div>
+        </div>  
+    </div>
+</div>
+<include file="public:footer"/>

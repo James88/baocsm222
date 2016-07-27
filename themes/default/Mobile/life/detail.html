@@ -1,0 +1,134 @@
+<include  file='public:header'/>
+
+<body>
+	<header>
+		<a href="<{:U('life/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">生活信息详情</div>
+	</header>
+	<!-- 筛选TAB -->
+    <script>
+		$(function(){
+			$("#search-bar li").each(function(e){
+				$(this).click(function(){
+					if($(this).hasClass("on")){
+						$(this).parent().find("li").removeClass("on");
+						$(this).removeClass("on");
+						$(".serch-bar-mask").hide();
+					}
+					else{
+						$(this).parent().find("li").removeClass("on");
+						$(this).addClass("on");
+						$(".serch-bar-mask").show();
+					}
+					$(".serch-bar-mask .serch-bar-mask-list").each(function(i){
+						
+						if(e==i){
+							$(this).parent().find(".serch-bar-mask-list").hide();
+							$(this).show();
+						}
+						else{
+							$(this).hide();
+						}
+						$(this).find("li").click(function(){
+							$(this).parent().find("li").removeClass("on");
+							$(this).addClass("on");
+						});
+					});
+				});
+			});
+		});
+    </script>
+ 	<div id="life_infor_des" class="page-center-box">
+ 		<div id="scroll">
+ 			<div class="pic_item">
+	 				<img width="100%" src="__ROOT__/attachs/<{$detail.photo|default='default.jpg'}>" />
+	 				<div class="bottom_item">
+		 				<p><{$detail.title}></p>
+		 				<p><span><{$detail.views}>人已浏览</span><span><{$detail.create_time|date='Y-m-d',###}></span></p>
+	 				</div>
+ 				<label class="rush">急</label><label class="top">顶</label>
+ 			</div>
+ 			<div class="intro_01">
+ 				<div class="left_item fl">
+ 					<p>
+						<span>
+ 						<if condition="!empty($cate['num1'])"><{$cate.num1}>:
+                   			<{$detail.num1|default='面议'}>
+                    		<if condition="!empty($detail['num1'])">
+                        		<{$cate.unit1}>
+                    		</if>
+               			</if>
+               			</span> 
+               			<s>
+                		<if condition="!empty($cate['num2'])"><{$cate.num2}>:
+                    		<{$detail.num2|default='面议'}>
+                    		<if condition="!empty($detail['num2'])">
+                        		<{$cate.unit2}>
+                    		</if>
+                		</if>
+                		</s>
+ 					</p>
+ 					<p>
+ 						<{$detail.contact}><eq name="detail.is_shop" value="1">（商家）<else />（个人）</eq>：<{$detail.mobile}>
+ 					</p></div>
+ 				<div class="right_item fl"><div class="inner_box"><a href="tel:<{$detail.mobile}>">立刻联系</a></div></div>
+ 			</div>
+ 			<div class="intro_01 intro_02">
+	 			<if condition="!empty($cate['text1'])">
+                <{$cate.text1}>:  <{$detail.text1|default=''}>&nbsp;&nbsp;
+            	</if>
+            	<if condition="!empty($cate['text2'])">
+                <{$cate.text2}>:  <{$detail.text2|default=''}>&nbsp;&nbsp;
+            	</if>
+            	<if condition="!empty($cate['text3'])">
+                <{$cate.text3}>:  <{$detail.text3|default=''}>&nbsp;&nbsp;
+            	</if>
+            	 区域:<{$areas[$detail['area_id']]['area_name']}>-<{$business[$detail['business_id']]['business_name']}>
+            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址:<{$detail.addr}>
+			</div>
+			<div class="intro_03">
+				<h5><{$cate.cate_name}>描述</h5>
+            	<p> <{$ex.details}> </p>
+			</div>
+			<div class="intro_03 intro_04">
+				<h5>相关推荐</h5>
+				<ul>
+				    <calldata mdl="Life" where="cate_id = {$detail['cate_id']} and audit =1 " order="top_date desc,last_time desc" limit="0,4" cache="600">
+					<li>
+						<a href="<{:U('life/detail',array('life_id'=>$item['life_id']))}>">
+						<div class="pic_L fl"><img src="__ROOT__/attachs/<{$item.photo|default='default.jpg'}>" width="32%"/></div>
+						<div class="des_R fl">
+							<h2><span class="overflow_clear">
+							<a href="<{:U('life/detail',array('life_id'=>$item['life_id']))}>"><{$item.title}></a>
+							</span><label>急</label><label>顶</label></h2>
+							<p><span><{$item.text1}></span>&nbsp;&nbsp;&nbsp;&nbsp;<span><{$items.views|default='0'}>人浏览</span></p>
+							<p>
+							   <b>
+							   <if condition="!empty($cate['num1'])"><{$cate.num1}>:
+                                    <{$item.num1|default='面议'}>
+                                    <if condition="!empty($item['num1'])">
+                                        <{$cate.unit1}>
+                                    </if>
+                                </if>
+                                </b>
+                                <s>
+                                <if condition="!empty($cate['num2'])"><{$cate.num2}>:
+                                    <{$item.num2|default='面议'}>
+                                    <if condition="!empty($item['num2'])">
+                                        <{$cate.unit2}>
+                                    </if>
+                                </if>
+                                </s>
+                            </p>    
+						</div>
+						</a>
+					</li>
+				    </calldata>
+				</ul>
+    			<a href="<{:U('life/lists',array('cat'=>$detail['cate_id']))}>"><div class="more_li">查看更多<{$cate.cate_name}>信息</div></a>
+			</div>
+
+ 		</div>
+		 
+	</div>
+<include file="public:footer"/>

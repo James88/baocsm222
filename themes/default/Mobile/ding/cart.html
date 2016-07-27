@@ -1,0 +1,113 @@
+
+<include file="public:header"/>
+<body>
+	<header>
+		<a href=""><i class="icon-goback"></i></a>
+		<div class="title">购物车</div>
+		<i class="icon-menu"></i>
+	</header>
+    
+    <php>$tt = $detail['since_money']-$total['money'];</php>
+    
+    <form method="post" id="bao_buy_form"  action="<{:U('ding/order',array('t'=>$nowtime))}>">
+    <php>$total_money = 0;</php>
+	<div id="life" class="page-center-box">
+		<div id="scroll">
+			<!-- 列表 -->
+			<div class="list-have-pic list-have-pic-btn">
+            	<foreach name="cartgoods" item="item">
+                
+
+				<div class="list-box list-box-integral">
+					<div class="list-img">
+						<img src="__ROOT__/attachs/<{$item.photo}>" />
+					</div>
+					<div class="list-content">
+						<p class="h15"><{$item.menu_name}></p>
+						<p class="c_h"><span class="mr20">单价：￥<{:round($item['ding_price']/100,2)}></span> 合计：<span id="jq_total_<{$item.menu_id}>" class="price">￥<{:round($item['ding_price'] *  $item['cart_num']/100,2)}></span></p>
+						<div class="num-input changeNum2" rel="<{$item.menu_id}>">
+							<div class="btn jq_jian" data="<{$item.menu_id}>">-</div>
+							<div class="input"><input rel="<{:round($item['ding_price']/100,2)}>" value="<{$item['cart_num']}>" name="num[<{$item['menu_id']}>]" id="jq_num" class="ordernum" type="text" /></div>
+							<div class="btn active jq_jia" data="<{$item.menu_id}>">+</div>
+						</div>
+						<a href="<{:U('ding/delete2',array('menu_id'=>$item['menu_id'],'shop_id'=>$item['shop_id'],'yuyue_id'=>$yuyue_id,'t'=>$nowtime))}>"><div class="icon-del"></div></a>
+					</div>
+				</div>
+                <input type="hidden" name="shop_id" value="<{$shop_id}>">
+                <input type="hidden" name="yuyue_id" value="<{$yuyue_id}>">
+                <php>
+                    $total_money+= $item['ding_price'] *  $item['cart_num'];
+                </php>
+                
+                </foreach>
+                
+                
+       <script>
+        function changetotal(obj) {
+            var money = obj.parent().find('.ordernum').attr('rel');
+            var num = obj.parent().find('.ordernum').val();
+            var total = money * num;
+            $("#jq_total_" + obj.attr('data')).html('￥' + total);
+            changealltotal();
+            var rel = obj.parent().attr('rel');
+            var link = '<{:U("ele/changenum",array("product_id"=>"0000","num"=>1111))}>';
+            var url = link.replace('0000',rel);
+                url = url.replace('1111',num);
+                $.get(url,function(){},'html');
+        }
+
+        function changealltotal() {
+            var last = <{:round($detail['since_money']/100,2)}> ;
+            var total_price = 0;
+            $(".ordernum").each(function () {
+                total_price += $(this).val() * $(this).attr('rel');
+                last -= $(this).val() * $(this).attr('rel');
+            });
+            $("#jq_total").html('（共点餐金额：￥' + total_price+')');
+            
+        }
+        $(document).ready(function (e) {
+            $(".jq_jian").click(function () {
+                var v = $(this).parent().find(".ordernum").val();
+                if (v > 1) {
+                    v--;
+                    $(this).parent().find(".ordernum").val(v);
+                   
+                }
+
+                changetotal($(this));
+            });
+            $(".jq_jia").click(function () {
+                var v = $(this).parent().find(".ordernum").val();
+                if (v < 99) {
+                    v++;
+                    $(this).parent().find(".ordernum").val(v);
+                }
+                changetotal($(this));
+            });
+            $(".ordernum").change(function () {
+                if ($(this).val() < 1) {
+                    $(this).val('1');
+                }
+                if ($(this).val() > 99) {
+                    $(this).val('99');
+                }
+                changetotal($(this));
+            });
+        });
+    </script>
+
+                
+                
+                
+			</div>
+		</div>
+	</div>
+	<footer class="footer-cart">
+		<div class="cart">
+			<div class="cart-num"><{$cartnum}></div>
+		</div>
+		<div class="price">需支付定金￥<{:round($setting['money']/100,2)}><span  id="jq_total">（共点餐金额：￥<{:round($total_money/100,2)}>）</span></div>
+		<div class="btn"><a href="javascript:void(0);" onClick="$('#bao_buy_form').submit();" style="color:#FFFFFF;">结算</a></div>
+	</footer>
+</form>

@@ -1,0 +1,24 @@
+<include  file='public:header'/>   
+<body>
+    <header>
+        <div>
+            <a class="back" href="javascript:window.history.go(-1);"><img  src="__TMPL__statics/img/back.png"></a>
+            添加物业通知
+        </div>
+    </header>
+    <section class="container">
+        <div class="news_add">
+            <form method="post"  action="<{:U('communitynews/create')}>" >
+                <ul>
+                    <li><span>标题:</span> <input type="text" name="data[title]" placeholder="请添加标题"></li>
+                    <li><span>简介:</span> <input type="text" name="data[intro]" placeholder="请输入简介"></li>
+                    <li class="neirong"><span>内容:</span> <textarea placeholder="请输入通知内容" name="data[details]" row="5" ></textarea></li>
+                    <li><input class="btn" type="submit" value="添加"></li>
+                </ul>
+            </form>
+        </div>  
+    </section>
+
+</body>
+</html>
+

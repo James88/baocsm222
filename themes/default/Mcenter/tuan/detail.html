@@ -1,0 +1,62 @@
+<include  file='public:header'/>   
+<header>
+    <a href="/mcenter/member/"><i class="icon-goback"></i></a>
+    <div class="title">订单详情</div>
+    <i class=" icon-more"></i>
+</header>
+
+<section class="sec_pad" style="padding-top: 44px;">
+    <div class="order_zt">
+        <div class="left">
+            <p class="order_p">订单编号：<{$detail.order_id}></p>
+            <p class="order_p">订单金额：¥<{:round($detail['need_pay']/100,2)}></p>
+        </div>
+        <div class="right">
+            <p class="order_p">下单时间：<{$detail.create_time|date='Y-m-d H:i',###}></p>
+            <p class="order_p">订单状态：<eq name="detail.status" value="0">                               
+                <a class="myInfor_sx myInfor_sx_fk" target="_blank" href="<{:U('mobile/tuan/pay',array('order_id'=>$detail['order_id']))}>">去付款</a>
+            <else />
+            <eq name="detail.status" value="-1">       
+            到店付
+            <else />
+            <a class="myInfor_sx" href="javascript:void(0)">已完成</a>
+            <if condition="$detail['dianping_id'] eq 0">
+                <a class="myInfor_sx" href="<{:U('dianping/tuandianping',array('order_id'=>$detail['order_id']))}>">点评</a>     
+                <else/>
+                <a class="myInfor_sx" href="javascript:void(0)">已评价</a>
+            </if>
+            </eq>
+            </eq></p>
+        </div>
+    </div>
+    <div class="order_ztbg">&nbsp;</div>
+    <div class="orderBox">
+        <div class="order_bg">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr class="order_trt">
+                    <td width="50%">商品</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>总价</td>
+                </tr>
+                <tr class="order_trnr">
+                    <td><{$tuans['title']}></td>
+                    <td>&yen;<{:round($tuans['tuan_price']/100,2)}></td>
+                    <td><{$detail.num}></td>
+                    <td>&yen;<{:round($detail['total_price']/100,2)}></td>
+                </tr>               
+            </table>
+            <div class="order_mjzt">
+                <ul>
+                    <li class="order_mjp">使用积分：<span>
+                            &yen;<{$detail['use_integral']}>              </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order_back"><a class="order_fhan" href="<{:U('tuan/index')}>">返回订单</a></div>
+        </div>
+    </div>
+</section>
+
+</div>
+<include  file='public:footer'/>   

@@ -1,0 +1,66 @@
+<include file='public:header'/>
+
+<header> 
+	<i class="left"><a href="<{:U('index/index')}>" id="icon_goback"></a></i>
+    <div class="title">营销管理</div></header>
+<section>
+
+	 <form method="post" action="<{:U('award/index')}>">
+        <div class="sh_search_box">
+            <div class="sh_search_int"> <span>抽奖标题</span>
+                <input type="text" name="keyword" value="<{$keyword}>">
+                <input type="submit" class="btn" value="搜索">
+            </div>
+        </div>
+     </form>
+     
+    <div class="sh_buy_tab mb10">
+	    <ul>
+	        <li <if condition="$ctl eq award"> class="on" </if>><a href="<{:U('award/index')}>">抽奖</a></li>
+           	<li <if condition="$ctl eq vote">  class="on" </if>><a href="<{:U('vote/index')}>">投票功能</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+	
+     <div class="sh_infor_tab_box" style="display:;">
+    	<div class="sh_buy_fabu">
+            <div class="sh_list_public_box">
+                <ul>
+                	<foreach name="list" item="var">
+                        <li class="list_box mb10">
+                            <div>
+                                <div class="sh_buy_bt">
+                                    <div class="fl">抽奖标题：<{$var.title}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">抽奖链接：<{$var.url}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">结束时间：<{$var.expire_date}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">状态：<eq name="var.is_online" value="0">未启用<else/>已启用</eq></div>
+                                </div>
+                                <div class="btn_box">
+                                <a  class="btn" href="<{:U('awardgoods/index',array('award_id'=>$var['award_id']))}>">剩余奖品</a>
+                                <eq name="var.is_online" value="0"><a class="btn" mini='confirm' href="<{:U('award/audit',array('award_id'=>$var['award_id']))}>">启用抽奖</a></eq>
+                                <eq name="var.is_online" value="1"> <a class="btn"  href="<{:U('awardwinning/index',array('award_id'=>$var['award_id']))}>">中奖名单</a> </eq>
+                                </div>
+                            </div>
+                        </li>
+                    </foreach>
+                    
+                   
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="jobNr_span">
+    <{$page}>
+    </div>
+   
+</section>
+</body>
+</html>

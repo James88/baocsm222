@@ -1,0 +1,92 @@
+<include  file='public:header'/>
+<div class="mainBt">
+    <ul>
+        <li class="li1">设置</li>
+        <li class="li2">基本设置</li>
+        <li class="li2 li3">优购设置</li>
+    </ul>
+</div>
+<p class="attention"><span>注意：</span>
+这里主要是在程序开发的过程中需要调用某个特定类型的微店，这里填入的对应值是商家分类的ID！如果需要做二次开发可以在这个页面配置或者直接在模版里面调用分类ID！
+</p>
+<form  target="baocms_frm" action="<{:U('setting/mall')}>" method="post">
+    <div class="mainScAdd">
+        <div class="tableBox">
+            <table  bordercolor="#dbdbdb" cellspacing="0" width="100%" border="1px"  style=" border-collapse: collapse; margin:0px; vertical-align:middle; background-color:#FFF;" >
+                <tr>
+                    <td class="lfTdBt">优购店1：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming1]" value="<{$CONFIG.mall.ming1}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian1]" value="<{$CONFIG.mall.dian1}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">优购店2：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming2]" value="<{$CONFIG.mall.ming2}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian2]" value="<{$CONFIG.mall.dian2}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">优购店3：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming3]" value="<{$CONFIG.mall.ming3}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian3]" value="<{$CONFIG.mall.dian3}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">优购店4：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming4]" value="<{$CONFIG.mall.ming4}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian4]" value="<{$CONFIG.mall.dian4}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">优购店5：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming5]" value="<{$CONFIG.mall.ming5}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian5]" value="<{$CONFIG.mall.dian5}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">优购店6：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming6]" value="<{$CONFIG.mall.ming6}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian6]" value="<{$CONFIG.mall.dian6}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr><tr>
+                    <td class="lfTdBt">优购店7：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming7]" value="<{$CONFIG.mall.ming7}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian7]" value="<{$CONFIG.mall.dian7}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">优购店8：</td>
+                    <td class="rgTdBt">
+                    	<input type="text" name="data[ming8]" value="<{$CONFIG.mall.ming8}>" class="scAddTextName w150" />
+                        <code>优购首页第一栏TAB切换推荐的店铺名称</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="data[dian8]" value="<{$CONFIG.mall.dian8}>" class="scAddTextName w150" />
+                        <code>对应的商家分类ID，尽量二级，支持1级</code>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="smtQr"><input type="submit" value="确认保存" class="smtQrIpt" /></div>
+    </div>
+</form>
+<include  file='public:footer'/>   

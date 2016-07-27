@@ -1,0 +1,101 @@
+﻿@charset "utf-8";
+/* 分栏框架 */
+.tieba-main{overflow:hidden;}
+.tieba-main .main-left{float:left;width:180px;margin-right:15px;}
+.tieba-main .main-right{float:right;width:1000px;}
+
+/* 框架盒子 */
+.left-box{border:1px solid #EEE;}
+.list-box{border:1px solid #EEE;}
+.tie-box{border:1px solid #EEE;}
+
+
+/* 栏目列表 */
+.cate-box .box-hd{background:#D24132;color:#FFF;text-align:center;height:40px;line-height:40px;}
+.cate-box .box-bd .my-info{padding:20px;text-align:center;}
+.cate-box .box-bd .my-info img{width:80px;height:80px;}
+.cate-box .box-bd dt{background:#FAFAFA;text-align:center;height:40px;line-height:40px;border-top:1px solid #EEE;}
+.cate-box .box-bd dt span{display:block;width:40px;height:40px;background:url("../images/tieba/tieba-nav.gif") no-repeat;float:right;}
+.cate-box .box-bd dd a{display:block;background:#FAFAFA;text-align:center;height:40px;line-height:40px;border-top:1px solid #EEE}
+.cate-box .box-bd dt.current{background:#F5F5F5;}
+.cate-box .box-bd dt.current span{background-position:0 -40px!important;}
+
+
+/* 帖子列表 */
+.list-box .box-hd{height:40px;line-height:40px;border-bottom:1px solid #EEE;overflow:hidden;}
+.list-box .box-hd .hd-sort{float:left;}
+.list-box .box-hd .hd-sort li{float:left;border-right:1px solid #EEE;}
+.list-box .box-hd .hd-sort li a{float:left;height:40px;line-height:40px;padding:0 15px;}
+.list-box .box-hd .hd-sou{float:right;padding-right:60px;} 
+.list-box .box-hd .hd-sou .text{float:left;width:146px;height:23px;overflow:hidden;padding:0px 10px;color:#333;display:inline;border-width:1px 0px 1px 1px;border-style: solid none solid solid;border-color:#D9DBDE -moz-use-text-color #D9DBDE #D9DBDE;background:url("../images/tieba/bar-sou.png");margin-top:7px;} 
+.list-box .box-hd .hd-sou .btn{width:33px;height:25px;background:url("../images/tieba/bar-sou.png") 0px -75px;float:left;border:none;margin-top:7px;}
+.list-box .box-bd {padding:10px;}
+.list-box .box-bd .tie-list{margin-bottom:20px;}
+.list-box .box-bd .tie-list  li{overflow:hidden;border-bottom:1px dashed #EEE;padding:10px 0;}
+.list-box .box-bd .tie-list .tie-l{width:80px;float:left;}
+.list-box .box-bd .tie-list .tie-l span{width:50px;height:35px;line-height:25px;margin:5px 10px;background:url("../images/tieba/list-bg.png") no-repeat;display:block;text-align:center;}
+.list-box .box-bd .tie-list .tie-t{width:660px;float:left;}
+.list-box .box-bd .tie-list .tie-t h1{font-size:14px;height:20px;overflow:hidden;font-weight:normal;}
+.list-box .box-bd .tie-list .tie-t a{float:left;}
+.list-box .box-bd .tie-list .tie-t em{width:20px;height:20px;background:url("../images/tieba/list-bg.png") no-repeat;float:left;text-indent:-9999px;margin-left:10px;}
+.list-box .box-bd .tie-list .tie-t .j{background-position:0 -99px;}
+.list-box .box-bd .tie-list .tie-t .d{background-position:0 -156px;}
+.list-box .box-bd .tie-list .tie-t p{color:#999;line-height:20px;margin-top:5px;}
+.list-box .box-bd .tie-list .tie-z{width:80px;float:left;}
+.list-box .box-bd .tie-list .tie-m{width:200px;float:right;font-size:12px;}
+.list-box .box-bd .tie-list .tie-m i{font-size:12px;}
+.list-box .box-bd .tie-list .tie-m span{margin:20px 0 10px 0;display:block;}
+.list-box .box-bd .tie-list .pic {overflow:hidden;margin:5px 0;}
+.list-box .box-bd .tie-list .pic a{float:left;margin-right:5px;}
+.list-box .box-bd .tie-list .pic img{width:160px;height:100px;}
+
+/* 发表帖子 */
+.post-box {margin-top:20px;}
+.post-box .box-hd{height:35px;line-height:35px;}
+.post-box .box-hd h2{font-size:14px;}
+.post-box .box-bd .f-feild{margin-bottom:10px;}
+.post-box .box-bd .f-feild .title{border:1px solid #EEE;height:30px;line-height:30px;padding: 0 10px;}
+.post-box .box-bd .f-feild .btn{display:block;font-size:14px;height:40px;line-height:40px;border:none;width:100px;text-align:center;}
+
+
+/* 帖子内容 */
+.tie-box .box-hd{height:90px;border-bottom:1px solid #EEE;position:relative;overflow:hidden;}
+.tie-box .box-hd .face{width:90px;height:90px;float:left;margin-right:10px;}
+.tie-box .box-hd .face img{width:70px;height:70px;margin:10px;border:1px solid #EEE;}
+.tie-box .box-hd h1{padding:5px 10px;font-size:20px;font-family:"Microsoft YaHei";}
+.tie-box .box-hd p{color:#999;padding:5px 10px;}
+.tie-box .box-hd p em{margin-right:10px;}
+.tie-box .box-hd em.poster{display:block;width:36px;height:36px;background:url("../images/tieba/list-bg.png") no-repeat -264px 0;position:absolute;top:0;right:0;text-indent:-9999px;}
+.tie-box .box-bd {padding:10px 10px 30px 10px;font-size:14px;line-height:22px;}
+.tie-box .box-bd p{margin-top:10px;}
+
+
+/* 回复楼层 */
+.rep-list{border-left:1px solid #EEE;border-right:1px solid #EEE;height:auto;}
+.rep-list li{border-bottom:1px solid #EEE;overflow:hidden;background:#FAFAFA;}
+.rep-list li .list-l{float:left;width:140px;}
+.rep-list li .list-l .face{width:100px;height:100px;border:1px solid #EEE;margin:20px;}
+.rep-list li .list-l .face img{width:90px;height:90px;padding:5px;}
+.rep-list li .list-l p{text-align:center;}
+.rep-list li .list-r{float:right;height:auto;min-height:200px;background:#FFF;width:855px;border-left:1px solid #EEE;}
+.rep-list li .list-r .r-txt{padding:10px;font-size:14px;line-height:22px;min-height:150px;}
+.rep-list li .list-r .r-des{float:right;margin-right:50px;}
+
+
+/* 回复框 */
+
+.rep-box{border:1px solid #EEE;}
+.rep-box .box-hd{height:40px;line-height:40px;}
+.rep-box .box-hd h2{font-size:14px;margin:0 20px;}
+.rep-box .box-bd {padding:20px;}
+.rep-box .box-bd .reply-txt{border:1px solid #EEE;width:800px;height:150px;padding:10px;}
+.rep-box .box-bd .reply-btn{display:block;font-size:14px;height:40px;line-height:40px;border:none;width:100px;text-align:center;margin-top:10px;background:#D24132;color:#FFF;}
+
+
+
+
+
+
+
+
+

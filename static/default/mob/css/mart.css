@@ -1,0 +1,168 @@
+/*ап╠М*/
+
+.list{
+    padding: 0px 10px;
+    height: auto;
+    overflow: hidden;
+    background-color: #fff;
+}
+.list li{
+    margin: 0px auto;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    padding:0px 0px 10px 0px;
+}
+
+.shop_list li{
+    padding:10px 0;
+}
+.shop_list li a img{
+    width: 100%;
+    float: left;
+}
+.shop_list>li>a.pic{ 
+    width: 35%;
+    float: left;
+    display: block;
+    height: auto;
+    overflow: hidden;
+}
+.list li .des{
+    width: 63%;
+    float: left;
+    margin-left: 2%;
+}
+.list li .des .t_box{
+    height: 24px;
+    line-height:24px;
+}
+.list li .des .t_box .title{
+    font-size: 16px;
+    height: 16px;
+    overflow: hidden;
+    line-height: 16px;
+    color: #333;
+    float: left;
+    width: 70%;
+    display: inline-block;
+}
+.list li .des .t_box .enter{
+    float: right;
+    text-align: center;
+    background: url('../img/enter.png') no-repeat  center center / contain;
+    color: #fff;
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+}
+.list li .des .t_box .enter a{
+    color: #fff;
+}
+.list li .des .Price{
+    height: 40px;
+}
+.list li .des .Price .left{
+    float: left;
+    color: #333;
+}
+.list li .des .Price .left .jPirce{
+    color: #f21700;
+}
+.list li .des .Price .left .jsPirce{
+    text-decoration: line-through;
+}
+.list li .des .Price .right{
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+}
+.list li .des .Price .right img{
+    width: 100%;
+}
+.list li .des .Price .right .jq_addcart img{
+    height: auto;
+}
+
+.list li .des .t_box .zwdk{
+    float: right;
+}
+.list li .des .t_box .zwdk span{
+    float: left;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 3px;
+    border-radius: 1px;
+}
+.list li .des .t_box .zwdk .z{
+    background: #f2c700;
+}
+.list li .des .t_box .zwdk .d{
+    background: #f16600;
+}
+.list li .des .t_box .zwdk .w{
+    background: #02cb65;
+}
+.list li .des .t_box .zwdk .k{
+    background: #00a1ec;
+}
+.list li p{
+    height: auto;
+    overflow: hidden;
+}
+.list li p .price{
+    float: left;
+    display: inline-block;
+    margin-left: 10px;
+    height: 24px;
+    line-height: 24px;
+    color: #f22200;
+    font-size: 16px;
+}
+.list li p .price span{
+    font-size: 12px;
+    color: #444;
+}
+.list li p .discount{
+    float: right;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #ff3c00;
+    border-radius: 2px;
+}
+.list li .addr{
+    color: #666;
+    max-height: 48px;
+    line-height: 24px;
+    overflow: hidden;
+}
+.list li .addr span.site{
+    display: block;
+    float: left;
+}
+.list li .t_box .range{
+    float: right;
+}
+
+.list .fst{
+    border-top: none;
+}
+
+
+.list .gai_pic{ 
+    display: block;
+    width: 33%;
+    margin-right: 2%;
+    float: left;
+}

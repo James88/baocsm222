@@ -45,3 +45,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/attachs
+/ThinkPHP
+/Baocms/Lib/phpqrcode/
+/Baocms/Runtime/
+/install/
+/nbproject/
+

@@ -1,0 +1,45 @@
+<include  file='public:header'/>
+<div class="mainBt">
+    <ul>
+        <li class="li1">当前位置</li>
+        <li class="li2">广告位</li>
+        <li class="li2 li3">新增</li>
+    </ul>
+</div>
+<div class="mainScAdd">
+    <div class="tableBox">
+        <form  target="baocms_frm" action="<{:U('adsite/create')}>" method="post">
+            <table  bordercolor="#dbdbdb" cellspacing="0" width="100%" border="1px"  style=" border-collapse: collapse; margin:0px; vertical-align:middle; background-color:#FFF;" >
+                <tr>
+                    <td class="lfTdBt">广告位名称：</td>
+                    <td  class="rgTdBt"><input type="text" name="data[site_name]" value="<{$detail.site_name|default=''}>" class="manageInput w300" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">广告位类型：</td>
+                    <td  class="rgTdBt">
+                        <select name="data[site_type]" class="manageSelect w300">
+                            <foreach name="types" item="var" key="key">
+                                <option value="<{$key}>"><{$var}></option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">广告位位置：</td>
+                    <td  class="rgTdBt">
+                        <select name="data[site_place]" class="manageSelect w300">
+                            <foreach name="place" item="var" key="key">
+                                <option value="<{$key}>"><{$var}></option>
+                            </foreach>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+    </div>
+    <div class="smtQr"><input type="submit" value="确认添加" class="smtQrIpt" /></div>
+</div>
+</form>
+</div>
+</div>
+<include  file='public:footer'/>       

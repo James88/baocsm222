@@ -1,0 +1,17 @@
+<foreach name="list" item="var">
+    <div class="list-box">
+        <div class="list-img">
+            <img src="__ROOT__/attachs/<{$var.photo}>">
+        </div>
+        <div class="list-content">
+            <p><{$var.menu_name}></p>
+            <p>
+            <span class="price">&yen;<{:round($var['ding_price']/100,2)}></span>
+            </p>
+            <div class="num-input">
+                
+                <a class="jq_addcart" val="<{:round($var['ding_price']/100,2)}>" did="<{$var.menu_id}>"  href="<{:U('ding/add',array('shop_id'=>$var['shop_id'],'menu_id'=>$var['menu_id']))}>"><div class="btn active">+</div></a>
+            </div>
+        </div>
+    </div>
+</foreach>

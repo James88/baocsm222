@@ -1,0 +1,47 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+		<i class="icon-goback" style="cursor:pointer;" onClick="javascript:history.back(-1);"></i>
+		<div class="title">支付订单</div>
+		<i class="icon-menu"></i>
+	</header>
+
+        
+        <div id="seat" class="page-center-box">
+
+		<div id="scroll" class="pay">
+			<div class="order-content">
+                <ul class="list">
+            		<li>
+            			<span class="left">合并付款编号：</span>
+	            		<span class="right"><{$logs.log_id}></span>
+	            		<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">订单总额：</span>
+	            		<div class="rush-num right">
+	                        <{:round($logs['need_pay']/100,2)}>元
+                    	</div>
+                    	<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">还需支付：</span><span class="right"><{:round($logs['need_pay']/100,2)}>元</span>
+	            		<div class="clear"></div>
+	            	</li>
+	            	
+            	</ul>
+            </div>
+
+			<div class="sure-pay-but">
+				<p class="left"></p>
+            	<div class="sure-pay right"><{$button}></div>
+            </div>
+            <style type="text/css">
+            	.sure-pay input{border:none;background:none;color:#FFFFFF;font-size:0.16rem;width:100%;}
+            </style>
+		</div>
+
+	</div>
+
+
+<include  file='public:footer'/>

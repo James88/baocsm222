@@ -1,0 +1,108 @@
+<include file="public:header"/>
+<script src = "__TMPL__statics/js/elecart.js?v=20150822" ></script>
+<body>
+    <header>
+        <a href="<{:U('ele/shop',array('shop_id'=>$shop_id))}>"><i class="icon-goback"></i></a>
+        <div class="title">购物车</div>
+        <i class="icon-menu"></i>
+    </header>
+    
+    <php>$tt = ($detail['since_money'])-$total['money']*100;
+    </php>
+    
+    <form method="post" id="bao_buy_form"  action="<{:U('ele/order',array('t'=>$nowtime))}>">
+    <php>$total_money = 0;</php>
+    <div id="life" class="page-center-box">
+        <div id="scroll">
+            <!-- 列表 -->
+            <div class="list-have-pic list-have-pic-btn">
+                <foreach name="cartgoods" item="item">
+                
+
+                <div class="list-box list-box-integral">
+                    <div class="list-img">
+                        <img src="__ROOT__/attachs/<{$item.photo}>" />
+                    </div>
+                    <div class="list-content">
+                        <p class="h15"><a target="_blank" href="<{:U('ele/detail',array('goods_id'=>$item['goods_id']))}>"><{$item.product_name}></a></p>
+                        <p class="c_h"><span class="mr20">单价：￥<{:round($item['price']/100,2)}></span> 合计：<span class="price">￥<{:round($item['price'] *  $item['cart_num']/100,2)}></span></p>
+                        <div class="num-input changeNum2" rel="<{$item.product_id}>">
+                            <div class="btn jq_jian" rel="<{:round($item['price']/100,2)}>" onClick="dec(this,<{$item['product_id']}>)">-</div>
+                            <div class="input">
+                                <input value="<{$item['cart_num']}>" name="num[<{$item['product_id']}>]" id="jq_num" class="ordernum" type="text" readonly="true"/>
+                            </div>
+                            <div class="btn active jq_jia" rel="<{:round($item['price']/100,2)}>" onClick="inc(this,<{$item['product_id']}>)">+</div>
+                        </div>
+                        <div class="icon-del" onClick="removeby(<{$item['product_id']}>)"></div>
+                    </div>
+                </div>
+                
+                <php>
+                    $total_money+= $item['price'] *  $item['cart_num'];
+                </php>
+                
+                </foreach>
+       
+            </div>
+        </div>
+    </div>
+    <footer class="footer-cart">
+        <div class="cart">
+            <div class="cart-num"><{$total['num']}></div>
+        </div>
+        <div class="price" id="jq_total">￥<span class='totalprice'><{:round($total_money/100,2)}></span> <php>$cha = round($tt/100,2);</php><span id="jq_last" class="jq_last"><gt name="cha" value="0">还差<span class='cha'><{$cha}></span>元起送</gt></span></div>
+        <div class="btn"><a href="javascript:void(0);" onClick="$('#bao_buy_form').submit();" style="color:#FFFFFF;">结 算</a></div>
+    </footer>
+</form>
+<script type="text/javascript">
+var since_money = "<{$detail['since_money']}>";
+function dec(o,product_id){
+    var shop_id = "<{$shop_id}>", price = $(o).attr('rel'), cha = 0;
+    window.ele.dec(shop_id,product_id);
+    var count = window.ele.itemcount(product_id);
+    var price = count*price;
+    var totalprice = window.ele.totalprice();
+        cha=(since_money-totalprice)/100;
+        cha=cha<=0?0:cha;
+    $(o).parent().prev().find('.price').text(price);
+    $(o).parent().find("input[type='text']").val(count);
+    $('.totalprice').text(totalprice);
+    $('.cart-num').text(window.ele.count());
+    
+	var ppp = since_money/100-totalprice;
+	if(ppp > 0){
+		$('.cha').text(ppp);
+	}else{
+		$('.jq_last').text('');
+	}
+	
+}
+function inc(o,product_id){
+ var shop_id = "<{$shop_id}>", price = $(o).attr('rel');
+    window.ele.inc(shop_id,product_id);
+    var count = window.ele.itemcount(product_id);
+    var price = count*price;
+    var totalprice = window.ele.totalprice();
+        cha=since_money-totalprice;
+        cha=cha<=0?0:cha;
+    $(o).parent().prev().find('.price').text(price);
+    $(o).parent().find("input[type='text']").val(count);
+    $('.totalprice').text(totalprice);
+    $('.cart-num').text(window.ele.count());
+	
+	var ppp = since_money/100-totalprice;
+	if(ppp > 0){
+		$('.cha').text(ppp);
+	}else{
+		$('.jq_last').text('');
+	}
+    
+ }
+function removeby(pid){
+   if(window.ele.removeby(pid)){
+        window.location.reload();
+    }else{
+        alert('删除商品失败！');
+    }
+}
+</script>

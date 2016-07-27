@@ -1,0 +1,160 @@
+<include file="public:header"/>
+<body id="micro_shop">
+    <header> 
+        <a href="<{:U('mart/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">商品详情</div>
+        <i class="icon-menu" id="ico_1"></i> 
+    </header>
+    <div class="bdcolor">
+        <div class="bdcolor_bg"></div>
+        <div class="bdsharebuttonbox" data-tag="share_1">
+            <a class="bds_weixin" data-cmd="weixin">微信</a>
+            <a class="bds_qzone" data-cmd="qzone" href="#">QQ空间</a>
+            <a class="bds_sqq" data-cmd="sqq">腾讯QQ</a>
+            <a class="bds_tqq" data-cmd="tqq">腾讯微博</a>
+            <a class="bds_tsina" data-cmd="tsina">新浪微博</a>
+            <div class="bd-share-popup-footer">
+                <a class="bd-share-popup-close" onclick="$('.bdcolor').hide();" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".share").click(function () {
+                $(".bdcolor").show();
+            });
+        });
+        window._bd_share_config = {
+            common: {
+                bdText: '<{$detail.title}>',
+                bdDesc: '<{$detail.title}>',
+                bdUrl: encodeURIComponent(location.href),
+                bdPic: 'http://<{$Think.SERVER.HTTP_HOST}>__ROOT__/attachs/<{$detail.photo|default='default.jpg'}>'
+            },
+            share: [{
+                    "bdSize": 32,
+                }],
+        }
+        with (document)
+            0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+    <div id="sell" class="page-center-box">
+        <div id="scroll">
+            <!-- BANNER图 -->
+            <div class="seat-banner">
+                <a href="javacript:;">
+                    <img src="__ROOT__/attachs/<{$detail.photo}>" width="100%">
+                    <div class="shade"></div>
+                    <div class="shade-content">
+                        <p><{$detail.title}></p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- 评分 -->
+            <div class="point">
+                <div class="point-left">
+                    <div><span class="mall-price">&yen;<{:round($detail['mall_price']/100,2)}></span> <del>&yen;<{:round($detail['price']/100,2)}></del><span class="mall-num">已售：<{$detail.sold_num}></span></div>
+                </div>
+                <div class="point-right">
+                    <a class="btn" id="jq_addcart2" href="javascript:void(0);">立即购买</a>
+                </div>
+            </div>
+            <div class="mall-point">
+                <h4><{$detail.title}></h4>
+                <p>仅售<{:round($detail['mall_price']/100,2)}>元！价值<{:round($detail['price']/100,2)}>元！</p>
+            </div>
+            <!-- 地址 -->
+            <div class="mall-style">
+                <ul>
+                    <li><img src="__TMPL__statics/img/tp63.png"></li>
+                    <li><img src="__TMPL__statics/img/tp64.png"></li>
+                    <li><img src="__TMPL__statics/img/tp65.png"></li>
+                </ul>
+                <ul>
+                    <li>支持配送到家</li>
+                    <li>支持随时退</li>
+                    <li>过期自动退</li>
+                </ul>
+            </div>
+            <div class="mall-our">
+                <span class="mall-fen share"><a href="javascript:void"><img src="__TMPL__statics/img/tp9.png"><span>分享</span></a></span> 
+                <span class="mall-fen"><a href=""><img src="__TMPL__statics/img/icon-sc.png"><span>收藏</span></a></span>           
+            </div>
+
+            <div class="spread-intro">
+                <ul>
+                    <li class="spread-tui">商品详情</li>
+                    <li>
+                        <div class="micro_shop_xq">
+                            <{$detail.details}>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="spread-intro">
+                <ul>
+                    <li>
+                        <div class="micro_shop_xqImg"><img src="__TMPL__statics/img/tp70.png" /></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="spread-intro">
+                <ul>
+                    <li class="spread-tui">购买须知</li>
+                    <li>
+                        <div class="micro_shop_xqXz">
+                            <p>
+                                <{$detail.instructions}>
+                            </p>
+                        </div>   
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-cart">
+        <div class="cart">
+            <div class="cart-num" id="num2"><a style="color: #fff;" href="<{:U('mart/cart',array('shop_id'=>$detail['shop_id']))}>"><{$cartnum}></a></div>
+        </div>
+        <div class="btn"><a href="<{:U('mart/cart')}>" style="color:#FFFFFF;">结算</a></div>
+        <div class="btn">
+            <a href="<{:U('mart/cartadd',array('goods_id'=>$detail['goods_id']))}>" style="color:#FFFFFF;" class="jq_addcart">加入购物车</a>
+        </div>
+
+    </footer>
+
+    <script>
+        var num = '<{$cartnum}>';
+        $(document).ready(function (e) {
+            $(document).on('click', '.jq_addcart', function (e) {
+                e.preventDefault();
+                $.get($(this).attr('href'), function (data) {
+                    if (data == 0) {
+                        num++;
+                        $("#num2").html(num);
+                    } else {
+                        alert(data);
+                    }
+
+                }, 'html');
+
+            });
+            $("#jq_addcart2").click(function(){
+                var shop_id = "<{$detail.shop_id}>";
+                var goods_id = "<{$detail.goods_id}>";
+                $.post("<{:U('mart/cartadd2')}>",{shop_id:shop_id,goods_id:goods_id},function(result){
+                    if(result.status == 'success'){
+                        layer.msg(result.msg);
+                        setTimeout(function(){
+                            window.location.href = result.url;
+                        },1000)
+                    }else{
+                        layer.msg(result.msg);
+                    }
+                });
+            })
+            
+        });
+    </script>

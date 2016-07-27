@@ -1,0 +1,447 @@
+<include file="public:header" /> 
+<include file="public:top"/>
+<include file="public:nav2"/>
+<script type="text/javascript" src="__TMPL__statics/js/jquery.qrcode.min.js"></script>
+<style>
+    .sjxq_sjcpDwNr canvas{
+        width: 115px;
+        height: 115px;
+        margin: 0px auto;
+        background: #fff;
+        padding: 10px;
+    }
+</style>
+<div class="mask_bg mask_spxq_pjLi_img_mask">
+	<div class="mask_spxq_pjLi_img"><img src="" width="300" height="300" /></div>
+</div>
+<div class="content zy_content">
+    <div class="spxq_xqT spxq_xqT2">
+        <ul>
+            <li class="jq_spxq_xqBt1 on"><code rel="spxq_xqBt1">商家位置</code><em></em></li>
+            <li class="jq_spxq_xqBt2"><code rel="spxq_xqBt2">商品抢购</code><em></em></li>
+            <li class="jq_spxq_xqBt3"><code rel="spxq_xqBt3">商家商品</code><em></em></li>
+            <li class="jq_spxq_xqBt4"><code rel="spxq_xqBt4">商家活动</code><em></em></li>
+            <li class="jq_spxq_xqBt5"><code rel="spxq_xqBt5">商家优惠</code><em></em></li>
+            <li class="jq_spxq_xqBt6"><code rel="spxq_xqBt6">网友评价</code><em></em></li>
+            <li class="right" style="float:right; padding-right:0px; width:auto;"><a class="hdsy_LicjA" href="<{:U('shop/shop',array('shop_id'=>$detail['shop_id']))}>" style="height: 34px;width: 85px;line-height: 30px;margin-right: 20px;margin-top:3px;"><em class="sjxq_zxem bg1"></em>去看看</a></li>
+        </ul>
+    </div>
+    <div class="spxq_loca"><a href="<{:U('index/index')}>">首页</a>&gt;&gt;<a href="<{:U('shop/index')}>">商家</a>&gt;&gt;<{$detail.shop_name}></div>
+    <div class="spxq_xqgm">
+        <div class="left spxq_xqgm_l">
+		<h3><{$detail.shop_name}></h3>
+            <div class="spxq_qg">
+                <div class="left spxq_qg_l">
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.spxq_slider').flexslider({
+                                slideshow: false,
+                                controlNav: "thumbnails"
+                            });
+                        });
+                        $(function () {
+                            $(".sy_hotgzLi").hover(function () {
+                                $(".spxq_slider .flex-direction-nav").show();
+                            }, function () {
+                                $(".spxq_slider .flex-direction-nav").hide();
+                            });
+                            $(".spxq_slider .flex-direction-nav").hover(function () {
+                                $(".spxq_slider .flex-direction-nav").show();
+                            }, function () {
+                                $(".spxq_slider .flex-direction-nav").hide();
+                            });
+                        });
+                    </script>
+                    <div class="spxq_slider">
+                        <ul class="slides">
+                            <li class="sy_hotgzLi" data-thumb="__ROOT__/attachs/<{$detail.photo}>"><img src="__ROOT__/attachs/<{$detail.photo}>" width="470" height="285" /></li>
+                            <calldata mdl="Shoppic" where="audit=1 AND shop_id= '{$detail['shop_id']}'" limit="0,3" cache="10800" order="orderby asc">
+                                <li class="sy_hotgzLi" data-thumb="__ROOT__/attachs/<{$item.photo}>"><img src="__ROOT__/attachs/<{$item.photo}>" width="470" height="285" /></li>
+                            </calldata>
+                        </ul>
+
+                    </div>
+                </div>
+                <php>
+                    $tags = $detail['tags'];
+                    $tagsarray = array();
+                    if(!empty($tags)){
+                    $tagsarray = explode(',',$tags);
+                    }
+                </php>
+                <div class="right spxq_qg_r hdxq_qg_r">
+                    
+                     <div class="spxq_qgjgk"><span class="detail_spxq_qg_tit">评价</span><span class="spxq_qgpstarBg"><span class="spxq_qgpstar spxq_qgpstar<{$detail['score']}>"></span></span>&nbsp;&nbsp;<b><{$detail.score_num}></b>人评价</div>
+                    <div class="spxq_qgjgk"><p class="hdxq_p"><span class="detail_spxq_qg_tit">地址</span><{$detail.addr}></p></div>
+                    <div class="spxq_qgjgk"><p class="hdxq_p"><span class="detail_spxq_qg_tit">营业时间</span><{$ex.business_time}></p></div>
+                    <div class="spxq_qgjgk"><p class="hdxq_p"><span class="detail_spxq_qg_tit">人均</span><span class="jfxq_jfj">￥<{$ex.price}></span></p>
+					</div>
+					<div class="spxq_qgjgk">
+					<span class="detail_spxq_qg_tit">标签</span><if condition="$tagsarray eq null">
+                                    <a href="javascript:void(0);">暂无标签</a> 
+                                    <else/>
+                                    <volist name='tagsarray' id='var' key='index'>
+                                        <a style="border: 1px solid #2fbdaa; margin-right:5px; padding:3px 8px;" href='<{:U("shop/index",array("keyword"=>$var))}>'><{$var}></a>
+                                    </volist>
+                                </if></div>
+                    <div class="hdsy_Licj hdxq_Licj">
+                        <div class="left hdsy_Licj_l"><em class="radius100"></em><if condition="$detail.tel neq null"><span>电话:<{$detail.tel}><if condition="$detail['extension'] neq null"><span> 转 </span><{$detail.extension}><span>分机</span></if><else/><span>手机:<{$detail.mobile}></span></if></div>
+                        <div class="right hdsy_Licj_r"><a class="hdsy_LicjA" href="<{:U('shop/shop',array('shop_id'=>$detail['shop_id']))}>"><em class="sjxq_zxem bg1"></em>去看看</a><span class="hdsy_LiP"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right spxq_xqgm_r">
+            <div style="padding-bottom:105px;" class="spxq_qgwx"><if condition="$ex['wei_pic'] eq null"><img src="__PUBLIC__/img/wx.png"  width="120" height="120"/><else/><img src="<{$ex['wei_pic']}>" width="120" height="120" /></if>
+                <p>扫描商家微信</p>
+                <p>轻松购享优惠</p>
+            </div>
+            <div class="share bdsharebuttonbox spxq_qgFx" data-tag="share_1"><a mini='act' class="spxq_qgFxA" href="<{:U('shop/favorites',array('shop_id'=>$detail['shop_id']))}>"><em>&nbsp;</em>收藏本店</a><a class="spxq_qgFxA" data-cmd="more" href="javascript:void(0);"><em>&nbsp;</em>分享到</a></div>
+            <script>window._bd_share_config = {share: [{"tag": "share_1", 'bdCustomStyle': '__TMPL__statics/empty.css'}]};
+                with (document)
+                    0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)]; 
+			</script>
+        </div>
+    </div>
+    <div class="shangjiaC">
+        <div class="left shangjiaC_l">
+            <div class="spxq_xqT">
+                <ul>
+                    <li class="on"><code rel="spxq_xqBt1">商家位置</code><em></em></li>
+                    <li><code rel="spxq_xqBt2">商品抢购</code><em></em></li>
+                    <li><code rel="spxq_xqBt3">商家商品</code><em></em></li>
+                    <li><code rel="spxq_xqBt4">商家活动</code><em></em></li>
+                    <li><code rel="spxq_xqBt5">商家优惠</code><em></em></li>
+                    <li><code rel="spxq_xqBt6">网友评价</code><em></em></li>
+                </ul>
+            </div>
+            <div class="spxq_xqBt spxq_xqBt1">商家位置</div>
+            <div class="spxq_xqNr">
+                <div class="left spxq_xqMap_l">
+                    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7b92b3afff29988b6d4dbf9a00698ed8"></script>
+                    <div id="allmap" style="width:384px; height:300px;"></div>
+                    <script type="text/javascript">
+                // 百度地图API功能
+                var map = new BMap.Map("allmap");
+                map.centerAndZoom(new BMap.Point("<{$detail.lng}>", "<{$detail.lat}>"), 15);
+                var point = new BMap.Point("<{$detail.lng}>", "<{$detail.lat}>");
+                map.centerAndZoom(point, 15);
+                var marker = new BMap.Marker(point); // 创建标注
+                map.clearOverlays();
+                map.addOverlay(marker); // 将标注添加到地图中
+                marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+                map.addControl(new BMap.NavigationControl()); //添加默认缩放平移控件
+                    </script>
+                </div>
+                <div class="left spxq_xqMap_r" style="width:556px;">
+                    <div class="sjxq_dp">
+                        <script>
+                            $(function () {
+                                $(".spxq_xqMapList li").each(function (e) {
+                                    $(this).click(function () {
+                                        $(".spxq_xqMapList li").removeClass("on");
+                                        $(this).addClass("on");
+                                        $(".spxq_xqMapListNr").each(function (i) {
+                                            if (e == i) {
+                                                $(".spxq_xqMapListNr").hide();
+                                                $(this).show();
+                                            }
+                                            else {
+                                                $(this).hide();
+                                            }
+                                        });
+                                    });
+
+                                });
+                            });
+                        </script>
+                        <div class="left spxq_xqMapList">
+                            <ul>
+                                <php>$i=0;</php>
+                                <foreach name="lists" item="item">
+                                    <php>$i++;if($i<=5){</php>
+                                    <li id="li_<{$i}>" <if condition="$i eq 1">class="on"</if> ><{$item.name}></li>
+                                    <php>}else{</php>
+                                    <li id="li_<{$i}>" style="display:none;"><{$item.name}></li>
+                                    <php>}</php>
+                                </foreach>
+                            </ul>
+                        </div>
+                        <div class="left" style="width:356px;">
+                            <php>$i=0;</php>
+                            <foreach name="lists" item="item">
+                                <php>$i++;if($i<=5){</php>
+                                <div class="spxq_xqMapListNr" id="detail_<{$i}>" <if condition="$i eq 1"> style="display:block;"</if> >
+                                    <table width="100%" class="spxq_table" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td colspan="2"><p class="spxq_xqMapT"><{$detail.shop_name}>（<{$item.name}>）</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="50"><p class="spxq_tabT">评价：</p></td>
+                                            <td><a class="" href=""><{$item.score_num}>人评价</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="spxq_tabT">地址：</p></td>
+                                            <td><p class="spxq_xqMapWz"><{$item.addr}></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="spxq_tabT">电话：</p></td>
+                                            <td><p class="spxq_xqMapWz"><{$item.telephone}></P></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <php>}else{</php>
+                                <div class="spxq_xqMapListNr" style="display:none;" id="detail_<{$i}>">
+                                    <table width="100%" class="spxq_table" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td colspan="2"><p class="spxq_xqMapT"><{$detail.shop_name}>（<{$item.name}>）</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="50"><p class="spxq_tabT">评价：</p></td>
+                                            <td><a class="" href=""><{$item.score_num}>人评价</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="spxq_tabT">地址：</p></td>
+                                            <td><p class="spxq_xqMapWz"><{$item.addr}></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p class="spxq_tabT">电话：</p></td>
+                                            <td><p class="spxq_xqMapWz"><{$item.telephone}></P></td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                                <php>}</php>
+                            </foreach>
+                        </div>
+                    </div>
+                    <div class='x' id='setpage'></div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var totalpage, pagesize, cpage, count, curcount, outstr, total;
+                total = "<{$count}>";
+                cpage = 1;
+                totalpage = "<{$totalnum}>";
+                pagesize = 5;
+                outstr = "";
+                function gotopage(target) {
+                    var big_val = target * 5;
+                    var small_val = big_val - 4;
+                    $('.spxq_xqMapList ul li').hide();
+                    $('.spxq_xqMapListNr').hide();
+                    $('.spxq_xqMapList ul li').removeClass('on');
+                    for (var i = small_val; i <= big_val; i++) {
+                        $('#li_' + i).show();
+                        $('#li_' + small_val).addClass('on');
+                        $('#detail_' + small_val).show();
+                    }
+                    cpage = target;        //把页面计数定位到第几页 
+                    setpage();
+                    //reloadpage(target);    //调用显示页面函数显示第几页,这个功能是用在页面内容用ajax载入的情况 
+                }
+                setpage();    //调用分页 
+            </script>
+            <div class="spxq_xqBt spxq_xqBt2">商品抢购</div>
+            <div class="spxq_xqNr">
+                <div class="sjxq_hdList">
+                    <ul>
+                        <foreach name="tuan" item="item">
+                            <li class="sjxq_hdLi">
+                                <div class="sy_sjcpLi nearbuy_cpLik">
+                                    <img src="__ROOT__/attachs/<{$item.photo}>" width="300" height="184" />
+                                    <p class="sy_hottjbt"><{$item.title}></p>
+                                    <p class="sy_hottjp">简介：<{$item.intro}></p>                                
+                                    <p class="sjxq_hdLiP"><span class="left">抢购价：<span class="red">&yen;<{:round($item['tuan_price']/100,2)}></span> 原价：<del>&yen;<{:round($item['price']/100,2)}></del></span><span class="right">已售<{$item.sold_num}></span></p>
+                                    <div class="sy_sjcpLiDw sjxq_sjcpLiDw">
+                                        <a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>">
+                                            <div class="sy_sjcpDwBox sjxq_sjcpDwBox">
+                                                <div class="sy_sjcpDwNr sjxq_sjcpDwNr">
+                                                    <div class="sy_sjcpwx"><if condition="$item['wei_pic'] eq null"><img src="__PUBLIC__/img/wx.png"  width="139" height="139"/><else/><img src="<{$item['wei_pic']}>" width="139" height="139" /></if></div>
+                                                    <p>扫一扫，即可享有优惠</p>
+                                                </div>
+                                                <div class="sy_sjcpDwBg">&nbsp;</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <div class="spxq_xqBt spxq_xqBt3">商家商品</div>
+            <div class="spxq_xqNr">
+                <div class="sjxq_hdList">
+                    <ul>
+                        <foreach name="goods" item="item">
+                            <li class="sjxq_hdLi">
+                                <div class="sy_sjcpLi nearbuy_cpLik">
+                                    <img src="__ROOT__/attachs/<{$item.photo}>" width="300" height="184" />
+                                    <p class="sy_hottjbt"><{$item.title}></p>
+                                    <p class="sy_hottjp">简介：<{$item.intro}></p>                                
+                                    <p class="sjxq_hdLiP"><span class="left">商城价：<span class="red">&yen;<{:round($item['mall_price']/100,2)}></span> 原价：<del>&yen;<{:round($item['price']/100,2)}></del></span><span class="right">已售<{$item.sold_num}></span></p>
+                                    <div class="sy_sjcpLiDw sjxq_sjcpLiDw">
+                                        <a target="_blank" href="<{:U('mall/detail',array('goods_id'=>$item['goods_id']))}>">
+                                            <div class="sy_sjcpDwBox sjxq_sjcpDwBox">
+                                                <div class="sy_sjcpDwNr sjxq_sjcpDwNr">
+                                                    <div class="sy_sjcpwx"><if condition="$item['wei_pic'] eq null"><img src="__PUBLIC__/img/wx.png"  width="139" height="139"/><else/><img src="<{$item['wei_pic']}>" width="139" height="139" /></if></div>
+                                                    <p>扫一扫，即可享有优惠</p>
+                                                </div>
+                                                <div class="sy_sjcpDwBg">&nbsp;</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <div id="huodong" class="spxq_xqBt spxq_xqBt4">商家活动</div>
+            <div class="spxq_xqNr">
+                <div class="sjxq_hdList">
+                    <ul>
+                        <foreach name="huodong" item="item">
+                            <li class="sjxq_hdLi">
+                                <div class="sy_sjcpLi nearbuy_cpLik">
+                                    <img src="__ROOT__/attachs/<{$item.photo}>" width="300" height="184" />
+                                    <p class="sy_hottjbt"><{$item.title}></p>
+                                    <p class="sy_hottjp">简介：<{$item.intro}></p>                                
+                                    <p class="sjxq_hdLiP"><span class="left">价格：<span class="red">&yen;<{$item['price']}></span></span><span class="right">已报名<{$item.sign_num}>人</span></p>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            var str = "<{$host}><{:U('mobile/huodong/detail',array('activity_id'=>$item['activity_id']))}>";
+                                            $("#codeh_<{$item.activity_id}>").empty();
+                                            $('#codeh_<{$item.activity_id}>').qrcode(str);
+                                        })
+
+                                    </script>
+                                    <div class="sy_sjcpLiDw sjxq_sjcpLiDw">
+                                        <a target="_blank" href="<{:U('huodong/detail',array('activity_id'=>$item['activity_id']))}>">
+                                            <div class="sy_sjcpDwBox sjxq_sjcpDwBox">
+                                                <div class="sy_sjcpDwNr sjxq_sjcpDwNr">
+                                                    <div style="width: 135px; height: 135px; margin: 0px auto;" id="codeh_<{$item.activity_id}>"></div>
+                                                    <p style="margin-top: 10px;">扫一扫，立即查看活动详情</p>
+                                                </div>
+                                                <div class="sy_sjcpDwBg">&nbsp;</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <div class="spxq_xqBt spxq_xqBt5">商家优惠</div>
+            <div class="spxq_xqNr">
+                <div class="sjxq_hdList">
+                    <ul>
+                        <foreach name="coupon" item="item">
+                            <li class="sjxq_hdLi">
+                                <div class="sy_sjcpLi nearbuy_cpLik">
+                                    <img src="__ROOT__/attachs/<{$item.photo}>" width="300" height="184" />
+                                    <p class="sy_hottjbt"><{$item.title}></p>
+                                    <p class="sy_hottjp">简介：<{$item.intro}></p>                                
+                                    <p class="sjxq_hdLiP"><span class="left">过期时间：<span class="red"><{$item.expire_date}></span></span><span class="right">已下载<{$item.downloads}></span></p>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            var str = "<{$host}><{:U('mobile/coupon/detail',array('coupon_id'=>$item['coupon_id']))}>";
+                                            $("#codes_<{$item.coupon_id}>").empty();
+                                            $('#codes_<{$item.coupon_id}>').qrcode(str);
+                                        })
+
+                                    </script>
+                                    <div class="sy_sjcpLiDw sjxq_sjcpLiDw">
+                                        <a target="_blank" href="<{:U('coupon/detail',array('coupon_id'=>$item['coupon_id']))}>">
+                                            <div class="sy_sjcpDwBox sjxq_sjcpDwBox">
+                                                <div class="sy_sjcpDwNr sjxq_sjcpDwNr">
+                                                    <div style="width: 135px; height: 135px; margin: 0px auto;" id="codes_<{$item.coupon_id}>"></div>
+                                                    <p style="margin-top: 10px;">扫一扫，即可享有优惠</p>
+                                                </div>
+                                                <div class="sy_sjcpDwBg">&nbsp;</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+            <div class="spxq_xqBt spxq_xqBt6">网友评价</div>
+            <div class="spxq_xqNr">
+                <div class="sjxq_tab">
+                    <ul>
+                        <li class="sjxq_tabLi"><a href="javascript:void(0);">全部</a></li>
+                        <li class="sjxq_tabLi on"><a href="javascript:void(0);">晒图评价</a></li>
+                    </ul>
+                </div>
+                <div class="spxq_pjListBox">
+                    <ul>
+                        <volist name="list" id="var">
+                            <li class="spxq_pjList">
+                                <div class="left spxq_pjList_l">
+                                    <div class="spxq_pjTx"><img src="__ROOT__/attachs/<{$users[$var['user_id']]['face']|default='default.jpg'}>" width="50" height="50" /></div>
+                                    <p class="spxq_pjYh"><{$users[$var['user_id']]['nickname']}></p>
+                                </div>
+                                <div class="left spxq_pjList_r sjxq_pjList_r">
+                                    <div><span class="spxq_qgpstarBg"><span class="spxq_qgpstar spxq_qgpstar<{:round($var['score']*10,1)}>">&nbsp;</span></span><span class="spxq_pjTime"><{$var.create_time|date='Y-m-d H:i',###}></span>
+                                    </div>
+                                    <p class="spxq_pjP"><{$var.contents}></p>
+                                    <if condition="!empty($var['reply'])"><p class="spxq_pjP"><{$var.reply}></p></if>
+                                    <ul class="spxq_pjUl">
+                                    
+                                        <foreach name="pics" item="pic">
+                                        	
+                                            <eq name="pic.dianping_id" value="$var.dianping_id">
+                                            <li class="spxq_pjLi"><a href="javascript:void(0);" rel="__ROOT__/attachs/<{$pic.pic}>" ><img src="__ROOT__/attachs/<{$pic.pic}>" width="100" height="100" /></a></li>												
+                                            </eq>
+                                        </foreach>
+                                    </ul>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                    <div class="x"><{$page}></div>
+                </div>
+            </div>
+        </div>
+        <div class="right shangjiaC_r">
+            <div class="sjsy_newsList">
+                <h3>新入驻商家</h3>
+                <ul class="sjsy_newsUl">
+                    <calldata mdl="Shop" where=" closed=0 AND audit=1" limit="0,10" cache="86400" order="shop_id desc">
+                        <li><a title="<{$item.shop_name}>" target="_blank" href="<{:U('shop/detail',array('shop_id'=>$item['shop_id']))}>"><{:bao_msubstr($item['shop_name'],0,10,false)}></a></li>
+                    </calldata>
+                </ul>
+            </div>
+            <div class="sjsy_newsList">
+                <h3>活动&优惠</h3>
+                <div class="sjsy_hdyh">
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.sjsy_flexslider').flexslider({
+                                directionNav: true,
+                                pauseOnAction: false,
+                            });
+
+                        });//首页轮播js
+                    </script>
+                    <div class="sjsy_flexslider">
+                        <ul class="slides">
+                            <calldata mdl="Activity" where=" closed=0 AND audit=1 AND bg_date ELT '{$today}' AND end_date EGT '{$today}'" limit="0,2" cache="21600" order="orderby asc">
+                                <li class="sy_hotgzLi"><a target="_blank" href="<{:U('huodong/detail',array('activity_id'=>$item['activity_id']))}>" title="<{$item.title}>"><img src="__ROOT__/attachs/<{$item.photo}>" width="212" height="158" /></a></li>
+                            </calldata>
+                            <calldata mdl="Coupon" where="closed=0 AND audit=1 AND expire_date EGT '{$today}'" limit="0,2" cache="10800" order="coupon_id desc">
+                                <li class="sy_hotgzLi"><a target="_blank" href="<{:U('coupon/detail',array('coupon_id'=>$item['coupon_id']))}>" title="<{$item.title}>"><img src="__ROOT__/attachs/<{$item.photo}>" width="212" height="158" /></a></li>
+                            </calldata> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="public:footer"/>

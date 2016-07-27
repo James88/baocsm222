@@ -1,0 +1,83 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+		<a href="<{:U('tuan/detail',array('tuan_id'=>$detail['tuan_id']))}>"><i class="icon-goback"></i></a>
+		<div class="title">支付订单</div>
+		<i class="icon-menu"></i>
+	</header>
+    
+    
+    
+    <div id="seat" class="page-center-box">
+    	<form  action="<{:U('tuan/order',array('tuan_id'=>$detail['tuan_id']))}>" method="post">
+		<div id="scroll" class="pay">
+			<div class="order-content">
+                <ul class="list">
+            		<li>
+            			<span class="left"><{$detail.title}></span>
+	            		<span class="right"><{$detail.tuan_price}>元</span>
+	            		<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">数量</span>
+	            		<div class="rush-num right">
+	                        <span class="l jq_jian">-</span>
+	                        <span class="m jq_num">1</span>
+	                        <span class="r jq_jia">+</span>
+                    	</div>
+                        <input type="hidden" value="1"  id="hidden_num" name="num">
+                    	<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">可使用积分</span><span class="right"><{$member.integral|default='0'}>积分</span>
+	            		<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">总价</span>
+	            		<span class="right"><span class="rush-price"><{$detail.tuan_price}></span>元</span>
+	            		<div class="clear"></div>
+	            	</li>
+            	</ul>
+            </div>
+            
+            <script>
+                function changetotal(num) {
+					var price = <{$detail.tuan_price}> ;
+					$("#all_price").html((price * num).toFixed(2) + '元');
+				}
+				$(document).ready(function() {
+					$(".jq_jia").click(function() {
+						var num = parseInt($(".jq_num").text());
+						if (num < 99) {
+							num++;
+						}
+						$(".jq_num").text(num);
+						$("#hidden_num").val(num);
+						changetotal(num);
+					});
+					$(".jq_jian").click(function() {
+						var num = parseInt($(".jq_num").text());
+						if (num > 1) {
+							num--;
+						}
+						$(".jq_num").text(num);
+						$("#hidden_num").val(num);
+						changetotal(num);
+					});
+					$(".jq_num").focusout(function() {
+						changetotal($(this).text());
+					});
+				});
+            </script>
+            
+			<div class="sure-pay-but">
+				<p class="left">总金额：<span id="all_price">￥<{$detail.tuan_price}></span></p>
+            	<div class="sure-pay right"><input type="submit" class="aniu" value="确认支付" style="background:none;border:none;color:#FFFFFF;font-size:0.16rem;width:100%;" ></div>
+            </div>
+		</div>
+        </form>
+	</div>
+    
+    
+</body>
+</html>

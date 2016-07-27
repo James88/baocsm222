@@ -1,0 +1,59 @@
+<include  file='public:header'/>  
+
+<body style="overflow-x:hidden;">
+
+<iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+
+	<header>
+
+		<i class="icon-goback"></i>
+
+		<div class="title">登 录</div>
+
+		<i class="icon-menu"><a href="<{:U('passport/register')}>">注册</a></i>
+
+	</header>
+
+    <div id="login" class="page-center-box">
+
+    	<form action="<{:U('passport/login')}>" method="post" target="baocms_frm">
+
+            <div id="scroll">
+
+                <div id="login-input">
+
+                    <input type="text" name="account" placeholder="用户名" />
+
+                    <input type="password" name="password" placeholder="密码" />
+
+                </div>
+
+                <input type="submit" class="submit" value="登 录" />
+
+                <div class="forget-out"><a href="<{:U('passport/forget',array('way'=>2))}>">忘记密码？</a></div>
+
+                <div class="other">
+
+                    <p><span>第三方登录</span></p>
+
+                    <ul>
+
+                        <li><a href="<{:U('passport/wblogin')}>"><div class="icon i-1"></div><p>微博</p></a></li>
+
+                        <li><a href="<{:U('passport/qqlogin')}>"><div class="icon i-2"></div><p>QQ</p></a></li>
+
+                        <li><a href="<{:U('passport/wxlogin')}>"><div class="icon" style="background-image:url(__TMPL__statics/img/other3.png)"></div><p>微信</p></a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

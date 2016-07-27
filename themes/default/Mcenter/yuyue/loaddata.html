@@ -1,0 +1,49 @@
+<foreach name="list" item="item">
+    <!-- 循环 -->
+    <div class="list-box">
+        <div class="list-img">
+            <a href="<{:U('mobile/shop/detail',array('shop_id'=>$item['shop_id']))}>"><img src="__ROOT__/attachs/<{$shops[$item['shop_id']]['photo']}>"></a>
+        </div>
+        <div class="buy-content">
+            <p style="margin-bottom: 0.1rem;" class="overflow_clear"><a href="<{:U('mobile/shop/detail',array('shop_id'=>$item['shop_id']))}>"><{$shops[$item['shop_id']]['shop_name']}></a></p>
+            <p style="height: 0.30rem; line-height: 0.30rem;"><span class="spread-money">电子券：<{$item.code}></span><span style="float: right;" class="spread-money2"><a style="color:#fff;" href="javascript:void(0);" rel="<{$item.yuyue_id}>" class="jq_delete">删除</a></span></p>
+            <p class="">
+                <eq name="item.used" value="0">
+                <span style="float: left; display: inline-block;">
+                    未使用
+                </span>
+            <else/>
+            <span style="float: left; display: inline-block;">
+                已使用
+            </span>
+            <span style="float: right; display: inline-block;">
+                <{$item.used_time|date='Y-m-d H:i',###}>
+            </span>
+            </eq>
+            </p>
+        </div>
+    </div>
+    <!-- 循环 -->
+</foreach>
+<script>
+    $(".jq_delete").click(function () {
+        var yuyue_id = $(this).attr('rel');
+        layer.confirm('您确定要删除该预约？', {
+            area: ['150px', '150px'], //宽高
+            btn: ['是的', '不'], //按钮
+            shade: false //不显示遮罩
+        }, function () {
+            $.post("<{:U('yuyue/delete')}>", {yuyue_id: yuyue_id}, function (result) {
+                if (result.status == "success") {
+                    layer.msg(result.msg);
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000);
+                } else {
+                    layer.msg(result.msg);
+                }
+            }, 'json');
+        });
+        $('.layui-layer-btn0').css('background','#2fbdaa');
+    });
+</script>

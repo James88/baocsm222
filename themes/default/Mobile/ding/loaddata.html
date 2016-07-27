@@ -1,0 +1,25 @@
+<foreach name="shop_list" item="item">
+    <div class="list-box">
+        <div class="list-img">
+            <a href="<{:U('ding/detail',array('shop_id'=>$item['shop_id']))}>"><img src="__ROOT__/attachs/<{$item['photo']}>" /></a>
+        </div>
+        <div class="list-content">
+            <p><a href="<{:U('ding/detail',array('shop_id'=>$item['shop_id']))}>"><{$item.shop_name}></a> <span class="range"> 人均:￥<{:round($item['price']/100,2)}></span></p>
+            <p class="c_h">地址:<{:bao_msubstr($item[addr],0,15)}> </p>
+             <p class="c_h">
+                 <if condition="$set[$item['shop_id']]['is_ting'] eq 0">
+                 	<span class="seat status-2">大厅(已满)</span>
+                 <else/>
+                 	<span class="seat status-1">大厅(有位)</span>
+                 </if>
+                 <if condition="$set[$item['shop_id']]['is_bao'] eq 0">
+                 	<span class="seat status-2">包厢(已满)</span>
+                 <else/>
+                 	<span class="seat status-1">包厢(有位)</span>
+                 </if>
+                 <span class="range"><{$item.d}></span> 
+            </p>
+        </div>
+    </div>
+</foreach>
+

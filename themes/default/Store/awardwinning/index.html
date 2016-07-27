@@ -1,0 +1,54 @@
+<include  file='public:header'/>
+
+<body>
+<header> 
+	<i class="left"><a href="<{:U('award/index')}>" id="icon_goback"></a></i>
+    <div class="title">中奖名单</div></i> 
+</header>
+<script>
+$(function(){
+	$("header #ico_1").click(function(){
+		$(".sh_menu_pull_box").toggle();	
+	});
+});
+</script>
+
+<section>
+	<script>
+		$(function(){
+			$(".sh_prompt_infor_closs").click(function(){
+				$(".sh_prompt_infor_box").hide();
+			});
+		});
+    </script>
+    <div class="sh_coupon_tab_box">
+    	<div class="sh_list_public_box">
+            <ul>
+            	<foreach name="list" item="var">
+                        <li class="list_box mb10">
+                            <div>
+                                <div class="sh_buy_bt">
+                                    <div class="fl">商品：<{$goods[$var['goods_id']]['award_name']}>-<{$goods[$var['goods_id']]['goods_name']}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">姓名：<{$var.name}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">手机：<{$var.mobile}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">创建时间：<{$var.create_time|date='Y-m-d H:i:s',###}></div>
+                                </div>
+                                 <div class="sh_coupon_nr">
+                                    <div class="wz">创建IP：<{$var.create_ip}></div>
+                                </div>
+                            </div>
+                        </li>
+                    </foreach>
+            </ul>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+

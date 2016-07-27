@@ -1,0 +1,105 @@
+<php>$seo_title = $detail['title'];</php>
+<include  file='public:head_niucms'/>
+
+<body>	
+
+	<!-- 头部 -->	
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+		<a href="<{:U('news/index')}>" class="mui-pull-left miui-block">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+		</a>
+		<h1 class="mui-title">新闻中心</h1>
+		<a href="javascript:void(0);" id="share" class="mui-pull-right miui-block">
+			<button id="share-btn"	class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-redo"></span>
+			</button>
+		</a>
+	</header>
+
+	<!-- 主体 -->
+	<div id="main">
+	
+	
+		<div id="share-box" class="share-box">
+			<div class="mui-backdrop">
+				<ul class="-mob-share-list mui-table-view mui-grid-view mui-grid-9">
+					<li class="-mob-share-weibo mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-weibo.png" />
+						<p>新浪微博</p>
+					</li>
+					<li class="-mob-share-tencentweibo mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-twb.png" />
+						<p>腾讯微博</p>
+					</li>
+					<li class="-mob-share-qzone mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-qzone.png" />
+						<p>QQ空间</p>
+					</li>
+					
+					<li class="-mob-share-qq mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-py.png" />
+						<p>QQ好友</p>
+					</li>
+					<li class="-mob-share-weixin mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-weixin.png" />
+						<p>微信</p>
+					</li>
+					<li class="-mob-share-douban mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-douban.png" />
+						<p>豆瓣</p>
+					</li>
+					<li class="-mob-share-renren mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-renren.png" />
+						<p>人人网</p>
+					</li>
+					<li class="-mob-share-kaixin mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-kaixin.png" />
+						<p>开心网</p>
+					</li>
+					<li id="mui-card-close" class="mui-card-close mui-table-view-cell mui-media mui-col-xs-4">
+						<img src="/static/default/mob/images/share/share-close.png" />
+						<p>关闭</p>
+					</li>
+				</ul>
+
+			</div>
+			<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=890ab8bbdb3c"></script>
+		</div>
+
+        <script>
+            $(document).ready(function () {
+				$("#share-box").hide();
+                $("#share-btn").click(function () {
+                    $("#share-box").toggle();
+                });
+                $("#mui-card-close").click(function () {
+                    $("#share-box").hide();
+                });
+				
+				
+            });
+		 </script>	
+	
+	
+		<div class="details">
+			<h1><{$detail.title}></h1>
+			<div class="details-des">
+				<span><{$detail.create_time|date='Y-m-d',###}></span>
+				<span>总浏览：<{$detail.views}></span>
+			</div>
+			<div class="details-read">
+				<{$detail.details}> 
+				
+			</div>
+		</div>
+	</div>
+
+
+
+<script type="text/javascript">	
+	apiready = function(){}
+</script>
+
+<include file="public:foot_niucms"/>

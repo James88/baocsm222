@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+<title>签到</title>
+<link href="__TMPL__statics/css/reset.css" rel="stylesheet">
+<link href="__TMPL__statics/css/wap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="__TMPL__statics/css/css_1.css"/>
+<script src="__TMPL__statics/js/zepto.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__statics/js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+<script src="__TMPL__statics/js/baocms.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body id="sign">
+	
+    <header>
+		<a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">签到</div>
+		<i class="icon-menu"></i>
+	</header>
+    <div id="seat" class="page-center-box">
+	<div id="scroll">
+      <if condition="!empty($MEMBER)">
+        <div id="h1"><{$MEMBER.nickname}>&nbsp;&nbsp;<img src="__TMPL__statics/img/gold.png" style="vertical-align:middle;" /><b><{$MEMBER.integral}>积分</b>&nbsp;&nbsp;您已连续签到<{$sign.day}>天</div> 
+            <div class="sign_box">
+			<if condition="empty($sign['is_sign'])">
+            <img src="__TMPL__statics/img/sign_bg.png" />
+            <a href="<{:U('sign/signing')}>"><span id="sign_btn">立即签到</span></a><!--已签到样式是 sign_btned-->
+			</if>  
+		    </div>
+		<div class="sign_pic">
+            <a href="<{:U('award/index',array('award_id'=>$CONFIG['mobile']['guaguale']))}>"><img src="__TMPL__statics/img/sign1.jpg" /></a>
+        </div>
+        
+        <div class="sign_pic">
+            <a href="<{:U('award/index',array('award_id'=>$CONFIG['mobile']['choujiang']))}>"><img src="__TMPL__statics/img/sign2.jpg" /></a>
+        </div>
+        
+        <div class="sign_pic">
+            <a href="<{:U('award/index',array('award_id'=>$CONFIG['mobile']['yaoyiyao']))}>"><img src="__TMPL__statics/img/sign3.jpg" /></a>
+        </div>
+       </if>
+     
+     </div>
+     </div>
+	
+</body>
+<include  file='public:footer'/>  

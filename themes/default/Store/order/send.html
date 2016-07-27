@@ -1,0 +1,59 @@
+<include file="public:header"/>
+        <header>
+            <div class="headerTop">
+                <div class="headerTop_back"><a href="javascript:history.go(-1);"></a></div>
+                <div class="headerTop_t">订单配送</div>
+            </div> 
+        </header>
+        <section class="fixed_pad">
+            <div class="sygg">
+                <div class="sygg_closs">&nbsp;</div>
+                捡货单是你怎么捡货的，要在捡货单列表打印配货单 进行配送！然后配送完成后 要定时将已经完成的配送的订单ID 整理 给平台！平台将订单完成，资金就会进入商家的流水！有在线付款，那么将不产生结算金额记录！  
+            </div>
+
+        </div>
+        <foreach name="list" item="order">
+            <div class="jobList jiazhengList on">
+                <ul>
+                    <li class="jobLi">
+                        <table  class="jobTable"width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+
+                                <td class="jobNr_td">
+                                    <div class="jobNr">
+                                        <p class="left jobNr_p">订单:<{$order.order_id}></p>
+                                    </div>
+
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">价格:</span><{:round($order['total_price']/100,2)}>元</p></div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">购买时间:<{$order.create_time|date='Y-m-d H:i:s',###}></p></div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">配送地址:<{$areas[$addrs[$order['addr_id']]['area_id']]['area_name']}>、
+                                            <{$business[$addrs[$order['addr_id']]['business_id']]['business_name']}>、
+
+                                            <{$addrs[$order['addr_id']]['addr']}>
+                                            <br/>
+                                            <{$addrs[$order['addr_id']]['name']}>
+                                            <{$addrs[$order['addr_id']]['mobile']}></p></div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">  <eq name="order.is_daofu" value="1"><font style="color: red;">货到付款</font><else />已支付</eq></p></div>
+                                    </foreach>
+
+                            <foreach name="goods" item="good">
+                                <if condition="$good['order_id'] eq $order['order_id']">    
+                                    <table  class="jobTable"width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                                        <div class="jobNr">
+                                            <p class="jobNr_span mall_span">商品名称:<{$products[$good['goods_id']]['title']}></p></div>
+                                        <div class="jobNr">
+                                            <p class="jobNr_span mall_span">数量:<{$good.num}></p></div>
+                                        <div class="jobNr">
+                                            <p class="jobNr_span mall_span">单价:<{:round($good['price']/100,2)}>元</p></div>
+                                    </table>
+                                </if>
+                            </foreach>
+                            <input type="button"  onclick="window.print();" value=" 打 印 " />
+                    </li>
+                </ul>
+            </div>

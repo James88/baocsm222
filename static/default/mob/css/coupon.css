@@ -1,0 +1,40 @@
+	
+	.h40 {height: 40px;line-height: 40px;}	
+	.hightitem {background:#fff;}
+	.row {display: -webkit-box;}		
+	.col {-webkit-box-flex:1; -webkit-flex:1; flex:1;position: relative;display:block;}		
+	.col .title {position: relative;}		
+	.col img {width: 20px; position: relative; top: 5px; left: -4px;}		
+	.col .matrix3 {display: table;height: inherit;width: 100%;}		
+	.matrix3 .matrixcell {display: table-cell;vertical-align: middle; text-align: center;}	
+	
+	.matrix3 {display: table;height: inherit;width: 100%;}		
+	.matrix3 .matrixcell {display: table-cell;vertical-align: middle; text-align: center;}		
+	.title0201 .title {color: #FE8501; }		
+	.title0202 .title {color: #83B235; }		
+	.title0203 .title {color: #2E8AE0; }	
+	
+	.brb {border-bottom: 1px solid #e0e0e0;border-right: 1px solid #e0e0e0;}		
+	.bb {border-bottom: 1px solid #e0e0e0;}		
+		
+	.home-tuan-list .tuan-shop{overflow:hidden;height:40px;line-height:40px;font-size:14px;padding:0 5px;border-bottom:thin solid #DDD;background:#EFEFF4;margin:0;}
+	.home-tuan-list .tuan-shop span{font-weight:normal;color:#999;float:right;}
+	.home-tuan-list .symbol{font-size:12px;margin-right:10px;}
+
+	.hd-detail .detail-pic{width:100%;max-height:250px;position:relative;}
+	.hd-detail .detail-pic img{width:100%;max-height:250px;}
+	.hd-detail .detail-pic p{position:absolute;height:40px;line-height:40px;color:#FFF;width:100%;padding:0 10px;left:0;bottom:0;background:rgba(0,0,0,0.85);margin:0;}
+	.hd-detail .detail-ctrl{background:#FFF;border-bottom:thin solid #DDD;height:60px;padding:10px;overflow:hidden;line-height:40px;}
+	.hd-detail .detail-ctrl span{float:left;font-size:14px;}
+	.hd-detail .detail-ctrl em{color:#F60;font-size:16px;}
+	.hd-detail .detail-ctrl .btn-sign {background: #6ab494; color: #fff; height:30px; line-height:30px; border-radius: 3px;padding:0 20px;margin-top:5px;}
+	.hd-detail .detail-ctrl .btn-signed {background: #EEE; color: #fff; height:30px; line-height:30px; border-radius: 3px;padding:0 20px;margin-top:5px;}
+	.hd-detail .detail-info {background:#FFF;}
+	.hd-detail .detail-info h1{height:40px;line-height:40px;font-size:14px;border-bottom:thin solid #DDD;padding:0 10px;}
+	.hd-detail .detail-info p{line-height:30px;border-bottom:thin dashed #DDD;padding:0 10px;}
+	.hd-detail .detail-info p:last-child{border:none!important;}
+	.hd-detail .detail-con{background:#FFF;margin-top:10px;}
+	.hd-detail .detail-con .con-hd{height:40px;line-height:40px;padding:0 10px;border-bottom:thin solid #DDD;font-size:14px;font-weight:bold;}
+	.hd-detail .detail-con .con-bd{font-size:13px!important;padding:10px;font-weight:bold;}
+	.hd-detail .detail-con .con-bd *{font-size:13px!important;line-height:22px;}
+	.hd-detail .detail-con .con-bd img{max-width:100%;}

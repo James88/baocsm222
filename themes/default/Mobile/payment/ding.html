@@ -1,0 +1,49 @@
+<include  file='public:header'/>    
+<body>
+    <header> <i class="icon-goback"></i>
+        <div class="title"> 完成支付 </div>
+    </header>
+
+    <div id="index" class="page-center-box">
+        <div id="scroll">
+            <div class="payFinish">
+                <div class="sh_buy_bt">
+                    <div class="fl">订单编号：<{$arr.order_no}></div>
+                    <div class="fr">预约时间：<{$arr.last_date}> &nbsp;<{$arr.last_t}></div>
+                </div>
+                <div class="sh_waimai_order_nr">
+                    <div class="wz">
+                        <ul>
+                            <volist name='arr.menu' id='item'>
+                                <li>
+                                    <div class="fl left">
+                                        <div class="payFinish_img"><img src="__ROOT__/attachs/<{$menu[$item[0]][photo]}>" width="60" height="60"></div>
+                                        <p class="payFinish_wz"><{$menu[$item[0]][menu_name]}></p>
+                                    </div>
+                                    <div class="fr"><{$item[1]}><span class="ml10">x</span><span class="ml10">￥<{:round($menu[$item[0]][ding_price]/100,2)}></span><span class="ml10 main_color">=￥<{:round($menu[$item[0]][ding_price]*$item[1]/100,2)}></span></div>
+                                    <div class="clear"></div>
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sh_buy_date">支付定金： <{:round($arr['need_price']/100,2)}> 元 &nbsp;&nbsp; (<if condition="$arr[status] eq 1"> 未消费 <elseif condition="$arr[status] eq 2"/> 已消费 <elseif condition="$arr[status] eq -1"/> 已退款 <else/>未支付</if>)</div>
+                <div class="sh_waimai_order_price">
+                    <div class="fl">付款方式：<{$paytype[$order['use_integral']]['name']}></div>
+                    <div class="fr">结算价格：<span class="main_color">￥<{:round($order['need_price']/100,2)}></span></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="sh_waimai_order_price">
+                    <div>地址：<{$arr.room_id}><span style="float: right; display: inline-block;">人数：<{$arr.number}></span></div>
+                </div>
+                <div class="sh_waimai_order_price">
+                    <div>联系人: <{$arr.name}> &nbsp;（<if condition="$sex eq 2">女士<else/>先生</if>）<span style="float: right; display: inline-block;">电话：<{$arr.mobile}></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bfix shop-button" >
+        <a href="<{:U('mcenter/ding/detail',array('order_id'=>$detail['order_id']))}>"><span class="shop-pay">查看详情</span></a>
+        <a href="<{:U('mobile/ding/index')}>"><span class="shop-del">继续逛逛</span></a>
+    </div>
+<include  file='public:footer'/>    

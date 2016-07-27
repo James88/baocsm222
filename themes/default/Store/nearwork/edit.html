@@ -1,0 +1,34 @@
+<include file="public:header"/>
+<body>
+<header> <i class="left"><a href="<{:U('nearwork/index')}>" id="icon_goback"></a></i>
+    <div class="title">修改招聘</div>
+    <i class="right"></i></header>
+    <form method="post" action="<{:U('nearwork/edit',array('work_id'=>$detail['work_id']))}>">
+<section>
+    <div class="sh_buy_fabu">
+    	<div class="sh_list_public_box mt10">
+            <ul>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>标题</span><input type="text" name="data[title]" value="<{$detail['title']}>"></div> 
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>招聘人数</span><input type="text" name="data[num]" value="<{$detail['num']}>"></div>
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>薪资范围</span><input type="text" name="data[money1]" value="<{$detail['money1']}>">-<input type="text" name="data[money2]" value="<{$detail['money2']}>"></div>
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>工作时间</span><input type="text"  value="<{$detail['work_time']}>" name="data[work_time]"></div>
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>招聘有效期</span><input type="text"  value="<{$detail['expir_date']}>" name="data[expir_date]" onFocus="WdatePicker({startDate: '%y-%m-%d', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"></div>
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>岗位说明</span><textarea  name="data[intro]"><{$detail['intro']}></textarea></div>
+                </li>
+            </ul>
+        </div>
+        <div class="sh_login_nr"><input class="btn mt30" type="submit" value="修改发布"></div>
+    </div>
+</section>
+  </form>  

@@ -1,0 +1,70 @@
+<include  file='public:header'/>    
+<body >
+    <iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+	<header>
+		<a href="<{:U('Index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">活动报名</div>
+	</header>
+	<div class="wap-form" style=" margin-top:0.5rem;">
+	<iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+	<div class="wap-form" style=" margin-top:0.5rem;">
+
+	    <form target="baocms_frm"  action="<{:U('hdmobile/sign',array('huodong_id'=>$detail['huodong_id']))}>" method="post">
+		<ul>
+        <li><input type="text" name="data[name]" placeholder="联系人" /></li>
+        <li><input type="text" name="data[mobile]" placeholder="手机号码" /></li>
+        <script>
+			$(function(){
+				$(function(){
+					$(".hd-btn-pull").click(function(){
+						if($(this).find(".seat-btn-pull-down").css("display")=='block'){
+							$(".seat-btn-pull-down").hide();
+							$(this).find(".seat-btn-pull-down").hide();
+						}
+						else{
+							$(".seat-btn-pull-down").hide()
+							$(this).find(".seat-btn-pull-down").show();
+						}
+					});
+					$(".seat-btn-pull-down li").click(function(){
+						$(this).parent().find("li").removeClass("on");
+						$(this).addClass("on");
+						$(this).parents(".hd-btn-pull").find("input").val($(this).html());
+					});
+				});
+			});
+		</script>
+        <style>
+			.hd-btn-pull .seat-btn-pull-down li{ line-height:0.3rem; border:none 0px; border-bottom:1px solid #dedede; background-color:#fff; min-height:0.3rem; background-color:#f5f5f5;}
+			.hd-btn-pull .seat-btn-pull-down{ position:absolute; top:0.4rem; left:0; width:100}
+        </style>
+        <li class="hd-btn-pull" style="position:relative; border-bottom:1px solid #dedede;"><input type="text" name="data[num]" placeholder="报名人数" />
+            <div class="seat-btn-pull-down">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+            </div>
+       
+        </li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	function listen(o){
+		$(o).prev().val($(o).val());
+	}
+	</script>
+	<footer class="footer-cart">
+		<input type="submit" class="btn-long" value="立即报名" />
+	</footer>
+	</form>
+</body>	
+</html>

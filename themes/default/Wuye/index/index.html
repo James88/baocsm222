@@ -1,0 +1,17 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+        <div>物业中心</div>
+    </header>
+    <section class="container">
+        <div class="head_bg">
+            <span><img src="__ROOT__/attachs/<{$MEMBER.face|default='default.jpg'}>"><{$MEMBER.nickname}></span>
+        </div>
+        <div class="welcome">欢迎您，<b style="color: red;"><{$COMMUNITY.name}></b>的管理员<{$MEMBER.nickname}>！</div>
+        <div class="notice"><a href="<{:U('communitynews/index')}>"><i></i>通知管理</a></div>
+        <div class="feedback"><a href="<{:U('feedback/index')}>"><i></i>问题反馈</a></div>
+		<div class="contact"><a href="<{:U('convenientphone/index')}>"><i></i>便民电话</a></div>
+        <div class="exit"><a href="/wuye/passport/logout.html">退出登录</a></div>
+    </section>
+
+<include  file='public:footer'/>   

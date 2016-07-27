@@ -1,0 +1,38 @@
+<include  file='public:header'/>   
+
+<body>
+	<header>
+		<a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">积分商城</div>
+	</header>
+	<!-- 筛选TAB -->
+	<div class="shop-lie">
+		<ul>
+			<a href="<{:LinkTo('jifen/index',array('order'=>'x'))}>">
+			<li <eq name="order" value="x">class="on"</eq>>
+				热门
+			</li>
+			</a>
+			<a href="<{:LinkTo('jifen/index',array('order'=>'t'))}>">
+			<li <eq name="order" value="t">class="on"</eq>>
+				推荐
+			</li>
+			</a>
+			<a href="<{:LinkTo('jifen/index',array('order'=>'d'))}>">
+			<li <eq name="order" value="d"> class="on" </eq>>
+                全部
+            </li>
+            </a>
+		</ul>
+	</div>
+	<div id="life" class="page-center-box" style=" top:0.9rem;">
+		<div id="scroll">
+			
+		</div>
+	</div>
+<script>
+    $(document).ready(function () {
+        loaddata('<{$nextpage}>', $("#scroll"), true);
+    });
+</script>	
+<include file="public:footer"/>

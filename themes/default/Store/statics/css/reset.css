@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* BAOCMS WAP */
+html{height:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-font-smoothing:antialiased;font-size:6.25em;}
+body{margin:0;padding:0;min-height:100%;font-family:"MICROSOFT YAHEI"; background: #fafafa; font-size:0.14rem;}
+#scroll{padding-bottom:0.5rem;}  
+h1,h2,h3,h4,h5,h6,p,figure,form{margin:0;}  
+table{border-collapse:collapse;border-spacing:0;}  
+img{border:0;vertical-align:middle;-ms-interpolation-mode: bicubic;}  
+a{text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}  
+a:focus{outline:none;-moz-outline:none;}  
+a:visited{outline:none;-moz-outline:none;}  
+ul,li,ol{margin: 0;padding:0;list-style: none outside none;}
+ol li{list-style:none;}  
+em{font-style:normal;}
+ul.inline-style li{float:left;display:inline;}
+button,input,select,textarea{font-size:0.875em;margin: 0;outline: 0 none;vertical-align: baseline;*vertical-align: middle;font-family:"MICROSOFT YAHEI";-webkit-tap-highlight-color:rgba(0,0,0,0);}  
+textarea{overflow: auto;vertical-align: top;resize:none;}  
+button,input{line-height: normal;}  
+button,  
+html input[type="button"],   
+input[type="reset"],  
+input[type="submit"]{-webkit-appearance: button;cursor: pointer;*overflow: visible;}  
+button[disabled],
+input[disabled],
+input[type="checkbox"],
+input[type="radio"]{box-sizing: border-box;padding: 0;*height: 0.13rem;*width: 0.13rem;} 
+button::-moz-focus-inner,  
+input::-moz-focus-inner{border: 0;padding: 0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display: block;}  
+audio,canvas,video{display: inline-block;*display: inline;*zoom: 1;}  
+audio:not([controls]){display: none;height: 0;}  
+input[type="search"]{-webkit-appearance: textfield;-moz-box-sizing: content-box;-webkit-box-sizing: content-box;box-sizing: content-box; box-sizing: border-box;}  
+:-moz-placeholder{color: #666;}  
+::-webkit-input-placeholder{color:#666;}
+
+.mt10{margin-top:0.10rem !important;}
+.mt15{margin-top:0.15rem !important;}
+.mt30{margin-top:0.3rem !important;}
+.mb10{margin-bottom:0.10rem !important;}
+.mb15{margin-bottom:0.15rem !important;}
+.mr20{margin-right:0.20rem !important;}
+.mr10{margin-right:0.10rem !important;}
+.ml10{margin-left:0.10rem !important;}
+
+
+.grey9{color:#999 !important;}
+.black3{color:#333 !important}
+.main_color{ color:#2fbdaa !important;}
+
+
+.overflow_clear{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}/*css溢出省略*/
+
+.fl{float:left;}
+.fr{float:right;}
+.clear{clear:both; font-size: 0; height: 0; line-height: 0;}

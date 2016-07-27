@@ -1,0 +1,20 @@
+<include  file='public:header'/>
+
+<body>
+	<header>
+        <a href="<{:U('community/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">申请合作</div>
+	</header>
+    <form action="<{:U('community/together',array('community_id'=>$community_id))}>" method="POST">
+    <div id="login" class="page-center-box">
+        <div id="scroll">
+            <div id="login-input">
+                <input type="text" name="data[name]"  placeholder="输入您的项目，如海哥开锁..." />            
+				<input type="text" name="data[phone]" placeholder="输入您的手机号..." />  
+            </div>
+            <input type="submit" class="submit" value="提交申请" />
+        </div>
+    </div>
+    </form>
+</body>
+</html>

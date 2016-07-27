@@ -1,0 +1,150 @@
+<include  file='public:header_niucms'/>  
+	<div class="container">
+		<div class="blank-10"></div>
+		<div class="line">
+			
+			<div class="x9">
+				<div class="index-top">
+					<div class="line">
+						<div class="x12 tou-tiao">
+							<calldata mdl="Article" where="istop = 1" limit="0,1" cache="43200" order="article_id desc">
+							<h1><a href="<{:U('news/detail',array('article_id'=>$item['article_id']))}>" target="_blank"><{:bao_msubstr($item['title'],0,60,false)}></a></h1>
+							<php>$desc = cleanHtml($item['desc']);</php>
+							<p><{:bao_msubstr($desc,0,120,false)}></p>
+							</calldata>
+						</div>
+					</div>
+					<div class="line">
+						<div class="x5">
+							<div class="banner index-fcos" data-interval="10">
+								<ul class="carousel">
+									<calldata mdl="Article" where="isroll = 1 AND photo != ''" limit="0,5" cache="43200" order="article_id desc">
+									<li class="item"><a href="<{:U('news/detail',array('article_id'=>$item['article_id']))}>" target="_blank">
+									<img src="__ROOT__/attachs/<{$item['photo']}>" alt="<{$item['title']}>" />
+									</a></li>
+									</calldata>
+								</ul>
+							</div>
+						</div>
+						<div class="x7">
+							<ul class="top-news">
+								<calldata mdl="Article" where="isroll != 1 AND photo != 1" limit="0,8" cache="43200" order="article_id desc">
+								<li><a href="<{:U('news/detail',array('article_id'=>$item['article_id']))}>" target="_blank"><{$item['title']}></a><em><{$item.create_time|date='m-d',###}></em></li>
+								</calldata>
+							</ul>
+						</div>
+					</div>
+				</div>		
+			</div>
+			<!--右侧-->
+			<div class="x3">
+				<div class="index-just">
+					<h5>关注微信，了解最新精彩内容</h5>
+					<div class="code">
+						<div class="code-item">
+							<img src="__PUBLIC__/img/wx.png" alt="微信关注" />
+							<p>扫一扫关注</p>
+						</div>
+						<div class="code-item">
+							<img src="__PUBLIC__/img/wx.png" alt="手机访问" />
+							<p>访问手机版</p>
+						</div>
+					</div>
+					<div class="tool">
+						<div class="button-group border-main check">
+							<button type="button" class="button active">+ 关注会员</button>
+							<button type="button" class="button"><{$counts['users']}> <span class="badge bg-red"><i class="icon icon-arrow-up"></i></span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="line">
+			<!--左侧-->
+			<div class="x9">
+				<div class="news-list">
+					<div class="list-hd">
+						<h3>新闻列表 <span>News List</span></h3>
+						<ul>
+							<foreach name="cates" item="item">
+							<eq name="item.parent_id" value="0"> 
+							<li><a href="<{:U('news/cate',array('cat'=>$item['cate_id']))}>"><{$item.cate_name}></a></li>
+							</eq>
+							</foreach>
+						</ul>
+					</div>
+					<div class="list-bd">
+						<ul>
+							<foreach name="list" item="var">
+							<li>
+								<a class="photo" title="<{$var.title}>" target="_blank" href="<{:U('news/detail',array('article_id'=>$var['article_id']))}>">
+									<img class="lazy" src="__ROOT__/attachs/<{$var['photo']|default='default.jpg'}>" />
+								</a>
+								<div class="desc">
+									<h3><a title="<{$var.title}>" target="_blank" href="<{:U('news/detail',array('article_id'=>$var['article_id']))}>"><{$var.title}></a></h3>
+									<p><{:bao_msubstr($var['details'],0,150)}></p>
+									<p class="info">
+										<span><{$var.create_time|date='Y-m-d',###}></span>
+										<span>总浏览：<em><{$var.views}></em></span>  
+									</p>
+								</div>
+								<div class="tags">
+									<eq name="var.istop" value="1"><span class="tt">新闻头条</span></eq>
+									<eq name="$var.isroll" value="1"><span class="hd">幻灯推荐</span></eq>
+								</div>
+							</li>
+							</foreach>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="blank-10"></div>
+				
+				<div class="pagination">
+					<{$page}>
+				</div>
+				
+			</div>
+			<!--右侧-->
+			<div class="x3">
+				<div class="index-tieba">
+					<div class="tieba-hd">
+						<h3>贴吧爆料<span>Talk Bar</span></h3>
+					</div>
+					<div class="tieba-bd">
+						<php>$i=0;</php>
+						<calldata mdl="Post" where="" limit="0,10" cache="43200" order="post_id desc">
+						<php>$i++;$k=$i%2;</php>
+						<if condition="$k eq 1">
+						<blockquote class="quote-left">
+						<else />
+						<blockquote class="quote-floatright quote-right">
+						</if>
+						<a href="<{:U('tieba/detail',array('post_id'=>$item['post_id']))}>" target="_blank"><{$item['title']}></a>
+						</blockquote>
+						</calldata>
+					</div>
+				</div>
+				
+				<div class="blank-10"></div>
+				<div class="side-list">
+					<div class="list-hd">
+						<h3>热度排行<span>Hot News</span></h3>
+					</div>
+					<div class="list-bd">
+						<ul>
+							<calldata mdl="Article" where="" limit="0,30" cache="43200" order="views desc">
+							<li><a href="<{:U('news/detail',array('article_id'=>$item['article_id']))}>" target="_blank"><{$item['title']}></a></li>
+							</calldata>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+<div class="cl"></div>
+<!--main end-->
+<include  file='public:footer_niucms'/>  

@@ -1,0 +1,11 @@
+<volist name="list" id="item" key="index ">
+<li>
+    <div class="img"><a title="<{$item.title}>" href="<{:U('mart/detail',array('goods_id'=>$item['goods_id'],'shop_id'=>$item['shop_id']))}>"><img src="__ROOT__/attachs/<{$item.photo}>" style="vertical-align:top;"></a></div>
+    <div class="nr">
+        <div class="title"><a class="title" title="<{$item.title}>" href="<{:U('mart/detail',array('goods_id'=>$item['goods_id'],'shop_id'=>$item['shop_id']))}>"><{$item['title']}></a></div>
+        <div class="price">&yen;<{:round($item['mall_price']/100,2)}><em>&yen;<{:round($item['price']/100,2)}></em></div>
+        <div class="num"><a class="jq_addcart" href="<{:U('mart/cartadd',array('goods_id'=>$item['goods_id'],'shop_id'=>$item['shop_id']))}>"><span class="r">+</span></a></div>
+    </div>
+    <div class="clear"></div>
+</li>
+</volist>

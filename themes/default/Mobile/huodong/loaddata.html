@@ -1,0 +1,14 @@
+<foreach name='list' item='item'>
+    <div class="list-box">
+        <div class="list-img">
+            <a href="<{:U('huodong/detail',array('activity_id'=>$item['activity_id']))}>"><img src="__ROOT__/attachs/<{$item.photo}>"/></a>
+        </div>
+        <div class="list-content activ-list-content">
+            <a href="<{:U('huodong/detail',array('activity_id'=>$item['activity_id']))}>"><p class="overflow_clear">[<{$cates[$item['cate_id']]['cate_name']}>]<{:bao_msubstr($item['title'],0,16,false)}></p></a>
+            <p>时间：<{$item.time}></p>
+            <p class="spread-for">地点：<{:bao_msubstr($item['addr'],0,6,true)}></p>
+            <p><img src="__TMPL__statics/img/tp8.png" class="left"><span class="left"><{$item.sign_num}></span><a class="left">人已报名</a></p>
+            <if condition="$item['sign'] eq 1"><a href="javascript:void(0);"><div class="button2">已报名</div></a><else/><a href="<{:U('huodong/sign',array('activity_id'=>$item['activity_id']))}>"><div class="button2">立即报名</div></a></if>
+        </div>
+    </div>
+</foreach>

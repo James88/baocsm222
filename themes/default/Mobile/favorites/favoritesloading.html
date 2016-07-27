@@ -1,0 +1,26 @@
+
+    <foreach  name="shops" item="var">
+    <li>
+        <div class="li_left"><a title="<{$var.shop_name}>" href="<{:U('favorites/detail',array('shop_id'=>$var['shop_id']))}>"><img src="__ROOT__/attachs/<{$var.logo}>" width="90" height="90" /></a></div>
+        <div class="li_right">
+            <p class="mt15">
+              <a href="<{:U('favorites/detail',array('shop_id'=>$var['shop_id']))}>">
+                  <em class="fl overflow_clear"><{:msubstr($var['shop_name'],0,6,'utf-8',false)}></em>
+                 <?php if(!empty($news[$var['shop_id']])){?>
+                  <span class="fr favo-time"><?php echo date('Y-m-d',$news[$var['shop_id']]['create_time']);?></span>
+                  <?php }?>
+              </a>
+            </p>
+            <?php if(!empty($news[$var['shop_id']])){?>
+            <p class="favo-ms " <?php if(isset($read_ids[$news[$var['shop_id']]['news_id']])){?> style="color: #cccccc;" <?php }?>>
+              <{:msubstr($news[$var['shop_id']]['title'],0,15)}>
+            </p>
+             <?php }else{?>
+              <p class="favo-ms overflow_clear">
+             该商家比较懒什么都没写....
+              </p>
+            <?php }?>
+        </div>
+    </li>
+    <div class="clear"></div>
+   </foreach>

@@ -1,0 +1,90 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+		<a href="<{:U('tuan/buy',array('tuan_id'=>$tuan['tuan_id']))}>"><i class="icon-goback"></i></a>
+		<div class="title">支付订单</div>
+		<i class="icon-menu"></i>
+	</header>
+
+    
+    
+    
+    <div id="seat" class="page-center-box">
+    	<form action="<{:U('tuan/pay2',array('order_id'=>$order['order_id']))}>" method="post">
+		<div id="scroll" class="pay">
+			<div class="order-content">
+                <ul class="list">
+            		<li>
+            			<span class="left"><{$tuan.title}></span>
+	            		<span class="right"><{:round($tuan['tuan_price']/100,2)}>元</span>
+	            		<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">数量</span>
+	            		<div class="rush-num right">
+	                        <{$order['num']}>
+                    	</div>
+                    	<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">可使用积分</span><span class="right"><{$order['num']*$tuan['use_integral']}>积分</span>
+	            		<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">总价</span>
+	            		<span class="right"><span class="rush-price"><{:round($order['total_price']/100,2)}></span>元</span>
+	            		<div class="clear"></div>
+	            	</li>
+            	</ul>
+            </div>
+            <div class="wap-form">
+            	<script>
+					$(function(){
+						$(".seat-check input").click(function(){
+							$(".seat-check").find("label").removeClass("on");
+							$(this).parent("label").addClass("on");
+						});
+					});
+				</script>
+				<ul>
+					<li><div class="left">支付方式</div><div class="right"><eq name="mobile_open" value="0"><span style="color:#FF0000;cursor:pointer;" id="mobile_btn">还未绑定手机，立即绑定</span><else/>当前绑定手机：<span class="rush-price"><{$MEMBER.mobile}></span></eq></div><div class="clear"></div></li>
+
+                    
+                    <foreach name="payment" item="var">
+                            <li class="pay-li i-<{$var.payment_id}>">
+                                <{$var.name}><p>推荐已安装<{$var.name}><{$var.id}>客户端的用户使用</p><div class="seat-check"><label><input type="radio" class="ui-radio" name="code" value="<{$var.code}>" ></label></div>
+                            </li>
+                    </foreach>
+
+                    <li class="integral pay-li i-8">货到付款<p>如果您没有网银，可以到店付</p><div class="seat-check"><label><input type="radio" value="wait" name="code" class="ui-radio"></label></div></li>
+
+				</ul>
+			</div>
+			<div class="sure-pay-but">
+            	<div class="sure-pay right"><input type="submit" class="aniu fsub" value="确认支付" style="border:none;background:none;font-size:0.16rem;width:100%;color:#FFFFFF;"></div>
+            </div>
+		</div>
+        </form>
+	</div>
+    
+    <eq name="mobile_open" value="0">
+ 	<script type="text/javascript" language="javascript">
+		 
+		 $('.fsub').click(function(){
+		 	
+			check_user_mobile('<{:U("mobile/tuan/tuan_sendsms")}>','<{:U("mobile/tuan/tuan_mobile")}>');
+			return false;
+		})
+	    
+    	check_user_mobile('<{:U("mobile/tuan/tuan_sendsms")}>','<{:U("mobile/tuan/tuan_mobile")}>');
+		$('#mobile_btn').click(function(){
+			check_user_mobile('<{:U("mobile/tuan/tuan_sendsms")}>','<{:U("mobile/tuan/tuan_mobile")}>');
+		})
+    </script>
+
+    </eq>
+    
+    <{$mobile}>
+
+    
+<include  file='public:footer'/>    

@@ -1,0 +1,55 @@
+<include  file='public:header'/>
+<script src="http://api.map.baidu.com/components?ak=7b92b3afff29988b6d4dbf9a00698ed8&v=1.0"></script>
+<style type="text/css">
+
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+
+	#golist {display: none;}
+	.lbs-tag .info-box .info-btn i.icon {
+	  margin-right: 4px;
+	  position:relative;
+	}
+	.lbs-tag .zoom-btn-container i.icon{position:relative;}
+
+	@media (max-device-width: 800px){#golist{display: block!important;}}
+
+</style>
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script src="http://api.map.baidu.com/components?ak=7b92b3afff29988b6d4dbf9a00698ed8&v=1.0"></script>
+	<title>地图标注点</title>
+	<style type="text/css">
+
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+
+	#golist {display: none;}
+	.lbs-tag .info-box .info-btn i.icon {
+	  margin-right: 4px;
+	  position:relative;
+	}
+
+	@media (max-device-width: 800px){#golist{display: block!important;}}
+
+</style>
+</head>-->
+<body>
+    <header>
+
+		<a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">
+        
+            地图
+        
+        </div>
+
+		<i class="icon-menu"></i>
+
+	</header>
+<lbs-map width="100px" style="height:100%" center="<{$shop.lng}>,<{$shop.lat}>">
+    <lbs-poi name="<{$shop.addr}>" location="<{$shop.lng}>,<{$shop.lat}>" addr="<{$shop.addr}>" ></lbs-poi>
+    </lbs-map>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<include  file='public:header'/>   
+<body>
+    <header>
+        <div>
+            <a class="back" href="javascript:window.history.go(-1);"><img  src="__TMPL__statics/img/back.png"></a>
+            物业通知
+            <a class="add" href="<{:U('communitynews/create')}>" id="addition"><img  src="__TMPL__statics/img/addition.png"></a>
+        </div>
+    </header>
+    <section class="container">
+        <ul class="news_list">
+
+        </ul>
+    </section>
+    <script>
+        $(document).ready(function () {
+            loaddata('<{$nextpage}>', $(".news_list"), true);
+        });
+    </script>
+<include  file='public:footer'/>   
+

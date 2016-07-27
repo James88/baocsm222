@@ -1,0 +1,48 @@
+.ding-shop-list li{padding:10px;background:#FFF;border-bottom:thin solid #DDD;overflow:hidden;}
+.ding-shop-list li a{ display:block;width:100%;}
+.ding-shop-list li .list-pic{
+    width: 20%;
+    margin-right: 2%;
+    float: left;
+}
+.ding-shop-list li .list-pic img{width:100%;}
+.ding-shop-list li .list-des {float:left;width:78%;}
+.ding-shop-list li .list-des .des-title{overflow:hidden;color:#666;}
+.ding-shop-list li .list-des .des-title span{float:right;margin-left:5px; 
+
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+.ding-shop-list li .list-des .des-title span.fu{
+    background-color: #eb6100;
+}
+.ding-shop-list li .list-des .des-title span.pei{
+    background-color: #55830A;
+}
+.ding-shop-list li .list-des .des-title span.fan{
+    background-color: #ff2121;
+}
+.ding-shop-list li .list-des .des-title span.jian{
+    background-color: #00a0e9;
+}
+.ding-shop-list li .list-des .des-star{margin:0;}
+.ding-shop-list li .list-des .des-addr{font-size:12px;width:100%;margin:0;}
+.ding-shop-list li .list-des .des-addr i{font-size:14px;margin-right:5px;}
+.ding-shop-list li .list-des .des-addr span{float:right;color:#C00;}
+
+
+
+
+.ding-detail .detail-pic{width:100%;height:200px;}
+.ding-detail .detail-pic img{width:100%;height:200px;}
+.ding-detail .detail-des {background:#FFF;margin:0;padding:5px 0;border-bottom:thin solid #DDD;}
+.ding-detail .detail-des h1{font-size:14px;height:40px;line-height:40px;border-bottom:thin solid #DDD;padding:0 10px;margin:0;width:100%;}
+.ding-detail .detail-des h1 .ui-starbar{float:right;margin-top:10px;}
+.ding-detail .detail-des p{margin:0;height:40px;padding:10px;}
+.ding-detail .detail-btn{width:100%;padding:10px;}
+.ding-ping{border-top:thin solid #DDD;}

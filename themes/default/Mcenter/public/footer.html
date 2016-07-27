@@ -1,0 +1,66 @@
+<div id="loading">
+    <div class="bao_loading">正在加载中....</div>
+</div>
+<div class="blank">&nbsp;</div>
+<footer>
+    <div>
+      <a href="<{:U('mobile/index/index')}>">  
+          <div class="icon i-1"></div>
+          <p>首页</p>
+      </a>
+    </div>
+    <div>
+        <a href="<{:U('mobile/tuan/index')}>">  
+        <div class="icon i-2"></div>
+        <p>抢购</p>
+        </a>
+    </div>
+    <div>
+     <a href="<{:U('mobile/favorites/index')}>">   
+         <div class="icon i-3"></div>
+        <p>关注</p>
+     </a>
+    </div>
+    <div class="my_login">
+        <!--<a href="<{:U('mcenter/member/index')}>"> </a>-->
+        <div class="icon i-4"></div>
+        <p>我的</p>
+        <div class="my_login_pull">
+        	<ul>
+        	    <li><a href="<{:U('store/index/index')}>">商户中心</a></li>
+                <li><a href="<{:U('mcenter/index/index')}>">会员中心</a></li>
+    	    </ul>
+        </div>
+    </div>
+</footer>
+<div style="display: none;" class="topUp"></div>
+<script>
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 100) {
+                $(".topUp").show();
+            } else {
+                $(".topUp").hide();
+            }
+        });
+        $(".topUp").click(function () {
+            $("html,body").animate({scrollTop: 0}, 200);
+        });
+		
+		$(".my_login").click(function () {
+            $(this).find(".my_login_pull").toggle();
+        });
+    });
+</script>
+<iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+<style>
+.li_table table{ width:100%; text-align:center;}
+footer #jq_total{width:auto;}
+.my_login{ position:relative; cursor:pointer;}
+.my_login_pull{display:none; position:absolute; bottom:0.48rem; right:0; width:100%; min-width:0.9rem; background: rgba(0, 0, 0, 0.7); box-shadow:-1px -1px 2px #666;}
+.my_login_pull li{ display:block; padding:0px 0.05rem;}
+.my_login_pull li a{ display:block; border-bottom:1px solid #fff; font-size:0.14rem; line-height:0.34rem; color:#fff; text-align:center;}
+.my_login_pull li:last-child a{border-bottom:none 0px;}
+</style>
+</body>
+</html>

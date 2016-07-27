@@ -1,0 +1,175 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+		<a href="<{:U('mall/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">支付订单</div>
+		<i class="icon-menu"></i>
+	</header>
+
+
+	<script src="<{:U('app/datas/cab',array('name'=>'cityareas'))}>"></script>  <!-- 获取下拉 -->
+    
+    <script type="text/javascript" language="javascript">
+    	$(document).ready(function(){
+			
+			//添加
+			$('#add_addr').click(function(){
+			
+				layer.open({
+					type: 1,
+					title:'新增收货地址',
+					skin: 'layui-layer-demo', //加上边框
+					area: ['100%', '3.4rem'], //宽高
+					content: '<p class="form">联系人：<br><input type="text" class="add-text" id="name" name="name" value=""><br>地区：<br><select id="city_id" name="city_id" style="width:100px;" class="add-text"><option value="0">请选择...</option></select><select id="area_id" name="area_id" style="width: 100px;" class="add-text"><option value="0">请选择...</option></select><select id="business_id" name="business_id" style="width: 100px;" class="add-text"><option value="0">请选择...</option></select><br>手机号码：<br><input type="text" class="add-text2" name="mobile" id="mobile" value=""><br>收货地址：<br><input type="text" class="add-text2 add-dw" name="addr" id="addr" value=""><br><input type="submit" value="立即添加" id="addr_post" /></p>'
+				});
+
+				get_option();
+				
+				
+				$('#addr_post').click(function(){
+					var name = $('#name').val();
+					var city_id = $('#city_id').val();
+					var area_id = $('#area_id').val();
+					var business_id = $('#business_id').val();
+					var mobile = $('#mobile').val();
+					var addr = $('#addr').val();
+					
+					$.post('<{:U("mobile/addr/add_addr")}>',{name:name,city_id:city_id,area_id:area_id,business_id:business_id,mobile:mobile,addr:addr},function(result){										
+						if(result.status == 'success'){
+							layer.msg(result.msg);
+							setTimeout(function(){
+								location.reload(true);
+							},3000);
+						}else{
+							layer.msg(result.msg,{icon:2});
+						}														
+					},'json');
+				
+				})
+				
+			
+			})
+			
+			
+			
+			//修改
+			$('.edit_addr').click(function(){
+			
+				var val = $(this).attr('val');
+				var a = $(this).attr('a');
+				var b = $(this).attr('b');
+				var c = $(this).attr('c');
+				var n = $(this).attr('n');
+				var m = $(this).attr('m');
+				var addr = $(this).attr('addr');
+				
+				layer.open({
+					type: 1,
+					title:'新增收货地址',
+					skin: 'layui-layer-demo', //加上边框
+					area: ['100%', '3.4rem'], //宽高
+					content: '<p class="form">联系人：<br><input type="text" class="add-text" id="name" name="name" value="'+n+'"><br>地区：<br><select id="city_ids" name="city_id" style="width:100px;" class="add-text"><option value="0">请选择...</option></select><select id="area_ids" name="area_id" style="width: 100px;" class="add-text"><option value="0">请选择...</option></select><select id="business_ids" name="business_id" style="width: 100px;" class="add-text"><option value="0">请选择...</option></select><br>手机号码：<br><input type="text" class="add-text2" name="mobile" id="mobile" value="'+m+'"><br>收货地址：<br><input type="text" class="add-text2 add-dw" name="addr" id="addr" value="'+addr+'"><br><input type="submit" value="立即修改" id="edit_post" val="'+val+'" /></p>'
+				});
+				
+				get_option();
+				
+				changeCAB(c,a,b);
+				
+				$('#edit_post').click(function(){
+					var addr_id = $(this).attr('val');
+					var name = $('#name').val();
+					var city_id = $('#city_ids').val();
+					var area_id = $('#area_ids').val();
+					var business_id = $('#business_ids').val();
+					var mobile = $('#mobile').val();
+					var addr = $('#addr').val();
+					
+					$.post('<{:U("mobile/addr/edit_addr")}>',{name:name,city_id:city_id,area_id:area_id,business_id:business_id,mobile:mobile,addr:addr,addr_id:addr_id},function(result){										
+						if(result.status == 'success'){
+							layer.msg(result.msg);
+							setTimeout(function(){
+								location.reload(true);
+							},3000);
+						}else{
+							layer.msg(result.msg,{icon:2});
+						}														
+					},'json');
+				
+				})
+				
+				
+			})
+			
+
+			
+			
+		})
+    </script>
+    
+    
+    
+    <div id="seat" class="page-center-box">
+    	<form action="<{:U('mall/pay2',array('order_id'=>$order['order_id']))}>" method="post">
+		<div id="scroll" class="pay">
+			<div class="order-content">
+                <ul class="list">
+
+                
+                	<if condition="!empty($useraddr)">
+                        <li><div class="left">请选择收货地址</div><div class="right"><a href="javascript:void(0);" id="add_addr" style="color:#ff0000;">新增收货地址</a></div><div class="clear"></div></li>
+                        <foreach name="useraddr" item="item">
+                        <li>
+                            <div style="width:100%">
+                            	<input style="float: left;margin-top:0.04rem;" type="radio"  name="addr_id" id="addr_id" value="<{$item['addr_id']}>" <eq name="item.is_default" value="1">checked="checked"</eq> />
+                            	<p class="fl pay-dz"><{$item.name}>,<{$item.mobile}>,<{$item.addr}></p>
+                            	<div class="clear"></div>
+                        	</div>
+                            <div style="font-size:0.14rem;padding-left:0.17rem;">
+                            	<eq name="item.is_default" value="0"><a href="<{:U('mobile/addr/update_addr',array('addr_id'=>$item['addr_id']))}>" style="color:#f56c08;">设为默认</a></eq>
+                                <a href="#" style="color:#2fbdaa;" val="<{$item.addr_id}>" a="<{$item.area_id}>" b="<{$item.business_id}>" c="<{$item.city_id}>" n="<{$item.name}>" m="<{$item.mobile}>" addr="<{$item.addr}>" class="edit_addr">修改地址</a>
+                            </div>
+							<div class="clear"></div>       
+                        </li>
+                        </foreach>
+                        <else/>
+                        <li>您还没有设置收货地址！这就去<a style="color: #ff3333;" href="<{:U('member/addressadd',array('goods_id'=>$detail['goods_id']))}>">新增收货地址</a></li>
+                    </if>
+                    
+	            	
+            	</ul>
+            </div>
+            <div class="wap-form">
+            	<script>
+					$(function(){
+						$(".seat-check input").click(function(){
+							$(".seat-check").find("label").removeClass("on");
+							$(this).parent("label").addClass("on");
+						});
+					});
+				</script>
+				<ul>
+					<li>支付方式</li>
+
+                    
+                    <foreach name="payment" item="var">
+                            <li class="pay-li i-<{$var.payment_id}>">
+                                <{$var.name}><p>推荐已安装<{$var.name}><{$var.id}>客户端的用户使用</p><div class="seat-check"><label><input type="radio" class="ui-radio" name="code" value="<{$var.code}>" ></label></div>
+                            </li>
+                    </foreach>
+                    
+                    
+                    
+
+                    <li class="integral pay-li i-8">货到付款<p>如果您没有网银，可以到店付</p><div class="seat-check"><label><input name="code" value="wait" type="radio"></label></div></li>
+
+				</ul>
+			</div>
+			<div class="sure-pay-but">
+            	<div class="sure-pay right"><input type="submit" class="aniu" value="确认支付" style="border:none;background:none;font-size:0.16rem;width:100%;color:#FFFFFF;"></div>
+            </div>
+		</div>
+        </form>
+	</div>
+    
+    
+<include  file='public:footer'/>       

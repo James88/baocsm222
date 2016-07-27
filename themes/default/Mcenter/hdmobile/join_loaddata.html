@@ -1,0 +1,13 @@
+<foreach name="list" item="item">
+    <li class="integral">
+        <div class="apply-message">
+            <div class="left apply-xin">
+                <span>报名人：<{$item.name}></span>
+                <span class="apply-num">联系方式：<{$item.mobile}></span>
+            </div>
+            <div class="right apply-phone">
+                <a href="tel:<{$item.mobile}>"><img src="/themes/default/Mobile/statics/img/tp20.png"></a>
+            </div>
+        </div>
+    </li>
+</foreach>

@@ -1,0 +1,45 @@
+/* 抢购样式 */	
+.snapup {height: 80px;}	
+.snapup .infologo {height: 60px; margin: 10px;}	
+.snapup .shelf2 {display: table;height: inherit;margin-left: 10px;}	
+.snapup .shelfcell {display: table-cell;vertical-align: middle;}	
+.snapup .shelfcell .title {margin-bottom: 10px;}	
+.snapup .arrow {width: 20px; padding-top: 30px;padding-right: 10px;}	
+
+/* 分类信息 */
+.index-info .row {display: -webkit-box;overflow:hidden;}		
+.index-info .col {-webkit-box-flex:1; -webkit-flex:1; flex:1;position: relative;width:33%;float:left;padding:10px 0;}		
+.index-info .col .title {position: relative;}		
+.index-info .col img {width: 20px; position: relative; top: 5px; left: -4px;}		
+.index-info .col .matrix3 {display: table;height: inherit;width: 100%;}		
+.index-info .matrix3 .matrixcell {display: table-cell;vertical-align: middle; text-align: center;}		
+.index-info .hightitem {background-color: #fff;}	
+.index-info .brb {border-bottom: 1px solid #e0e0e0;border-right: 1px solid #e0e0e0;}		
+.index-info .bb {border-bottom: 1px solid #e0e0e0;}		
+.index-info .iconfont{color:#999;font-size:18px;}
+.index-info .first{border-top: 1px solid #e0e0e0;}
+
+/* 分割标题 */	
+.guesstitle {height: 40px;line-height: 40px;padding-left: 10px;vertical-align: top; font-size: 12px;color: #999;}	
+
+	
+/* 导航按钮 */	
+.guide{width: 100%;background: #FFF;overflow: hidden;position: relative;padding-top:10px;}
+.guide .row{margin-top:10px;overflow:hidden;}
+.guide .col{text-align:center;width:25%;display:block;float:left;overflow:hidden;}
+.guide .col img{position:relative;width:60%;margin:0 auto;}
+.guide .col p{font-size: 13px;margin-top:5px;}
+.guide .swipe-wrap{overflow: hidden;position: relative;}
+.guide .swipe-wrap .swipe-box{padding-bottom: 10px;float: left;width: 100%;position: relative;}
+		
+
+/* 图片轮播样式 */	
+.roll{width:100%;background:#fff;overflow: hidden;position: relative;}
+.roll-wrap{overflow: hidden;position:relative;height:200px;}
+.roll-wrap .roll-box{float:left;width:100%;position:relative;}
+.roll-box  img{width:100%;height:200px;}
+.roll-box  a{width:100%;height:200px;}
+
+/* 位置提示 */	
+.place{width:100%;height:40px;line-height:40px;padding:0 10px;font-size:13px;}
+.place i{font-size:14px;color:#666;}

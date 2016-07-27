@@ -1,0 +1,224 @@
+/*Ö÷Ò³*/
+
+		body{background:#FFF!important;}
+		
+        .hdivider {	
+            width: 100%;	
+            height: 1px;	
+            background-color: #e0e0e0;	
+        }	
+	
+        .row {	
+           width:100%;
+			
+        }	
+	
+        .col {
+			float:left;
+			width:31%;;
+			display:block;
+			margin:1.15%;
+        }	
+	
+        .swiper-container img {	
+            width: 100%;	
+        }	
+	
+        .sectionTitle {	
+			width:100%;
+            height: 2em;	
+            line-height: 2em;	
+            font-size: 1.12em;	
+			position:relative;
+			overflow:hidden;
+        }	
+	
+        .sectionTitle .titleDivider {	
+            display: inline-block;	
+            height: 1.12em;	
+            width: 3px;	
+            vertical-align: top;	
+            background-color: #D43C33;	
+            margin-top: 0.44em;	
+            margin-left: 0.7em;	
+            margin-right: 0.3em;	
+        }	
+        .col .listcoverbar {	
+            background:#FFF;	
+            width: 100%;		
+        }	
+	
+        .col .listcoverbar span {	
+            color: #fff;	
+        }	
+	
+        .col .listcoverbar .earphone {	
+            width: 1em;	
+            margin-top: 0.2em;	
+            margin-right: 0.3em;	
+        }	
+	
+        .col .listcover {	
+            width: 100%;	
+        }	
+	
+        .col .listtitle {	
+            height:30px;	
+            font-size:12px;	
+            line-height:15px;	
+            overflow: hidden;	
+            text-overflow: ellipsis;
+			margin:3px 5px;
+        }	
+        .egret-flex-item {	
+           width:100%;
+			overflow:hidden;
+			position:relative;
+			padding:10px 0;
+        }	
+	
+        .egret-flex-item-logo {	
+            max-width: 50px;	
+            min-width: 50px;	
+            margin-left: 0.5em;	
+            margin-right: 0.2em;
+				float:left;
+        }	
+		
+	
+        .egret-flex-item-logo img {	
+            height: 3em;	
+            width: 3em;	
+            vertical-align: top;	
+        }	
+        .egret-flex-item-shelf {
+			width:100%;
+			float:left;
+			position:absolute;
+			padding:0 25px 0 70px;
+        }	
+	
+        .egret-flex-item-shelf div {	
+            text-overflow: ellipsis;	
+            white-space: nowrap;	
+            overflow: hidden;	
+        }	
+	
+        .egret-flex-item-shelf .egret-flex-item-shelf01 {	
+            font-size: 14px;	
+        }	
+	
+        .egret-flex-item-shelf .egret-flex-item-shelf02 {	
+            font-size: 0.6em;	
+            color: #666;	
+        }	
+	
+        .egret-flex-item-shelf .egret-flex-item-shelf02 .iconfont{font-size:1em;}
+	
+	
+        .egret-flex-item-shelf .egret-flex-item-redclassify {	
+            color: #E03F40;	
+            border: 1px solid #E03F40;	
+            font-size: inherit;	
+            padding: 0 0.1em;	
+            border-radius: 1px;	
+            margin-right: 5px;	
+            box-sizing: border-box;	
+        }	
+        .egret-flex-item-arrow {
+			position:absolute;
+			right:10px;
+			top:20px;
+            max-width: 10px;	
+            min-width: 10px;	
+            margin-right: 5px;	
+        }	
+	
+        .egret-flex-item-arrow img {	
+            width: 100%;	
+            max-width: 10px;	
+        }	
+        .swipe {
+			width: 100%;	
+            overflow: hidden;	
+        }	
+	
+        .swipe-wrap {
+			width: 100%;
+            overflow: hidden;	
+            position: relative;	
+            height: 185px;	
+        }	
+	
+        .swipe-wrap > div {	
+            float: left;	
+            width: 100%;	
+            position: relative;	
+        }	
+	
+        .swipe-wrap > div {	
+			 width: 100%;	
+            overflow: hidden;	
+            position: relative;	
+        }	
+	
+        .swipe-wrap img {
+			width:100%;
+        }	
+		
+        .swipe-wrap a {
+			width:100%;
+			display:block;
+        }
+		
+		
+	
+        #slide {	
+            margin: 0 auto;	
+            position: relative;	
+        }	
+	
+        #pointer {	
+            position: absolute;	
+            bottom: 0px;	
+            overflow: hidden;	
+            width: 92%;	
+            text-align: right;	
+        }	
+	
+        #pointer a {	
+            display: inline-block;	
+            width: 3px;	
+            height: 3px;	
+            border-radius: 3px;	
+            margin-right: 4px;	
+            background-color: #9B9B9B;	
+            margin-bottom: 1.5px;	
+        }	
+	
+        #pointer a.active {	
+            width: 6px;	
+            height: 6px;	
+            background-color: #000000;	
+            margin-bottom: 0;	
+        }	
+	
+        .banner-lable {	
+            position: relative;	
+            padding: 10px;	
+            line-height: 17px;	
+            font-size: 13px;	
+            padding: 5px 10px 0 10px;	
+        }	
+		.cate_menu_list {border-bottom:1px solid #CCC;display:none;height:40px;}
+		.cate_menu_list .cate_menu_list_li{float:left;margin-right:10px;padding:5px 10px;}
+		.cate_menu_list .cate_menu_list_ul ul{overflow:hidden;height:30px;line-height:30px;}
+		
+/*ÄÚÈÝ*/
+		
+		.details{width:100%;padding:10px;}
+		.details h1{font-size:20px;}
+		.details .details-des{font-size:12px;height:30px;line-height:30px;}
+		.details .details-des span{margin-right:10px;}
+		.details .details-read{font-size:14px;height:20px;line-height:20px;background:#FFF;width:100%;display:table-cell;}
+		.details .details-read img{max-width:100%!important;}

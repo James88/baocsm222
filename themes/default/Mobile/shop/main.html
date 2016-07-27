@@ -1,0 +1,47 @@
+<include file="public:header"/>
+<body id="micro_shop">
+    <header>
+        <a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">
+            <div class="box_search overflow_clear">
+                <i></i>
+                <a href="<{:U('index/search')}>">输入商户名/关键词</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="seat" class="page-center-box">
+        <div id="scroll">
+
+            <div class="micro_top">
+                <img src="__TMPL__statics/img/tp35.png" />
+            </div>
+            <volist name="shopcates" id="item" key="index">
+                <if condition="$item['parent_id'] eq 0">
+                    <div class="work-message shop_message">
+                        <div class="left shop_class">
+                            <img src="__PUBLIC__/img/tp<{$item.cate_id}>.png" class="left">
+                            <div class="left shop-sj">
+                                <p class="shop_food"><a href="<{:LinkTo('shop/index',array('cat'=>$item['cate_id']))}>"><{$item.cate_name}></a></p>
+                                <p class="overflow_clear">
+                                <php>$k=0;</php>
+                                <foreach name="shopcates" item="var">
+                                    <if condition="$var['parent_id'] eq $item['cate_id']">
+                                        <php>$k++;if($k<=3){</php>
+                                        <if condition="$k eq 1"><a href="<{:LinkTo('shop/index',array('cat'=>$var['cate_id']))}>"><{$var.cate_name}></a><else/>、<a href="<{:LinkTo('shop/index',array('cat'=>$var['cate_id']))}>"><{$var.cate_name}></a></if>
+                                        <php>}</php>
+                                    </if>
+                                </foreach>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="right work-time">
+                            <p><{$item.title}> <span>></span></p>
+                        </div>
+                    </div>
+                </if>
+            </volist>
+        </div>
+    </div>
+
+<include file="public:footer"/>

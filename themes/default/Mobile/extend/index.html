@@ -1,0 +1,24 @@
+<include file="public:header"/>
+
+<body>
+	<header>
+		<a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">推广员中心</div>
+		<i class="icon-menu"></i>
+	</header>
+
+ <div id="life" class="page-center-box">
+		<div id="scroll">
+			<!-- 列表 -->
+			<div class="list-have-pic">
+
+   	</div>
+		</div>
+	</div>
+    <script>
+        $(document).ready(function () {
+            loaddata('<{$nextpage}>', $(".list-have-pic"), true);
+        });
+    </script>
+
+<include file="public:footer"/>

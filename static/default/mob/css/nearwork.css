@@ -1,0 +1,67 @@
+		.work-list li{overflow:hidden;background:#fff;padding:5px;border-bottom:thin solid #DDD;font-size:12px;width:100%;}
+		.work-list li a{width:100%;}
+		.work-list li h2{font-size:16px;width:100%;}
+		.work-list li h2 span{float:right;font-size:12px;font-weight:normal;color:#999;}
+		.work-list li p{margin:0;}
+		.work-list li div span{margin-left:10px;}
+		.work-list li div em{color:#F80;}
+		
+		
+
+.nearwork_des .nw_nav{
+    background-color: #fff;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    line-height: 40px;
+}
+.nearwork_des .nw_nav li{
+    width: 50%;
+    float: left;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.nearwork_des .nw_nav li a{
+    display: block;
+    width: 90%;
+    margin: 0 auto
+}
+.nearwork_des .nw_nav a.current{
+    color: #ff2121;
+    border-bottom: 2px solid #ff2121;
+}
+.nearwork_des .nw_nav a:hover{
+    color: #ff2121;
+    border-bottom: 2px solid #ff2121;
+}
+.nearwork_des .job_des h1{
+    text-indent: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+    line-height: 36px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+}
+.nearwork_des .job_des h1 span{
+    font-size: 15px;
+    color: #808080;
+}
+.nearwork_des .job_des .des_A, .nearwork_des .job_des .des_B{
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 28px;
+}
+.nearwork_des .job_des .des_A li span, .nearwork_des .job_des .des_B li span{
+    font-size: 14px;
+    color: #808080;
+    font-weight: 500;
+}

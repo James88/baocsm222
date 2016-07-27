@@ -1,0 +1,21 @@
+<include  file='public:header'/>   
+<body>
+    <header>
+        <div>
+            <a class="back" href="javascript:window.history.go(-1);"><img  src="__TMPL__statics/img/back.png"></a>
+            回复
+        </div>
+    </header>
+    <section class="container">
+        <div class="feedback_reply">
+            <form method="post"  action="<{:U('feedback/reply',array('feed_id'=>$detail['feed_id']))}>" >
+                <ul>
+                    <li><span>回复:</span><textarea placeholder="输入内容" name="data[reply]" cols="40"></textarea></li>
+                    <li><input class="btn" type="submit" value="提交"></li>
+                </ul>
+            </form>
+        </div>  
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<foreach name='list' item='item'>
+    <div class="list_content">
+        <div class="list-box">
+			
+			<div class="list-img">
+				<a href="<{:U('hdmobile/detail',array('huodong_id'=>$item['huodong_id']))}>">
+				<img src="__ROOT__/attachs/<{$item.photo}>"/></a>
+			</div>
+
+			<div class="buy-content">
+				<p>
+				<a class="spread-for overflow_clear" href="<{:U('hdmobile/detail',array('huodong_id'=>$item['huodong_id']))}>"> 
+				<volist name="getHuoCate" id="var" key="index">
+                    <eq name="item.cate_id" value="$index">[<{$var}>]</eq>
+				</volist><{:bao_msubstr($item['title'],0,5,false)}>
+				
+				</p>
+				<p><span class="date-time">时间：<{$item.time}></span></p>
+				<a href="<{:U('hdmobile/detail',array('huodong_id'=>$item['huodong_id']))}>"><p class="spread-for overflow_clear">地点：<{:bao_msubstr($item['addr'],0,7,false)}></p></a>
+				<if condition="$item['sign'] eq 1">
+					<a href="javascript:void(0);">
+						<div class="sign-up sign-up-yi">已报名</div>
+					</a>
+					<else/>
+					<a href="<{:U('hdmobile/sign',array('huodong_id'=>$item['huodong_id']))}>"><div class="sign-up">报名</div>
+					</a>
+				</if>
+			</div>        
+        </div>           <div class="list-box">
+			<div class=" date-content">
+				<div class="left">
+					<p class="date-look left"><{$item.sign_num}>人报名</p>
+					<volist name="getPeopleCate" id="var" key="index">
+                        <if condition="$item['sex'] eq 3">
+							<div class="date-sex-boy">
+
+								<span class="right">不限</span>
+						</if>
+
+						<if condition="$item['sex'] eq 1">
+							<div class="date-sex-girl">
+								<img src="__TMPL__statics/img/tp18.png">
+								<span class="right">女生</span>
+						</if>
+
+
+						<if condition="$item['sex'] eq 2">
+							<div class="date-sex-boy">
+								<img src="__TMPL__statics/img/tp16.png">
+								<span class="right">男生</span>
+						</if>
+				</div>
+				</volist>
+			</div>
+		</div>
+	</div>
+</div>
+			
+</div>
+</foreach>
+

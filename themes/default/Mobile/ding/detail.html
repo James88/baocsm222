@@ -1,0 +1,170 @@
+<include file="public:header"/>
+
+<body>
+	<header>
+		<a href="<{:U('ding/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">餐厅详情</div>
+		<i class="icon-menu" id="ico_1"></i>
+	</header>
+	<div id="seat" class="page-center-box">
+		<div id="scroll">
+			<!-- BANNER图 -->
+			<div class="seat-banner">
+                <volist name='pic' id='item'>
+                	 <if condition="$i eq 1">
+                    	<img src="__ROOT__/attachs/<{$item}>" width="100%" height="" />
+                   	 </if>
+                </volist>
+				<div class="shade"></div>
+				<div class="shade-content">
+					<p class="overflow_clear title"><{$detail.shop.shop_name}></p>
+					<p>
+						人均：<span>￥<{:round($detail[details][price]/100,2)}></span> 
+						<em><{$all_ping}>条评论</em>
+					</p>
+				</div>
+			</div>
+			<!-- 评分 -->
+			<div class="point">
+				<div class="point-left">
+					<span><{$detail['cat']['d1']}>：<{$detail[shop][d1]}></span>
+					<span><{$detail['cat']['d2']}>：<{$detail[shop][d2]}></span>
+					<span><{$detail['cat']['d3']}>：<{$detail[shop][d3]}></span>
+				</div>
+				<div class="point-right">
+                       <div class="btn">定金：<{:round($detail['set']['money']/100,2)}>元<i></i></div>
+				</div>
+			</div>
+			<!-- 分享 -->
+			<script>
+				$(function(){
+					$(function(){
+						$(".life-infor-pull").click(function(){
+							if($(this).find(".seat-btn-pull-down").css("display")=='block'){
+								$(".seat-btn-pull-down").hide();
+								$(this).find(".seat-btn-pull-down").hide();
+							}
+							else{
+								$(".seat-btn-pull-down").hide()
+								$(this).find(".seat-btn-pull-down").show();
+							}
+							if($(this).find("i").hasClass("on")){
+								$(".life-infor-pull").find("i").removeClass("on");
+								$(this).find("i").removeClass("on");
+							}
+							else{
+								$(".life-infor-pull").find("i").removeClass("on");
+								$(this).find("i").addClass("on");
+							}
+						});
+						$(".seat-btn-pull-down2 li").click(function(){
+							$(this).parent().find("li").removeClass("on");
+							$(this).addClass("on");
+							$(this).parents(".life-infor-pull").find("input").val($(this).html());
+						});
+					});
+				});
+			</script>
+            <script src="__PUBLIC__/js/my97/WdatePicker.js"></script>
+             <form method="post" action="<{:U('ding/yuyue',array('shop_id'=>$detail[shop][shop_id]))}>">
+             
+            <div id="login-input">
+                <div class="regist-code life-infor-pull">
+                <input  class="date" id='date' type="text" name="date" value="<{$date|default=''}>" onFocus="WdatePicker({dateFmt: 'yyyy-MM-dd'});"  />
+                
+                </div>
+            </div>
+            
+            <div id="login-input">
+                <div class="regist-code life-infor-pull"><input type="text" name="time" placeholder="" value="时间" /><i></i>
+                	<div class="seat-btn-pull-down seat-btn-pull-down2">
+                        <ul>
+                        	<empty name="shop_time">
+                            	<li style="color:#FFFFFF;">该商家暂时没有设置营业时间</li>
+                            <else/>
+                                <volist name='shop_time' id='item'>
+                                    <li style="color:#FFFFFF;"><{$item}></li>
+                                </volist>
+                            </empty>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="login-input">
+                <div class="regist-code life-infor-pull"><input type="text" name='reson' placeholder="" value="人数" /><i></i>
+                	<div class="seat-btn-pull-down seat-btn-pull-down2">
+                        <ul>
+                        	<empty name="room">
+                            	<li style="color:#FFFFFF;">该商家暂时没有设置人数</li>
+                            <else/>
+                                <volist name='room' id='item'>
+                                    <li><{$item}></li>
+                                </volist>
+                            </empty>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+			<!-- 地址 -->
+			<div class="address">
+				<ul>
+					<li class="address-here"><{$detail['shop']['addr']}></li>
+					<li><a href="<{:U('market/gps',array('market_id'=>$detail[shop]['shop_id']))}>" class="b-1">到这去<i></i></a></li>
+					<li><a  class="b-2"><{$detail['shop']['tel']}><i></i></a></li>
+				</ul>
+			</div>
+			<!-- 商家信息 -->
+			<div class="info">
+				<ul>
+					<li class="title">商家信息</li>
+					<li>营业时间： <{$cfg[$detail['set']['start_time']]}> —— <{$cfg[$detail['set']['end_time']]}> 饮料区全时段营业，饮料区不接受预订</li>
+					<li>
+                    	<if condition="$tuan['tuan_id'] gt 0">
+                            <p class="mb10"><span class="c-1">团</span><a target="_blank" href="<{:U('tuan/detail',array('tuan_id'=>$tuan['tuan_id']))}>"><{$tuan.title}></a></p>
+                        </if>
+                        <if condition="$coupon[coupon_id] gt 0">
+                        	<p><span class="c-2">券</span><a target="_blank" href="<{:U('coupon/detail',array('coupon_id'=>$coupon['coupon_id']))}>"><{$coupon.title}></a></p>
+                        </if>
+					</li>
+				</ul>
+			</div>
+
+            <div class="guest">
+				<div class="title">
+					<span>网友点评(<{$all_ping}>)</span>
+					<a href="<{:U('ding/dianping',array('shop_id'=>$detail['shop']['shop_id']))}>"><em>全部评论>></em></a>
+				</div>
+				
+
+                <volist name="list" id="var" key="index">
+                    <div class="guest-box">
+                        <div class="icon" style="background-image: url(__ROOT__/attachs/<{$users[$var['user_id']]['face']|default='default.jpg'}>);"></div>
+                        <div class="guest-box-content">
+                            <p><{$users[$var['user_id']]['nickname']}><span><{$var.create_time='Y-m-d H:i:s',###}></span></p>
+                            <div class="point-star">
+                            <div style="width: <{$var['score']/5}>rem;"></div></div>
+                            <p class="c_h"><{$var.contents}></p>
+                            <p class="img">
+                                <volist name="pics" id="pic" key="index">
+                                    <eq name="pic.dianping_id" value="$var['dianping_id']">
+                                    <img <if condition="$index%3 eq 1">class="fst"</if>  src="__ROOT__/attachs/<{$pic.pic|default='default.jpg'}>">
+                                    </eq>
+                                </volist>
+                            </p>
+                        </div>
+                    </div>
+                </volist>
+			</div>
+            
+		</div>
+	</div>
+    
+    <footer class="footer-cart">
+		<input type="submit" name="bao" value="包厢订座" >
+		<input type="submit" name="ting" value="大厅订座" >
+	</footer>
+    
+</body>
+</html>

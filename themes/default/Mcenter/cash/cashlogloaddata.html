@@ -1,0 +1,19 @@
+<foreach  name="list" item="var">
+<div class="draw-money-record">
+    <div class="left">
+        <p><img src="/themes/default/Mobile/statics/img/tp23.png"><span>金额：<{$var['money'] / 100}>元</span></p>
+        <p><img src="/themes/default/Mobile/statics/img/tp24.png"><span>日期：<{$var['addtime']|date='Y-m-d', ###}></span></p>
+    </div>
+    <div class="right draw-type"><span class="draw-color">状态：</span>
+    	<span class="draw-color2">
+            <if condition="$var.status eq 0">
+                未审
+                <elseif condition="$var.status eq 1" />
+                <font color="green">通过</font>
+                <else />
+                <font color="red">拒绝</font>
+            </if>
+        </span>
+    </div>
+</div>
+</foreach>

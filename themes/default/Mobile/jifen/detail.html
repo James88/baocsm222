@@ -1,0 +1,60 @@
+<include  file='public:header'/>   
+
+<body>
+	<header>
+		<a href="<{:U('life/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">积分详情</div>
+	</header>
+	<div id="sell" class="page-center-box">
+		<div id="scroll">
+			<!-- BANNER图 -->
+			<div class="seat-banner">
+				<a href="">
+					<img src="__ROOT__/attachs/<{$detail.face_pic}>" width='100%' height='100%'/>
+					<div class="shade"></div>
+					<div class="shade-content">
+						<p><{$detail.title}></p>
+					</div>
+				</a>
+			</div>
+			<!-- 评分 -->
+			<div class="point">
+				<div class="point-left">
+               		<p class="integral_xq">需要积分：<span class="c-1"><{$detail.integral}></span></p>
+                    <p class="integral_xq"><span class="integral_xq_mr">市场价：<{$detail.price}></span><span class="integral_xq_mr">数量：<{$detail.num}></span></p>
+				</div>
+				<div class="point-right">
+					<a href="<{:U('jifen/exchange',array('goods_id'=>$detail['goods_id']))}>" class="btn">立刻兑换</a>
+				</div>
+			</div>
+			<div class="spread-intro">
+                <ul>
+                    <li class="spread-tui">积分详情</li>
+                    <li>
+                        <div class="micro_shop_xqXz">
+                            <p> <{$detail.details}></p>
+                        </div>   
+                    </li>
+                </ul>
+            </div>
+            <div class="spread-intro">
+				<ul>
+					<li class="spread-tui">同类积分</li>
+					<li>
+						<volist name="othergoods" id="item" key="index">
+							<div class="mall-sock fl mb15">
+								<a href="<{:U('jifen/detail',array('goods_id'=>$item['goods_id']))}>">
+									<img src="__ROOT__/attachs/<{$item.face_pic}>"/>
+									<p class="overflow_clear"><{:bao_msubstr($item['title'],0,6,false)}></p>
+									<p><span class="hui"><{$item.exchange_num}>人已兑</span></p>
+								</a>
+							</div>
+                    </volist>
+						<div class="clear"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<include file="public:footer"/>
+

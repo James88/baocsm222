@@ -1,0 +1,120 @@
+<div class="send-out">
+    <foreach name="list" item="item">
+        <div class="coupon-list">
+            <div class="coupon-box">
+                <div class="coupon-box-content">
+                    <div class="fl left">
+                        <div class="bg c-1">
+                            <div>￥
+                                <p><{:round($item['price']/100,2)}></p>
+                            </div>
+
+
+                            <eq name="item.is_used" value="1">
+                            <img src="/themes/default/Mobile/statics/img/personal_coupon_roud_c3.png">
+                            <else/>
+                            <eq name="item.status" value="0">
+
+                            <neq name="item.price" value="0">
+                            <img src="/themes/default/Mobile/statics/img/personal_coupon_roud_c1.png">
+                            <else/>
+                            <img src="/themes/default/Mobile/statics/img/personal_coupon_roud_c2.png">
+                            </neq>
+                            <else />
+                            <eq name="item.status" value="1">
+                            <img src="/themes/default/Mobile/statics/img/personal_coupon_roud_c3.png">
+                            <else />
+                            <img src="/themes/default/Mobile/statics/img/personal_coupon_roud_c3.png">
+                            </eq>
+                            </eq>
+                            </eq>
+
+                        </div>
+                        <div class="state c-1">
+
+                            <eq name="item.is_used" value="1">
+                            已使用
+                            <else/>
+                            <eq name="item.status" value="0">
+
+                            <neq name="item.price" value="0">
+                            <a  href="<{:U('tuancode/refund',array('code_id'=>$item['code_id']))}>">申请退款</a>
+                            <else/>
+                            到店付款
+                            </neq>
+                            <else />
+                            <eq name="item.status" value="1">
+                            正在退款中
+                            <else />
+                            已退款
+                            </eq>
+                            </eq>
+                            </eq>
+                        </div>
+                    </div>
+                    <div class="fl center">
+                        <p class="overflow_clear"><a style="color:#fff;"  href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"><{$tuans[$item['tuan_id']]['title']}></a><{$item.code_id}></p>
+                        <p>密码：<{$item.code}></p>
+                        <p>
+                        <if condition=" ($item['is_used'] eq 0 ) and ($item['status'] eq 0) ">
+
+                            提供密码或者商家扫描<a href="<{:U('tuancode/weixin',array('code_id'=>$item['code_id']))}>" style="color: #000000;">二维码</a>
+                            <else />
+                            该抢购券不能被使用！
+
+                        </if>
+                        </p>
+                    </div>
+                    <div class="fl right">
+
+                        <eq name="item.is_used" value="1">
+                        <div class="star"><img src="/themes/default/Mobile/statics/img/personal_coupon_star_c3.png"></div>
+
+                        <else/>
+                        <eq name="item.status" value="0">
+
+                        <neq name="item.price" value="0">
+                        <div class="star"><img src="/themes/default/Mobile/statics/img/personal_coupon_star_c1.png"></div>
+
+                        <else/>
+                        <div class="star"><img src="/themes/default/Mobile/statics/img/personal_coupon_star_c2.png"></div>
+
+                        </neq>
+                        <else />
+                        <eq name="item.status" value="1">
+                        <div class="star"><img src="/themes/default/Mobile/statics/img/personal_coupon_star_c3.png"></div>
+
+                        <else />
+                        <div class="star"><img src="/themes/default/Mobile/statics/img/personal_coupon_star_c3.png"></div>
+
+                        </eq>
+                        </eq>
+                        </eq>
+                        <p class="c-3">有效期至</p>
+                        <{$item.fail_date}></div>
+                    <div class="clear"></div>
+                </div>
+
+                <eq name="item.is_used" value="1">
+                <img src="/themes/default/Mobile/statics/img/personal_coupon_bg_c3.png" width="100%" height="">
+                <else/>
+                <eq name="item.status" value="0">
+
+                <neq name="item.price" value="0">
+                <img src="/themes/default/Mobile/statics/img/personal_coupon_bg_c1.png" width="100%" height="">
+                <else/>
+                <img src="/themes/default/Mobile/statics/img/personal_coupon_bg_c2.png" width="100%" height="">
+                </neq>
+                <else />
+                <eq name="item.status" value="1">
+                <img src="/themes/default/Mobile/statics/img/personal_coupon_bg_c3.png" width="100%" height="">
+                <else />
+                <img src="/themes/default/Mobile/statics/img/personal_coupon_bg_c3.png" width="100%" height="">
+                </eq>
+                </eq>
+                </eq>
+
+            </div>
+        </div>
+    </foreach>
+</div>

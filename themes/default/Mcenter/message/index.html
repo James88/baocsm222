@@ -1,0 +1,27 @@
+<include file='public:header'/> 
+<body>
+	<header>
+		<a href="<{:U('/mcenter/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">我的信息</div>
+		<i class="icon-menu"></i>
+	</header>	
+	<div id="my-message" class="page-center-box">
+		<div id="scroll">
+			<!-- 列表 -->
+			<div class="list-have-pic">
+				<foreach name="msgs" item="item">
+                    	<div class="list-box">
+                        <a href="<{:U('/mcenter/message/msgshow',array('msg_id'=>$item['msg_id']))}>">
+                        <!--<div class="list-img list-img-small">
+                            <img src="#" />
+                        </div>-->
+                        <div class="list-content list-content-small" style="padding-left:0;">
+                            <p class="overflow_clear"><{$item.title}></p>
+                            <p class="c_h h15"><{$item.intro}></p>
+                        </div></a>
+                    </div>
+				</foreach>
+			</div>
+		</div>
+	</div>
+<include file='public:footer'/>

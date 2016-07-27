@@ -1,0 +1,29 @@
+<include  file='public:header'/>   
+<body id="my_attention">
+
+	<header>
+            <a href="<{:U('favorites/detail',array('shop_id'=>$detail['shop_id']))}>"><i class="icon-goback"></i></a>
+		<div class="title"><{$shop.shop_name}></div>
+		
+	</header>
+    
+<div id="seat" class="page-center-box">
+    <div id="scroll">
+    	<div class="my-attention-title">
+        	<h2><{$detail.title}></h2>
+            
+            <div class="link">
+                <a href="<{:U('shop/detail',array('shop_id'=>$detail['shop_id']))}>" class="fl from"><{$shop.shop_name}></a>
+                <a href="<{:U('favorites/add',array('shop_id'=>$detail['shop_id']))}>" class="fl attention">关注商家</a>
+                <span class="fr dish_time"><{:date('m月d日 H:i:s',$detail['create_time'])}></span>
+            </div>
+        </div>
+        <div class="content" style="font-size: 0.16rem; line-height: 0.24rem; padding: 0.1rem; color:#666; ">
+           <{$detail.details}>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

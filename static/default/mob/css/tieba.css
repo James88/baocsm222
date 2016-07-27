@@ -1,0 +1,281 @@
+ /*MAIN*/
+
+ html, body {	
+            height: 100%;	
+            min-width: 320px;
+			background:#FFF;
+        }	
+        body {	
+            font-size: 14px;	
+        }	
+	
+        .category {	
+            width: 100%;	
+        }	
+	
+        .category li {	
+	
+            display: inline-block;	
+            width: 24%;	
+            text-align: center;	
+            padding: 10px 0;	
+	
+        }	
+	
+        .category span {	
+            width: 88%;	
+            box-sizing: border-box;	
+            border: 1px solid #DDDDDE;	
+            padding: 7px 0;	
+            border-radius: 20px;	
+            color: #424242;	
+	
+        }
+		.category a{width:100%;display:block;}
+		
+		
+        .more-lable{	
+            padding: 10px;	
+            background-color: #E7E7E7;	
+        }	
+	
+/*INDEX*/
+        .qiushi-frame{	
+            background-color: #EDEDED;	
+        }	
+        .qiushi-frame #wrap{	
+            display: block;	
+        }	
+        .qiushi-frame{	
+            padding: 0.313em 0.625em;	
+            background-color: #EDEDED;	
+        }	
+        .qiushi-frame .qiushi-box{	
+            background-color: #FFFFFF;	
+            width: 100%;	
+            border-radius: 2px;		
+            margin-bottom: 0.56em;	
+        }	
+        .qiushi-frame .qiushi-top{	
+            padding-left: 0.75em;	
+            padding-top: 0.75em;	
+        }	
+        .qiushi-top .qiushi-icon-box{	
+            width: 44px;	
+            height: 44px;	
+			border:thin solid #DDD;
+			border-radius: 44px;
+        }	
+        .qiushi-top .qiushi-icon-box img{	
+            width: 42px;	
+            border-radius: 42px;
+            display: block;	
+        }	
+        .qiushi-top .user-name{	
+            height: 42px;	
+            line-height: 42px;	
+            text-indent: 0.75em;	
+            color: #3B3D42;	
+        }	
+        .qiushi-box .qiushi-content-text{	
+            padding: 0.55em 0.75em;	
+        }	
+        .qiushi-content-text .text{	
+            color: #999;	
+            display: block;	
+			margin:0;
+        }	
+		
+        .qiushi-content-text .title{	
+            color: #444;	
+            display: block;	
+			margin:0;
+			font-size:16px;
+			font-weight:bold;
+        }	
+		.qiushi-content-text .title a{
+			color:#555;
+		}
+		
+        .qiushi-box .qiushi-content-img{	
+			width:100%;
+			height:200px;
+			overflow:hidden;
+			 padding: 0.55em 0.75em;	
+        }	
+        .qiushi-box .qiushi-content-img img{	
+            width: 100%;	
+            display: block;	
+        }	
+        .qiushi-box .status-box{	
+            padding-left: 0.75em;	
+        }	
+        .status-box span{	
+            font-size: 0.625em;	
+            color: #969696;	
+            display: inline-block;	
+        }	
+        .qiushi-box .btns-group{	
+            height: 63px;	
+        }	
+        .btns-group .icon{	
+            width: 63px;	
+            height: 63px;	
+        }	
+        .btns-group .icon.pull-left{	
+            margin-right: 0.56em;	
+        }	
+        .btns-group .icon.pull-right{	
+        }	
+        .btns-group .icon-agree{	
+            background: url(/static/default/mob/images/tieba/operation_support.png) center center no-repeat;	
+            background-size: 100%;	
+        }	
+        .btns-group .icon-agree:active,.btns-group .icon-agree.tap-active,.btns-group .icon-agree.active{	
+            background: url(/static/default/mob/images/tieba/operation_support_press.png) center center no-repeat;	
+            background-size: 100%;	
+        }	
+        .btns-group .icon-disagree{	
+            background: url(/static/default/mob/images/tieba/operation_unsupport.png) center center no-repeat;	
+            background-size: 100%;	
+        }	
+        .btns-group .icon-disagree:active,.btns-group .icon-disagree.tap-active,.btns-group .icon-disagree.active{	
+            background: url(/static/default/mob/images/tieba/operation_unsupport_press.png) center center no-repeat;	
+            background-size: 100%;	
+        }	
+        .btns-group .icon-comment{	
+            background: url(/static/default/mob/images/tieba/operation_comments.png) center center no-repeat;	
+            background-size: 100%;	
+        }	
+        .btns-group .icon-share {	
+            float: right;	
+            background: url(/static/default/mob/images/tieba/operation_more.png) center center no-repeat;	
+            background-size: 100%;	
+        }	
+        .btns-group .icon-comment:active,.btns-group .icon-comment.tap-active,.btns-group .icon-share:active,.btns-group .icon-share.tap-active{	
+            background-color: #E5E5E5;	
+            background-size: 100%;	
+        }	
+        .qiushi-box .btns-group{	
+            height: 63px;	
+        }	
+        /*common*/	
+        .pull-left{	
+            float: left;	
+        }	
+        .pull-right{	
+            float: right;	
+        }	
+        .clearfix:after{	
+            content: '';	
+            display: block;	
+            clear: both;	
+        }	
+
+
+
+/*DETAIL*/
+
+	
+        .textarea {	
+            margin: 10px 0;	
+            height: 65px;	
+            text-align: center;	
+        }	
+	
+        textarea {	
+            height: 100%;	
+            background-color: #ffffff;	
+            border: 1px solid #E4E4E4;	
+            padding: 5px;	
+            resize: none;	
+        }	
+	
+        .content {	
+            padding: 10px;	
+        }	
+	
+	
+        .content img{	
+            width:100%!important;	
+        }	
+	
+	
+        .tie-title {	
+            font-size: 18px;	
+            line-height: 25px;	
+            letter-spacing: 1px;	
+        }	
+	
+        .tie-detail {
+			line-height: 25px;	
+			overflow:hidden;
+			letter-spacing: 1px;
+		 }
+		 
+        .tie-more {
+			margin-top:10px;
+			text-align:right;
+			font-size:13px;
+		}
+		
+		.tie-photo {overflow:hidden;}
+		
+		.tie-photo a{float:left;width:100px;height:80px; margin:0 5px 5px 0;}
+		.tie-photo img{width:100px;height:80px;}
+		
+        .comment-author {	
+            font-size: 14px;	
+            line-height: 1.25;	
+            margin: 7px 0 5px 3px;	
+            color: #323237;	
+        }	
+	
+        .comment-content {	
+            margin: 8px 5px 8px 3px;	
+            line-height:18px;	
+            font-size: 16px;	
+        }	
+		
+		
+		
+		
+		.comment-photo {overflow:hidden;}
+		
+		.comment-photo a{float:left;width:100px;height:80px; margin:0 5px 5px 0;}
+		.comment-photo img{width:100px;height:80px;}
+	
+        .comment-oper {	
+            text-align: right;	
+            font-size: 14px;	
+        }	
+	
+        .commentbox-wrap li a {	
+            color: #1e50a2;	
+        }	
+	
+        .comment-oper a {	
+            padding:5px;	
+        }	
+        .commentbox-wrap li {	
+            padding: 7px 10px;	
+            border-bottom: 1px solid #e5e5e5;	
+            letter-spacing: 1px;	
+        }	
+        .comment-vote{	
+            color: #ba2636;	
+        }	
+		
+/*POST*/		
+	.post-title {border-bottom:thin solid #DDD;}
+	.post-title input{border:none;margin:0;}
+	.post-content {border-bottom:thin solid #DDD;}
+	.post-content textarea{border:none;height:200px;}
+	.post-photo {margin:10px 5px;width:100%;overflow:hidden;overflow-x:auto;height:120px;}
+	.post-photo .pic-brd{width:1000px;white-space:nowrap;height:110px;overflow:hidden;}
+	.post-photo .pic-brd li{display:block;float:left;width:90px;height:100px;margin-right:10px;position:relative;}
+	.post-photo .pic-brd img{width:90px;height:100px;}
+	.post-photo .last a{height:100px;width:90px;cursor:pointer;color:#888;background:#fafafa;position:relative;display:inline-block;*display:inline;*zoom:1;border:thin solid #DDD;font-size:12px;line-height:100px;text-align:center;}
+	.post-photo .last input{position:absolute;font-size:100px;right:0;top:0;opacity:0;filter:alpha(opacity=0);cursor:pointer;width:90px;height:100px;}
+	.post-photo .last a:hover{color:#666;background:#eee;border-color:#ccc;text-decoration: none}
+	

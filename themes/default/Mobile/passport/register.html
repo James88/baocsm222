@@ -1,0 +1,73 @@
+<include file="public:header"/>
+
+<body style="overflow-x:hidden;">
+<iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+	<header>
+		<i class="icon-goback"></i>
+		<div class="title">注 册</div>
+		<i class="icon-menu"></i>
+	</header>
+    <div id="login" class="page-center-box">
+        <div id="scroll">
+        
+        	<form action="<{:U('passport/register')}>" method="post" target="baocms_frm">
+            <div id="login-input">
+                <input type="text" placeholder="手机号" name="account" id="mobile" />
+                
+                <div class="regist-code"><input type="text" name="scode" placeholder="请输入验证码" /><a href="#" class="regist-code-get">获取验证码</a></div>
+                <input type="password" placeholder="密码" name="data[password]"/>
+                <input type="password" placeholder="再次输入密码" name="password2" />
+            </div>
+            <input type="submit" class="submit" value="注 册" />
+            
+            
+            <script type="text/javascript" language="javascript">
+            
+				$(document).ready(function(){
+
+						var mobile_timeout;
+						var mobile_count = 100;
+						var mobile_lock = 0;
+						$(function () {
+							$(".regist-code-get").click(function () {
+								if (mobile_lock == 0) {
+									mobile_lock = 1;
+									$.ajax({
+										url: '<{:U("passport/sendsms")}>',
+										data: 'mobile=' + $("#mobile").val(),
+										type: 'post',
+										success: function (data) {
+											if (data == 1) {
+												mobile_count = 60;
+												BtnCount();
+											} else {
+												mobile_lock = 0;
+												alert(data);
+											}
+										}
+									});
+								}
+							});
+						});
+						BtnCount = function () {
+							if (mobile_count == 0) {
+								$('.regist-code-get').html("重新发送");
+								mobile_lock = 0;
+								clearTimeout(mobile_timeout);
+							}
+							else {
+								mobile_count--;
+								$('.regist-code-get').html("获取(" + mobile_count.toString() + ")秒");
+								mobile_timeout = setTimeout(BtnCount, 1000);
+							}
+						};
+
+
+				})
+			
+            </script>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

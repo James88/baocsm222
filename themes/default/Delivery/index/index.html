@@ -1,0 +1,67 @@
+<include  file='public:header'/> 
+<body>
+<a href="<{:U('login/logout')}>" style="position:fixed;right:0.1rem;top:0;height:0.5rem;line-height:0.5rem;font-size:0.16rem;color:#FFFFFF;z-index:100000">退出</a>
+<header>
+    <i></i>
+    <div class="title">物流员工中心</div>
+    <i class="icon-menu"></i>
+</header>
+<section>
+	<div class="wl_index_ts">欢迎您，<{$rdv.id}>号配送员，您还有<{$ing}>单未配送，<a href="<{:U('lists/index',array('ss'=>2))}>">快去配送吧&gt;&gt;</a></div>
+	<div class="wl_index_order_list">
+        <ul>
+            <li>
+                <div class="mine-list-content"><p><big><{$today_p}></big>单</p>今日配送</div>
+            </li>
+            <li>
+                <div class="mine-list-content"><p><big><{$today_ok}></big>单</p>今日完成</div>
+            </li>
+            <li>
+                <div class="mine-list-content"><p><big><{$all_ok}></big>单</p>总计完成</div>
+            </li>
+        </ul>
+    </div>
+   	<div class="wl_index_pszt">
+   	    <ul>
+   	        <li>
+   	            <div class="wl_index_pszt_nr">
+   	                <div class="img c_1"><a href="<{:U('lists/index',array('ss'=>0))}>"><img src="__TMPL__statics/img/wlsy_ico1.png"></a></div>
+                    <div class="nr">
+                    	<div class="state">
+                        	<p>抢新单</p>
+                            <small>new</small>
+                        </div>
+                        <p class="order"><{$new}><small>单</small></p>
+                    </div>
+   	            </div>
+   	        </li>
+            <li>
+   	            <div class="wl_index_pszt_nr">
+   	                <div class="img c_2"><a href="<{:U('lists/index',array('ss'=>2))}>"><img src="__TMPL__statics/img/wlsy_ico2.png"></a></div>
+                    <div class="nr">
+                    	<div class="state">
+                        	<p>配送中</p>
+                            <small>ing...</small>
+                        </div>
+                        <p class="order"><{$ing}><small>单</small></p>
+                    </div>
+   	            </div>
+   	        </li>
+            <li>
+   	            <div class="wl_index_pszt_nr">
+   	                <div class="img c_3"><a href="<{:U('lists/index',array('ss'=>8))}>"><img src="__TMPL__statics/img/wlsy_ico3.png"></a></div>
+                    <div class="nr">
+                    	<div class="state">
+                        	<p>已完成</p>
+                            <small>...ed</small>
+                        </div>
+                        <p class="order"><{$ed}><small>单</small></p>
+                    </div>
+   	            </div>
+   	        </li>
+            <div class="clear"></div>
+        </ul>
+   	</div>
+</section>
+
+<include  file='public:footer'/>

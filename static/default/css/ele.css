@@ -1,0 +1,56 @@
+.index-main{overflow:hidden;}
+.index-main .main-l{float:left;width:200px;border:1px solid #EEE;padding:10px;height:250px;}
+.index-main .main-l dl{overflow:hidden;}
+.index-main .main-l dt{display:block;font-weight:bold;}
+.index-main .main-l dd{float:left;margin:10px 10px 10px 0;}
+.index-main .main-l dd a{float:left;}
+
+.index-main .main-m {float:left;margin:0 13px;background:url("../images/ele/dz-bg.jpg");height:270px;width:680px;}
+.index-main .dz-box {width: 510px;margin: 25px auto 0px;line-height: 26px;color: #FFF;font-size: 14px;}
+.index-main .dz-box  .dz-select{background: transparent url("/themes/default/statics/images/dc1.jpg") no-repeat ;padding-left: 49px;height: 49px}
+.index-main .dz-box  .dz-select select {width: 460px;height: 41px;}
+.index-main .dz-box  input {border: none;}
+.index-main .dz-box  select {border: none;}
+.index-main .dz-box  .dz-time{width: 160px;height: 42px;}
+.index-main .dz-box  .dz-btn{width:100px;height:40px;display:block;background:#F60;margin:30px 0;color:#FFF;float:left;line-height:40px;text-align:center;}
+.index-main .dz-box  .dz-take{width:100px;height:40px;display:block;background:#F60;margin:30px 0;color:#FFF;float:right;line-height:40px;text-align:center;}
+
+
+.index-main .main-r{float:right;width:268px;border:1px solid #EEE;height:270px;}
+.index-main .main-r img{width:160px;height:160px;margin:20px 50px ;}
+.index-main .main-r p{height:30px;line-height:12px;text-align:center;}
+
+.shop-list .list-hd{height:40px;line-height:45px;overflow:hidden;border-bottom:2px solid #E74C3C;}
+.shop-list .list-hd h3{float:left;font-size:14px;}
+.shop-list .list-hd ul{float:right;}
+.shop-list .list-hd ul li{float:left;margin-left:10px;}
+.shop-list .list-bd {margin:10px 0;}
+.shop-list .list-bd ul{width:1250px;}
+.shop-list .list-bd li{float:left;border:1px solid #eee;margin:10px 11px 0 0;padding:10px;}
+.shop-list .list-bd li img{width:270px;height:180px;}
+.shop-list .list-bd li h2{font-size:14px;float:left;}
+.shop-list .list-bd li .title{height:30px;line-height:30px;overflow:hidden;}
+.shop-list .list-bd li .addr{float:right;}
+.shop-list .list-bd li .ding a{display:block;padding:10px 20px;background:#E74C3C;margin-top:5px;color:#FFF;font-size:14px;}
+
+
+/* 筛选器 */
+.row-filter{border: 1px solid #EEE; padding: 0px 15px 15px; background: #FFF;}
+.row-filter dl{display: block; padding: 15px 0px; border-bottom: 1px dotted #EEE;}
+.row-filter dl.bottom{display: block; padding: 15px 0px 0px; border-bottom: 0px none;}
+.row-filter dl dt{float: left;display: block; width: 50px; padding: 2px 5px; height: 18px; line-height: 18px;}
+.row-filter dl dd{width: 1000px; float: left; display: block;}
+.row-filter ul{overflow:hidden;}
+.row-filter ul li{float: left; display: block;}
+.row-filter ul li a{white-space: nowrap; display: inline-block; padding: 2px 10px; height: 18px; line-height: 18px; margin: 0px 5px 3px 0px; border-radius: 3px;}
+.row-filter li.current a ,.row-filter li a:hover{background: #E74C3C; color: #FFF;}
+.row-filter .more-list{margin-top:5px;border: 1px dotted #FFA4A8;padding: 10px;}
+
+/* 排序器 */
+.row-sort{height:30px; border: 1px solid #EEE; background: #FFF;}
+.row-sort ul{overflow:hidden;}
+.row-sort ul li{float:left;display: block;border-right:1px solid #EEE;height:30px;padding:0px 20px;line-height:30px;}
+.row-sort ul li.current{border-top: 2px solid #E74C3C;}
+.row-sort ul li a{float: left; display: block;position: relative;}
+.row-sort ul li.current a{line-height: 28px; color: #E74C3C;}
+.row-sort ul li input{border:1px solid #EEE;visibility: hidden;}

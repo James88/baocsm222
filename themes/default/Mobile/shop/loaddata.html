@@ -1,0 +1,20 @@
+<volist name="list" id="item" key="index ">
+
+    <div class="list-box">
+        <div class="list-img">
+            <a class="pic" href="<{:U('shop/detail',array('shop_id'=>$item['shop_id']))}>"><img src="__ROOT__/attachs/<{$item.photo}>"></a>
+        </div>
+        <div class="list-content">
+            <p>
+                <a class="fl" title="<{$item.shop_name}>" href="<{:U('shop/detail',array('shop_id'=>$item['shop_id']))}>"><{:msubstr($item['shop_name'],0,6,'utf-8',false)}></a>
+                <span class="range fr"><{$item.d}></span>
+            </p>
+            <div class="clear"></div>
+            <p class="c_h overflow_clear"><{$item.addr}></p>
+            <php>$w = $item['score'] * 0.018;</php>
+            <div class="point-star"><div style="width:<{$w}>rem;"></div></div>
+            <div class="seller_tel_btn"><a href="tel:<{$item.tel}>"><{$item.tel}><em></em></a></div>
+        </div>
+    </div>
+
+</volist>

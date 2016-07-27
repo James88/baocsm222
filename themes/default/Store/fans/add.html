@@ -1,0 +1,40 @@
+<include file='public:header'/>
+
+
+<body>
+<header>
+	<i class="left"><a href="<{:U('fans/index')}>" id="icon_goback"></a></i>
+    <div class="title">增加积分</div></i>
+</header>
+
+<section>
+	<div class="sh_prompt_infor_box">
+    	<p>注意：亲，您给粉丝所加的积分必须不大于自己的积分额！</p>
+        <div class="sh_prompt_infor_closs"></div>
+    </div>
+    
+   <form method="post" target="baocms_frm" action="<{:U('fans/add',array('user_id'=>$user['user_id']))}>">
+    <div class="sh_buy_fabu">
+    	<div class="sh_list_public_box">
+            <ul>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span><{$shop['shop_name']}>积分</span><input type="text" disabled="disabled" value="<{$jifen}>"/></div> 
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>用户名</span><input type="text" disabled="disabled" value="<{$user['nickname']}>"/></div> 
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>用户积分</span><input type="text" disabled="disabled" value="<{$user['integral']}>"/></div> 
+                </li>
+                <li class="list_box mb10">
+                   <div class="sh_input_public"><span>赠送积分</span><input type="text" name="integral" /></div> 
+                </li>
+              
+            </ul>
+        </div>
+        <div class="sh_login_nr"><input class="btn mt30" type="submit" value="确认赠送"></div>
+    </div>
+ </form>
+</section>
+</body>
+</html>

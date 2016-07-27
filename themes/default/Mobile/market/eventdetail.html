@@ -1,0 +1,24 @@
+<include  file='public:header'/>    
+
+<body>
+	<header>
+		<i class="icon-goback"></i>
+		<div class="title">商场活动详情</div>
+		<i class="icon-menu"></i>
+	</header>	
+	<div class="page-center-box">
+		<div id="scroll">
+			<div class="city_stores_activity">
+            	<h2>【<{$detail.title}></h2>
+                <p class="city_stores_activity_from">
+                	<{$detail.create_time|date="Y-m-d",###}>
+					<a href="<{:U('market/detail',array('market_id'=>$detail['market_id']))}>"><{$details.market_name}></a>
+                </p>
+                <div class="content">
+                    <p><{$detail.details}></p>
+                </div>
+                <div class="city_stores_activity_attention"><a class="i-1">已有<{$detail.views|default='0'}>人看过</a></div>
+            </div>
+		</div>
+	</div>
+<include file="public:footer"/>

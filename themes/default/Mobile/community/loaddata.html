@@ -1,0 +1,12 @@
+					<foreach name="list" item="var">
+					<div class="commu-ads">
+                        <a href="<{:U('community/detail',array('community_id'=>$var['community_id']))}>">
+                            <p>
+                                <span class="fl commu-name overflow_clear"><{$var.name}></span>
+                                <span class="fr"><{$var.d}>米</span>
+                                <div class="clear"></div>
+                            </p>
+                            <P><{$var.addr}></P>
+                        </a>
+                    </div>
+					</foreach>

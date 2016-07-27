@@ -1,0 +1,218 @@
+<include  file='public:header'/>
+
+<body id="micro_shop">
+    <header>
+        <a href="<{:U('Index/index')}>"><i class="icon-goback"></i></a>
+        <div class="title"><{$detail.name}> 
+            <a style="color:#0073c9; font-size: 14px;" href="<{:U('community/index',array('change'=>1))}>">切换</a> 
+        </div>
+    </header>
+
+    <div id="seat" class="page-center-box">
+        <div id="scroll">
+            <div class="micro_top commu-top">
+                <div class="city_stores_ads">
+                    <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+                    <script src="js/jquery.event.drag-1.5.min.js" type="text/javascript"></script>
+                    <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+
+
+                            $(".main_image").touchSlider({
+                                flexible: true,
+                                speed: 200,
+                                btn_prev: $("#btn_prev"),
+                                btn_next: $("#btn_next"),
+                                paging: $(".flicking_con a"),
+                                counter: function (e) {
+                                    $(".flicking_con a").removeClass("on").eq(e.current - 1).addClass("on");
+                                }
+                            });
+
+                            $(".main_image").bind("mousedown", function () {
+                                $dragBln = false;
+                            });
+
+                            $(".main_image").bind("dragstart", function () {
+                                $dragBln = true;
+                            });
+
+                            $(".main_image a").click(function () {
+                                if ($dragBln) {
+                                    return false;
+                                }
+                            });
+
+                            timer = setInterval(function () {
+                                $("#btn_next").click();
+                            }, 5000);
+
+                            $(".ele_banner").hover(function () {
+                                clearInterval(timer);
+                            }, function () {
+                                timer = setInterval(function () {
+                                    $("#btn_next").click();
+                                }, 5000);
+                            });
+
+                            $(".main_image").bind("touchstart", function () {
+                                clearInterval(timer);
+                            }).bind("touchend", function () {
+                                timer = setInterval(function () {
+                                    $("#btn_next").click();
+                                }, 5000);
+                            });
+
+                        });
+                    </script>
+                    <div class="ele_banner">
+                        <div class="flicking_con">
+                            <calldata mdl="Ad" where=" closed=0 AND site_id=33 AND city_id IN ({$city_ids})  and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,5" cache="7200" order="orderby asc">
+                                <a href="#"></a>
+                            </calldata> 
+                        </div>
+                        <div class="main_image">
+                            <ul>
+                                <calldata mdl="Ad" where=" closed=0 AND site_id=33 AND city_id IN ({$city_ids}) and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,5" cache="7200" order="orderby asc">
+                                    <li>
+                                        <a href="<{$item.link_url}>" title="<{$item.title}>">
+                                            <img src="__ROOT__/attachs/<{$item.photo}>" alt="<{$item.title}>" height="100%" />
+                                        </a>
+                                    </li>
+                                </calldata> 
+                            </ul>
+                        </div>
+                        <a href="javascript:;" id="btn_prev"></a>
+                        <a href="javascript:;" id="btn_next"></a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <p><i class="commu-ig"></i><span>社区即将上线啦，敬请期待！</span></p>
+            </div>
+
+            <div class="commu-icon">
+                <ul>
+                    <li class="commu-my">我的社区</li>
+                    <li>
+                        <ul class="commu-title">
+                            <li><a href="<{:U('tuan/main')}>" class="commu-type"><img src="__TMPL__statics/img/tp74.png"><p>好抢购</p></a></li>
+                            <li><a href="<{:U('housekeeping/main')}>" class="commu-type2"><img src="__TMPL__statics/img/tp75.png"><p>好家政</p></a></li>
+                            <li><a href="http://hf.fz.jhcms.cn/mobile" class="commu-type3"><img src="__TMPL__statics/img/tp76.png"><p>好装修</p></a></li>
+                            <li><a href="http://hf.v3.ijh.cc/mobile" class="commu-type4"><img src="__TMPL__statics/img/tp77.png"><p>好婚庆</p></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </div> 
+            <div class="commu-icon">
+                <ul>
+                    <li class="commu-my">
+                        <span class="fl">身边限时购</span>
+                        <a href="javascript:void(0);" class="fr commu-huan" onclick="hyh();"><span class="fl">换一换</span><i class="commu-ig2 fl"></i></a></a>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <script src="__TMPL__statics/js/jquery.flexslider-min.js" type="text/javascript" charset="utf-8"></script>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('.seat-rank_flexslider').flexslider({
+                                    directionNav: true,
+                                    pauseOnAction: false,
+                                    controlNav: false,
+                                    slideshow: false,
+                                });
+
+                                var w = $('#seat .commu-icon .wrapper').width();
+                                var s = $('#seat .commu-icon .commu-sock li').size();
+                                var p = $('#seat .commu-icon .commu-sock li').css('paddingLeft');
+
+                                window.sWidth = s * (w / 3);
+                                $('#seat .commu-icon .commu-sock').css({width: window.sWidth + 'px'});
+                                $('#seat .commu-icon .commu-sock li').css({width: (w / 3 - parseInt(p) * 2 - 1) + 'px'});
+
+                            });
+                            var ml = 0;
+                            function hyh()
+                            {
+                                var offset = $('#seat .commu-icon .wrapper').width();
+                                if (Math.abs(ml) >= window.sWidth - offset)
+                                    ml = 0;
+                                else
+                                    ml -= offset;
+                                $("#seat .commu-icon .commu-sock").animate({marginLeft: ml + 'px'});
+                            }
+                        </script>
+                        <div class='wrapper'>
+                            <ul class="commu-sock" >
+                                <volist name="keys" id="k">
+                                    <li><a href="<{:U('mart/detail',array('goods_id'=>$goods[$k]['goods_id'],'shop_id'=>$goods[$k]['shop_id']))}>">
+                                            <img src="/attachs/<{$goods[$k]['photo']}>">
+                                            <p class="overflow_clear"><{$goods[$k]['title']}></p>
+                                            <span>￥<{:round($goods[$k]['price']/100,2)}></span>
+                                            <del>￥<{:round($goods[$k]['mall_price']/100,2)}></del>
+                                        </a></li>
+                                </volist>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="commu-icon">
+                <ul>
+                    <li class="commu-my">
+                        <ul class="commu-phone">
+                            <li><span class="left">便民电话 </span> <img src="__TMPL__statics/img/tp82.png" class="left"></li>
+                            <li><a href="<{:U('Community/together',array('community_id'=>$community_id))}>" class="right">申请合作
+                                    <img src="__TMPL__statics/img/tp83.png"></a></li>
+                            <div class="clear"></div>
+                        </ul>
+                    </li>
+                    <volist name="phones" id="phone">
+                        <li class="commu-my commu-my-two">
+                            <ul class="commu-phone">
+                                <a href="tel:<{$phone.phone}>">
+                                    <li><{$phone.name}></li>
+                                    <li><{$phone.phone}></li>
+                                    <li class="commu-more">></li>
+                                    <div class="clear"></div>
+                                </a>
+                            </ul>
+                        </li>
+                    </volist>
+                </ul>
+            </div> 
+            <div class="commu-icon">
+                <ul>
+                    <li class="commu-my">
+                        <ul class="commu-phone commu-call">
+                            <li>物业通知 <img src="__TMPL__statics/img/tp84.png"></li>
+                            <li style="text-align:right;">
+                                <a href="<{:U('community/newslist',array('community_id'=>$detail['community_id']))}>"> 更多>></a>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                    </li>
+                    <volist name="news" id="val">
+                        <li class="commu-my commu-my-two">
+                            <ul class="commu-house">
+                                <a href="<{:U('community/newsdetail',array('news_id'=>$val['news_id']))}>">
+                                    <li class="overflow_clear"><{$val.title}></li>
+                                    <li class="commu-more"><{$val.create_time|date='Y-m-d',###}></li>
+                                    <div class="clear"></div>
+                                </a>
+                            </ul>
+                        </li>
+                    </volist>
+
+                </ul>
+            </div> 
+            <div class="draw-make-sure">
+                <a href="<{:U('Community/feedback',array('community_id'=>$community_id))}>"><span class="">意见反馈<img src="__TMPL__statics/img/tp85.png"></span></a>
+            </div>     
+        </div>
+
+    </div>
+<include file="public:footer"/>
+

@@ -1,0 +1,90 @@
+<include file="public:header"/>
+
+<header>
+	<i class="left"><a href="<{:U('store/index/index')}>" id="icon_goback"></a></i>
+    <div class="title">抢购管理</div>
+    <i class="right"><a href="#">+发布抢购</a></i>
+</header>
+
+<script>
+	$(function(){
+		$(".sh_search_more_int .center").click(function(){
+				$(this).find(".sh_search_more_pull").toggle();
+		});
+		$(".sh_search_more_pull li").click(function(){
+				$(".sh_search_more_int .center input").val($(this).html());
+				v = $(this).attr('v');
+				$('#st').val(v);
+		});
+	});
+</script>
+
+<section>
+<form method="post" action="<{:U('tuan/order')}>">
+<div class="sh_search_box">
+    	<div class="sh_search_more">
+            <div class="sh_search_more_time mb10">
+                <div class="fl left"><input type="text" name="bg_date" value="<{$bg_date|default=''}>" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'});" placeholder="开始时间" onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }" ></div>
+                <div class="fr right"><input type="text" name="end_date" value="<{$end_date|default=''}>" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'});" placeholder="结束时间" onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }" ></div>
+                <div class="clear"></div>
+            </div>
+            <div class="sh_search_more_int">
+                <div class="fl left"><input type="text" name="keyword" value="<{$keyword}>" placeholder="订单编号" onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }" ></div>
+                <div class="fl center">
+                	<input type="text" value="状态"> <input value="" name="st" id="st" type="hidden" />
+                    <div class="sh_search_more_pull" style="display:none;">
+                        <ul>
+                            <li v="0">等待付款</li>
+                            <li v="1">已完成</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fr right"><input class="btn" type="submit" value="搜索"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+</div>
+</form>
+
+	<div class="sh_buy_tab mb10">
+	    <ul>
+	        <li><a href="<{:U('tuan/index')}>">正在抢购</a></li>
+            <li><a href="<{:U('tuan/history')}>">往期抢购</a></li>
+            <li class="on"><a href="<{:U('tuan/order')}>">订单管理</a></li>
+            <li><a href="<{:U('tuan/used')}>">抢购券管理</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+    <div class="sh_buy_tab_box">
+    	<div class="sh_list_public_box">
+            <ul>
+            
+            
+            <foreach name="list" item="var">
+                 <li class="list_box mb10" style="border-bottom:none 0px;">
+                    <div>
+                    	<div class="sh_buy_bt">
+                            <div class="fl sh_buy_bt_order_num">订单ID:<{$var.order_id}></div>
+                            <div class="fr sh_buy_bt_state"><eq name="var.status" value="0">等待付款<else />已完成</eq></div>
+                        </div>
+                        <div class="sh_buy_nr">
+                        	<div class="img"><img width="148" src="__ROOT__/attachs/<{$tuan[$var['tuan_id']]['photo']}>" height="100" /></div>
+                            <div class="wz">
+                            	<p><{$tuan[$var['tuan_id']]['title']}></p>
+                                <p><span class="mr20">数量：<{$var.num}></span><span class="mr20">订单金额：￥<{:round($var['total_price']/100,2)}></span></p>
+                            </div>
+                        </div>
+                        <div class="sh_buy_date">创建时间：<{$var.create_time|date='Y-m-d H:i:s',###}><span>IP:<{$var.create_ip}></span></div>
+                    </div>
+                </li>
+            </foreach>   
+               
+               
+            </ul>
+        </div>
+        <div class="jobNr_span"><{$page}></div>
+    </div>
+    
+</section>
+</body>
+</html>

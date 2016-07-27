@@ -1,0 +1,20 @@
+<include  file='public:header'/>   
+<body>
+    <header>
+        <div>
+            <a class="back" href="javascript:window.history.go(-1);"><img  src="__TMPL__statics/img/back.png"></a>
+            问题反馈
+        </div>
+    </header>
+    <section class="container">
+        <ul class="feedback_list">
+
+        </ul>
+    </section>
+    <script>
+        $(document).ready(function () {
+            loaddata('<{$nextpage}>', $(".feedback_list"), true);
+        });
+    </script>
+<include  file='public:footer'/>
+

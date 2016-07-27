@@ -1,0 +1,89 @@
+
+
+
+<include  file='public:header'/>    
+<body>
+<script type="text/javascript">
+	$(function(){
+			$("#search-bar li").each(function(e){
+				$(this).click(function(){
+					if($(this).hasClass("on")){
+						$(this).parent().find("li").removeClass("on");
+						$(this).removeClass("on");
+						$(".serch-bar-mask").hide();
+					}
+					else{
+						$(this).parent().find("li").removeClass("on");
+						$(this).addClass("on");
+						$(".serch-bar-mask").show();
+					}
+					$(".serch-bar-mask .serch-bar-mask-list").each(function(i){
+						
+						if(e==i){
+							$(this).parent().find(".serch-bar-mask-list").hide();
+							$(this).show();
+						}
+						else{
+							$(this).hide();
+						}
+						$(this).find("li").click(function(){
+							$(this).parent().find("li").removeClass("on");
+							$(this).addClass("on");
+						});
+					});
+				});
+			});
+		});
+</script>
+	<header>
+		<a href=""><i class="icon-goback"></i></a>
+		<div class="title">商品</div>
+		<i class="icon-menu"></i>
+	</header>
+	<!-- 筛选TAB -->
+	<div id="search-bar">
+		<ul>
+			<li><span>分类</span><i></i></li>
+			<li><span>全城</span><i></i></li>
+			<li><span>排序</span><i></i></li>
+		</ul>
+	</div>
+    <div class="serch-bar-mask" style="display:none;">
+                <div class="serch-bar-mask-list">
+                    <ul>
+                    <li <if condition="empty($cate_id)">class="on"</if> ><a href="<{:U('mall/index',array('cate_id'=>$item['cate_id']))}>">全部</a></li>
+                    <foreach name='goodscates' item='item'>
+                        <eq name="item.parent_id" value="0"> 
+                        <li <if condition="$item['cate_id'] eq $cate_id">class="on"</if>><a href="<{:U('mall/index',array('cate_id'=>$item['cate_id']))}>"><{$item.cate_name}></a></li>
+                        </eq>
+                    </foreach>
+                    
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-list">
+                    <ul>
+                        <li <if condition="empty($area)">class="on"</if> ><a href="<{:U('mall/index',array('area'=>0))}>">全部</a></li>
+                <volist name="areas" id="item">
+                    <li <if condition="$item['area_id'] eq $area">class="on"</if> ><a href="<{:U('mall/index',array('area'=>$item['area_id']))}>"><{$item.area_name}></a></li>
+                </volist>
+                    </ul>
+                </div>
+                <div class="serch-bar-mask-list">
+                    <ul>
+                    	<li><a href="<{:U('mall/index',array('order'=>'1'))}>">按照时间</a></li>
+                        <li><a href="<{:U('mall/index',array('order'=>'2'))}>">按照销量</a></li>
+                    </ul>
+                </div>
+            </div>
+	<div id="life" class="page-center-box">
+		<div id="scroll">
+
+		</div>
+        <script>
+        $(document).ready(function () {
+            loaddata('<{$nextpage}>', $("#scroll"), true);
+        });
+    </script>
+	</div>
+	
+<include  file='public:footer'/>

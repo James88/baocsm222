@@ -1,0 +1,114 @@
+<include  file='public:header'/>  
+<include  file='public:top'/>
+<include  file='public:nav2'/>  
+<php>
+    $get_cat = $_GET['cat'];
+    if(!$get_cat || empty($get_cat)){$get_cat = 1;}
+</php>
+<div class="content"> 
+    <div class="hdsy_banner">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.hdsy_flexslider').flexslider({
+                    directionNav: true,
+                    pauseOnAction: false,
+                    /*slideshow: false,*/
+                    /*manualControlEvent:"hover",*/
+                });
+
+            });//首页轮播js
+        </script>
+        <div class="hdsy_flexslider">
+            <ul class="slides">
+
+                <calldata mdl="Ad" where=" bg_date ELT '{$today}' AND  city_id IN ({$city_ids}) AND end_date EGT '{$today}' AND closed=0 AND site_id=3" limit="0,3" cache="21600" order="orderby asc">
+                    <li class="sy_hotgzLi flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;"><a href="<{$item.link_url}>" title="<{$item.title}>" target="_blank"><img width="1200" height="272" src="__ROOT__/attachs/<{$item.photo}>" draggable="false"></a></li>
+                </calldata>
+            </ul>
+            <ol class="flex-control-nav flex-control-paging"></ol>
+
+        </div>
+    </div>
+    <div class="hdsy_tab">
+        <ul>
+            <volist name="activitycates" id="item" key="index">
+                <li class="hdsy_tabLi <php>if($get_cat == $item['cate_id']){echo 'on';}</php>"><a href="<{:U('huodong/index',array('cat'=>$item['cate_id']))}>"><{$item.cate_name}></a></li>
+            </volist>
+        </ul>
+    </div>
+    <div class="hdsy_tabList">
+        <ul>
+            <volist name="list" id="item">
+                <li class="hdsy_Li">
+                    <div class="left hdsy_Li_l">
+                        <div class="hdsy_LiT"><{$item.title}></div>
+                        <p class="hdsy_LiP"><{$item.intro}></p>
+                        <div class="hdsy_LiTime">
+                            有效期：至<{$item.sign_end}>
+                            <php>
+                                $show_time = trim(str_replace("-","/",$item['sign_end']));
+                            </php>
+                            <script type="text/javascript" language="javascript">
+
+                                setInterval(function () {
+
+                                    var EndTime = new Date('<{$show_time}> 00:00:00'); //截止时间 前端路上
+                                    var NowTime = new Date();
+                                    var t = EndTime.getTime() - NowTime.getTime();
+                                    var d = Math.floor(t / 1000 / 60 / 60 / 24);
+                                    var h = Math.floor(t / 1000 / 60 / 60 % 24);
+                                    var m = Math.floor(t / 1000 / 60 % 60);
+                                    var s = Math.floor(t / 1000 % 60);
+
+                                    if (d > 30 || t < 1) {
+                                        $('#t<{$i}>').hide();
+                                    }
+
+                                    if (d < 10) {
+                                        $('#t<{$i}>').children('#t_d').html('0' + d);
+                                    } else {
+                                        $('#t<{$i}>').children('#t_d').html(d);
+                                    }
+                                    if (h < 10) {
+                                        $('#t<{$i}>').children('#t_h').html('0' + h);
+                                    } else {
+                                        $('#t<{$i}>').children('#t_h').html(h);
+                                    }
+                                    if (m < 10) {
+                                        $('#t<{$i}>').children('#t_m').html('0' + m);
+                                    } else {
+                                        $('#t<{$i}>').children('#t_m').html(m);
+                                    }
+                                    if (s < 10) {
+                                        $('#t<{$i}>').children('#t_s').html('0' + s);
+                                    } else {
+                                        $('#t<{$i}>').children('#t_s').html(s);
+                                    }
+                                }, 1000);
+                            </script>
+                            <span class="radius3 spxq_qgTime" id="t<{$i}>">
+                                <span class="spxq_qgTimezt spxq_qgTimejx">&nbsp;</span>
+                                <span id="t_d">00</span>:
+                                <span id="t_h">00</span>:
+                                <span id="t_m">00</span>:
+                                <span id="t_s">00</span>
+                            </span>
+                            <span class="hdsy_LiP"><span class="hdsy_Libms"><{$item.sign_num}></span>人已报名</span>
+                        </div>
+                        <p class="hdsy_LiPJj">地址：<{$item.addr}></p>
+                        <p class="hdsy_LiPJj">商家：<a target="_blank" href="<{:U('shop/detail',array('shop_id'=>$item['shop_id']))}>"><{$shops[$item['shop_id']]['shop_name']}></a></p>
+                        <div class="hdsy_Licj">
+                            <div class="left hdsy_Licj_l"><em class="radius100"></em><{$shops[$item['shop_id']]['tel']}><if condition="$shops[$item['shop_id']]['extension'] neq null">转<{$shops[$item['shop_id']]['extension']}>分机</if></div>
+                            <div class="right hdsy_Licj_r"><a href="<{:U('huodong/detail',array('activity_id'=>$item['activity_id']))}>" class="hdsy_LicjA">立即参加</a></div>
+                        </div>
+                    </div>
+                    <div class="right hdsy_Li_r"><a target="_blank" href="<{:U('huodong/detail',array('activity_id'=>$item['activity_id']))}>"><img width="579" height="392" src="__ROOT__/attachs/<{$item.photo}>"></a></div>
+                </li>
+            </volist>
+        </ul>
+        <div class="x">
+            <{$page}>
+        </div>
+    </div>
+</div>
+<include file="public:footer"/>

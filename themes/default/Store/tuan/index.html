@@ -1,0 +1,68 @@
+<include file="public:header"/>
+
+<header>
+	<i class="left"><a href="<{:U('store/index/index')}>" id="icon_goback"></a></i>
+    <div class="title">抢购管理</div>
+    <i class="right"></i>
+</header>
+
+
+
+
+
+<section>
+    <div class="sh_search_box">
+    	<form method="post" action="<{:U('tuan/index')}>">
+        <div class="sh_search_int">
+            <span>抢购名称</span>
+            <input type="text" name="keyword" value="<{$keyword}>">
+            <input type="submit" class="btn" value="搜索">
+        </div>
+        </form>
+
+    </div>
+
+
+	<div class="sh_buy_tab mb10">
+	    <ul>
+	        <li class="on"><a href="<{:U('tuan/index')}>">正在抢购</a></li>
+            <li><a href="<{:U('tuan/history')}>">往期抢购</a></li>
+            <li><a href="<{:U('tuan/order')}>">订单管理</a></li>
+            <li><a href="<{:U('tuan/used')}>">抢购券管理</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+    <div class="sh_buy_tab_box" style="display:;">
+    	<div class="sh_list_public_box">
+            <ul>
+            
+            
+            <foreach name="list" item="var">
+                <li class="list_box mb10">
+                    <div>
+                    	<div class="sh_buy_bt">
+                            <div class="fl sh_buy_bt_ID">ID:<{$var.tuan_id}></div>
+                            <div class="fl sh_buy_bt_state"><eq name="var.audit" value="0">等待审核<else/>正常</eq></div>
+                            <div class="fr sh_buy_bt_volume">销量：<{$var.sold_num}>  浏览：<{$var.views}></div>
+                        </div>
+                        <div class="sh_buy_nr">
+                        	<div class="img"><img src="__ROOT__/attachs/<{$var.photo}>"  style="width:148px;height:100px;" /></div>
+                            <div class="wz">
+                            	<p><{$var.title}></p>
+                                <p><span class="mr20">原价：￥<{$var['price']}></span><span class="mr20">抢购价：￥<{$var['tuan_price']}></span></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+            </foreach>   
+               
+               
+            </ul>
+        </div>
+        <div class="jobNr_span"><{$page}></div>
+    </div>
+    
+</section>
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>用户中心</title>        <link href="__TMPL__statics/css/newstyle.css?v=20150729" rel="stylesheet" type="text/css" />
+
+        <link href="themes/default/statics/css/style.css?v=20150729" rel="stylesheet" type="text/css" />
+        <script src="__TMPL__statics/js/jquery.js"></script>
+        <script> var BAO_PUBLIC = '__PUBLIC__';
+            var BAO_ROOT = '__ROOT__';</script>
+        <script src="__PUBLIC__/js/web.js"></script>
+        <script src="__PUBLIC__/js/layer/layer.js"></script>
+        <script>
+        </script>
+    </head>
+    <body>
+        <iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+        <include file="./themes/default/Pchome/public/topOne.html" />
+        <include file="./themes/default/Pchome/public/top.html" />        
+        <include file="./themes/default/Pchome/public/nav2.html" />
+            <script type="text/javascript">
+                $(document).ready(function () {
+                $('#selectBoxInput').on("mouseleave", function () {
+                    $('.selectList').stop().hide();
+                }).on("mouseenter", function(){
+                    $('.selectList').stop().slideDown();
+                });
+                $('.selectList').on("mouseleave", function(){
+                    $(this).stop().hide();
+                }).on("mouseenter", function(){
+                    $(this).stop().show();
+                });
+                $(".selectList li a").click(function () {
+                    $("#selectBoxInput").html($(this).html());
+                    $('.selectList').hide();
+                });
+                    $('.menu_fllist2 > .item2').hover(function () {
+                        /*var eq = $('.menu_fllist2 > .item2').index(this), //获取当前滑过是第几个元素
+                                h = $('.menu_fllist2').offset().top, //获取当前下拉菜单距离窗口多少像素
+                                s = $(window).scrollTop(), //获取游览器滚动了多少高度
+                                i = $(this).offset().top, //当前元素滑过距离窗口多少像素
+                                item = $(this).children('.menu_flklist2').height(), //下拉菜单子类内容容器的高度
+                                sort = $('.menu_fllist2').height();                     //父类分类列表容器的高度
+
+                        if (item > sort) {                                              //如果子类的高度小于父类的高度
+                            if (eq == 0) {
+                                $(this).children('.menu_flklist2').css('top', (i - h));
+                            } else {
+                                $(this).children('.menu_flklist2').css('top', (i - h) + 1);
+                            }
+                        } else {
+                            if (s > h) {                                                //判断子类的显示位置，如果滚动的高度大于所有分类列表容器的高度
+                                if (i - s > 0) {                                            //则 继续判断当前滑过容器的位置 是否有一半超出窗口一半在窗口内显示的Bug,
+                                    $(this).children('.menu_flklist2').css('top', (s - h) + 2);
+                                } else {
+                                    $(this).children('.menu_flklist2').css('top', (s - h) - (-(i - s)) + 2);
+                                }
+                            } else {
+                                $(this).children('.menu_flklist2').css('top', 0);
+                            }
+                        }*/
+
+                        $(this).addClass('on');
+                        $(this).children('.menu_flklist2').css('display', 'block');
+                    }, function () {
+                        $(this).removeClass('on');
+                        $(this).children('.menu_flklist2').css('display', 'none');
+                    });//导航菜单js
+                });
+
+            </script>
+            <div class="main_c">
+                <div class="content_left">
+                    <ul>
+                        <li class="index_nav clef_user">
+                            <div class="clef_usertx"><a href="<{:U('set/face')}>"><img src="__ROOT__/attachs/<{$MEMBER['face']|default='default.jpg'}>"/></a>
+                                <p class="user_name"><{$MEMBER['nickname']}></p>
+                                <!-- <p class="user_dj">等级：VIP2</p> -->
+                            </div>
+                            <div class="clef_userxx">
+                                <ul>
+                                    <li>余额：<span style="color:#fb3203;font-weight:bold;">￥<{:round($MEMBER['money']/100,2)}></span><a class="user_cz" href="<{:U('money/money')}>">去充值</a></li>
+                                    <li>金块：<span class="user_ye"><{$MEMBER['gold']}></span><a class="user_cz" href="<{:U('money/gold')}>">去充值</a></li>
+                                    <li>积分：<span class="user_jf"><{$MEMBER['integral']}></span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="index_nav">
+                            <h3>订单中心</h3>
+                            <div class="indexnav_li">
+                                <ul>
+                                    <li><a <if condition="$ctl eq 'order' or $ctl eq 'ele' ">class="on"</if> href="<{:U('order/index')}>">我的订单</a></li>
+                                    <li><a <if condition="$ctl eq 'index' ">class="on"</if> href="<{:U('index/index')}>">我的抢购券</a></li>
+                                    <li><a <if condition="$ctl eq 'coupon' ">class="on"</if> href="<{:U('coupon/index')}>">优惠券下载</a></li>
+                                    <li><a <if condition="$ctl eq 'yuyue' ">class="on"</if> href="<{:U('yuyue/index')}>">我的预约</a></li>
+                                    <li><a <if condition="$ctl eq 'exchange' ">class="on"</if> href="<{:U('exchange/index')}>">我的兑换</a></li>
+                                    <li><a <if condition="$ctl eq 'ding' ">class="on"</if> href="<{:U('ding/index')}>">我的订座</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="index_nav">
+                            <h3>会员服务</h3>
+                            <div class="indexnav_li">
+                                <ul>
+                                    <li><a <if condition="$ctl eq 'money' ">class="on"</if> href="<{:U('money/money')}>">充值管理</a></li>
+                                    <li><a <if condition="$ctl eq 'myactivity' ">class="on"</if> href="<{:U('myactivity/index')}>">我的活动</a></li>
+                                    <li><a <if condition="$ctl eq 'life' ">class="on"</if> href="<{:U('life/index')}>">我的信息</a></li>
+                                    <li><a <if condition="$ctl eq 'dianping' ">class="on"</if> href="<{:U('dianping/index')}>">我的点评</a></li>
+                                    <li><a <if condition="$ctl eq 'favorites' ">class="on"</if> href="<{:U('favorites/index')}>">我的关注</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="index_nav">
+                            <h3>账户中心</h3>
+                            <div class="indexnav_li">
+                                <ul>
+                                    <li><a <if condition="$ctl eq 'cash' ">class="on"</if> href="<{:U('cash/index')}>">申请提现</a></li>
+                                    <li><a <if condition="$ctl eq 'set' ">class="on"</if> href="<{:U('set/nickname')}>">账户设置</a></li>
+                                    <li><a <if condition="$ctl eq 'address' ">class="on"</if> href="<{:U('address/index')}>">收货地址</a></li>
+                                    <li><a <if condition="$ctl eq 'logs' ">class="on"</if> href="<{:U('logs/integral')}>">日志管理</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>

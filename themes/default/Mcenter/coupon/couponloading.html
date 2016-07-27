@@ -1,0 +1,66 @@
+<div class="send-out">
+		<foreach name="list" item="item">
+        	<if condition="($item['is_used'] eq 1) or ($coupon[$item['coupon_id']]['expire_date'] lt $today) ">
+            
+            	<div class="coupon-list">
+                <div class="coupon-box">
+                        <div class="used"><img src="/themes/default/Mobile/statics/img/personal_coupon.png"></div>
+                        <div class="coupon-box-content">
+                            <div class="fl left">
+                                <div class="bg c-3">
+                                    <div class="coupon-dw">券</div>
+                                    <img src="/themes/default/Mobile/statics/img/personal_coupon_roud_c3.png"> </div>
+                                <div class="state c-3">已使用</div>
+                            </div>
+                            <div class="fl center">
+                                <p class="overflow_clear"><{:bao_msubstr($coupon[$item['coupon_id']]['title'],0,10,false)}></p>
+                                <p>密码：<{$item.code}></p>
+                                <p><if condition="$item['is_used'] eq 1">该优惠券已经使用！<else/>提供密码给商家</if></p>
+                            </div>
+                            <div class="fl right">
+                                <div class="star"><img src="/themes/default/Mobile/statics/img/personal_coupon_star_c3.png"></div>
+                                <p class="c-3">有效期至</p>
+                                <{$coupon[$item['coupon_id']]['expire_date']}></div>
+                            <div class="clear"></div>
+                        </div>
+                        <img src="/themes/default/Mobile/statics/img/personal_coupon1_bg_c2.png" width="100%" height=""> </div>
+                </div>
+                <div class="list-box">
+                    <div class="activ-list-content coupon-button"> <span class="shop-pay c-1">不能使用</span> <a href="<{:U('/mcenter/coupon/coupondel',array('download_id'=>$item['download_id']))}>"><span class="shop-del">删 除</span></a> </div>
+                </div>
+                
+                <else/>
+                
+                <div class="coupon-list">
+                <div class="coupon-box">
+                        <div class="coupon-box-content">
+                            <div class="fl left">
+                                <div class="bg c-1">
+                                    <div class="coupon-dw">券</div>
+                                    <img src="/themes/default/Mobile/statics/img/personal_coupon_roud_c1.png"> </div>
+                                <div class="state c-1">未使用</div>
+                            </div>
+                            <div class="fl center">
+                                <p class="overflow_clear"><{:bao_msubstr($coupon[$item['coupon_id']]['title'],0,12,false)}></p>
+                                <p>密码：<{$item.code}></p>
+                                <p><if condition="$item['is_used'] eq 1">该优惠券已经使用！<else/>提供密码给商家</if></p>
+                            </div>
+                            <div class="fl right">
+                                <div class="star"><img src="/themes/default/Mobile/statics/img/personal_coupon_star_c1.png"></div>
+                                <p class="c-1">有效期至</p>
+                                <{$coupon[$item['coupon_id']]['expire_date']}></div>
+                            <div class="clear"></div>
+                        </div>
+                        <img src="/themes/default/Mobile/statics/img/personal_coupon1_bg_c1.png" width="100%" height=""> </div>
+                </div>
+                <div class="list-box">
+                    <div class="activ-list-content coupon-button"> <a href="<{:U('mobile/shop/detail',array('shop_id'=>$item['shop_id']))}>"><span class="shop-pay">去使用</span></a> <a href="<{:U('mcenter/coupon/coupondel',array('download_id'=>$item['download_id']))}>"><span class="shop-del">删 除</span></a> </div>
+                </div>
+
+            
+            </if>
+            
+            
+       </foreach>
+            
+</div>

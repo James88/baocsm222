@@ -1,0 +1,44 @@
+<include  file='public:header'/>    
+<body>
+	<header>
+		<a class="back" href="<{:U('housekeeping/index')}>">
+            <i class="icon-goback"></i>
+        </a>
+		<div class="title">预约<{$workTypes[$svc_id]}></div>
+		<i class="icon-menu"></i>
+	</header>
+	<div class="page-center-box">
+		<div id="scroll">
+        	<div style="font-size:0.14rem;">
+                <link href="__TMPL__statics/css/mobiscroll.scroller.css" rel="stylesheet" type="text/css" />
+                <link href="__TMPL__statics/css/mobiscroll.scroller.android-ics.css" rel="stylesheet" type="text/css" />
+                <script src="__TMPL__statics/js/datetime.js"></script>
+                <form method="post" action="<{:U('housekeeping/create',array('svc_id'=>$svc_id))}>">
+                	<div class="appoint_box">
+                        <div class="appoint_list">
+                            <input type="text" class="i-1  svctime"  id="svctime" name="svctime" placeholder="选择服务时间" >
+                        </div>
+                        <div class="appoint_list">
+                            <input type="text" id="addr" class="i-2" name="addr" placeholder="填写服务地点">
+                        </div>
+                        <div class="appoint_list">
+                            <input type="text" name="name" class="i-3" id="name" placeholder="填写姓名" >
+                        </div>
+                        <div class="appoint_list">
+                            <input  type="text" name="tel" class="i-4" id="tel" placeholder="填写号码" >
+                        </div>
+                        <div class="appoint_list">
+                            <input type="text"  name="contents" class="i-5" id="contents" placeholder="填写更多要求" >
+                        </div>
+                    </div>
+                    <div class="appoint_submit">
+                        <input type="hidden" name="keyword" value="project_cleaning">
+                        <input type="submit" class="reserBtn px34" value="提交订单">
+                    </div>
+                </form>
+            </div>
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<include file='public:header'/>
+<body>
+<header>
+	<i class="left"><a id="icon_goback" href="<{:U('index/index')}>"></a></i>
+    <div class="title">粉丝列表</div>
+    <i class="right"></i>
+</header>
+
+<section>
+	<div class="sh_search_box">
+     <form  method="post" action="<{:U('fans/index')}>">
+        <div class="sh_search_int">
+            <span>输入昵称</span>
+            <input type="text"  name="keyword" value="<{$keyword}>">
+            <input type="submit" class="btn" value="搜索">
+        </div>
+    </form>
+    </div>
+    <div class="sh_list_public_box">
+        <ul>
+         <foreach name="list" item="var">
+            <li class="list_box mb10">
+            	<div class="sh_fans_list">
+            	    <div class="fl left">
+                        <div class="nr">
+                            <p><b class="fl"><{$users[$var['user_id']]['nickname']}></b><span class="fr"><{$users[$var['user_id']]['mobile']}></span></p>
+                            <p class="grey9"><span class="fl"><{$var.create_time|date='Y年m月d日',###}></span><span class="fr"><{$users[$var['user_id']]['integral']}>积分</span></p>
+                        </div>
+                    </div>
+                    <div class="fr right">
+                        <a class="btn" href="<{:U('fans/add',array('user_id'=>$var['user_id']))}>">增加积分</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </li>
+        </foreach>
+            
+           
+        </ul>
+    </div>
+     <div class="jobNr_span">
+    <{$page}>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<include  file='public:header'/>
+<body id="life_add">
+	<header>
+		<a href="<{:U('/mcenter/hdmobile')}>"><i class="icon-goback"></i></a>
+		<div class="title">参加报名列表</div>
+        <!-- <i class="icon-menu" style="margin-right:0.30rem;"><a href="#">发布</a></i> -->
+		<i class="icon-menu"></i>
+	</header>
+	<div class="page-center-box">
+		<div id="scroll">
+			<div class="wap-form">
+				<ul>
+					
+                    
+                    
+				</ul>
+			</div>
+		</div>
+        <script>
+            $(document).ready(function () {
+                loaddata('<{$nextpage}>', $("#scroll .wap-form ul"), true);
+            });
+        </script>
+	</div>  
+<include  file='public:footer'/>

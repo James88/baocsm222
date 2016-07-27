@@ -1,0 +1,31 @@
+<include file="public:header"/>
+<body style="overflow-x:hidden;">
+	<header>
+		<i class="icon-goback"></i>
+		<div class="title">商家分店</div>
+		<i class="icon-menu"></i>
+	</header>
+	<div id="sell" class="page-center-box">
+		<div class="scroll">
+			<div class="title"><{$rs.shop_name}> (共 <{$count}> 家分店)</div>
+			<!-- 循环 -->
+            <volist name="rsb" id="r">
+			<div class="list">
+				<div class="list-content">
+					<div class="list-content-box">
+						<p class="name"><{$rs.shop_name}> (<{$r.name}>)</p>
+						<p class="address"><{$r.addr}></p>
+					</div>
+					<a href="tel:<{$rs.tel}>"><div class="icon"></div></a>
+					<div class="km"><{$r.d}></div>
+				</div>
+				<div class="list-btn">
+					<div class="b-1"><a href="<{:U('shop/gps',array('shop_id'=>$rs['shop_id']))}>" target="_blank" style="color:#FFFFFF;">到这去</a><i></i></div>
+				</div>
+			</div>
+			</volist>
+			<!-- 循环 -->
+		</div>
+	</div>		
+</body>
+</html>

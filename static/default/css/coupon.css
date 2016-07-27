@@ -1,0 +1,72 @@
+﻿@charset "utf-8";
+/* 筛选器 */
+.row-filter{border: 1px solid #EEE; padding: 0px 15px 15px; background: #FFF;}
+.row-filter dl{display: block; padding: 15px 0px; border-bottom: 1px dotted #EEE;}
+.row-filter dl.bottom{display: block; padding: 15px 0px 0px; border-bottom: 0px none;}
+.row-filter dl dt{float: left;display: block; width: 50px; padding: 2px 5px; height: 18px; line-height: 18px;}
+.row-filter dl dd{width: 1000px; float: left; display: block;}
+.row-filter ul{overflow:hidden;}
+.row-filter ul li{float: left; display: block;}
+.row-filter ul li a{white-space: nowrap; display: inline-block; padding: 2px 10px; height: 18px; line-height: 18px; margin: 0px 5px 3px 0px; border-radius: 3px;}
+.row-filter li.current a ,.row-filter li a:hover{background: #E74C3C; color: #FFF;}
+.row-filter .more-list{margin-top:5px;border: 1px dotted #FFA4A8;padding: 10px;}
+
+/* 排序器 */
+.row-sort{height:30px; border: 1px solid #EEE; background: #FFF;}
+.row-sort ul{overflow:hidden;}
+.row-sort ul li{float:left;display: block;border-right:1px solid #EEE;height:30px;padding:0px 20px;line-height:30px;}
+.row-sort ul li.current{border-top: 2px solid #E74C3C;}
+.row-sort ul li a{float: left; display: block;position: relative;}
+.row-sort ul li.current a{line-height: 28px; color: #E74C3C;}
+.row-sort ul li input{border:1px solid #EEE;visibility: hidden;}
+
+/* 左右分栏 */
+.tuan-main .tuan-left{width:960px;height:auto;float:left;border:1px solid #EEE;}
+.tuan-main .tuan-right{width:225px;height:auto;float:right;}
+
+
+/* 优惠列表 */
+.coupon-list{overflow:hidden;}
+.coupon-list ul{width:1220px;}
+.coupon-list li{width:210px;float:left;margin:10px 10px 10px 0;overflow:hidden;border:1px solid #EEE;padding:10px;position:relative;}
+.coupon-list li:hover .list-down{display:block!important;}
+.coupon-list .list-pic{width:210px;height:160px;}
+.coupon-list .list-pic img{width:210px;height:160px;}
+.coupon-list h2{height:30px;line-height:35px;overflow:hidden;display:block;font-size:14px;}
+.coupon-list p{height:15px;line-height:15px;overflow:hidden;display:block;}
+.coupon-list .list-des{height:25px;line-height:25px;overflow:hidden;display:block;}
+.coupon-list .list-down{width:232px;height:272px;position:absolute;top:-1px;left:-1px;background:rgba(0,0,0,0.8);display:none;}
+.coupon-list .list-down span{width:130px;height:130px;padding:20px 50px;display:block;}
+.coupon-list .list-down canvas{width:130px;height:130px;}
+.coupon-list .list-down p{height:33px;line-height:13px;color:#FFF;text-align:center;}
+.coupon-list .list-down a{display:block;width:232px;height:50px;line-height:50px;font-size:16px;text-align:center;background:#D24132;color:#FFF;font-family:"Microsoft YaHei";}
+
+
+
+.coupon-box{overflow:hidden;border:1px solid #EEE;padding:10px;}
+.coupon-box .box-l{float:left;}
+.coupon-box .box-l img{width:320px;height:240px;}
+.coupon-box .box-m{float:left;width:580px;height:240px;float:left;margin:0 15px;}
+.coupon-box .box-m h1{font-size:16px;}
+.coupon-box .box-m p{height:25px;}
+.coupon-box .box-m p.intro{height:75px;overflow:hidden;margin-top:10px;}
+.coupon-box .box-m .ctrl{margin-top:20px;}
+.coupon-box .box-m .ctrl .down{float:left;width:158px;height:55px;font-family:"微软雅黑";border-radius:5px;background: #F00;line-height:55px;display: block;text-align: center;font-size: 24px;color: #FFF;}
+.coupon-box .box-m .ctrl .share{float:left;margin-left:30px;}
+.coupon-box .box-m .ctrl .share a{margin:30px 20px 0 10px;display:block;float:left;}
+.coupon-box .box-r{width:240px;height:240px;float:right;text-align:center;}
+.coupon-box .box-r img{width:180px;height:180px;}
+.coupon-box .box-r p{line-height:30px;}
+
+
+/* 左右分栏 */
+.coupon-main .coupon-left{width:960px;height:auto;float:left;border:1px solid #EEE;}
+.coupon-main .coupon-right{width:225px;height:auto;float:right;}
+
+
+.coupon-tab .hd{height:38px;line-height:38px;background:#FAFAFA;border-bottom:2px solid #D90009;}
+.coupon-tab .hd li{float:left;}
+.coupon-tab .hd li.on{background:#D90009;}
+.coupon-tab .hd li.on a{color:#FFF;}
+.coupon-tab .hd a{padding:0 15px;font-size:14px;display:block;}
+.coupon-tab .bd{padding:10px;overflow:hidden;}

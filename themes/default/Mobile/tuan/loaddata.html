@@ -1,0 +1,35 @@
+<foreach name="shops" item="var">
+
+    <div class="list-box rush-box">
+        <div>
+            <div class="rush-title">
+                <span class="fl"><a title="<{$var.shop_name}>" href="<{:U('shop/detail',array('shop_id'=>$var['shop_id']))}>"><{$var.shop_name}></a></span>
+                <span class="fr rush-long"><{$var.d}></span>
+                <div class="clear"></div>
+            </div>
+            
+            <foreach name="list" item="item">
+            <eq name="item.shop_id" value="$var['shop_id']">
+                <div class="rush-content">
+                    <div class="list-img">
+                        <a href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"><img src="__ROOT__/attachs/<{$item.photo}>" /></a>
+                    </div>
+                    <div class="list-content">
+                        <a href="">
+                            <p class="overflow_clear"><a href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"><{$item.title}></a></p>
+                            <p class="c_h h15 overflow_clear"><{:$item['intro']}></p>
+                            <p>
+                            <span class="price price-two">￥<{:round($item['tuan_price']/100,2)}></span> <del>￥<{:round($item['price']/100,2)}></del>
+                            <span class="sell">已售：<{$item.sold_num}></span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </eq>
+            </foreach>
+            
+            
+        </div>
+    </div>
+   
+</foreach>

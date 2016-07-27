@@ -1,0 +1,67 @@
+<include  file='public:header'/>
+
+<header>
+	<i class="left"><a href="<{:U('index/index')}>" id="icon_goback"></a></i>
+    <div class="title">点评管理</div>
+</header>
+
+<section>  
+	<div class="sh_prompt_infor_box">
+        <p>如果收到恶意评价，可以联系网站客服：<{$CONFIG.site.tel}></p>
+        <div class="sh_prompt_infor_closs"></div>
+    </div>
+	<div class="sh_buy_tab mb10">
+	    <ul>
+	        <li><a href="<{:U('dianping/index')}>">商家点评</a></li>
+            <li><a href="<{:U('dianping/tuan')}>">抢购点评</a></li>
+            <li ><a href="<{:U('dianping/waimai')}>">外卖点评</a></li>
+            <li  class="on"><a href="<{:U('dianping/ding')}>">订座点评</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+    
+    <div class="sh_buy_tab_box" style="display:;">
+    	<div class="sh_list_public_box">
+            <ul>
+            	 <foreach name="list" item="var">
+                 
+                 	<li class="list_box mb10">
+                        <div>
+                        	<div class="sh_buy_bt">
+                                <div class="fl sh_buy_bt_order_num">用户：<{$users[$var['user_id']]['nickname']}>(ID:<{$var.user_id}>)</div>
+                                <div class="fr sh_coupon_bt_time">编号:<{$var.order_id}></div>
+                            </div>
+                            <div class="sh_coupon_nr">
+                                <div class="wz">
+                                    <p class="black3">评价:<{$var.contents}></p>
+                                </div>
+                            </div>
+                            <if condition="!empty($var['reply'])">
+                            <div class="sh_buy_date bg1">
+                                <p class="black3">回复:<{$var.reply}></p>
+                            </div>
+                            </if>
+                            <div class="sh_buy_date bg1" style="border:none 0px;">
+                                <p>平均花费:<{$var.cost}><span>评分：<{$var.score}></span></p>
+                                <p>评价时间：<{$var.create_time}>广场<span></span></p>
+                                <p>评价IP：<{$var.create_ip}>(来自<{$var.create_ip_area}>)</p>
+                            </div>  
+                            <div class="sh_buy_date">生效日期：<{$var.show_date}> 
+                            </div>
+                            <if condition="empty($var['reply'])">  <div class="btn_box"><a class="btn" href="<{:U('dianping/dingreply',array('order_id'=>$var['order_id']))}>">回复</a></div></if>
+                            
+                           
+                        </div>
+                    </li>
+                </foreach>
+                
+                
+            </ul>
+        </div>
+    </div>
+    <div class="jobNr_span">
+    <{$page}>
+    </div>
+</section>
+</body>
+</html>

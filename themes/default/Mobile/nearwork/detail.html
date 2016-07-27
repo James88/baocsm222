@@ -1,0 +1,97 @@
+<include  file='public:header'/>    
+<script type="text/javascript">
+	$(function(){
+		$(".buy-bar span").each(function(e){
+			$(this).click(function(){
+				$(".buy-bar span").removeClass("on");
+				$(this).addClass("on");
+				$(".work").each(function(s){
+					if(e==s){
+						$(".work").hide();
+						$(this).show();
+					}
+				});
+			});
+		});
+	});
+
+</script>
+
+<body>
+	<header>
+		<a href="<{:U('mobile/nearwork/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">详情介绍</div>
+		<i class="icon-menu"></i>
+	</header>
+	<!-- 筛选TAB -->
+	<div class="buy-bar">
+			<span class="buy-bar-span2 on">职位详情</span>
+			<span class="buy-bar-span">公司简介</span>
+	</div>
+    
+    <script>
+            $(function(){
+				$(".nw_nav li").each(function(i) {
+				$(this).click(function() {
+					$(this).children("a").addClass("current");
+					$(this).siblings().find("a").removeClass("current");
+					$(".job_des").each(function(j) {
+						if (i == j) {
+							$(".job_des").hide();
+							$(this).show();
+						}
+						;
+					});
+				});
+				});
+				
+			});
+        </script>
+
+	<div id="life" class="page-center-box">
+		<div id="scroll">
+			<!-- 列表 -->
+			<div class="work">
+				<div>
+					<div class="work-here work-post"><b>职位名称：<{$detail.title}></b></div>
+		            <div class="work-message">
+	                    <p>公司名称：<{$shop.shop_name}></p>
+	                    <p>工作地点: <{$shop.addr}></p>
+	                    <p>薪资情况：<{$detail.money}></p>
+	                    <p>招聘人数：<{$detail.num|default='若干'}></p>
+	                    <p>发布时间：<{$detail.create_time|date='Y-m-d',###}></p>
+		            </div>
+	            </div>
+	            <div>
+					<div class="work-here"><b>职位描述：</b></div>
+		            <div class="work-message work-font">
+	                    <p>岗位要求：</p>
+	                    <p><{$detail.intro}></p>
+	                    <p>工作时间：<{$detail.work_time}></p>
+		            </div>
+	            </div>
+            </div>
+         
+            <div class="work" style="display:none;">
+				<div>
+					<div class="work-here work-post"><b>公司名称：<{$shop.shop_name}></b></div>
+		            <div class="work-message">
+	                    <p>联系电话：<{$shop.tel}></p>
+	                    <p>公司地点：<{$shop.addr}></p>
+		            </div>
+		            <div class="work-message work-button">   
+                        <a class="work-go" href="<{:U('shop/gps',array('shop_id'=>$detail['shop_id']))}>">到这去<img src="__TMPL__statics/img/tp26.png" class="work-img2"></a>  
+                    	<a href="#" class="work-phone"><{$shop.tel}><img src="__TMPL__statics/img/tp27.png" class="work-img2"></a>	        	
+		            </div>
+	            </div>
+	            <div>
+					<div class="work-here"><b>公司描述：</b></div>
+		            <div class="work-message work-font">
+	                    <p><{$ex.details}></p>
+		            </div>
+	            </div>
+            </div>
+		</div>
+	</div>
+</body>
+</html>

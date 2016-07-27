@@ -1,0 +1,148 @@
+<include  file='public:header'/>   
+
+<body id="my_attention">
+
+	<header>
+            <a href="<{:U('favorites/index')}>"><i class="icon-goback"></i></a>
+		<div class="title"><{$detail.shop_name}></div>
+	</header>
+    
+   
+    <div id="seat" class="page-center-box">
+	<div id="scroll">
+ <?php foreach($news as $k=>$val){?>
+	<div class="dish_time_box">
+    	<span class="dish_time"><?php echo date('m月d日 H:i',$val['create_time']);?></span>
+    </div>
+    <div class="dish_detailBox">
+        <div class="dish_detail">
+            <a href="<{:U('favorites/read',array('news_id'=>$val['news_id']))}>"><div class="img"><img src="__ROOT__/attachs/<{$val['photo']}>"  /></div>
+            <p>
+                <b class="black3"><{:msubstr($val['title'],0,18)}></b><br /><span class="hui"><{$val.create_time|date='Y-m-d',###}></span>
+            </p>
+            <p class="rem14" style="font-size:0.14rem;">
+                  <{:bao_msubstr($val['details'],0,60)}>
+            </p>
+            </a>
+        </div>
+    </div>
+    <?php }?>
+  
+    <!--<div class="speak_box">
+        <div class="dish_face fr"><img src="" class="fr" /></div>
+        <div class="dish_speak fr">
+        	<div class="dish_speak_background fr">
+            	店里很干净哟！
+            	<span class="posr"></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    
+    <div class="speak_box">
+        <div class="dish_face fl"><img src="" class="fl" /></div>
+        <div class="dish_speak fl">
+        	<div class="fl">谢谢！欢迎下次光临，我们会一直用最热情、
+最忠诚的服务来对待每一位客户．．．谢谢！欢迎下次光临，我们会一直用最热情、
+最忠诚的服务来对待每一位客户．．．谢谢！欢迎下次光临，我们会一直用最热情、
+最忠诚的服务来对待每一位客户．．．谢谢！欢迎下次光临，我们会一直用最热情、
+最忠诚的服务来对待每一位客户．！
+			<span class="posl"></span>
+			</div>
+		</div>
+        <div class="clear"></div>
+    </div>-->
+
+	</div>
+    
+    </div>
+<footer class="footer-switch">
+    <div class="fl left"><span class="switch-btn"></span></div>
+	<div class="fl right">
+    	<script>
+			$(function(){
+				$(".footer-switch .switch-btn").click(function(){
+					if($(".footer-switch .menu").css("display")=='block'){
+						$(".footer-switch .menu").hide();
+						$(".footer-switch .input-box").show(200);
+					}
+					else{
+						$(".footer-switch .menu").show();
+						$(".footer-switch .input-box").hide(200);
+					}
+				});
+				$(".footer-switch .menu-list").click(function(){
+					if($(this).find(".menu-pull").css("display")=='block'){
+						$(".footer-switch .menu-pull").hide();
+						$(this).find(".menu-pull").hide();
+					}
+					else{
+						$(".footer-switch .menu-pull").hide();
+						$(this).find(".menu-pull").show();
+					}
+				});
+                                
+                                
+                                $("#jq_send").click(function(){
+                                    if($("#word").val()!=''){
+                                        var word = $("#word").val();
+                                        var str ='<div class="speak_box"> <div class="dish_face fr"><img src="__ROOT__/attachs/<{$MEMBER.face|default="default.jpg"}>" class="fr" /></div> <div class="dish_speak fr"><div class="dish_speak_background fr">'+word+'<span class="posr"></span></div> </div>  <div class="clear"></div></div>';
+                                        $("#scroll").append(str);
+                                        $("#word").val('');
+                                        $("html,body").animate({scrollTop: document.body.clientHeight}, 200);
+                                        $.post('<{:U("favorites/send",array("shop_id"=>$detail["shop_id"]))}>',"word="+word,function(data){
+                                             if(data.ret == 1){
+                                                 switch(data.type){
+                                                     case 'text':
+                                                            var str = '<div class="speak_box"> <div class="dish_face fl"><img src="'+data.face+'" class="fl" /></div> <div class="dish_speak fl"><div class="fl"><span class="posl"></span>'+data.contents+'</div></div> <div class="clear"></div> </div>';
+                                                            $("#scroll").append(str);
+                                                         break;
+                                                     case  'news':
+                                                         var str = '  <div class="dish_detailBox">';
+                                                            str+='<div class="dish_detail">';
+                                                            str+=' <a href="'+data.url+'"><div class="img"><img src="'+data.photo+'"  /></div>';
+                                                            str+=' <p> <b class="black3">'+data.title+'</b> </p>';
+                                                            str+='<p class="rem14" style="font-size:0.14rem;">'+data.intro;
+                                                            str+='</p> </a> </div></div>';
+                                                            $("#scroll").append(str);
+                                                         break;
+                                                     
+                                                 } 
+                                             }
+                                            
+                                             $("html,body").animate({scrollTop: document.body.clientHeight}, 200);
+                                        },'json');
+                                    }                                    
+                                });
+			});
+		</script>
+	    <div class="menu">
+	        <ul>
+                <?php  foreach($weixin['button']  as $k=>$v){?>
+                <li class="menu-list"><span class="menu-listA" href="javascript:void(0);"><{$v}></span>
+                	<div class="menu-pull">
+                    	<ul>
+                            <?php foreach($weixin['child'][$k] as $key=>$val){?>
+                            <li><a href="<{$val.url}>"><{$val.name}></a></li>
+                            <?php }?>
+                        </ul>
+                    </div>
+                </li>
+                <?php }?>
+                <div class="clear"></div>
+            </ul>
+	    </div>
+        <div class="input-box" style="display:none;">
+             
+            	<input name="word" id="word" type="text" class="text" />
+                <input type="button" id="jq_send" class="submit" value="发送" />
+                
+                <div class="clear"></div>
+        </div>
+	</div>
+    <div class="clear"></div>
+</footer>
+
+</body>
+</html>

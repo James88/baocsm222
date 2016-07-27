@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+<title>商户中心首页</title>
+<link href="__TMPL__statics/css/style.css?v=20150609" rel="stylesheet" type="text/css">
+<script src="__TMPL__statics/js/jquery.js?v=20150609"></script>
+<script src="__PUBLIC__/js/store.js?v=20150610"></script>
+<script> var BAO_PUBLIC = '__PUBLIC__';
+            var BAO_ROOT = '__ROOT__';</script>
+<script>
+$(function(){
+	$(".sygg_closs").click(function(){
+		$(this).parent(".sygg").hide();
+	});
+});
+</script>
+</head>
+
+<body>
+    <iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+
+<script>
+$(function(){
+	$(".setGl_tab li").each(function(i){
+		$(this).click(function(){
+			$(".setGl_tabLi").removeClass("on");
+			$(this).addClass("on");
+			$(".jiazhengList").each(function(e){
+				if(i==e){
+					$(this).show();
+				}
+				else{
+					$(this).hide();
+				}
+			});
+		});
+	});
+});
+</script>
+<header>
+<div class="headerTop">
+    <div class="headerTop_back"><a href="###"></a></div>
+    <div class="headerTop_t">家政服务</div>
+    <div class="headerTop_menuTog m_header_wz"><a class="jobFabu" href="#"><span><img src="__TMPL__statics/images/add_03.png" width="8" height="8"></span>发布招聘</a></div>
+</div> 
+</header>
+<section class="fixed_pad">
+<div class="sygg">
+    <div class="sygg_closs">&nbsp;</div>
+    家政需要用金块查看用户联系方式滴(1金块看一家)
+</div>
+<form method="post" action="<{:U('Mall/index')}>">	
+<div class="MemCard_ser">
+<div class="MemCard_serBox"><input class="MemCard_serK" type="text" placeholder="请输入服务类型" value="" /><a class="MemCard_serAn" href=""><img src="__TMPL__statics/images/ser_03.png" width="22" height="22"></a></div>
+</div>
+</form>
+<div class="setGl_tab jiazheng_tab">
+    <ul>
+        <li class="setGl_tabLi on" ><a href="#">未查看</a></li>
+        <li class="setGl_tabLi"><a href="#">已查看</a></li>
+    </ul>
+</div>

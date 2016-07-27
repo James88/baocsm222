@@ -1,0 +1,57 @@
+<include  file='public:header'/>    
+
+<body>
+	<header>
+		<a href="<{:U('life/index')}>"><i class="icon-goback"></i></a>
+		<div class="title"><{$channel[$channel_id]}></div>
+	</header>
+	<!-- 筛选TAB -->
+    <script>
+		$(function(){
+			$("#search-bar li").each(function(e){
+				$(this).click(function(){
+					if($(this).hasClass("on")){
+						$(this).parent().find("li").removeClass("on");
+						$(this).removeClass("on");
+						$(".serch-bar-mask").hide();
+					}
+					else{
+						$(this).parent().find("li").removeClass("on");
+						$(this).addClass("on");
+						$(".serch-bar-mask").show();
+					}
+					$(".serch-bar-mask .serch-bar-mask-list").each(function(i){
+						
+						if(e==i){
+							$(this).parent().find(".serch-bar-mask-list").hide();
+							$(this).show();
+						}
+						else{
+							$(this).hide();
+						}
+						$(this).find("li").click(function(){
+							$(this).parent().find("li").removeClass("on");
+							$(this).addClass("on");
+						});
+					});
+				});
+			});
+		});
+    </script>
+    
+	<div id="life" class="page-center-box">
+		<div id="scroll">
+        	
+			<!-- 列表 -->
+			<div class="list-have-pic">
+				
+
+			</div>
+			<script>
+        		$(document).ready(function () {
+            		loaddata('<{$nextpage}>', $(".list-have-pic"), true);
+       		    });
+    		</script>
+		</div>
+	</div>
+<include file="public:footer"/>

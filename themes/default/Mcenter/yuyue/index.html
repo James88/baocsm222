@@ -1,0 +1,27 @@
+<include  file='public:header'/>  
+<body>
+    <header>
+        <a href="<{:U('member/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">我的预约</div>
+        <i class="icon-menu"></i>
+    </header>
+    <!-- 筛选TAB -->
+    <div class="buy-bar">
+        <a href="<{:LinkTo('yuyue/index',array('status'=>1))}>"><span class="buy-bar-span2 <eq name='status' value='1'>on</eq>">已使用</span></a>
+        <a href="<{:LinkTo('yuyue/index',array('status'=>2))}>"><span class="buy-bar-span <eq name='status' value='2'>on</eq>">未使用</span></a>
+    </div>
+    <div id="life" class="page-center-box">
+
+        <div id="scroll">
+
+            <div class="list-have-pic buy-list"></div>
+
+        </div>
+        <script>
+            $(document).ready(function () {
+                loaddata('<{$nextpage}>', $(".list-have-pic"), true);
+            });
+        </script>
+
+    </div>
+<include  file='public:footer'/>

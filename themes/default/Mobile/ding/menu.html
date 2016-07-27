@@ -1,0 +1,61 @@
+<include  file='public:header'/>
+	<header>
+		<i class="icon-goback"></i>
+		<div class="title">店铺菜单</div>
+	</header>
+	<div id="ele">
+		<!-- 分类 -->
+		<div class="frame-set-left">
+			<ul>
+
+                
+                <li <if condition="$cat eq 0"> class="active" </if> ><a href="<{:U('ding/menu',array('shop_id'=>$detail['shop_id'],'yuyue_id'=>$yuyue_id))}>">全部分类</a></li>
+                <foreach name="cates" item="item">
+                    <li <if condition="$item['cate_id'] eq $cat"> class="active" </if> ><a href="<{:U('ding/menu',array('shop_id'=>$detail['shop_id'],'yuyue_id'=>$yuyue_id,'cat'=>$item['cate_id']))}>"><{$item.cate_name}></a></li>
+                </foreach>
+                
+			</ul>
+		</div>
+		<div class="frame-set-right page-center-box">
+			<div id="scroll">
+				<div class="list-have-pic">
+					
+				</div>
+                
+                 <script>
+					var num = '<{$cartnum}>';
+					var money = 0;
+					$(document).ready(function (e) {
+						loaddata('<{$next}>', $(".list-have-pic"), true);
+						$(document).on('click','.jq_addcart',function(e){
+							e.preventDefault();
+							var price = parseFloat($(this).attr('val'));
+							var this_num = parseInt($(this).parent().find('.input input').val());
+							var did = 'input'+$(this).attr('did');
+							$.get($(this).attr('href'),function(data){
+								if(data == 0){
+									num++;
+									money = money + price;
+									$('#'+did).val(this_num+1);
+									$("#num").html(num);
+									$("#all_price").html(money);
+								}
+								
+							},'html');
+							
+						});
+						
+					});
+				</script>
+                
+			</div>
+		</div>
+	</div>
+	<footer class="footer-cart">
+		<div class="cart">
+			<div class="cart-num" id="num"><{$cartnum}></div>
+		</div>
+		<div class="btn"><a href="<{:U('ding/cart' ,array('shop_id'=>$shop_id,'yuyue_id'=>$yuyue_id))}>" style="color:#FFFFFF;">结算</a></div>
+	</footer>
+</body>
+</html>

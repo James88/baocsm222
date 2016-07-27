@@ -1,0 +1,53 @@
+<div class="list-have-pic buy-list" id="list1">
+
+    
+    <foreach name='lists' item='items'>
+    
+        <div class="mydate">
+            <div class="list-box">
+                <div class="list-img">
+                    <a href="<{:U('mobile/hdmobile/detail',array('huodong_id'=>$items['huodong_id']))}>"><img src="__ROOT__/attachs/<{$huodong[$items['huodong_id']]['photo']}>" /></a>
+                </div>
+                <div class="buy-content ">
+                    <p class="overflow_clear">
+                    	<a class="title" href="<{:U('mobile/hdmobile/detail',array('huodong_id'=>$items['huodong_id']))}>" style="height:0.2rem;line-height:0.2rem;padding:0;margin:0;border:0;">
+                        	<volist name="getHuoCate" id="v" key="index2">
+                            	<if condition="$huodong[$items['huodong_id']]['cate_id'] eq $index2" >【<{$v}>】</if>
+                            </volist>
+                            <{:bao_msubstr($huodong[$items['huodong_id']]['title'],0,20,true)}>
+                        </a>
+                    </p>
+                    <p><span class="date-time">时间：<{$huodong[$items['huodong_id']]['time']}></span></p>
+                    <p class="spread-here overflow_clear">地点：<{$huodong[$items['huodong_id']]['addr']}></p>
+                  
+                </div>
+            </div>
+            <div class="list-box">
+                <div class=" date-content">
+                    <div class="left">
+                        <p class="date-look left"><{$huodong[$items['huodong_id']]['sign_num']}>人报名</p>
+                        <div class="date-sex-boy">
+                            <img src="__ROOT__/themes/default/mobile/statics/img/tp16.png">
+                            <span class="right">
+                                <{$getPeopleCate[$items['sex']]|default='不限'}>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="right date-content-right">
+                        <img src="__ROOT__/themes/default/mobile/statics/img/tp8.png" class="left">
+                        <span class="right"><{$huodong[$items['huodong_id']]['sign_num']}></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </foreach>
+    
+
+</div>
+
+
+
+
+
+

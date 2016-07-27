@@ -1,0 +1,29 @@
+<div class="line">
+	<div class="x12">
+		<div class="midd-box">
+			<div class="box-hd box-ld">
+				<h3><eq name="act" value="food">附近餐饮</eq><eq name="act" value="market">附近超市</eq><eq name="act" value="shop">附近商家</eq></h3>
+			</div>
+			<div class="xiaoqu-shop-list">
+				<ul>
+					<foreach name="pois" item="item">
+						<li>
+							<div class="item">
+								<h3><a href="<{:U('biz/detail',array('pois_id'=>$item['pois_id']))}>" target="_blank"><{$item['name']}></a></h3>
+								<p><i class="icon-phone"></i> <eq name="item.telephone" value="">等待提交</eq><{$item.telephone}></p>
+								<p><i class="icon-map-marker"></i> <{$item.address}></p>
+								<if condition="!empty($item[shop_id])">
+								<a class="item-shop" href="<{:U('shop/detail',array('shop_id'=>$item['shop_id']))}>" target="_blank">查看商家</a>
+								</if>
+							</div>
+						</li>
+					</foreach>
+
+				</ul>
+			</div>
+			<div class="blank-10"></div>
+			<p>服务电话入驻指南：入驻<{$CONFIG['site']['sitename']}>，即可展示在这里，详细资讯电话：<{$CONFIG['site']['tel']}>！</p>
+		</div>
+	</div>
+</div>
+

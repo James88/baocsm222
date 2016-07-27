@@ -1,0 +1,70 @@
+<include file='public:header'/>
+<header>
+	<i class="left"><a href="<{:U('store/index/index')}>" id="icon_goback"></a></i>
+    <div class="title">菜单管理</div>
+    <i class="right" style="right:0.35rem;"><i id="ico_1" class="icon-menu"></i></i>
+</header>
+<script>
+		$(function(){
+			$("header #ico_1").click(function(){
+				$(".header_pull_box").toggle();
+			});
+		});
+    </script>
+    <div class="header_pull_box" style="display:none;">
+    	<em></em>
+        <div class="header_pull_list">
+            <ul>
+            	<li><a href="<{:U('ele/elecate')}>">分类管理</a></li>
+                <li><a href="<{:U('ele/index')}>">菜单管理</a></li>
+                <li><a href="<{:U('ele/eleorder')}>">订单管理</a></li>
+            </ul>
+        </div>
+    </div>
+<section>
+	<script>
+		$(function(){
+			$(".sh_prompt_infor_closs").click(function(){
+				$(".sh_prompt_infor_box").hide();
+			});
+		});
+    </script>
+	<div class="sh_prompt_infor_box">
+    	<p>商家可以在后台添加菜品</p>
+        <div class="sh_prompt_infor_closs"></div>
+    </div>
+    <form method="post" action="<{:U('ele/index')}>">
+        <div class="sh_search_box">
+            <div class="sh_search_int"> <span>菜品名称</span>
+                <input type="text" name="keyword" value="<{$keyword}>">
+                <input type="submit" class="btn" value="搜索">
+            </div>
+        </div>
+    </form>
+    <div class="sh_buy_fabu">
+        <div class="sh_list_public_box mt10">
+            <ul>
+            
+            	<foreach name="list" item="var">
+                <li class="list_box mb10">
+                    <div>
+                        <div class="sh_shop_nr sh_waimai_nr">
+                            <div class="img"><img src="__ROOT__/attachs/<{$var.photo}>" width="100" height="100"></div>
+                            <div class="wz">
+                               <p><{$var.product_name}><span class="sh_waimai_bq bg_1">新</span><span class="sh_waimai_bq bg_2">热</span><span class="sh_waimai_bq bg_3">荐</span></p>
+                               <p><{$cates[$var['cate_id']]['cate_name']}></p>
+                               <p>￥<{:round($var['price']/100,2)}></p>
+                            </div>
+                        </div>
+                        <div class="btn_box" style="border-top:1px solid #dedede;"><a class="btn" href="#">删除</a></div>
+                    </div>
+                </li>
+                </foreach>
+               
+            </ul>
+        </div>
+    </div>
+    <div class="jobNr_span"><{$page}></div>
+</section>
+</body>
+</html>

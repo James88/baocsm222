@@ -1,0 +1,52 @@
+<include  file='public:head'/>    
+<body>	
+
+	<!-- 头部 -->	
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+		<a href="<{:U('index/index')}>" class="mui-pull-left miui-block">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+		</a>
+		<h1 class="mui-title">进入贴吧</h1>
+		
+	</header>
+	
+	<!-- 主体 -->
+	<div id="main">
+		<div class="blank-10"></div>
+		<div class="mui-content-padded"><h5>贴吧类目</h5></div>
+		<ul id="big" class="category">
+			<foreach name="sharecates" key="k" item="item">
+			<eq name="item.parent_id" value="0">
+			<li rel="<{$item[cate_id]}>"><span><{$item['cate_name']}></span></li>	
+			</eq>
+			</foreach>
+		</ul>
+		
+		<div class="mui-content-padded"><h5>选择贴吧</h5></div>
+		<ul id="small" class="category">
+			<foreach name="sharecates" key="k" item="item">
+			<if condition="$item[parent_id] neq 0">
+			<li rel="<{$item[parent_id]}>"><span><a href="<{:U('tieba/index',array('cat'=>$item[cate_id]))}>"><{$item['cate_name']}></a></span></li>	
+			</if>
+			</foreach>
+		</ul>
+	</div>
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $("#big li").click(function(){
+		var channel = $(this).attr("rel");
+		$("#small li").each(function(){
+			var cate = $(this).attr("rel");
+			if(cate == channel){
+				 $(this).show();
+			}else{
+				$(this).hide();
+			}
+		});
+	  });
+	});
+</script>
+<include  file='public:foot'/>   

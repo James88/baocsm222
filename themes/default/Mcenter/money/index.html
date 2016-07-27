@@ -1,0 +1,53 @@
+<include  file='public:header'/>    
+<body>
+    <header>
+		<a href="javascript:history.back(-1);"><i class="icon-goback"></i></a>
+		<div class="title">充值金额</div>
+		<i class="icon-menu"></i>
+	</header>
+
+    <div id="seat" class="page-center-box">
+
+    	<form method="post" action="<{:U('money/moneypay')}>" >
+		<div id="scroll" class="pay">
+        
+        	 <div class="shop-lie" style="position:relative;top:0;">
+                <ul>
+                    <li class="on"><a href="<{:U('money/index')}>" >余额充值</a></li>
+                    <li><a href="<{:U('money/recharge')}>" >代金券充值</a></li>
+                    <li><a href="<{:U('money/gold')}>" >金块充值</a></li>
+                </ul>
+            </div>
+        
+			<div class="order-content">
+                <ul class="list">
+
+	            	<li>
+	            		<span class="left">充值金额</span><span class="right"><input style="width:140px;" class="Confirm" type="text" name="money" /></span>
+	            		<div class="clear"></div>
+	            	</li>
+	            	<li>
+	            		<span class="left">支付方式</span>
+	            		<span class="right">
+                        	<foreach name="payment" item="var">
+                                <eq name="var.is_open" value="1">
+                                <if condition="$var['code'] neq 'money' and  $var['code'] neq 'weixin' ">
+                                    <dd><label><em><input style="width: 20px; height: 20px; margin-left: 5px;  margin-right: 15px;" value="<{$var.code}>" name="code" type="radio" /></em><img src="__PUBLIC__/images/<{$var.logo}>" /></label></dd>
+                                </if>
+                                </eq>
+                            </foreach>
+                        </span>
+	            		<div class="clear"></div>
+	            	</li>
+            	</ul>
+            </div>
+
+            
+			<div class="sure-pay-but">
+				<p class="left"></p>
+            	<div class="sure-pay right"><input type="submit" class="aniu" value="确认支付" style="background:none;border:none;color:#FFFFFF;font-size:0.16rem;width:100%;" ></div>
+            </div>
+		</div>
+        </form>
+	</div>
+<include file="public:footer"/>

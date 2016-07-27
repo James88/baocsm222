@@ -1,0 +1,32 @@
+<include file="public:header"/>
+
+<body>
+	<header>
+		<a class="back" href="<{:U('jifen/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">积分兑换</div>
+	</header>
+	<div class="integra-ui-content" style="font-size:0.14rem; margin:0.5rem 0px;">
+            <form  action="<{:U('jifen/exchange',array('goods_id'=>$detail['goods_id']))}>" method="post">
+            <ul class="list_tj">
+                <li><img style="margin:5px auto;" src="__ROOT__/attachs/<{$detail.face_pic}>" width="320" height="auto"></li>
+                <li><{$detail.title}><span class="fr">  <{$detail.integral}>积分</span>
+                <div class="clear"></div>
+                </li>
+                <li>请选择收货地址:</li>
+                <if condition="!empty($useraddr)">
+                    <li>请选择收货地址:</li>
+                    <foreach name="useraddr" item="item">
+                        <li><label style="margin:0px;"> <input style="width: 20px; float: left;" type="radio" name="addr_id" value="<{$item['addr_id']}>"/> <{$item.name}>,<{$item.mobile}>,<{$item.addr}></label></li>
+                    </foreach>
+                        <li style="text-indent: 20px;">使用新地址，这就去<a style="color: #ff3333;" href="<{:U('member/addressadd')}>">添加新收货地址</a></li>
+                    <else/>
+                    <li style="text-indent: 20px;">您还没有设置收货地址！这就去<a style="color:#2FBDAA;" href="<{:U('member/addressadd')}>">添加收货地址</a></li>
+                </if>
+            </ul>
+            
+            <div class="radius">
+                <input type="submit" class="aniu" value="确认兑换"/>
+            </div>
+        </form>
+    </div>
+<include file="public:footer"/>

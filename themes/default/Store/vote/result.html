@@ -1,0 +1,61 @@
+<include  file='public:header'/>
+
+<body>
+<header> 
+	<i class="left"><a href="<{:U('vote/index')}>" id="icon_goback"></a></i>
+    <div class="title">投票结果</div></i> 
+</header>
+<script>
+$(function(){
+	$("header #ico_1").click(function(){
+		$(".sh_menu_pull_box").toggle();	
+	});
+});
+</script>
+
+<section>
+	<script>
+		$(function(){
+			$(".sh_prompt_infor_closs").click(function(){
+				$(".sh_prompt_infor_box").hide();
+			});
+		});
+    </script>
+    <php>
+        $rat = round(($var['number']/$total)*100);
+        $ratio = ($var['number']/$total)*500;
+        $ratio = floor($ratio);
+    </php>
+    
+    <script>
+       
+        var div<{$i}> = document.getElementById("ratio<{$i}>");//得到这个DIV。
+        div<{$i}>.style.width=<{$ratio}>+'px';
+    
+        
+    </script>
+    <div class="sh_coupon_tab_box">
+    	<div class="sh_list_public_box">
+            <ul>
+            	<foreach name="options" item="var">
+                        <li class="list_box mb10">
+                            <div>
+                                <div class="sh_buy_bt">
+                                    <div class="fl">选项：<{$var.title}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">投票次数：<{$var.number}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">占总数比例：<{$rat}>%</div>
+                                </div>
+                            </div>
+                        </li>
+                    </foreach>
+            </ul>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+

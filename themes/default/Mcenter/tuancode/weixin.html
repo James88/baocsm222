@@ -1,0 +1,21 @@
+<include  file='public:header'/>  
+<body>
+   <header> 
+       <a href="<{:U('tuancode/index')}>"><i class="icon-goback"></i></a>
+    <div class="title">我的抢购券</div>
+    <i class=" icon-more"></i> </header>
+ <div id="seat" class="page-center-box">
+    <div id="scroll">
+        <div class="content" style="font-size: 0.16rem; line-height: 0.24rem; padding: 0.1rem; color:#666; ">
+            <img width="100%" src="__ROOT__/attachs/<{$file}>" />
+            <p style="text-indent: 10px;">
+                 <neq name="detail.price" value="0"> 该抢购券价值为:<{:round($detail['price']/100,2)}><else />该抢购券为到付券！需要额外到店支付相关费用才可以进行消费！</neq>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

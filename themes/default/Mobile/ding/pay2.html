@@ -1,0 +1,31 @@
+<include  file='public:header'/>    
+<body>
+	<header>
+		<i class="icon-goback"></i>
+		<div class="title">支付定金</div>
+		<i class="icon-menu" id="ico_1"></i>
+	</header>
+	<form method="post" action="<{:U('ding/pay3',array('order_id'=>$order_id))}>">
+	<div id="seat" class="page-center-box">
+		<div id="scroll" class="pay">
+			<div class="pay-order">定金: ￥<{:round($order['need_price']/100,2)}></div>
+            <div class="wap-form">
+            	<script>
+					$(function(){
+						$(".seat-check input").click(function(){
+							$(".seat-check").find("label").removeClass("on");
+							$(this).parent("label").addClass("on");
+						});
+					});
+				</script>
+				<ul>
+                    <foreach name="payment" item="var">
+                        <if condition="$var['code'] neq 'weixin'">
+                            <li class="pay-li"><input type="radio" id="code" value="<{$var.code}>" name="code" /><img src="__PUBLIC__/images/<{$var.logo}>"></li>
+                        </if>
+                    </foreach>
+				</ul>
+			</div>
+            <input type="submit" class="btn-long2" value="定金支付" />
+		</div>
+	</div>

@@ -1,0 +1,26 @@
+<include  file='public:header'/>   
+<body>
+    <header>
+        <div>
+            <a class="back" href="javascript:window.history.go(-1);"><img  src="__TMPL__statics/img/back.png"></a>
+            添加便民电话
+        </div>
+    </header>
+    <section class="container">
+        <div class="news_add">
+            <form method="post"  action="<{:U('Convenientphone/create')}>" >
+                <ul>
+                    <li><span>名字:</span> <input type="text" name="data[name]" placeholder="请添加名字"></li>
+                    <li><span>电话:</span> <input type="text" name="data[phone]" placeholder="请输入电话"></li>
+                    <li><span>时间:</span>
+					<script src="__PUBLIC__/js/my97/WdatePicker.js"></script>
+                <input type="text" name="data[expiry_date]" value="" onfocus="WdatePicker({startDate: '%y-%M-%d', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"  class="inputData" placeholder="选择失效时间" /></li>
+                    <li><input class="btn" type="submit" value="添加"></li>
+                </ul>
+            </form>
+        </div>  
+    </section>
+
+</body>
+</html>
+

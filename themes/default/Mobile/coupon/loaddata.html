@@ -1,0 +1,24 @@
+				<foreach name='list' item='item'>
+					<div class="favou-content">
+                        <div class="favou-img">
+                            <a title="<{$item.title}>" href="<{:U('coupon/detail',array('coupon_id'=>$item['coupon_id']))}>">
+                            	<img src="__ROOT__/attachs/<{$item.photo|default='default.jpg'}>" />
+                            </a>
+                        </div>
+                        <div class="favou-zi">
+                            <a title="<{$item.title}>" href="<{:U('coupon/detail',array('coupon_id'=>$item['coupon_id']))}>">
+                                <p class="overflow_clear"><{:bao_msubstr($item['title'],0,8,false)}></p>
+                                <p class="c_h h15 overflow_clear"><{$item.intro}></p>
+                                <p class="c_h h15">有效期至：<{$item.expire_date}></p>
+                                <p class="favou-zai">
+                                    <span class="price left"><{$item.downloads}>人已下载</span>&nbsp;&nbsp;
+                                    <a class="coupon_upload" href="<{:U('coupon/download',array('coupon_id'=>$item['coupon_id']))}>" >
+                                    	立即下载
+                                    </a>
+                                    <div class="clear"></div>
+                                </p>
+                            </a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </foreach>    

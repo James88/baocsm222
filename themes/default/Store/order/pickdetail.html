@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+        <title>商城管理</title>
+        <link href="__TMPL__statics/css/style.css" rel="stylesheet" type="text/css">
+        <script src="__TMPL__statics/js/jquery.js"></script>
+    </head>
+    <script>
+        $(function () {
+            $(".sygg_closs").click(function () {
+                $(this).parent(".sygg").hide();
+            });
+        });
+    </script>
+    <body>
+        <header>
+            <div class="headerTop">
+                <div class="headerTop_back"><a href="javascript:history.go(-1);"></a></div>
+                <div class="headerTop_t">订单打印</div>
+            </div> 
+        </header>
+        <section class="fixed_pad">
+            <div class="sygg">
+                <div class="sygg_closs">&nbsp;</div>
+                捡货单是你怎么捡货的，要在捡货单列表打印配货单 进行配送！然后配送完成后 要定时将已经完成的配送的订单ID 整理 给平台！平台将订单完成，资金就会进入商家的流水！有在线付款，那么将不产生结算金额记录！  
+            </div>
+
+        </div>
+        <foreach name="goods" item="good">	
+            <div class="jobList jiazhengList on">
+                <ul>
+                    <li class="jobLi">
+                        <table  class="jobTable"width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+
+                                <td class="jobNr_td">
+                                    <div class="jobNr">
+                                        <p class="left jobNr_p">商品名称:<{$products[$good['goods_id']]['title']}></p>
+                                    </div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">数量:<{$good.num}></div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">单价:<{:round($good['price']/100,2)}></div>
+                                    <div class="jobNr">
+                                        <p class="jobNr_span mall_span">总价:<{:round($good['total_price']/100,2)}></p></div>              <div class="jobNr">
+                                        <p class="jobNr_span mall_span"> <eq name="good.is_daofu" value="1"> <font style="color: red;">货到付款</font><else/>在线支付</eq></p></div>
+
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td > <input type="button"  onclick="window.print();" value=" 打 印 " /></td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </foreach>
+
+        <{$page}>
+        <include file="public:footer"/>

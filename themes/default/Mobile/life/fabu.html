@@ -1,0 +1,268 @@
+<include  file='public:header'/>
+
+<body id="life_add">
+    <header>
+        <a href="<{:U('life/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">生活信息发布</div>
+    </header>
+    <div class="page-center-box">
+        <iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+        <form method="post" target="baocms_frm" action="<{:U('life/fabu',array('cat'=>$cate['cate_id']))}>">
+            <div class="scroll">
+                <div class="pb50">
+                    <div class="Upload-img-box">
+                        <div class="Upload-btn"><input type="file" id="fileToUpload" name="fileToUpload" data-role="none">上传图片</div>
+                        <div class="Upload-img">
+                            <div class="list-img loading" style="display:none;"><img src=""></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="__TMPL__statics/js/ajaxfileupload.js"></script>
+                    <script>
+                        function ajaxupload() {
+                            $(".loading").show();
+                            $.ajaxFileUpload({
+                                url: '<{:U("app/upload/upload",array("model"=>"life"))}>',
+                                type: 'post',
+                                fileElementId: 'fileToUpload',
+                                dataType: 'text',
+                                secureuri: false, //一般设置为false
+                                success: function (data, status) {
+                                    $(".loading").hide();
+                                    var str = '<div class="list-img"><img src="__ROOT__/attachs/' + data + '"><input type="hidden" name="data[photo]" value="' + data + '" /></div>';
+                                    $(".loading").before(str);
+                                    $("#fileToUpload").unbind('change');
+                                    $("#fileToUpload").change(function () {
+                                        ajaxupload();
+                                    });
+                                }
+                            });
+                        }
+                        $(document).ready(function () {
+                            $("#fileToUpload").change(function () {
+                                ajaxupload();
+                            });
+                            $(document).on("click", ".photo img", function () {
+                                $(this).parent().remove();
+                            });
+                        });
+                    </script>
+                    <div id="login-input">
+                        <input data-role="none" type="text" name="data[title]" value="<{$detail.title|default=''}>"  placeholder="标题"/>
+                        <if condition="!empty($cate['text1'])"> 
+                            <input type="text" data-role="none"  name="data[text1]" value="<{$detail.text1|default=''}>"  placeholder="<{$cate.text1}>" />
+                        </if>
+                        <if condition="!empty($cate['text2'])"> 
+                            <input type="text" data-role="none"  name="data[text2]" value="<{$detail.text2|default=''}>"  placeholder="<{$cate.text2}>" />
+                        </if>
+                        <if condition="!empty($cate['text3'])"> 
+                            <input type="text" data-role="none"  name="data[text3]" value="<{$detail.text3|default=''}>"  placeholder="<{$cate.text3}>" />
+                        </if>
+                        <if condition="!empty($cate['num1'])"> 
+                            <input type="text" data-role="none"  name="data[num1]" value="<{$detail.num1|default=''}>"  placeholder="<{$cate.num1}>,单位:<{$cate.unit1}>" />
+                        </if>
+                        <if condition="!empty($cate['num2'])"> 
+                            <input type="text" data-role="none"  name="data[num2]" value="<{$detail.num2|default=''}>"  placeholder="<{$cate.num2}>,单位:<{$cate.unit2}>"/>
+                        </if>
+                    </div>
+                    <script>
+                        $(function () {
+                            $(".life-infor-pull").click(function () {
+                                if ($(this).find(".seat-btn-pull-down").css("display") == 'block') {
+                                    $(".seat-btn-pull-down").hide();
+                                    $(this).find(".seat-btn-pull-down").hide();
+                                } else {
+                                    $(".seat-btn-pull-down").hide()
+                                    $(this).find(".seat-btn-pull-down").show();
+                                }
+                                if ($(this).find("i").hasClass("on")) {
+                                    $(".life-infor-pull").find("i").removeClass("on");
+                                    $(this).find("i").removeClass("on");
+                                } else {
+                                    $(".life-infor-pull").find("i").removeClass("on");
+                                    $(this).find("i").addClass("on");
+                                }
+                            });
+                            $(".jq_select_list li").click(function () {
+                                $(this).parent().find("li").removeClass("on");
+                                $(this).addClass("on");
+                                $(this).parents(".life-infor-pull").find("input").val($(this).find("a").html());
+                                 var o = $(this).find('a').attr('rel');
+                                $(this).parent().find("input[type='hidden']").val(o);
+                            });
+                         
+                        });
+                    </script>
+                    <if condition="!empty($cate['select1'])"> 
+                        <div id="login-input">
+                            <div class="regist-code life-infor-pull"><input type="text" placeholder="<{$cate.select1}>" value="" readonly /><i></i>
+                                <div class="seat-btn-pull-down jq_select_list">
+                                    <ul>
+                                        <foreach name="attrs.select1" item="item">
+                                            <li ><a rel="<{$item.attr_id}>" ><{$item.attr_name}></a></li>
+                                        </foreach>   
+                                        <input type="hidden" id="select1_id" name="data[select1]" value=""/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </if>
+                    <if condition="!empty($cate['select2'])"> 
+                        <div id="login-input">
+                            <div class="regist-code life-infor-pull"><input type="text" placeholder="<{$cate.select2}>" value="" readonly/><i></i>
+                                <div class="seat-btn-pull-down jq_select_list">
+                                    <ul>
+                                        <foreach name="attrs.select2" item="item">
+                                            <li ><a rel="<{$item.attr_id}>" ><{$item.attr_name}></a></li>
+                                        </foreach>   
+                                        <input type="hidden" id="select2_id" name="data[select2]" value=""/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </if>
+             
+                
+                    
+                   <if condition="!empty($cate['select3'])"> 
+                        <div id="login-input">
+                            <div class="regist-code life-infor-pull"><input type="text" placeholder="<{$cate.select3}>" value="" readonly/><i></i>
+                                <div class="seat-btn-pull-down jq_select_list">
+                                    <ul>
+                                        <foreach name="attrs.select3" item="item">
+                                            <li ><a rel="<{$item.attr_id}>" ><{$item.attr_name}></a></li>
+                                        </foreach>   
+                                        <input type="hidden" id="select3_id" name="data[select3]" value=""/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </if>   
+                  <if condition="!empty($cate['select4'])"> 
+                        <div id="login-input">
+                            <div class="regist-code life-infor-pull"><input type="text" placeholder="<{$cate.select4}>" value="" readonly/><i></i>
+                                <div class="seat-btn-pull-down jq_select_list">
+                                    <ul>
+                                        <foreach name="attrs.select4" item="item">
+                                            <li ><a rel="<{$item.attr_id}>" ><{$item.attr_name}></a></li>
+                                        </foreach>   
+                                        <input type="hidden" id="select4_id" name="data[select4]" value=""/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </if>  
+                 <if condition="!empty($cate['select5'])"> 
+                        <div id="login-input">
+                            <div class="regist-code life-infor-pull"><input type="text" placeholder="<{$cate.select5}>" value="" readonly/><i></i>
+                                <div class="seat-btn-pull-down jq_select_list">
+                                    <ul>
+                                        <foreach name="attrs.select5" item="item">
+                                            <li ><a rel="<{$item.attr_id}>" ><{$item.attr_name}></a></li>
+                                        </foreach>   
+                                        <input type="hidden" id="select5_id" name="data[select5]" value=""/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </if>   
+                <div id="login-input">
+                <div class="regist-code life-infor-pull"><input type="text" id="select6_name" placeholder="所在区域" value="" readonly="true"/><i></i>
+                    <div class="seat-btn-pull-down">
+                        <ul id="jq_area">
+                            <foreach name="areas" item="item">
+                                <li><a rel="<{$item.area_id}>" ><{$item.area_name}></a></li>
+                            </foreach>   
+                        </ul>
+                        <input type="hidden" id="select6_id" name="data[area_id]" value=""/>
+                    </div>
+                </div>
+                    <script>
+                        
+                        $(document).ready(function(e){
+                            $("#jq_area li a").click(function(){
+                                var area_id = $(this).attr('rel');
+                                $("#select6_id").val(area_id);
+                                $("#select6_name").val($(this).text());
+                                $("#jq_business li").each(function(){
+                                    if($(this).attr('rel') != area_id){
+                                        $(this).hide();
+                                    }else{
+                                        $(this).show();
+                                    }
+                                });
+                                
+                            });
+                            $(document).on('click',"#jq_business li a",function(){
+                                 $("#select7_id").val($(this).attr('rel'));
+                                 $("#select7_name").val($(this).text());
+                            });
+                        });
+                        
+                    </script>    
+                <div id="login-input">
+                    <div class="regist-code life-infor-pull"><input type="text" id="select7_name" placeholder="所在商圈" value="" readonly="true"/><i></i>
+                        <div class="seat-btn-pull-down">
+                            <ul id="jq_business">
+                                <foreach name="business" item="item">
+                                    <li rel="<{$item.area_id}>"><a rel="<{$item.business_id}>"  ><{$item.business_name}></a></li>
+                                </foreach>   
+                            </ul>
+                            <input type="hidden" id="select7_id" name="data[business_id]" value=""/>
+                        </div>
+                    </div>
+                </div>
+                    <div id="login-input">
+                        <div class="life-infor-float" >
+                             <p class="life-infor-p">所在坐标</p>
+                            <div id="login-input" class="life-infor-float">
+                                <div class="left"><span>经度：</span><input type="text" name="data[lng]" id="data_lng"/></div>
+                                <div class="right"><span>纬度：</span><input type="text" name="data[lat]" id="data_lat"/></div>
+                            </div>
+                            <div class="life-infor-float" >
+                                <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7b92b3afff29988b6d4dbf9a00698ed8"></script>
+                                <div id="allmap" style="width: 100%; height:300px;"></div>
+                                <script type="text/javascript">
+
+                                // 百度地图API功能
+                                var map = new BMap.Map("allmap");
+                                map.centerAndZoom(new BMap.Point("<{$lng}>", "<{$lat}>"), 16);
+                                function selectCallBack(id, name, v1, v2) {
+                                    $("#" + id).val(v1);
+                                    $("#" + name).val(v2);
+                                    var point = new BMap.Point(v1, v2);
+                                    var marker = new BMap.Marker(point);  // 创建标注
+                                    map.clearOverlays();
+                                    map.addOverlay(marker);              // 将标注添加到地图中
+
+                                }
+                                function showInfo(e) {
+                                    selectCallBack('data_lng', 'data_lat', e.point.lng, e.point.lat);
+                                }
+                                map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+                                map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));  //右上角，仅包含平移和缩放按钮
+                                map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT, type: BMAP_NAVIGATION_CONTROL_PAN}));  //左下角，仅包含平移按钮
+                                map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_ZOOM}));  //右下角，仅包含缩放按钮
+                                map.addEventListener("click", showInfo);
+                                </script>
+                            </div>
+                            <div class="wap-form">
+                                <ul>
+                                   
+                                    <li><input type="text" placeholder="联系人" name="data[contact]"/></li>
+                                    <li><input type="text" placeholder="电话" name="data[mobile]"/></li>
+                                    <li><input type="text" placeholder="QQ"  name="data[qq]"/></li>
+                                    <li><input type="text" placeholder="地址" name="data[addr]" /></li>
+                                    <li class="integral"><textarea name="details" placeholder="详细描述.."></textarea></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer-cart">
+                    <input class="btn-long" data-role="none" type="submit" value="免费发布" name="submitBtn" />
+                </footer>
+        </form>
+
+
+</body>
+</html>

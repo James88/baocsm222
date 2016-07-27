@@ -1,0 +1,46 @@
+<include  file='public:header'/>  
+<body>
+<style type="text/css">
+	.submit{background-color:#2fbdaa;border-radius:0.03rem;color:white;display:block;font-size:0.16rem;margi:0.2rem 0;padding:0.1rem 0;text-align: center;border:none;width:100%;}
+</style>
+	<header>
+		<a href="/mcenter/member/"><i class="icon-goback"></i></a>
+		<div class="title">提现申请</div>
+		<i class="icon-menu"></i>
+	</header>
+	<!-- 筛选TAB -->
+	<div class="buy-bar">
+			<a href="<{:LinkTo('/mcenter/cash')}>"><span class="buy-bar-span2 on">申请提现</span></a>
+			<a href="<{:LinkTo('/mcenter/cash/cashlog')}>"><span class="buy-bar-span">提现记录</span></a>
+	</div>
+	<div id="life" class="page-center-box">
+		<div id="scroll">
+				<!-- 列表 -->
+                <form action="<{:U('/mcenter/cash')}>" method="post" class="register">
+                    <div class="list-have-pic buy-list">
+                        <!-- 循环 -->
+                            <div class="draw-message">
+                                <div class="draw-money">余额：<{$money}></div>
+                                <input type="text" name="money" placeholder="请输入提现金额" value="">
+                                 <div class="draw-money">开户银行</div>
+                                <input type="text" name="bank_name" value="<{$info.bank_name}>" placeholder="请输入开户银行">
+                                 <div class="draw-money">开户账号</div>
+                                <input type="text"   name="bank_num" value="<{$info.bank_num}>" placeholder="请输入开户账号">
+                                 <div class="draw-money">具体支行</div>
+                                <input type="text" name="bank_branch" value="<{$info.bank_branch}>" placeholder="请输入具体支行">
+                                 <div class="draw-money">开户名</div>
+                                <input type="text" name="bank_realname" value="<{$info.bank_realname}>" placeholder="请输入开户名">
+                            </div>
+                            <div class="draw-make-sure">
+                                <eq name="money" value="0">
+                                        <input type="submit" value="余额不足" class="submit" disabled="disabled" />
+                                    <else/>
+                                        <input type="submit" value="确认申请" class="submit" />
+                                </eq>                         
+                            </div>
+                        <!-- 循环 -->
+                    </div>
+				</form>
+		</div>
+	</div>
+<include  file='public:footer'/>

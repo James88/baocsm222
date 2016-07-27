@@ -1,0 +1,49 @@
+<include  file='public:header'/>   
+<body id="my_attention">
+
+    <header>
+        <a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">我的关注</div>
+        <a href="<{:U('favorites/lists')}>"><i class="icon-menu" id="ico_3"></i></a>
+    </header>
+
+    <div id="seat" class="page-center-box">
+        <div id="scroll">
+            <div class="search_box">
+                <form id="form1" name="form1" method="post" action="<{:U('favorites/index')}>">
+                    <div class="search_div">
+                        <div id="sd_left">
+                            <div id="input">
+                                <input name="like" type="text" onBlur="if (!value) {
+                                            value = defaultValue;
+                                            this.style.color = '#999'
+                                        }" onClick="if (value == defaultValue) {
+                                                    value = '';
+                                                    this.style.color = '#000'
+                                                }" value="<{$like|default='输入您要搜索的内容'}>" style="color: rgb(153, 153, 153);" />
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div id="sd_right">
+                            <input type="submit" name="button" id="button" value="搜索" />
+                        </div>
+                    </div>
+                </form>
+
+                <div class="clear"></div>
+
+            </div>
+
+            <ul class="list">
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            loaddata('<{:U("/mobile/favorites/favoritesloading",array("t"=>$nowtime,"p"=>"0000","like"=>$like))}>', $(".list"), true);
+        });
+    </script>
+
+
+<include  file='public:footer'/>

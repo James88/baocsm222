@@ -1,0 +1,85 @@
+<include  file='public:head'/>    
+<body>	
+
+	<!-- 头部 -->	
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+		<a href="<{:U('tieba/main')}>" class="mui-pull-left miui-block">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+		</a>
+		<h1 class="mui-title"><if condition="!empty($cat)"><{$cate['cate_name']}><else />贴吧主页</if></h1>
+		<if condition="!empty($cat)">
+		<a class="mui-pull-right miui-block"  href="<{:U('tieba/post',array('cate_id'=>$cat))}>">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-compose"></span>
+			</button>
+		</a>
+		</if>
+	</header>
+
+	<!-- 主体 -->
+	<div id="main">
+		<div class="blank-10"></div>
+		<div class="qiushi-frame">
+			<volist name="list" id="item" key="index">
+			<div class="qiushi-box">	
+				<div class="qiushi-top clearfix">	
+						<span class="qiushi-icon-box pull-left">	
+							<img src="__ROOT__/Attach/<{$users[$item['user_id']]['face']|default='default.jpg'}>" />
+						</span>	
+					<span class="user-name pull-left"><{$users[$item['user_id']]['nickname']}></span>	
+				</div>	
+				<div class="qiushi-content-text">	
+					<p class="title"><a href="<{:U('tieba/detail',array('post_id'=>$item['post_id']))}>"><{$item['title']}></a></p>	
+				</div>	
+				<php>
+					$pic = getImgs($item['details']);
+					$i = 0;
+				</php>
+				<if condition="$pic neq ''">
+				<foreach name="pic"  item="var"> 
+				<php>$i++;</php>
+				<if condition="$i lt 2">
+				<div class="qiushi-content-img">	
+					<a href="<{:U('tieba/detail',array('post_id'=>$item['post_id']))}>">
+					<img src="<{$var}>" />	
+					</a>
+				</div>	
+				</if>
+				</foreach>
+				<else />
+				<div class="qiushi-content-text">	
+					<p class="text"><{:msubstr(strip_tags($item['details']),0,100)}></p>	
+				</div>	
+				</if>
+				
+				
+				
+
+				<div class="status-box">	
+						<span class="agree">	
+							<span class="agree-count"><{$item['zan_num']}></span>	
+							顶&nbsp;·	
+						</span>	
+						<span class=" comment">	
+							<span class=" comment-count"><{$item.reply_num}></span>	
+							评论	
+						</span>	
+				</div>	
+				<div class="btns-group clearfix">	
+					<a class="icon icon-agree pull-left" href="<{:U('tieba/zan',array('post_id'=>$item['post_id']))}>"></a>		
+					<a class="icon icon-comment pull-left" href="<{:U('tieba/detail',array('post_id'=>$item['post_id']))}>#comment"></a>	
+					<a class="icon icon-share pull-right" href="<{:U('tieba/detail',array('post_id'=>$item['post_id']))}>"></a>	
+				</div>	
+			</div>
+			</volist>
+		
+		
+		</div>
+	</div>
+	
+<script type="text/javascript">
+
+</script>
+<include  file='public:foot'/>   

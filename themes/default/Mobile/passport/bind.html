@@ -1,0 +1,25 @@
+<include  file='public:header'/>  
+<body style="overflow-x:hidden;">
+<iframe id="baocms_frm" name="baocms_frm" style="display:none;"></iframe>
+	<header>
+            <a href="<{:U('mcenter/index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">绑定账号</div>
+	</header>
+    <div class="page" style="font-size:0.14rem;">
+        <a href="<{:U('passport/bind')}>" class="ui-btn-active">已有账号绑定</a>
+        <a href="<{:U('passport/register')}>" >没有帐号注册</a>
+    </div>
+    <div id="login" class="page-center-box">
+    	<form action="<{:U('passport/login')}>" method="post" target="baocms_frm">
+            <div id="scroll">
+                <div id="login-input">
+                    <input type="text" name="account" placeholder="用户名" />
+                    <input type="password" name="password" placeholder="密码" />
+                </div>
+                <input type="submit" class="submit" value="立刻绑定" />
+                <div class="forget-out"><a href="javascript:void(0);">没有帐号？</a><a href="<{:U('passport/register')}>">立即注册</a></div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

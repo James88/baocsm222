@@ -1,0 +1,21 @@
+<foreach name="list" item="var">
+<!-- Ñ­»· -->
+    <div class="guest-box">
+        <div class="icon" style="background:url(__ROOT__/attachs/<{$users[$var['user_id']]['face']|default='default.jpg'}>);"></div>
+        <div class="guest-box-content">
+            <p><{$users[$var['user_id']]['nickname']}><span><{$var.show_date}></span></p>
+            <div class="point-star"><div style="width: 0.8rem;"></div></div>
+            <p class="c_h"><{$var.contents}></p>
+            <p class="img">
+                
+                <volist name="pics" id="pic" key="index">
+                    <eq name="pic.dianping_id" value="$var['dianping_id']">
+                    <img src="__ROOT__/attachs/<{$pic.pic|default='default.jpg'}>">
+                    </eq>
+                </volist>
+                
+            </p>
+        </div>
+    </div>
+<!-- Ñ­»· -->
+</foreach>

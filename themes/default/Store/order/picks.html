@@ -1,0 +1,51 @@
+<include file="public:header"/>
+<header>
+    <div class="headerTop">
+        <div class="headerTop_back"><a href="javascript:history.go(-1);"></a></div>
+        <div class="headerTop_t">捡货单列表</div>
+    </div> 
+</header>
+<section class="fixed_pad">
+    <div class="sygg">
+        <div class="sygg_closs">&nbsp;</div>
+        捡货单是你怎么捡货的，要在捡货单列表打印配货单 进行配送！然后配送完成后 要定时将已经完成的配送的订单ID 整理 给平台！平台将订单完成，资金就会进入商家的流水！有在线付款，那么将不产生结算金额记录！  
+    </div>
+    <form method="post" action="<{:U('Order/picks')}>">
+        <script src="__PUBLIC__/js/my97/WdatePicker.js"></script>
+        <div class="FundR_ser">
+            <div class="left FundR_ser_l"><input class="FundR_time start_time" type="text" name="bg_date" placeholder="开始时间"  value="<{$bg_date}>" onFocus="WdatePicker({startDate: '%y-%M-01', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"  class="inputData" />-<input class="FundR_time end_time" type="text" name="end_date" placeholder="结束时间"  value="<{$end_date}>" onFocus="WdatePicker({startDate: '%y-%M-01', dateFmt: 'yyyy-MM-dd', alwaysUseStartDate: true});"  class="inputData" /></div>
+            <div class="right FundR_ser_r">
+                <div class="FundR_sjserBox">
+                    <input class="FundR_time FundR_sjser" type="text"  name="keyword" value="<{$keyword}>"/>
+                    <input type="submit" class="FundR_serAn" value="搜索"/>
+                </div>
+            </div>
+    </form>
+</div>
+<foreach name="list" item="item">
+
+    <div class="jobList jiazhengList on">
+        <ul>
+            <li class="jobLi">
+                <table  class="jobTable"width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+
+                        <td class="jobNr_td">
+                            <div class="jobNr">
+                                <p class="left jobNr_p">订单ID:<{$item.pick_id}></p>
+                            </div>
+                            <div class="jobNr">
+                                <p class="jobNr_span mall_span">名称:</span><{$item.name}></p></div>
+                            <div class="jobNr">
+                                <p class="jobNr_span mall_span">创建时间:<{$item['create_time']|date="Y-m-d ",###}></p></div>
+                            <div class="jobNr">
+                                <a  class="jobNr_span mall_span" href="<{:U('order/pickdetail',array('pick_id'=>$item['pick_id']))}>">打印捡货单</a>
+                                <a  class="jobNr_span mall_span"  href="<{:U('order/send',array('pick_id'=>$item['pick_id']))}>">打印配送单</a></div>
+                            </if></div> 
+                        </td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
+</foreach>

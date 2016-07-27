@@ -1,0 +1,30 @@
+		<foreach  name="list" item="var">
+
+			<div class="list-box">
+					<a href="<{:U('market/detail',array('market_id'=>$var['market_id']))}>"><div class="list-img">
+						<img  src="__ROOT__/attachs/<{$var.photo}>">
+					</div>
+					<div class="list-content">
+						<p class="overflow_clear"><{:bao_msubstr($var['market_name'],0,6)}></p>
+						<p class="c_h">
+						标签：
+						<php>
+                    		$tags = $var['tags'];
+                    		$tagsarray = array();
+                    		if(!empty($tags)){
+                    			$tagsarray = explode(',',$tags);
+                    		}
+                		</php>
+                		<if condition="$tagsarray eq null">
+                			<a href="javascript:void(0);">暂无标签</a> 
+                		<else/>
+                			<volist name='tagsarray' id='item' key='index'>
+                        		<a  href='<{:U("market/index",array("keyword"=>$item))}>'><span class="city_stores_bq"><{$item}></span></a>
+                    		</volist>
+                    	</if>
+						</p>
+						<p class="c_h"><{$var.addr}>&nbsp;&nbsp;<{$var.d}></p>
+					</div></a>
+				</div>
+		</foreach>
+			

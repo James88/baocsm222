@@ -1,0 +1,129 @@
+<include  file='public:header'/>
+<header> 
+	<i class="left"><a href="<{:U('store/index/index')}>" id="icon_goback"></a></i>
+    <div class="title">外卖订单管理</div>
+    <i class="right" style="right:0.35rem;"><i id="ico_1" class="icon-menu"></i></i>
+</header>
+<script>
+		$(function(){
+			$("header #ico_1").click(function(){
+				$(".header_pull_box").toggle();
+			});
+		});
+    </script>
+    <div class="header_pull_box" style="display:none;">
+    	<em></em>
+        <div class="header_pull_list">
+            <ul>
+            	<li><a href="<{:U('ele/elecate')}>">分类管理</a></li>
+                <li><a href="<{:U('ele/index')}>">菜单管理</a></li>
+                <li><a href="<{:U('ele/eleorder')}>">订单管理</a></li>
+            </ul>
+        </div>
+    </div>
+<section>
+	<div class="sh_search_box">
+        <script>
+			$(function(){
+				$(".sh_search_more_int .center").click(function(){
+						$(this).find(".sh_search_more_pull").toggle();
+				});
+				$(".sh_search_more_pull li").click(function(){
+						$(".sh_search_more_int .center input").val($(this).html());
+				});
+			});
+		</script>
+        <form method="post" action="<{:U('ele/eleorder')}>">
+        <div class="sh_search_more">
+            <div class="sh_search_more_time mb10">
+                <div class="fl left"><input type="text" name="bg_date" value="<{$bg_date|default=''}>" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'});"" placeholder="开始时间" onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }"></div>
+                <div class="fr right"><input type="text" name="end_date" value="<{$end_date|default=''}>" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'});" placeholder="结束时间" onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="sh_search_more_int">
+                <div class="fl left"><input type="text"" placeholder="订单编号" name="keyword" value="<{$keyword}>" onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }"></div>
+                <div class="fl center">
+                	<input type="text" value="状态"> <input value="" name="st" id="st" type="hidden" />
+                    <div class="sh_search_more_pull" style="display:none;">
+                        <ul>
+                            <li v="1">等待发货</li>
+                            <li v="8">已完成</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fr right"><input class="btn" type="submit" value="搜索"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        </form>
+    </div>
+    
+
+    <div class="sh_infor_tab mb10">
+        <ul>
+            <li <eq name="status" value="1">class="on"</eq>><a href="<{:U('ele/eleorder',array('status'=>1))}>" >确认订单</a></li>
+            <li <eq name="status" value="2">class="on"</eq>><a href="<{:U('ele/eleorder',array('status'=>2))}>">配送订单</a></li>
+            <li <eq name="status" value="8">class="on"</eq>><a href="<{:U('ele/eleorder',array('status'=>8))}>">已完成订单</a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="sh_infor_tab_box" style="display:;">
+    	<div class="sh_buy_fabu">
+            <div class="sh_list_public_box">
+                <ul>
+                <php>
+                $eop = D('EleOrderProduct');
+                $ep = D('EleProduct');
+                </php>
+                
+                <foreach name="list" item="var">
+                    <li class="list_box mb10">
+                        <div>
+                            <div class="sh_buy_bt">
+                                <div class="fl sh_buy_bt_order_num">ID:<{$var.order_id}></div>
+                                <div class="fr sh_buy_bt_state">
+                                	<eq name="var.status" value="1">等待发货<a class="btn" href="<{:U('ele/status',array('o'=>$var['order_id'],'s'=>2))}>" style="background:#2fbdaa;border:0 none;border-radius:0.03rem;color:#fff;font-size: 0.14rem;line-height: 0.32rem;padding: 0 0.12rem;">确定配送</a></eq>
+                                    <eq name="var.status" value="2">配送中<a class="btn" href="<{:U('ele/status',array('o'=>$var['order_id'],'s'=>8))}>" style="background:#2fbdaa;border:0 none;border-radius:0.03rem;color:#fff;font-size: 0.14rem;line-height: 0.32rem;padding: 0 0.12rem;">一键发货</a></eq>
+                                    <eq name="var.status" value="8">已完成</eq>
+                                </div>
+                            </div>
+                            <div class="sh_waimai_order_nr">
+                                <div class="wz">
+                                	<ul>
+                                    <php>
+                                        $reop = $eop -> where('order_id ='.$var['order_id']) -> select();
+                                    </php>
+                                    
+                                    	<volist name="reop" id="r">
+                                        <php>
+                                        	$p = $ep -> where('product_id ='.$r['product_id']) -> find();
+                                        </php>
+                                    	<li><div class="fl left overflow_clear"><{$p.product_name}></div><div class="fr">x<{$r.num}><span class="ml10 main_color">￥<{:round($p['price']/100,2)}></span></div>
+                                    	<div class="clear"></div>
+                                        </li>
+                                        </volist>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sh_waimai_order_price">
+                            	<div class="fl">总价（含送餐费）：￥<{:round($var['total_price']/100,2)}></div>
+                                <div class="fr">结算价格：￥<{:round($var['settlement_price']/100,2)}></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="sh_waimai_order_price">
+                            	<div><{$addrs[$var['addr_id']]['name']}> <{$addrs[$var['addr_id']]['mobile']}></div>
+                            </div>
+                            <div class="sh_buy_date" style="border-bottom:none 0px;">下单时间：<{$var.create_time|date='Y-m-d H:i:s',###}></div>
+                        </div>
+                    </li>
+                 </foreach>   
+              
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jobNr_span"><{$page}></span>
+   
+</section>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<include file="public:header"/>
+
+<header>
+	<i class="left"><a href="<{:U('store/index/index')}>" id="icon_goback"></a></i>
+    <div class="title">抢购管理</div>
+    <i class="right"><a href="#">+发布抢购</a></i>
+</header>
+
+<script>
+	$(function(){
+		$(".sh_search_more_int .center").click(function(){
+				$(this).find(".sh_search_more_pull").toggle();
+		});
+		$(".sh_search_more_pull li").click(function(){
+				$(".sh_search_more_int .center input").val($(this).html());
+				v = $(this).attr('v');
+				$('#st').val(v);
+		});
+	});
+</script>
+
+<section>
+<div class="sh_prompt_infor_box">
+    	<p>每个里面输入一个！到店付的也就是没有在平台付钱，商家自行收取消费</p>
+        <div class="sh_prompt_infor_closs"></div>
+    </div>
+
+	<div class="sh_buy_tab mb10">
+	    <ul>
+	        <li><a href="<{:U('tuan/index')}>">正在抢购</a></li>
+            <li><a href="<{:U('tuan/history')}>">往期抢购</a></li>
+            <li><a href="<{:U('tuan/order')}>">订单管理</a></li>
+            <li class="on"><a href="<{:U('tuan/used')}>">抢购券管理</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+    
+    <form method="post" action="<{:U('tuan/used')}>">
+    <div class="sh_buy_tab_box">
+    	<div class="sh_buy_content">
+        	<div class="sh_buy_add_btn"><input class="btn" type="button" id="add" value="新增+"></div>
+            <div class="sh_list_public_box" id="jq_code">
+                <ul>
+                    <li class="list_box mb10 tuaned_int" style="border-top:1px solid #dedede;">
+                        <div class="sh_buy_add_int">
+                        	<input name="code[1]" class="text" type="text" value="">
+                            <input class="sh_buy_add_int_del" type="button" value="移除">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="sh_login_nr"><input class="btn mt30" type="submit" value="确认消费"></div>
+        </div>
+    </div>
+    </form>
+    	
+    
+</section>
+
+
+<script>
+var code_num = 1;
+$(document).ready(function (e) {
+	$(document).on('click', '.sh_buy_add_int_del', function () {
+		$(this).parents(".tuaned_int").remove();
+	});
+	$("#add").click(function () {
+		code_num++;
+		var str = '<li class="list_box mb10 tuaned_int" style="border-top:1px solid #dedede;"><div class="sh_buy_add_int">';
+		str += '<input name="code[' + code_num + ']" class="text" type="text" value="" />';
+		str += '<input class="sh_buy_add_int_del" type="button" value="移除"></div></li>';
+		$("#jq_code ul").append(str);
+	});
+	$('#submit').click(function () {
+		$('form').submit()
+	});
+});
+</script>
+
+</body>
+</html>

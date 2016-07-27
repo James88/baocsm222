@@ -1,0 +1,54 @@
+<include  file='public:header'/>
+
+<body>
+<header> 
+	<i class="left"><a href="<{:U('award/index')}>" id="icon_goback"></a></i>
+    <div class="title">剩余奖品</div></i> 
+</header>
+<script>
+$(function(){
+	$("header #ico_1").click(function(){
+		$(".sh_menu_pull_box").toggle();	
+	});
+});
+</script>
+
+<section>
+	<script>
+		$(function(){
+			$(".sh_prompt_infor_closs").click(function(){
+				$(".sh_prompt_infor_box").hide();
+			});
+		});
+    </script>
+    <div class="sh_coupon_tab_box">
+    	<div class="sh_list_public_box">
+            <ul>
+            	<foreach name="list" item="var">
+                        <li class="list_box mb10">
+                            <div>
+                                <div class="sh_buy_bt">
+                                    <div class="fl">奖项规格：<{$var.award_name}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">奖品名称：<{$var.goods_name}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">中奖概率：万分之<{$var.prob}></div>
+                                </div>
+                                <div class="sh_coupon_nr">
+                                    <div class="wz">数量：<{$var.num}></div>
+                                </div>
+                                 <div class="sh_coupon_nr">
+                                    <div class="wz">剩余：<{$var.surplus}></div>
+                                </div>
+                            </div>
+                        </li>
+                    </foreach>
+            </ul>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+

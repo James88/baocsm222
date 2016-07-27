@@ -1,0 +1,23 @@
+<include  file='public:header'/>   
+<body>
+    <header>
+        <div>
+            <a class="back" href="javascript:window.history.go(-1);"><img  src="__TMPL__statics/img/back.png"></a>
+            通知详情
+        </div>
+    </header>
+    <section class="container">
+        <form method="post"  action="<{:U('communitynews/edit',array('news_id'=>$detail['news_id']))}>" >
+        <div class="news_des">
+            <h1><input type="text" name="data[title]" value="<{$detail.title}>" placeholder="请添加标题"></h1>
+            <p><input type="text" name="data[intro]" value="<{$detail.intro}>" placeholder="请输入简介"></p>
+            <div class="time">发布时间：<{$detail.create_time|date='Y-m-d H:i:s',###}></div>
+            <div class="news_con"><textarea placeholder="请输入通知内容" name="data[details]"  row="5" ><{$detail.details}></textarea></div>
+            <div><input class="btn" type="submit" value="保存"></div>
+        </div>
+         </form>
+    </section>
+
+</body>
+</html>
+

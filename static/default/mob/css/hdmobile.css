@@ -1,0 +1,33 @@
+/* 分类滑动 */
+#wrapper{position: relative;z-index: 1;height:40px;width: 90%;overflow: hidden;-ms-touch-action: none;}
+#scroller{position: absolute;z-index: 1;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);width: 200%;-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);-o-transform: translateZ(0);transform: translateZ(0);-webkit-touch-callout: none;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;-webkit-text-size-adjust: none;-moz-text-size-adjust: none;-ms-text-size-adjust: none;-o-text-size-adjust: none;text-size-adjust: none;}
+#scroller ul{list-style: none;padding: 0;margin: 0;display: -webkit-box;display: -webkit-flex;display: flex;}
+#scroller li{width: 10%;line-height:40px;overflow: hidden;text-align: center;}
+.nav_active{color: #6ab494 !important;}
+nav{width: 100%;display: -webkit-box;display: -webkit-flex;display: flex;background-color: #F6F6F6;box-shadow:0px 0px 1px rgba(0,0,0,0.85)}
+.arrow_down{display: block;padding: 10px;}
+	
+	
+	
+/* 分栏标题 */	
+.guesstitle {height: 40px;line-height: 40px;padding-left: 10px;vertical-align: top; font-size: 12px;color: #999;}		
+.guesstitle img {height: 15px;padding-top: 12px; padding-left: 10px;}
+
+
+/* 活动内容 */	
+.hd-detail .detail-pic{width:100%;max-height:250px;}
+.hd-detail .detail-pic img{width:100%;max-height:250px;}
+.hd-detail .detail-ctrl{background:#FFF;border-bottom:thin solid #DDD;height:60px;padding:10px;overflow:hidden;line-height:40px;}
+.hd-detail .detail-ctrl span{float:left;font-size:14px;}
+.hd-detail .detail-ctrl em{color:#F60;font-size:16px;}
+.hd-detail .detail-ctrl .btn-sign {background: #6ab494; color: #fff; height:30px; line-height:30px; border-radius: 3px;padding:0 20px;margin-top:5px;}
+.hd-detail .detail-ctrl .btn-signed {background: #EEE; color: #fff; height:30px; line-height:30px; border-radius: 3px;padding:0 20px;margin-top:5px;}
+.hd-detail .detail-info {background:#FFF;}
+.hd-detail .detail-info h1{height:40px;line-height:40px;font-size:14px;border-bottom:thin solid #DDD;padding:0 10px;}
+.hd-detail .detail-info p{height:40px;line-height:40px;border-bottom:thin dashed #DDD;padding:0 10px;}
+.hd-detail .detail-info p:last-child{border:none!important;}
+.hd-detail .detail-con{background:#FFF;margin-top:10px;}
+.hd-detail .detail-con .con-hd{height:40px;line-height:40px;padding:0 10px;border-bottom:thin solid #DDD;font-size:14px;font-weight:bold;}
+.hd-detail .detail-con .con-bd{font-size:13px!important;padding:10px;}
+.hd-detail .detail-con .con-bd *{font-size:13px!important;line-height:22px;}
+.hd-detail .detail-con .con-bd img{max-width:100%;}

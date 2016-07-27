@@ -1,0 +1,48 @@
+<include file="public:header" /> 
+<include file="public:top"/>
+<include file="public:nav2"/>
+<script>
+    $(document).ready(function () {
+        $('.zy_doorSer_flexslider').flexslider({
+            directionNav: true,
+            pauseOnAction: false
+        });
+    });//上门服务首页轮播
+</script>
+<div class="pagewd zy_doorSer">
+    <div class="zy_doorSer_banner mt10">
+        <div class="left">
+            <div class="zy_doorSer_flexslider">
+                <ul class="slides">
+                    <calldata mdl="Ad" where=" closed=0 AND site_id=4 AND city_id IN ({$city_ids}) and bg_date ELT '{$today}' AND end_date EGT '{$today}' " limit="0,3" cache="7200" order="orderby asc">
+                        <li><a target="_blank" href="<{$item.link_url}>"><img src="__ROOT__/attachs/<{$item.photo}>" width="960" height="360" /></a></li>
+                    </calldata>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="img"><img src="__TMPL__statics/images/qrcode.png" width="156" height="156" /></div>
+            <p>扫一扫，下载APP</p>
+            <img src="__TMPL__statics/images/doorSer_wz.png" width="142" height="23" />
+        </div>
+        <div class="clear"></div>
+    </div>
+    <h2 class="mt10">上门家政</h2>
+    <div class="sy_doorSer_list">
+        <ul>
+            <php>$a =1;</php>
+            <foreach name="list" item="item">
+                <li>
+                    <a href="<{:U('lifeservice/detail',array('id'=>$a))}>">
+                        <i class="ico_<{$a}>"></i>
+                        <h3><{$item.t}></h3>
+                        <p><if condition="empty($item['title'])">暂无简介<else/><{:bao_msubstr($item['title'],0,16,true)}></if></p>
+                    </a>
+                    <div class="btn_box"><a href="<{:U('lifeservice/detail',array('id'=>$a))}>">立即预约</a></div>
+                </li>
+                <php>$a++;</php>
+            </foreach>
+        </ul>
+    </div>
+</div>
+<include file="public:footer" /> 

@@ -1,0 +1,108 @@
+<include  file='public:header'/>
+
+<body>
+	<header>
+		<a href="<{:U('index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">生活信息</div>
+	</header>
+	<!-- 筛选TAB -->
+    <script>
+		$(function(){
+			$("#search-bar li").each(function(e){
+				$(this).click(function(){
+					if($(this).hasClass("on")){
+						$(this).parent().find("li").removeClass("on");
+						$(this).removeClass("on");
+						$(".serch-bar-mask").hide();
+					}
+					else{
+						$(this).parent().find("li").removeClass("on");
+						$(this).addClass("on");
+						$(".serch-bar-mask").show();
+					}
+					$(".serch-bar-mask .serch-bar-mask-list").each(function(i){
+						
+						if(e==i){
+							$(this).parent().find(".serch-bar-mask-list").hide();
+							$(this).show();
+						}
+						else{
+							$(this).hide();
+						}
+						$(this).find("li").click(function(){
+							$(this).parent().find("li").removeClass("on");
+							$(this).addClass("on");
+						});
+					});
+				});
+			});
+		});
+    </script>
+ 	<div id="life_infor_index" class="page-center-box">
+		<div id="scroll">
+				<!--
+				<div class="search_box">
+			    	<form id="form1" name="form1" method="post" action="">
+			    	<div class="search_div">
+			        	<div id="sd_left">
+			                <div id="input">
+			                	<input name="" type="text" placeholder="输入信息" />
+			                </div>
+			                <div class="clear"></div>
+			            </div>
+			            <div id="sd_right">
+			            	  <input type="submit" name="button" id="button" value="搜索" />
+			            </div>
+			            <div class="clear"></div>
+			        </div>
+			        </form>
+	    		</div>-->
+			<script>
+				$(function(){
+					$("#life_infor_index ul li.more").click(function(){
+						$(this).parent().children().find(".more-content").toggle();
+						if($(this).hasClass("on")){
+							$(this).removeClass("on");
+							$(this).children().find("span").html("展开更多");
+						}
+						else{
+							$(this).addClass("on");
+							$(this).children().find("span").html("收起");
+						}
+					});
+				});
+			</script>
+            <php>$ii = 0;</php>
+			<volist name="list" id="arr">
+            <php>$ii++;</php>
+            <ul>
+				<li class="cate_name">
+					<a href="<{:U('life/channel',array('channel'=>$key))}>">
+					<img src="__TMPL__statics/img/life_infor_index<{$ii}>.png" /><span><{$arr['channel']}></span>
+					</a>
+				</li>
+				<li>
+					<php>$on=false;</php>
+					<volist name="arr['cate']" id="cate">
+						<if condition="$key lt 10">
+						<a href="<{:U('life/lists',array('cat'=>$cate['cate_id']))}>"><{$cate.cate_name}></a>
+						<else/>
+							<if condition="!$on">
+								<span class="more-content" style="display:none;">
+								<php>$on=true;</php>
+							</if>
+							<a href="<{:U('life/lists',array('cat'=>$cate['cate_id']))}>"><{$cate.cate_name}></a>
+							<if condition="count($arr['cate']) eq $key+1">
+								</span>
+							</if>
+						</if>
+					</volist>
+		 		</li>
+		 		<if condition="$key gt 10">
+		 		<li class="more"><a href="#"><span>展开更多</span><img src="__TMPL__statics/img/arrow_down.png"></a></li>
+		 		</if>
+			</ul>
+			</volist>
+		</div>
+	</div>
+<include file="public:footer"/>

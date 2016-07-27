@@ -1,0 +1,49 @@
+<include  file='public:header'/>  
+
+<body>
+	<header>
+		<a href="<{:U('mobile/index/index')}>"><i class="icon-goback"></i></a>
+		<div class="title">城市切换</div>
+		<i class="icon-menu"></i>
+	</header>
+	<div class="page-center-box">
+		<div id="scroll">
+        	
+            <div class="city_container">
+                <div class="current_city">当前城市：<a href=""><a href="<{:U('index/index')}>"><{$city_name}></a></a></div>
+                <div class="city_list_hot">
+                    <div class="city_list_T">国内热门城市</div>
+                    <ul class="hot_city">
+                         
+                          <volist name="citys" id="item" offset="0" length='6'>
+                          	<if condition="$key%3 eq 0">
+                           	<li class="city_m0"> 
+                            <else/>
+                            <li>
+                            </if>
+                            <a href="/mobile/<{$item.pinyin}>"><{$item.name}></a></li>
+                         </volist>       
+                    </ul>
+                </div>
+                <div class="city_list_all">
+                
+                	<foreach name="citylists" item="item">
+                        <div class="item_list_all">
+                            <div class="city_list_T city_letter"><{$key}></div>
+                            <ul class="city_list_con">
+                                 <volist name="item" id="var" key="i">
+                                    <li class="city_list_first" ><a href="<{:U('city/change',array('city_id'=>$var['city_id']))}>"><{$var.name}></a></li>
+                                </volist>
+                            </ul>
+                        </div>
+                   </foreach>
+                    
+                 </div>
+            </div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+

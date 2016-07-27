@@ -1,0 +1,20 @@
+        
+    <foreach  name="list" item="var">
+        <li>
+            <div class="li_left"><img src="__ROOT__/attachs/<{$var.logo}>" width="90" height="90" /></div>
+            <div class="li_right fl">
+            	<p class="mt15"><em class="fl overflow_clear ob15"><{$var.shop_name}></em><span class="fr"><{$var.d}></span></p>
+                <p class="mb15 overflow_clear fl"><{$var.addr}></p>
+                <div class="li_add fr">
+                    <?php if(isset($guanzhu[$var['shop_id']])){?>
+                    <span class="add_btn fr" style=" border-color: #cccccc; color: #cccccc;  ">已关注</span>
+                    <?php }else{?>
+                    <a href="<{:U('favorites/add',array('shop_id'=>$var['shop_id']))}>"><span class="add_btn">关注商家</span></a>
+                    <?php }?>              
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+        </li>
+          <div class="clear"></div>
+    </foreach>

@@ -1,0 +1,21 @@
+<include file="public:header"/>
+
+<body id="micro_shop">
+<header> 
+	<a href="<{:U('mobile/index/index')}>"><i class="icon-goback"></i></a>
+    <div class="title">微店列表</div>
+    <i class="icon-menu" id="ico_1"></i> </header>
+<div id="seat" class="page-center-box">
+    <div id="scroll">
+   		<div class="list-have-pic">
+
+        </div>
+        <script>
+            $(document).ready(function () {
+                loaddata('<{$nextpage}>', $(".list-have-pic"), true);
+            });
+        </script>
+    </section>
+    </div>
+</div>
+<include file="public:footer"/>

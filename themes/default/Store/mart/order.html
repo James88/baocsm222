@@ -1,0 +1,110 @@
+<include  file='public:header'/>
+	<header> 
+        <i class="left"><a href="<{:U('store/index/index')}>" id="icon_goback"></a></i>
+        <div class="title">微店产品</div>
+        <i class="right"><a class="sh_waimai_cate_add" href="<{:U('store/mart/goodscate')}>">+分类管理</a></i>
+    </header>
+<section>
+
+    
+	<div class="sh_search_box">
+
+        
+        <script>
+			$(function(){
+				$(".sh_search_more_int .center").click(function(){
+						$(this).find(".sh_search_more_pull").toggle();
+				});
+				$(".sh_search_more_pull li").click(function(){
+						$(".sh_search_more_int .center input").val($(this).html());
+                        v = $(this).attr('v');
+                        $('#st').val(v);
+				});
+			});
+		</script>
+        <form method="post" action="<{:U('mart/order')}>">
+        <div class="sh_search_more">
+            <div class="sh_search_more_time mb10">
+                <div class="fl left"><input type="text" placeholder="开始时间" onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }" name="bg_date" value="<{$bg_date|default=''}>" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'});"></div>
+                <div class="fr right"><input type="text" placeholder="结束时间"  onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000' }" name="end_date" value="<{$end_date|default=''}>" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'});"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="sh_search_more_int">
+                <div class="fl left"><input type="text" placeholder="订单编号" name="keyword" value="<{$keyword}>"  onBlur="if (!value) { value = defaultValue; this.style.color = '#999' }" onClick="if (value == defaultValue) { value = ''; this.style.color = '#000'}" ></div>
+                <div class="fl center">
+                	<input type="text" value="状态"> <input value="" name="st" id="st" type="hidden" />
+                    <div class="sh_search_more_pull" style="display:none;">
+                        <ul>
+                            <li v="0">等待付款</li>
+                            <li v="8">已完成</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fr right"><input class="btn" type="submit" value="搜索"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        </form>
+    </div>    
+   
+   
+   <div class="sh_micro_tab mb10">
+	    <ul>
+	        <li><a href="<{:U('mart/index')}>">商城商品</a></li>
+            <li class="on"><a href="<{:U('mart/order')}>">卖出商品</a></li>
+            <li><a href="<{:U('mart/wait')}>">付款订单</a></li>
+            <li><a href="<{:U('mart/wait2')}>">货到付款</a></li>
+            <div class="clear"></div>
+        </ul>
+	</div>
+    
+    <style type="text/css">
+    	.sh_micro_tab li{width:25%;}
+    </style>
+
+    <div class="sh_micro_tab_box">
+    	<div class="sh_list_public_box">
+            <ul>
+            
+            
+            <foreach name="list" item="var">
+                <li class="list_box mb10">
+                    <div>
+                    	<div class="sh_micro_bt">
+                            <div class="fl sh_micro_num">ID:<{$var.id}>  订单编号:<{$var.order_id}></div>
+                            <div class="fr sh_micro_state">
+                            <if condition="$orders[$var['order_id']]['status'] eq 0 AND $orders[$var['order_id']]['is_daofu'] eq 0">
+                                等待付款
+                                <else/>
+                                <eq name="var.is_daofu" value="1">
+                                货到付款 ---
+                                </eq>
+                                <{$types[$var['status']]}>
+                            </if>
+                            </div>
+                        </div>
+                        <div class="sh_micro_nr">
+                        	<div class="img"><img src="__ROOT__/attachs/<{$goods[$var['goods_id']]['photo']}>" width="100" height="100"></div>
+                            <div class="wz">
+                            	<p class="black3"><{$goods[$var['goods_id']]['title']}></p>
+                                <p><span class="mr20">数量：<{$var.num}></span><span class="mr20">金额：￥<{:round($var['total_price']/100,2)}></span></p>
+                            </div>
+                        </div>
+                        <div class="sh_micro_date"><{$var.create_time|date='Y-m-d H:i:s',###}><span class="ml10"><{$var.create_ip}></span></div>
+                    </div>
+                </li>
+			</foreach>
+
+
+            </ul>
+        </div>
+    </div>
+
+	<div class="jobNr_span"><{$page}></span>
+
+   
+</section>
+
+
+</body>
+</html>

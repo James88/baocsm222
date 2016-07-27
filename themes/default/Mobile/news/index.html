@@ -1,0 +1,159 @@
+<include  file='public:head_niucms'/>
+
+        
+        
+<body>	
+
+	<!-- 头部 -->	
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+		<a href="<{:U('index/index')}>" class="mui-pull-left miui-block">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+		</a>
+		<h1 class="mui-title">新闻中心</h1>
+		
+		<a href="javascript:void(0);" id="share" class="mui-pull-right miui-block">
+			<button id="cate-btn"	class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-bars"></span>
+			</button>
+		</a>
+	</header>
+
+	<!-- 主体 -->
+	<div id="main">
+	
+		<div class="cate_menu_list" id="cate_menu">
+			<div class="cate_menu_list_ul">
+				<ul>
+					<foreach name="cates" item="item">
+					<eq name="item.parent_id" value="0">
+					<li class="cate_menu_list_li">
+						<a  href="<{:U('news/cate',array('cat'=>$item['cate_id']))}>"><{$item.cate_name}></a>
+					</li>  
+					</eq>
+					</foreach>
+				</ul>
+			</div>
+		</div>
+
+		
+	<script>
+		$(document).ready(function () {
+			$("#cate-btn").click(function () {
+				$("#cate_menu").toggle();
+			});
+			
+			$("#cate_menu ul li a").click(function () {
+				$("#cate_menu").toggle();
+			});
+
+		});
+
+	</script>
+		
+		
+		<!-- 幻灯 -->
+		<div id='slide' class='swipe'>	
+			<div class='swipe-wrap' id="banner-content">
+				<php>$i=0;</php>
+				<calldata mdl="Article" where="isroll = 1 AND photo != ''" limit="0,5" cache="43200" order="article_id desc">
+				<php>
+					$i++;
+					if($i==1){
+						$first = $item['title'];
+					}
+				</php>
+				<div onClick="" tapmode="" data-value="<{$item['title']}>">	
+					<a href="<{:U('news/detail',array('article_id'=>$item['article_id']))}>">
+						<img src="__ROOT__/attachs/<{$item['photo']}>" alt="<{$item['title']}>" />
+					</a>
+				</div>	
+				</calldata>
+			</div>	
+			
+		</div>	
+		<div class="banner-lable">	
+			<span id="banner-title"><{$first}></span>	
+			<div id="pointer">	
+				<a class="active"></a>	
+				<a class=""></a>	
+				<a class=""></a>	
+				<a class=""></a>	
+				<a class=""></a>	
+				<a class=""></a>	
+			</div>	
+		</div>	
+	
+		
+		<!-- 热门推荐 -->	
+		<div class="blank-10"></div>
+		<div class="sectionTitle">	
+			<div class="titleDivider"></div>	
+			<span>热门推荐</span>
+		</div>
+		<div class="row">	
+			<calldata mdl="Article" where="istop = 1 AND photo !=''" limit="0,6" cache="43200" order="article_id desc">
+			<a class="col" onClick="<{:U('news/detail',array('article_id'=>$item['article_id']))}>">	
+				<div class="listcoverbar">
+					<img src="__ROOT__/attachs/<{$item['photo']}>" class="listcover">	
+					<div class="listtitle"><{$item['title']}></div>	
+				</div>
+			</a>
+			</calldata>
+		</div>
+		
+		
+	<!-- 首页最新 -->	
+	<div class="blank-20"></div>
+		<div class="sectionTitle">	
+			<div class="titleDivider"></div>	
+			<span>最新发布</span>
+		</div>
+		<foreach name="list" item="var">
+		<a class="egret-flex-item" href="<{:U('news/detail',array('article_id'=>$var['article_id']))}>">	
+			<div class="egret-flex-item-logo">	
+				<img src="__ROOT__/attachs/<{$var['photo']|default='default.jpg'}>" />	
+			</div>	
+			<div class="egret-flex-item-shelf">	
+				<div class="egret-flex-item-shelf01"><{$var.title}></div>	
+				<div class="egret-flex-item-shelf02"><{:bao_Msubstr($var['details'],0,150)}></div>
+				<div class="egret-flex-item-shelf02">
+					<i class="iconfont">&#xe73c;</i> <{$var.views}>
+					<i class="iconfont">&#xe65e;</i> <{$var.create_time|date='Y-m-d',###}>
+				</div>	
+			</div>	
+			<div class="egret-flex-item-arrow">	
+				<img src="/static/default/mob/images/arrow.png" />	
+			</div>	
+		</a>	
+		</foreach>
+		
+	</div>
+
+
+<script type="text/javascript" src="/static/default/mob/js/swipe.js"></script>	
+<script type="text/javascript">	
+    function initSlide() {	
+        var $pointer = $api.byId('pointer');	
+        window.mySlide = Swipe(slide, {	
+            continuous: true,	
+            disableScroll: true,	
+            stopPropagation: true,	
+            callback: function (index, element) {	
+                var $actA = $api.dom($pointer, 'a.active');	
+                $api.removeCls($actA, 'active');	
+                $api.addCls($api.eq($pointer, index + 1), 'active');	
+                $api.html($api.byId('banner-title'), $api.attr(element, 'data-value'))	
+            },	
+            transitionEnd: function (index, element) {	
+            }	
+        });	
+    }	
+    initSlide();	
+	apiready = function(){}
+	
+	
+</script>
+
+<include file="public:foot_niucms"/>

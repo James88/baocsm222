@@ -1,0 +1,220 @@
+<php>$seo_title = $detail['title'];</php>
+<include  file='public:head'/>    
+<body>	
+
+	<!-- 头部 -->	
+	<header class="mui-bar mui-bar-nav mui-clearfix">
+		<a href="<{:U('tieba/index',array('cat'=>$detail['cate_id']))}>" class="mui-pull-left miui-block">
+			<button class="mui-btn mui-btn-link mui-btn-nav">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+		</a>
+		<h1 class="mui-title">查看帖子</h1>
+		
+	</header>
+
+	
+	<!-- 主体 -->
+	<div id="main">
+		<div class="blank-10"></div>
+		<iframe id="w-frame" name="w-frame" style="display:none;"></iframe>
+		<div class="content">	
+			<h3 class="tie-title"><{$detail.title}></h3>	
+			<div id="tie-detail" class="tie-detail">
+				<{$detail.details}>
+			</div>
+			<div class="tie-more">
+				<a id="show-all" rel="any" href="javascript:;">显示全部</a>
+			</div>
+			
+			<php>$pic = explode(',',$detail[pic]);</php>
+			<p class="tie-photo">
+				<foreach name="pic" item="item">
+				<if condition="$item neq ''">
+					<a href="javascript:;"><img src="/Attach/<{$item}>" /></a>
+				</if>
+				</foreach>
+			</p>
+			
+			<h4 style="font-size: 20px;margin-top:15px">热门跟帖</h4>	
+		</div>	
+		
+		
+		
+		<a name="comment"></a>
+		<ul class="commentbox-wrap">
+			<volist name="list" id="var">
+			<li>	
+				<p class="comment-author"><{$users[$var['user_id']]['nickname']}>：</p>	
+			
+				<p class="comment-content"><{$var.contents}></p>	
+			
+				<php>$pic = explode(',',$var[pic]);</php>
+				<p class="comment-photo">
+					<foreach name="pic" item="item">
+					<if condition="$item neq ''">
+						<a href="javascript:;"><img src="/Attach/<{$item}>" /></a>
+					</if>
+					</foreach>
+				</p>
+				
+				<div class="comment-oper">	
+					<a class="js-upvote">顶	
+						<span class="comment-vote">[248]</span>	
+					</a>	
+					<a class="js-reply"><{$var.create_time|date="Y-m-d",###}></a>	
+				</div>	
+			</li>
+			</volist>
+
+		</ul>	
+		
+
+	</div>
+	
+	
+	<style>
+		.footer{display:table;bottom:0;table-layout:fixed;position:fixed;background:rgba(255,255,255,0.98);box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.85);backface-visibility:hidden;width:100%;}
+
+		.col-one{overflow:hidden;height:50px;display:-webkit-box;display: -webkit-flex;display: flex;}
+		.col-one .btn {float:left;-webkit-box-flex:1; -webkit-flex:1; flex:1;position: relative;;}
+		.col-one .btn a{float:left;display:block;width:40px;height:30px;margin:5px;}
+		.col-one .btn a span{width:40px;height:40px;line-height:40px;background: #FFF;border: 1px solid #DDD;border-radius:20px;text-align:center;font-size:16px;}
+		
+		.col-one .box {float:left;height:40px;margin:5px;-webkit-box-flex:1; -webkit-flex:1; flex:1;position: relative;}
+		.col-one .box textarea{font-size:13px;line-height:20px;width:100%;}
+		.col-one .sub {float:right;margin:8px 5px;-webkit-box-flex:1; -webkit-flex:1; flex:1;position: relative;}
+
+		.col-two{display:none;margin:10px 5px;width:100%;overflow:hidden;overflow-x:auto;height:120px;}
+		.col-two .pic-brd{width:1000px;white-space:nowrap;height:110px;overflow:hidden;}
+		.col-two .pic-brd li{display:block;float:left;width:90px;height:100px;margin-right:10px;position:relative;}
+		.col-two .pic-brd img{width:90px;height:100px;}
+		.col-two .pic-brd  .last a{height:100px;width:90px;cursor:pointer;color:#888;background:#fafafa;position:relative;display:inline-block;*display:inline;*zoom:1;border:thin solid #DDD;font-size:12px;line-height:100px;text-align:center;}
+		.col-two .pic-brd  .last input{position:absolute;font-size:100px;right:0;top:0;opacity:0;filter:alpha(opacity=0);cursor:pointer;width:90px;height:100px;}
+		.col-two .pic-brd  .last a:hover{color:#666;background:#eee;border-color:#ccc;text-decoration: none}
+		
+		
+		
+	</style>
+	<div class="footer">
+		<form id="tie-reply" action="<{:U('tieba/reply',array('post_id'=>$detail['post_id']))}>" method="post" target="w-frame">	
+		<input type="hidden" id="photo" name="data[photo]" value="" />
+		<div class="col-one">
+			<div class="btn">
+				<a id="zan_btn" class="zan_btn" href="<{:U('tieba/zan',array('post_id'=>$detail['post_id']))}>"><span class="mui-icon mui-icon-starhalf"></span></a>
+				<a id="pic_btn" class="pic_btn" href="javascript:;"><span class="mui-icon mui-icon-image"></span></a>
+			</div>
+			<div class="box">
+				<textarea name="data[contents]" placeholder="文明上网，登陆发言"></textarea>
+			</div>
+			<div class="sub">
+				<button class="mui-btn"  type="submit">回复</button>
+			</div>
+		</div>
+		<script src="/Template/default/mobile/statics/js/ajaxfileupload.js"></script>
+		<div id="col-two" class="col-two">
+			<ul id="pic-brd" class="pic-brd">
+				<li id="last" class="last">
+					<a href="javascript:;" class="a-upload">
+						<input type="file" id="fileToUpload" name="fileToUpload" data-role="none" value=""/>
+						选择图片
+					</a> 
+				</li>
+			</ul>
+		</div>
+		</form>
+	</div>
+	
+	
+	
+	
+<script type="text/javascript">
+
+	function ajaxupload() {
+		var last = $("#last");
+		$.ajaxFileUpload({
+			url: '<{:U("public/upload",array("model"=>"tieba"))}>',
+			type: 'post',
+			fileElementId: 'fileToUpload',
+			dataType: 'text',
+			secureuri: false, //一般设置为false
+			success: function (data, status) {
+			
+			
+				var photo = $("#photo").val();
+				strs = data.split("<");
+				data = strs[0];
+				var str = "<li><img src=\"/Attach/" + data + "\"></li>";
+				var sec = cntest(data);
+				if(photo!="" && sec == true){
+					var nval = photo + "," + data;
+					$(str).insertBefore(last);
+				}else if(sec == true){
+					var nval = data;
+					$(str).insertBefore(last);
+				}
+				$("#photo").val(nval);
+				
+				$("#fileToUpload").unbind('change');
+				$("#fileToUpload").change(function () {
+					ajaxupload();
+				});
+				
+				
+			}
+		});
+	}
+	
+	
+	function cntest(text){
+	  var reg=/[\u4e00-\u9fa5]+/;
+	  if(reg.test(text)){
+		return false;
+	  }else{
+		return true;
+	  }
+	}
+	
+
+
+	$(document).ready(function(){
+	
+		$("#tie-detail").css("max-height","200px");
+
+		<php>$uid = $this->uid;</php>
+		<if condition="$uid neq ''">
+		$("#pic_btn").click(function(){
+			$("#col-two").toggle();
+		});
+		</if>
+	  
+		$("#fileToUpload").change(function () {
+			ajaxupload();
+		});
+		
+
+		$("#show-all").click(function(){
+			var rel = $(this).attr("rel");
+			if(rel == "any"){
+				$("#tie-detail").css("max-height","100%");
+				$("#show-all").attr("rel","all");
+				$("#show-all").html("隐藏部分");
+			}else{
+				$("#tie-detail").css("max-height","200px");
+				$("#show-all").attr("rel","any");
+				$("#show-all").html("显示全部");
+			}
+		});
+	  
+
+		
+		
+		
+		
+	});
+	
+
+	
+</script>
+</body>
+</html>

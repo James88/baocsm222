@@ -1,0 +1,16 @@
+<include  file='public:header'/>  
+<body>
+	<header>
+		<a href="<{:U('/mcenter/message')}>"><i class="icon-goback"></i></a>
+		<div class="title">消息详情</div>
+		<i class="icon-menu"></i>
+	</header>	
+	<div id="my-message" class="page-center-box">
+		<div id="scroll">
+			<div class="my-message-details">
+            	<h2><{$detail.title}></h2>
+                <p><{$detail.details}></p>
+            </div>
+		</div>
+	</div>
+<include  file='public:footer'/>  

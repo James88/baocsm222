@@ -1,0 +1,125 @@
+<include  file='public:header'/>       
+
+<header>
+	<i class="left" id="ico_1"></i>
+    <div class="title">商户中心</div>
+    <i class="right"></i>
+</header>
+<script>
+$(function(){
+	$("header #ico_1").click(function(){
+		$(".sh_menu_pull_box").toggle();	
+	});
+});
+</script>
+<div class="sh_menu_pull_box">
+    <ul>
+        <li><a href="<{:U('branch/index')}>">商家管理</a></li>
+        <li><a href="<{:U('tuan/index')}>">抢购优惠</a></li>
+        <li><a href="<{:U('mart/index')}>">微店</a></li>
+        <li><a href="<{:U('fans/index')}>">粉丝</a></li>
+        <li><a href="<{:U('ele/index')}>">外卖</a></li>
+        <li><a href="<{:U('life/index')}>">同城信息</a></li>
+    </ul>
+</div>
+<section>
+    <div class="sh_index_userdl">
+        <div class="fl left">欢迎您，<{$SHOP.shop_name}></div>
+        <div class="fr right"><a class="btn" href="<{:U('passport/logout')}>">退出</a></div>
+        <div class="clear"></div>
+    </div>
+    <div class="sh_index_shop">
+        <div class="img"><img src="__ROOT__/attachs/<{$SHOP.logo}>" width="100" height="100"></div>
+        <div class="nr">
+        	<p class="mb15"><span class="bt">店铺类型：</span><{$shopcates[$SHOP['cate_id']]['cate_name']}></p>
+            <p><span class="bt">店铺信誉：</span><span class="spxq_qgpstarBg"><span class="spxq_qgpstar spxq_qgpstar<{$SHOP.score}>">&nbsp;</span></span></p>
+        </div>
+    </div>
+    <div class="sh_index_state">
+        <ul>
+        
+             <if condition="!empty($MEMBER['mobile'])"><li class="on"><a href="javascript:void(0);"><span class="img i_1"></span><p>已认证</p></a></li><else/><li><a href="javascript:void(0);"><span class="img i_1"></span><p>去认证</p></a></li></if>
+            <if condition="!empty($MEMBER['email'])"><li class="on"><a href="javascript:void(0);"><span class="img i_2"></span><p>已认证</p></a></li><else/><li><a href="javascript:void(0);"><span class="img i_2"></span><p>去认证</p></a></li></if>
+            <li><a href="javascript:void(0);"><span class="img i_3"></span><p><{$MEMBER.gold}>去充值</p></a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="sh_index_list_box">
+        <ul>
+            <li><a href="<{:U('branch/index')}>">
+                <div class="img">
+                    <div class="img_border i_1"></div>
+                </div>
+                <p>商家管理</p>
+            </a></li>
+            <li><a href="<{:U('tuan/index')}>">
+                <div class="img">
+                    <div class="img_border i_2"></div>
+                </div>
+                <p>抢购优惠</p>
+            </a></li>
+            <li><a href="<{:U('mart/index')}>">
+                <div class="img">
+                    <div class="img_border i_3"></div>
+                </div>
+                <p>微店</p>
+            </a></li>
+            <li><a href="<{:U('fans/index')}>">
+                <div class="img">
+                    <div class="img_border i_4"></div>
+                </div>
+                <p>粉丝</p>
+            </a></li>
+            <li><a href="<{:U('ele/index')}>">
+                <div class="img">
+                    <div class="img_border i_5"></div>
+                </div>
+                <p>外卖</p>
+            </a></li>
+            <li><a href="<{:U('life/index')}>">
+                <div class="img">
+                    <div class="img_border i_6"></div>
+                </div>
+                <p>同城信息</p>
+            </a></li>
+            <li><a href="<{:U('Ding/index')}>">
+                <div class="img">
+                    <div class="img_border i_7"></div>
+                </div>
+                <p>订座</p>
+            </a></li>
+            <li><a href="<{:U('Dianping/index')}>">
+                <div class="img">
+                    <div class="img_border i_8"></div>
+                </div>
+                <p>评价管理</p>
+            </a></li>
+            <li><a href="<{:U('money/index')}>">
+                <div class="img">
+                    <div class="img_border i_9"></div>
+                </div>
+                <p>结算</p>
+            </a></li>
+            <li><a href="<{:U('award/index')}>">
+                <div class="img">
+                    <div class="img_border i_10"></div>
+                </div>
+                <p>营销管理</p>
+            </a></li>
+            <li><a href="<{:U('nearwork/index')}>">
+                <div class="img">
+                    <div class="img_border i_11"></div>
+                </div>
+                <p>人才招聘</p>
+            </a></li>
+            <li><a href="<{:U('housework/index')}>">
+                <div class="img">
+                    <div class="img_border i_12"></div>
+                </div>
+                <p>家政服务</p>
+            </a></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</section>
+<include file="public:footer"/>

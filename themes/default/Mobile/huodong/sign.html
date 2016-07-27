@@ -1,0 +1,38 @@
+<include  file='public:header'/> 
+<body>
+    <header>
+        <a href="<{:U('huodong/index')}>"><i class="icon-goback"></i></a>
+        <div class="title">活动报名</div>
+        <i class="icon-menu" id="ico_1"></i>
+    </header>
+    <form  action="<{:U('huodong/sign',array('activity_id'=>$detail['activity_id']))}>" target="baocms_frm" method="post">
+        <div class="page-center-box" id="login">
+            <div class="scroll">
+                <div class="idea-form">
+                    <ul>
+                        <li>联系人</li>
+                        <li><input type="text" name="data[name]" value=""  class="idea-text"/></li>
+                        <li>手机号</li>
+                        <li><input type="text" name="data[mobile]" value=""  class="idea-text"/></li>
+                        <li>总人数</li>
+                        <li>
+                            <select name="data[num]" class="idea-text">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <input name="" type="submit" class="submit" value="确认报名"/>
+            </div>
+        </div>
+    </form>
+<include file="public:footer"/>

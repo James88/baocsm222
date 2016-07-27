@@ -1,0 +1,175 @@
+<include  file='public:header'/>   
+
+<body>
+	<header>
+		<a href="/mcenter/member/index"><i class="icon-goback"></i></a>
+		<div class="title">账户信息</div>
+	</header>
+    <script>
+		$(function(){
+			$(".modify-list-box li.head").click(function(){
+				$(".serch-bar-mask").show();
+			});
+		});
+    </script>
+    <div class="serch-bar-mask" style="display:none;">
+        <div class="modify-head-upload">
+        	<div class="title">
+            	<div class="left">上传头像</div>
+            	<div class="right">关闭</div>
+                <div class="clear"></div>
+            </div>
+            <div class="upload">
+            	<label><input type="file"  id="fileToUpload" name="fileToUpload">从手机相册选择</label>
+                <span id="jq_imgs"></span>
+            </div>
+            
+            
+            <script type="text/javascript" src="/themes/default/Mobile/statics/js/ajaxfileupload.js"></script>
+                <script>
+					var i = 0;
+                    function ajaxupload() {
+						
+						if(i == 0){
+							$.ajaxFileUpload({
+								url: '<{:U("app/upload/upload",array("model"=>"face"))}>',
+								type: 'post',
+								fileElementId: 'fileToUpload',
+								dataType: 'text',
+								secureuri: false, //一般设置为false
+								success: function (data, status) {
+									var str = '<div class="list-img"><img width="100" height="100" src="__ROOT__/attachs/' + data + '">  <input type="hidden" name="photos[]" id="photos" value="' + data + '" />  <a href="javascript:void(0);" style="font-size:0.14rem;background:#00a104;color:#ffffff;padding:0.04rem 0.06rem;border-radius:0.05rem;">立即使用</a></div>';
+									$("#jq_imgs").append(str);
+									$("#fileToUpload").unbind('change');
+									$("#fileToUpload").change(function () {
+										ajaxupload();
+									});
+								}
+							});
+						}else{
+							alert('已上传!');
+						}
+                        i=i+1;
+                    }
+
+                    $(document).ready(function () {
+                        $("#fileToUpload").change(function () {
+                            ajaxupload();
+                        });
+                        $(document).on("click", "#jq_imgs a", function () {
+                            var avatar = ($('#photos').val());
+							$.post('<{:U("upload_face")}>',{avatar:avatar},function(result){
+								if(result.status='success'){
+									layer.msg(result.message,{icon:1});
+									setTimeout(function(){
+										location.reload(true);
+									},1000)
+								}else{
+									layer.msg(result.message,{icon:2});
+								}
+							},'json');
+                        });
+						$('.right').click(function(){
+							$('.serch-bar-mask').hide();
+						})
+
+                    });
+                </script>
+            
+        </div>
+    </div>
+    <div id="personal" class="page-center-box">
+        <div id="scroll">
+        	<div class="modify">
+           	    <div class="modify-list-box">
+           	        <ul>
+                            <li class="head">
+           	                <a href="javascript:void(0);"><div class="fl left">头像</div>
+                            <div class="fr right"><img src="__ROOT__/attachs/<{$res.face}>" width="36" height="36" /></div></a>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+           	               <div class="fl left">用户昵称</div>
+                            <div class="fr right"><{$res.nickname}></div>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+                            <a href="<{:U('mcenter/addrs/index')}>"><div class="fl left">地址</div>
+                            <div class="fr right"><{$addr_count}>个</div></a>
+                            <div class="clear"></div>
+                        </li>
+       	            </ul>
+           	    </div>
+                <div class="modify-list-box">
+           	        <ul>
+           	            <li>
+           	                <h3>账户设置</h3>
+                        </li>
+                        <li>
+                            <a <if condition="!empty($res['mobile'])">id="change_mobile"<else/>id="bind_mobile"</if> href="javascript:void(0);"><div class="fl left icon i-1">手机</div>
+                            <php>
+                            	$mobile = substr_replace($res['mobile'],'****',3,4);
+                            </php>
+                            <div class="fr right"><notempty name="res.mobile"><{$mobile}><else/>未绑定</notempty></div></a>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+           	              <div class="fl left icon i-2">微信</div>
+                            <?php if(!isset($bind['weixin'])){?>
+                            <div class="fr right"><a href="<{:U('mobile/passport/wxlogin')}>">未绑定</a></div>
+                            <?php }else{?>
+                                  <div class="fr right c_1"> 已绑定</div>
+                            <?php }?>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+           	                <div class="fl left icon i-3">QQ</div>
+                            <?php if(!isset($bind['qq'])){?>
+                            <div class="fr right"><a href="<{:U('mobile/passport/qqlogin')}>">未绑定</a></div>
+                            <?php }else{?>
+                                  <div class="fr right c_1"> 已绑定</div>
+                            <?php }?>
+                            <div class="clear"></div>
+                        </li>
+                        <li>
+           	                <div class="fl left icon i-4">微博</div>
+                            <?php if(!isset($bind['weibo'])){?>
+                            <div class="fr right"><a href="<{:U('mobile/passport/wblogin')}>">未绑定</a></div>
+                            <?php }else{?>
+                                  <div class="fr right c_1"> 已绑定</div>
+                            <?php }?>
+                            <div class="clear"></div>
+                        </li>
+                        
+       	            </ul>
+           	    </div>
+                <div class="modify-list-box">
+           	        <ul>
+           	            <li>
+           	                <h3>安全设置</h3>
+                        </li>
+                        <li>
+                            <a href="<{:U('info/password')}>"><div class="fl left icon i-5">密码</div>
+                            <div class="fr right">修改</div></a>
+                            <div class="clear"></div>
+                        </li>
+       	            </ul>
+           	    </div>
+            </div>
+        </div>
+    </div>
+    <if condition="empty($MEMBER['mobile'])">
+ 	<script type="text/javascript" language="javascript">
+            check_user_mobile('<{:U("mobile/tuan/tuan_sendsms")}>','<{:U("mobile/tuan/tuan_mobile")}>');
+            $('#bind_mobile').click(function(){
+                    check_user_mobile('<{:U("mobile/tuan/tuan_sendsms")}>','<{:U("mobile/tuan/tuan_mobile")}>');
+            })
+        </script>
+    <else/>
+        <script type="text/javascript" language="javascript">
+            $('#change_mobile').click(function(){
+                    change_user_mobile('<{:U("mobile/tuan/tuan_sendsms")}>','<{:U("mobile/tuan/tuan_mobile")}>');
+            })
+        </script>
+    </if>
+<include  file='public:footer'/>  

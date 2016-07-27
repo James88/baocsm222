@@ -1,0 +1,29 @@
+<include  file='public:header'/>  
+<body>
+    <header>
+        <a href="/mcenter/member/"><i class="icon-goback"></i></a>
+        <div class="title">我的抢购</div>
+        <i class="icon-menu"></i>
+    </header>
+    <!-- 筛选TAB -->
+    <div class="buy-bar">
+        <a href="<{:LinkTo('tuan/index',array('aready'=>0))}>"><span class="buy-bar-span2 <eq name='aready' value='0'>on</eq>">待付款</span></a>
+        <a href="<{:LinkTo('tuan/index',array('aready'=>1))}>"><span class="buy-bar-span <eq name='aready' value='1'>on</eq>">已完成</span></a>
+    </div>
+    <div id="life" class="page-center-box">
+
+        <div id="scroll">
+
+            <div class="list-have-pic buy-list"></div>
+
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                loaddata('<{:U("mcenter/tuan/orderloading/",array("aready"=>$aready,"p"=>"0000"))}>', $(".list-have-pic"), true);
+            });
+        </script>
+
+    </div>
+<include  file='public:footer'/>
