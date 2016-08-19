@@ -32,12 +32,15 @@ class IndexAction extends Action{
     private function synlogin(){
         $user = D('Users')->getUserByUcId($this->ucget['uid']);
         if($user){
-            session('uid',$user['user_id']);
+            setUid($user['user_id']);
+            //session('uid',$user['user_id']);
         }
     }
     
     private function synlogout(){
+        clearUid();
         session('uid','');
+        
     }
 
     private  function test(){

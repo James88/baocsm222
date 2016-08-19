@@ -1,0 +1,101 @@
+/*  帮助部分开始 */
+.helpmain { overflow:auto;
+ height: auto;
+ width: 999px;
+ margin:15px 0 0 0;
+ padding:0;}
+.helpmain .helpleft{ width:190px;float:left;}
+.helpmain .helpleft .helpleft1{width:190px; border: 1px solid #D0210C; background-color:#FFFFFF; overflow:auto;}
+.helpmain .helpleft .helpleft2{width:190px; border: 1px solid #D0210C; background-color:#FFFFFF; overflow:auto; margin:10px 0 0 0; }
+.helpmain .helpleft .helpleft2 .help_txt{
+	clear: both;
+	line-height:22px;
+	width:165px;
+	color:#999999;
+	height:47px;
+	margin:0 0 0 15px;
+	padding:10px 0 0 0;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #E6E6E6;
+}
+.helpmain .helpleft .helpleft2 .help_txt p{ margin:0 0 0 5px;}
+.helpmain .helpleft .helpleft2 .help_txt span { font-size:16px; color:#FF3300; font-weight:bold; }
+.helpmain .helpleft .helpleft2 .help_txt .help_txt_jy{  font-size:12px; color:#FF3300; font-weight:normal;}
+.helpmain .helpleft .helpmenu{ width:190px; margin:0; border-top-style:solid; border-top-width:2px; }
+.helpmain .helpleft .helpmenu .helpmenu_bt{ width:190px; height:37px;background:url(../images/tubiao.png); background-repeat:no-repeat; background-position:-188px -2px; padding:0; margin:0; overflow:hidden;}
+.helpmain .helpleft .helpmenu .helpmenu_bt .helpmenu_bt_font{ font-size:14px; font-weight:bold; line-height:37px;  color:#656565; width:100px;  float:left; padding:0; text-align:center;}
+.helpmain .helpleft .helpmenu ul{}
+.helpmain .helpleft .helpmenu .helpmenu_a{ float:left; padding:0;}
+.helpmain .helpleft .helpmenu li{ height:35px; line-height:35px; margin:0 0 0 25px; padding:0; float:left; width:160px; display:inline;}
+.helpmain .helpleft .helpmenu li:hover{background:url(../images/admin.png); background-repeat:no-repeat; background-position:0px -60px;}
+.helpmain .helpleft .helpmenu li a{ font-size:14px;}
+.helpmain .helpright{ width:799px; float:right;border: 1px solid #D0210C; background-color:#FFFFFF;}
+.helpmain .helpright .helpright_search{ width:779px;border: 1px solid #E6E6E6; background-color:#F7F5F6; margin:10px 0 0 10px; height:45px;}
+.helpmain .helpright .helpright_search h3 {float:left; font-size:14px; margin:15px 10px 0 20px; display:inline;}
+.helpmain .helpright .helpright_search span{ margin:0 0 0 7px; display:inline;}
+.helpsearchkang{ background-color:#ffffff;border: 1px solid #D5D5D5; width:400px; height:25px; line-height:25px; color:#999999; margin:8px 0 0 0;}
+.helpsearchbt{ width:93px; height:28px; background-image:url(../images/tubiao.png); background-repeat: no-repeat; cursor:pointer;	background-position: 0px 0px; border:0; vertical-align:bottom; }
+.helpmain .helpright .helpright_wenti{ width:779px;border: 1px solid #E6E6E6; background-color:#FBFBFB; margin:10px 0 0 10px; overflow:auto;}
+.helpmain .helpright .helpright_wenti h3 { margin:15px 0 10px 20px; font-size:14px;}
+.helpmain .helpright .helpright_wenti ul { width:759px; margin:0 0 20px 0;}
+.helpmain .helpright .helpright_wenti ul li{
+	width:359px;
+	margin:0 0 0 20px;
+	float:left;
+	height:35px;
+	line-height:35px;
+	display:inline;
+	background-image:url(../images/help_back.gif);
+	background-repeat:no-repeat;
+	overflow:hidden;
+}
+.helpmain .helpright .helpright_wenti ul li a{ font-size:14px; color:#006600; margin:0 0 0 10px;}
+.helpmain .helpright  .helpright_help{width:779px; margin:20px 0 10px 10px; }
+.helpmain .helpright  .helpright_help .helpright_help_qa{  clear:both; }
+.helpmain .helpright  .helpright_help .helpright_help_qa_q{ margin:0;height:35px; line-height:35px;background:#EBEBEB; width:779px; clear:both;}
+.helpmain .helpright  .helpright_help .helpright_help_qa_q p { float:left;}
+.helpmain .helpright  .helpright_help .helpright_help_qa_a{ margin:10px 0 15px 0; line-height:25px; width:732px; float:right;}
+/*  帮助部分结束 */
+
+.adminmenu_dindan{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:0px -16px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_chaxun{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-21px -16px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_fucha{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-40px -16px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_wenti{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-63px -16px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_tixian{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-83px -16px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_fanli{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:0px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_jifen{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-23px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_quan{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-42px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_jilu{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-62px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+ .adminmenu_shouchang{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-82px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_message{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-103px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_tong{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-126px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_bangdin{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-149px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_dizhi{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-171px -37px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_tixing{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-130px 0px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_xugai{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-150px 0px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_anquan{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-170px 0px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_geren{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-85px -96px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_zhannei{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-106px -96px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_haoyou{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-129px -96px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_hongbao{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-150px -96px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_fenxiang{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-173px -96px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_kuaidi{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-86px -117px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_guibin{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-106px -117px; float:left; margin:7px 5px 0 0; display:inline;}
+.adminmenu_lianmen{ width:20px; height:20px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-129px -117px; float:left; margin:7px 5px 0 0; display:inline;}
+.help_kf{ width:101px; height:26px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:0px -238px; float:left; margin:15px 5px 0 15px; display:inline;}
+.help_kftel{ width:17px; height:16px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-87px -141px; float:left; margin:2px 2px 0 5px; display:inline;}
+.help_jy{ width:19px; height:17px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-108px -141px; float:left; margin:2px 2px 0 5px; display:inline;}
+
+.tubiao_ask{width:16px; height:16px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:-74px 0px;margin:8px 15px 0 15px; float:left;display: inline; cursor:pointer;}
+.tubiao_answer{width:16px; height:16px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:-91px 0px;margin:14px 15px 0 15px; float:left;display: inline; cursor:pointer;}
+.tubiao_closew{width:13px; height:13px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:-56px -1px;margin:8px 8px 0 0; float:right;display: inline; cursor:pointer;}
+.tubiao_shezhi{width:78px; height:25px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:0px -97px;margin:8px 3px 0 0; float:right;display: block; cursor:pointer;}
+.tubiao_bangdin{width:78px; height:25px;background:url(../images/admin.png); backg
+round-repeat:no-repeat; background-position:0px -123px;margin:8px 3px 0 0; float:right;display: block; cursor:pointer;}
+.tubiao_yanzhen{width:78px; height:25px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:0px -149px;margin:8px 3px 0 0; float:right;display: block; cursor:pointer;}
+.tubiao_tishi{ width:20px; height:20px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:-168px -70px;margin:18px 3px 0 15px; float:left;display:inline;}
+.gonggaotubiao{ width:18px; height:18px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:-109px 0px;margin:7px 3px 0 15px; float:left; display:inline;}
+.tishitubiao{ width:18px; height:18px;background:url(../images/admin.png); background-repeat:no-repeat; background-position:-32px 0px;margin:7px 3px 0 15px; float:left; display:inline;}
+.tree_close{ width:11px; height:13px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:0px 0px; display:inline; float:right; margin:10px 10px 0 0 ;}
+.tree_on{ width:11px; height:13px; background:url(../images/admin.png); background-repeat:no-repeat; background-position:-13px 0px; display:inline; float:right; margin:10px 8px 0 0 ;}

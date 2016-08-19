@@ -1,0 +1,407 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px}
+img{ border:0px}
+a{text-decoration:none}
+body{ font-size:12px}
+ul{ list-style:none}
+li{ list-style:none}
+.red{ color:#FF679A}
+.main{ width:950px; margin:auto; margin-top:5px; font-family:'宋体'}
+
+
+.keywords{ width:948px; height:151px; border:#ECECEC 1px solid; border-bottom:#ECECEC 1px solid; margin-top:10px; background:url(../images/topad.png)}
+.main .ad button{ float:right; margin-right:32px; margin-top:46px;width:100px; height:28px; cursor:pointer; background:url(../images/shareb.gif); border:none; color:#FFF; font-weight:bold}
+.main .ad span{ float:right; margin-right:15px; margin-top:15px; color:#666666; clear:both }
+
+.goodsTop {
+	width: 100%;
+	overflow: hidden;
+	padding-top: 5px;
+}
+.goodsTop .bbs_hot li {
+	width: 86px;
+	height: 86px;
+	border: 1px solid #ddd;
+	float: left;
+	margin: 2px;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+.goodsTop .bbs_hot li a {
+	width: 86px;
+	height: 86px;
+	float: left;
+}
+.goodsTop .bbs_hot li span {
+	width: 86px;
+	height: 20px;
+	background: #fff;
+	cursor: pointer;
+	display: block;
+	line-height: 20px;
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.goodsTop .gsT_r {
+	width: 910px;
+	padding-left: 10px;
+}
+.goodsTop .gsT_r .gs_key {
+	width: 125px;
+	float: left;
+}
+.goodsTop .gsT_r .gs_key h2 {
+	line-height: 25px;
+	font-size:14px
+}
+.goodsTop .gsT_r .gs_key ul li {
+	width: 55px;
+	height: 21px;
+	float: left;
+	line-height: 21px;
+	overflow: hidden;
+}
+.goodsTop .gsT_r .gs_key ul li.hl a {
+	color: #ff71a1;
+}
+
+.keywords .keywords-right{ width:162px; overflow:hidden}
+
+.good{ width:948px; border-left:1px #ECECEC solid; border-right:1px #ECECEC solid; border-bottom:1px #ECECEC solid; background:#FFF}
+.good .goods-top{ height:44px; border-bottom:1px #BBBBBB dashed}
+.good .goods-top ul{ position:relative; top:6px; left:10px}
+.good .goods-top ul li{ float:left; width:122px; height:30px; line-height:30px; text-align:center; margin-left:10px}
+.good .goods-top ul li a{ color:#666666;font-size:14px; font-weight:bold}
+.good .goods-top ul li.cur{ border:#FF0099 solid 1px}
+.good .goods-top ul li.cur a{ color:#FF0099;}
+
+.goods ul{ width:948px; display:none; position:relative; top:10px; overflow:hidden;}
+.goods #goods_list_img_u{ width:948px; height:auto; position:relative; top:10px; overflow:hidden;}
+/*.goods ul li{ width:201px; height:auto; padding:0 12px; margin-left:8px; border:#D9D9D9 1px solid; float:left; display:inline; overflow:hidden;}*/
+/*
+.goods ul li{ width:201px; height:auto; padding:0 12px; position:absolute; z-index:10; border:#D9D9D9 1px solid; overflow:hidden;}
+.goods ul li a.img{ width:200px; padding:13px 0; display:block; overflow:hidden;}
+.goods ul li a.img img{ }
+.goods ul li p.name{ height:25px; line-height:25px; color:#6F6F6F; padding-left:5px; font-size:14px; font-weight:bold}
+.goods ul li div.comment{ height:25px; line-height:25px; color:#7D7D7D; padding-left:5px; font-size:14px;}
+.goods ul li div .icon1,.icon2{ color:#666666}
+.goods ul li #pinglun{ width:201px; height:35px; overflow:hidden;}
+.goods ul li #pinglun .pinglun_s{ height:35px; background:url(../images/list_bg.jpg) no-repeat; float:left; display:inline; overflow:hidden;}
+.goods ul li #pinglun .pinglun_s1{ width:58px; background-position:0 0;}
+.goods ul li #pinglun .pinglun_s2{ width:4px; background-position:-59px 0;}
+.goods ul li #pinglun .pinglun_s3{ border-top:#ff569a 1px solid; border-bottom:#ff569a 1px solid; line-height:20px; vertical-align:middle; font-weight:bold; background:none; height:20px; padding:0 5px; background-position:0 0; color:#ff579a;}
+.goods ul li #pinglun .pinglun_s4{ width:2px; background-position:-95px 0;}
+#pinglun_r{ width:225px; height:1px; background:#e7ebdc; position:absolute; z-index:2; margin-left:-12px; overflow:hidden;}
+.goods ul li #pinglun .pinglun_s5{ width:45px; float:right; text-indent:17px; padding-top:7px; background-position:-157px 0;}
+*/
+.goods ul li{ width:201px; height:auto; padding:0 12px; border:#D9D9D9 1px solid; overflow:hidden;}
+.goods ul li a.img{ width:200px; padding:13px 0; display:block; overflow:hidden;}
+.goods ul li a.img img{ }
+.goods ul li div.comment{ height:25px; line-height:25px; color:#000000; padding-left:5px; font-size:12px; width:100%}
+.goods ul li div .icon1,.icon2{ color:#666666}
+.goods ul li .pinglun{ width:201px; height:35px; overflow:hidden;}
+.goods ul li .pinglun .pinglun_s{ height:35px; background:url(../images/list_bg.jpg) no-repeat; float:left; display:inline; overflow:hidden;}
+.goods ul li .pinglun .pinglun_s1{ width:58px; background-position:0 0;}
+.goods ul li .pinglun .pinglun_s2{ width:4px; background-position:-59px 0;}
+.goods ul li .pinglun .pinglun_s3{ border-top:#ff569a 1px solid; border-bottom:#ff569a 1px solid; line-height:20px; vertical-align:middle; font-weight:bold; background:none; height:20px; padding:0 5px; background-position:0 0; color:#ff579a;}
+.goods ul li .pinglun .pinglun_s4{ width:2px; background-position:-95px 0;}
+#pinglun_r{ width:225px; height:1px; background:#e7ebdc; position:absolute; z-index:2; margin-left:-12px; overflow:hidden;}
+.goods ul li .pinglun .pinglun_s5{ width:45px; float:right; text-indent:17px; padding-top:7px; background-position:-157px 0;}
+
+.goods .zhanxian{ width:226px; height:auto; float:left; margin-left:9px; display:inline; overflow:hidden;}
+.goods .zhanxian .zhanxian_list{ width:200px; height:auto; padding:0 12px; margin-bottom:9px; border:#D9D9D9 1px solid; overflow:hidden;}
+.goods .zhanxian .zhanxian_list a.img{ width:200px; padding:13px 0; display:block; overflow:hidden;}
+.goods .zhanxian .zhanxian_list a.img img{ }
+.goods .zhanxian .zhanxian_list p.name{line-height:30px; color:#6F6F6F; padding-left:5px;clear:both; width:100%; height:auto; overflow:hidden; background:#6F9}
+.goods .zhanxian .zhanxian_list div.comment{ height:auto; line-height:20px; color:#000000; padding-left:5px; font-size:12px; width:100%; font-family:'宋体'; clear:both; color:#333}
+.goods .zhanxian .zhanxian_list div.comment img{ margin-bottom:-3px}
+.goods .zhanxian .zhanxian_list div .icon1,.icon2{ color:#666666}
+.goods .zhanxian .zhanxian_list .pinglun{ width:201px; height:35px; overflow:hidden;}
+.goods .zhanxian .zhanxian_list .pinglun .pinglun_s{ height:35px; background:url(../images/list_bg.jpg) no-repeat; float:left; display:inline; overflow:hidden;}
+.goods .zhanxian .zhanxian_list .pinglun .pinglun_s1{ width:58px; background-position:0 0;}
+.goods .zhanxian .zhanxian_list .pinglun .pinglun_s2{ width:4px; background-position:-59px 0;}
+.goods .zhanxian .zhanxian_list .pinglun .pinglun_s3{ border-top:#ff569a 1px solid; border-bottom:#ff569a 1px solid; line-height:20px; vertical-align:middle; font-weight:bold; background:none; height:20px; padding:0 5px; background-position:0 0; color:#ff579a;}
+.goods .zhanxian .zhanxian_list .pinglun .pinglun_s4{ width:2px; background-position:-95px 0;}
+.pinglun_r{ width:225px; height:1px; background:#e7ebdc; position:absolute; z-index:2; margin-left:-12px; overflow:hidden;}
+.goods .zhanxian .zhanxian_list .pinglun .pinglun_s5{ width:45px; float:right; text-indent:17px; padding-top:7px; background-position:-157px 0;}
+.goods .zhanxian .zhanxian_list .pinglun .pinglun_s5 a{margin-top:-13px; color:#fe5d9b; text-decoration:underline;}
+
+.icon1{ float:left;  height:14px; background:url(../images/icon.gif) no-repeat; overflow:hidden; padding-left:16px;}
+.icon2{ float:left;  height:14px; background:url(../images/icon.gif) 0px -16px no-repeat; overflow:hidden; padding-left:16px; margin-left:6px}
+
+.good .good-left{ width:690px; float:left; position:relative; margin-left:10px;}
+.good .good-left .info{ height:260px; width:100%;}
+.good .good-left .info .img{ width:224px; height:224px; float:left; text-align:center}
+.good .good-left .info .img img{}
+.good .good-left .info .more{ width:438px; height:224px; float:left; margin-left:20px; color:#666666;font-size:14px; overflow:hidden }
+.good .good-left .info .more div.title{ margin-bottom:15px}
+.good .good-left .info .more div.price{ margin-bottom:15px}
+.good .good-left .info .more div.link{ margin-bottom:15px}
+.good .good-left .info .more div.like{ margin-bottom:15px}
+.good .good-left .info .more div.comment{ margin-bottom:15px}
+.good .good-left .info .more .title h3{ font-size:14px}
+.good .good-left .info .more .link { height:28px}
+.good .good-left .info .more .link .icon3{ float:left; width:100px; height:28px; background:url(../images/icon.gif) 0px -35px; color:#FFF; font-weight:bold; line-height:28px; text-align:center}
+.good .good-left .info .more .like{background:url(../images/icon.gif) 0px -63px no-repeat ; height:15px; width:50px; padding-left:20px; clear:both;}
+.good .good-left .info .more .comment{ width:438px; background:#F7F7F7; height:88px; overflow:hidden}
+.good .good-left .info .more .comment .avatar{ float:left; width:32px}
+.good .good-left .info .more .comment .avatar img{ width:32px; height:32px}
+.good .good-left .info .more .comment .more{ float:left; margin-left:8px; width:380px}
+.good .good-left .info .more .comment .more .commentwords{ line-height:20px; margin-top:2px}
+.good .good-left .info .more .comment .more .commentwords img{ margin-bottom:-5px}
+.good .good-left .info .tag{ margin-top:10px; clear:both; height:20px}
+.good .good-left .info .tag .tag-left{ float:left; width:350px}
+.good .good-left .info .tag .tag-left span{ margin-right:10px;color:#666666}
+.good .good-left .info .tag .tag-left span a{ color:#666666}
+.good .good-left .info .tag .tag-right{ float:right; width:250px; text-align:right; font-family:'宋体'; height:14px; line-height:14px;}
+.good .good-left .info .tag .tag-right a{ margin-right:5px; float:left; color:#666666}
+
+.s_tx,.s_renren,.s_sina{ background:url(../images/icon.gif) 0px -101px; width:14px; height:14px; display:block; float:left}
+.s_renren{ background-position:-20px -102px;}
+.s_tx{ background-position:-40px -102px;}
+
+.good-left .comments{ width:689px; height:514px; background:url(../images/comments-bg.gif); position:relative}
+.good-left .comments .form{_margin-left:8px; _margin-top:18px; position:relative; top:18px; left:17px}
+.good-left .comments .form .text{ border:#DDDDDD 1px solid; width:557px; height:27px; padding-left:3px; padding-top:3px}
+.good-left .comments .form .submit{ width:56px; height:28px; background:url(../images/icon.gif) -45px -35px no-repeat; border:0px; color:#FFF; font-weight:bold; margin-top:1px; cursor:pointer}
+
+.morecomments ul{ width:666px; margin:auto}
+.morecomments ul li{ border-bottom:1px #DDDDDD dotted; width:666px; margin-bottom:20px; height:46px; overflow:hidden}
+.morecomments ul li .avatar{ float:left; width:32px; height:32px}
+.morecomments ul li .avatar img{ width:32px; height:32px;}
+.morecomments ul li .more{ float:left; margin-left:8px; width:620px; color:#666666;height:42px; overflow:hidden;}
+.morecomments ul li .more .words{margin-top:3px}
+.morecomments ul li .more .words img{ margin-bottom:-5px}
+.morecomments ul li .more .time{margin-left:10px; color:#999999}
+
+.good .good-right{ width:200px; float:left; margin-left:20px}
+.good .good-right h3{ font-size:14px; color:#666666}
+.good .good-right table{ margin-top:5px}
+.good .good-right table td{ text-align:center;border:#FF679A 1px solid;}
+.good .good-right table img{}
+.good .good-right table p{ text-align:center; color:#666666}
+
+.remind{ color:#F00; font-weight:bold}
+textarea {  overflow: hidden; z-index: y; clip:  rect(   )}
+
+#expression ul li{ border-left:#3CF 1px solid; border-bottom:#3CF 1px solid;float:left; width:25px; height:25px; overflow:hidden}
+#expression{display:none; position:absolute; top:54px; _top:58px; left:50px; _margin-left:-533px}
+#expression ul{ float:left; z-index:99;TEXT-ALIGN: center; border:#3CF 2px solid;width:494px; background:#FFF; border-bottom:1px #3CF solid; border-left:1px #3CF solid}
+.demo {
+	width: 1002px;
+	margin: 0 auto;
+	margin-top:10px;
+	position:relative;
+}
+/* item_list */
+.item_list {
+	position: relative;
+	padding:0 0 50px;
+}
+.item {
+	width: 240px;
+	background: #fff;
+	overflow: hidden;
+	margin: 12px 0 0 0;
+	border-radius: 4px 4px 4px 4px;
+	border:1px solid #dedede;
+}
+.item_t {
+}
+.item_t .img {
+	background-color: #FFFFFF;
+	margin: 0 auto;
+	position: relative;
+}
+.item_t .tb_img a img{ max-width:240px; display:block !important; margin:0 auto;}
+.item_t .img a {
+	display: block;
+}
+.item_t .price {
+	position: absolute;
+	bottom: 10px;
+	right: 0px;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: #FFF;
+	padding:3px;
+ 	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#33000000, endcolorstr=#33000000);
+}
+.item_t .price span
+{
+	margin-left:15px;
+}
+.item .btns {
+	display: none;
+}
+.img_album_btn {
+	top: 0px;
+	right: 0px;
+	position: absolute;
+	background: #ff6fa6;
+	color: #ffffff;
+	height: 20px;
+	line-height: 20px;
+	width: 56px;
+	border-radius: 3px;
+}
+.img_album_btn:hover {
+	color: #fff;
+}
+.item_t .title {
+	padding:10px 8px;
+	line-height: 18px;
+}
+.item_t .title .aimg
+{
+	float:left;
+}
+.item_t .title a.atitle
+{
+	width:150px;
+}
+.item_t .title .jy_title
+{
+	width:170px;
+	float:left;
+	margin-left:5px;
+	height:35px;
+	overflow:hidden;
+}
+.item_t .title .jy_title span
+{
+	color:#b3b3b3;
+}
+.item_t .title .jy_title a span
+{
+	color:#de1e5d;
+}
+.item_b {
+	padding: 10px 8px;
+	background:#f4f4f4;
+	width:226px;
+	float:left;
+}
+.item_b .items_likes .like_btn {
+	background: url(../images/fav_icon_word_new_1220.png) no-repeat;
+	display: block;
+	float: left;
+	height: 23px;
+	width: 59px;
+	cursor:pointer;
+}
+.item_b .items_likes em {
+	line-height: 23px;
+	display: block;
+	float: left;
+	color: #f36519;
+	font-weight: 800;
+	border-radius: 3px;
+}
+.jy_nav a.shaidanbtn
+{
+	width:96px;
+	height:32px;
+	background:url(../images/shaidan.png) no-repeat;
+	float:right;
+	margin-top:5px;
+	z-index:99;
+	padding:0;
+	margin-right:5px;
+}
+.jy_nav a.shaidanbtn:hover
+{
+	text-decoration:none;
+	padding:0;
+	border-bottom:0 none;
+}
+
+/**/
+.space {
+  background:#fff;
+  border: 1px solid #ececec;
+  height: 140px;
+  margin-top: 10px;
+  width: 1000px;
+}
+.space .space-left {
+  float: left;
+  height: 140px;
+  width: 140px;
+}
+.space .space-center {
+  float: left;
+  width: 718px;
+}
+.space .space-center .username {
+  border-bottom: 1px dashed #666;
+  height: 70px;
+  overflow: hidden;
+  width: 100%;
+}
+.space .space-center .username table {
+  position: relative;
+  top: 20px;
+}
+.space .goods-top ul {
+  margin-top: 16px;
+}
+.space .goods-top ul li {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 10px;
+  text-align: center;
+  width: 122px;
+}
+.space .goods-top ul li.cur {
+  border: 1px solid #ff0099;
+}
+.space .goods-top ul li a {
+  color: #666666;
+  font-size: 14px;
+  font-weight: bold;
+}
+.space .goods-top ul li.cur a {
+  color: #ff0099;
+}
+.space .space-right {
+  float: left;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.space .space-right .shoudao
+{
+	border:#FF0099 1px solid; 
+	width:110px; 
+	height:28px; 
+	color:#FF6699;
+}
+.space .space-right .shoudao .sd_top
+{
+	margin-top:7px; 
+	margin-left:22px;
+}
+.space .space-right .shoudao .shoudaode
+{
+	float:left; 
+	height:19px; 
+	line-height:19px; 
+	font-size:16px
+}
+.space .sc_num
+{
+	border:#8C8C8C 1px dashed; 
+	border-top:0px; 
+	width:110px; 
+	height:44px; 
+	color:#FF3261; 
+	text-align:center; 
+	font-size:24px; 
+	font-weight:bold; 
+	line-height:44px
+}

@@ -4,7 +4,7 @@
         <div class="tgdd_t">
             <ul>
                 <li <if condition="$ctl eq 'order' and ($act eq 'index' or $act eq 'noindex')">class="on"</if> ><a href="<{:U('order/index')}>">抢购订单</a></li>
-                <li <if condition="$ctl eq 'ele'">class="on"</if> ><a href="<{:U('ele/index')}>">订餐订单</a></li>
+                <!--<li <if condition="$ctl eq 'ele'">class="on"</if> ><a href="<{:U('ele/index')}>">订餐订单</a></li>-->
                 <li <if condition="$ctl eq 'order' and $act eq 'goods'">class="on"</if> ><a href="<{:U('order/goods')}>">商城订单</a></li>
             </ul>
         </div>
@@ -61,14 +61,14 @@
                     </tr>
                     <foreach name="shops" item="shop">
                         <volist name="goods" id="good" key="index">
-
+                            <php>//var_dump($good);die;</php>
                             <if condition="($good['shop_id'] eq $shop['shop_id']) AND ($good['order_id'] eq $order['order_id'])">    
                                 <tr class="tgdd_nrC">
                                     <td class="tgdd_nrCtd"><img style="margin: 0px auto;" src="__ROOT__/attachs/<{$products[$good['goods_id']]['photo']|default='default.jpg'}>" width="100" height="75"/></td>
                                     <td colspan="2" class="tgdd_nrCtd"><{$products[$good['goods_id']]['title']}></td>
                                     <td class="tgdd_nrCtd" id="price-color">￥<{:round($good['price']/100,2)}></td>
                                     <td class="tgdd_nrCtd"><{$good.num}></td>
-                                    <td class="tgdd_nrCtd" id="price-color">￥<{:round($good['total_price']/100,2)}></td>
+                                    <td class="tgdd_nrCtd" id="price-color">￥<{:round($order['total_price']/100,2)}><if condition="$order['pinxuanbi_money']">(品宣币抵扣:-<{:round($order['pinxuanbi_money']/100,2)}>元)</if></td>
                                     <td class="tgdd_nrCtd">&nbsp;</td>
                                     <td class="tgdd_nrCtd">&nbsp;</td>
                                 </tr>

@@ -1,0 +1,153 @@
+.mainbody
+{	
+	margin: 0 auto;
+    padding: 0;
+    text-align: left;
+	width:998px;
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	height:950px;
+	margin-top:10px;
+}
+.l {
+	float:left
+}
+.r {
+	float:left
+}
+.wrap-task {
+	margin-top:15px;
+	width:1000px;
+	height:1000px;
+	margin:0 auto;
+	text-align:left
+}
+.aside {
+	width:1000px;
+	float:left;
+	position:relative;
+}
+.status {
+	border:1px solid #E4E4E4;
+	background:url(../../images/hy_cen.png) no-repeat;
+	width:233px;
+	height:171px;
+	margin-bottom:10px;
+	position:relative;
+	float:right;
+	margin-top:12px;
+	margin-right:12px;
+}
+.user-msg {
+	width:145px;
+	margin-left:12px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	float:left;
+	color:#f36519;
+	margin-bottom:10px;
+}
+.user-msg span
+{
+	color:#fff;
+}
+.user-msg a
+{
+	color:#b3b3b3;
+}
+.fanli-msg {
+	width:213px;
+	height:75px;
+	color:#fff;
+	margin-top:5px;
+	border-top:1px solid #e4e4e4;
+	margin-left:9px;
+}
+.fanli-msg p
+{
+	margin-top:10px;
+}
+.fanli-msg em {
+	font-style:normal;
+	font-size:16px;
+	line-height:35px;
+	text-indent:2em;
+}
+.others {
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	width:998px;
+	height:42px;
+	float:left;
+	margin-bottom:5px;
+	margin-right:15px;
+}
+.others p {
+	background:#f36519;
+	width:179px;
+	height:42px;
+	float:left;
+	color:#fff;
+	font-size:14px;
+	line-height:42px;
+	text-align:center;
+	font-family:微软雅黑;
+}
+.others li {
+	line-height:25px;
+	color:#000
+}
+.main {
+	width:744px;
+	float:left;
+}
+.ad-banner {
+	width:998px;
+	height:195px;
+	margin-bottom:10px; 
+	margin-top:10px;
+	float:left;
+}
+.iframe {
+	color:#FFF;
+}
+.ad2
+{
+	float:left;
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	padding:15px;
+}
+#gundong{width:215px; overflow:hidden; font-size:16px; float:left; margin-left:220px; margin-top:20px;}
+#gundong li{ list-style:none; line-height:15px; height:40px; color:#999}
+#gundong span{ color:#F00;}
+#gundong em{ color:#F0F;font-style:oblique;}
+.scroll_div {
+    overflow: hidden;
+    white-space: nowrap;
+	font-size:16px;
+	height:42px;
+	line-height:42px;
+}
+#scroll_begin, #scroll_end, #scroll_begin ul, #scroll_end ul, #scroll_begin ul li, #scroll_end ul li {
+    display: inline;
+	height:42px;
+	line-height:42px;
+	font-size:12px;
+}
+.yuans
+{
+	width:978px; 
+	height:60px; 
+	border:1px solid #f0d7c1; 
+	background:#feeedf; 
+	float:left; 
+	padding:10px; 
+	font-family:宋体;
+	margin-bottom:10px;
+}
+.ad_ban
+{
+	position:absolute;
+}

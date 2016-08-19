@@ -1,0 +1,1 @@
+<?php exit;?>{"id":"1","img":"","link":"","title":"\u5e7f\u544a\u4f4d2","height":"","width":"","content":"","adtype":"\u9996\u9875\u4e2d\u90e8","addtime":"1343318193","sys":"1","edate":"1444147200","type":"2","tag":"","bgcolor":"","ad_content":""}

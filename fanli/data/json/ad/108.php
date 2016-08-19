@@ -1,0 +1,1 @@
+<?php exit;?>{"id":"108","img":"images\/jifenbao.png","link":"index.php?mod=tao&act=jifenbao","title":"\u96c6\u5206\u5b9d\u4ecb\u7ecd","height":"90","width":"1000","content":"","adtype":"\u6dd8\u5b9d\u8be6\u7ec6\u9875\u4e0b","addtime":"1403660651","sys":"1","edate":"1719244800","type":"1","tag":"","bgcolor":"","ad_content":""}

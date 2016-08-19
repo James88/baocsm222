@@ -80,8 +80,8 @@
                             <div class="clef_userxx">
                                 <ul>
                                     <li>余额：<span style="color:#fb3203;font-weight:bold;">￥<{:round($MEMBER['money']/100,2)}></span><a class="user_cz" href="<{:U('money/money')}>">去充值</a></li>
-                                    <li>金块：<span class="user_ye"><{$MEMBER['gold']}></span><a class="user_cz" href="<{:U('money/gold')}>">去充值</a></li>
-                                    <li>积分：<span class="user_jf"><{$MEMBER['integral']}></span></li>
+                                    <!--<li>金块：<span class="user_ye"><{$MEMBER['gold']}></span><a class="user_cz" href="<{:U('money/gold')}>">去充值</a></li>-->
+                                    <li>品宣币：<span class="user_jf"><{$MEMBER['integral']}></span></li>
                                 </ul>
                             </div>
                         </li>
@@ -89,12 +89,13 @@
                             <h3>订单中心</h3>
                             <div class="indexnav_li">
                                 <ul>
-                                    <li><a <if condition="$ctl eq 'order' or $ctl eq 'ele' ">class="on"</if> href="<{:U('order/index')}>">我的订单</a></li>
-                                    <li><a <if condition="$ctl eq 'index' ">class="on"</if> href="<{:U('index/index')}>">我的抢购券</a></li>
-                                    <li><a <if condition="$ctl eq 'coupon' ">class="on"</if> href="<{:U('coupon/index')}>">优惠券下载</a></li>
-                                    <li><a <if condition="$ctl eq 'yuyue' ">class="on"</if> href="<{:U('yuyue/index')}>">我的预约</a></li>
-                                    <li><a <if condition="$ctl eq 'exchange' ">class="on"</if> href="<{:U('exchange/index')}>">我的兑换</a></li>
-                                    <li><a <if condition="$ctl eq 'ding' ">class="on"</if> href="<{:U('ding/index')}>">我的订座</a></li>
+                                    <li><a <if condition="$ctl eq 'order' and $act eq 'index' ">class="on"</if> href="<{:U('order/index')}>">我的订单</a></li>
+                                    <li><a <if condition="$ctl eq 'order' and $act eq 'goods' ">class="on"</if> href="<{:U('order/goods')}>">商城订单</a></li>
+                                    <!--<li><a <if condition="$ctl eq 'index' ">class="on"</if> href="<{:U('index/index')}>">我的抢购券</a></li>-->
+                                    <!--<li><a <if condition="$ctl eq 'coupon' ">class="on"</if> href="<{:U('coupon/index')}>">优惠券下载</a></li>-->
+                                    <!--<li><a <if condition="$ctl eq 'yuyue' ">class="on"</if> href="<{:U('yuyue/index')}>">我的预约</a></li>-->
+                                    <!--<li><a <if condition="$ctl eq 'exchange' ">class="on"</if> href="<{:U('exchange/index')}>">我的兑换</a></li>-->
+                                    <!--<li><a <if condition="$ctl eq 'ding' ">class="on"</if> href="<{:U('ding/index')}>">我的订座</a></li>-->
                                 </ul>
                             </div>
                         </li>

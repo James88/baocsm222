@@ -1,1 +1,1 @@
-<?php return  "BAOCMS6.3";
+<?php return  "BAOCMS7.6";

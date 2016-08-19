@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+*
+{
+	margin:0;
+	padding:0;
+}
+.yahei {
+  font-family: "Hiragino Sans GB","Microsoft YaHei","SimSun",sans-serif;
+}
+img {
+  color: #999;
+  font-size: 12px;
+  line-height: 1em;
+  overflow: hidden;
+  text-align: left;
+  vertical-align: middle;
+}
+.con_auto {
+  margin: 0 auto;
+  text-align: left;
+  width: 1010px;
+}
+.clearfix::after, .container::after {
+  clear: both;
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.super-limit-area {
+  margin-bottom: 32px;
+  min-height: 500px;
+  margin-top:14px;
+}
+.item-mod {
+  background: #fff;
+  border: 1px solid #ededed;
+  float: left;
+  margin: 0 12px 15px 2px;
+  position: relative;
+  width: 320px;
+}
+.item-mod:hover
+{
+	border:1px solid #d8bfb4;
+  	width: 320px;
+}
+.item-mod .image, .item-mod .img {
+  background: #ededed;
+  display: block;
+  height: 320px;
+  width: 320px;
+}
+.item-mod .title {
+  color: #333;
+  display: block;
+  height: 40px;
+  line-height: 20px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  padding: 7px 12px 0;
+  text-overflow: ellipsis;
+  font-style:normal;
+}
+a.red:link, a.red:visited, .red {
+  color: #fe4300;
+}
+.item-mod .desc {
+  background: #fbfbfb;
+  height: 63px;
+  padding: 7px 0 0 12px;
+}
+.money {
+  font-family: Helvetica,Arial,"Hiragino Sans GB","Microsoft YaHei","SimSun",sans-serif;
+}
+.item-mod .price {
+  color: #333;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+}
+.item-mod img.lazy
+{
+	display:block;
+	width:320px;
+	height:320px;
+}
+.item-mod .price strong {
+  font-size: 26px;
+  padding-right: 8px;
+}
+.item-mod .fl {
+  color: #c33;
+  font-size: 13px;
+  height: 30px;
+  line-height: 30px;
+}
+.item-mod .fl strong {
+  float: left;
+  font-size: 26px;
+}
+.i-gmhf {
+  background: #c33;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  float: left;
+  font-family: Helvetica,Arial,SimSun;
+  font-size: 12px;
+  height: 18px;
+  line-height: 18px;
+  margin: 6px 0 0 8px;
+  overflow: hidden;
+  padding: 0 5px;
+  text-align: center;
+  font-style:normal;
+}
+.item-mod .mod-btn {
+  background:url(../images/icon8.png) no-repeat;
+  bottom: 15px;
+  cursor: pointer;
+  height: 37px;
+  position: absolute;
+  right: -5px;
+  width: 75px;
+  z-index: 3;
+}
+.item-mod .mod-btn.jjstart
+{
+	background-position:0 -37px;
+}
+.ht {
+  height: 0;
+  list-style: outside none none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-indent: -9999px;
+}
+.xihuan
+{
+	background: #f4f4f4;
+    border: 1px solid #f4f4f4;
+    border-radius: 15px;
+    cursor: pointer;
+    display: none;
+    height: 26px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 26px;
+    z-index: 15;
+}
+.xihuan .like-ico
+{
+	background-position: 0 0;
+    height: 11px;
+    margin-left: -7px;
+    margin-top: -5px;
+	width:14px;
+}
+.xihuan span {
+  background:url(../images/my-like.png) no-repeat;
+  left:50%;
+  top:50%;
+  position:absolute;
+}
+.item-mod:hover .xihuan
+{
+	display:block;
+}
+.xihuan .like-ico.l-active
+{
+	background-position: 0 -20px;
+}

@@ -1,0 +1,177 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0px; padding:0px}
+img{ border:0px}
+a{text-decoration:none}
+body{ font-size:12px}
+ul{ list-style:none}
+li{ list-style:none}
+.red{ color:#FF679A}
+.main{ width:950px; margin:auto; margin-top:5px; font-family:'宋体'}
+.cat{ height:35px;TEXT-ALIGN: center; WIDTH: 950px; BORDER-COLLAPSE: collapse; border:#ECECEC 1px solid;}
+.cat td{ border-left:#CCC 1px solid; border-bottom:#CCC 1px solid; height:35px; line-height:35px;font-size:16px; font-weight:bold; }
+.cat td a{ font-size:16px; color:#666666; font-weight:bold;}
+.cat td a:link{ font-size:16px; color:#666666; font-weight:bold;}
+.cat td a:visited{ font-size:16px; color:#666666; font-weight:bold;}
+.cat td a:active{ font-size:16px; color:#666666; font-weight:bold;}
+.cat td a:hover { font-size:16px; color:#666666; font-weight:bold;}
+.cat .curcat{ background:#FB3C67; color:#FFF;font-size:16px; font-weight:bold; }
+.cat .curcat a{ color:#FFF;font-size:16px; font-weight:bold; }
+.cat .curcat a:link{ color:#FFF;font-size:16px; font-weight:bold; }
+.cat .curcat a:visited{ color:#FFF;font-size:16px; font-weight:bold; }
+.cat .curcat a:active{ color:#FFF;font-size:16px; font-weight:bold; }
+.cat .curcat a:hover{ color:#FFF;font-size:16px; font-weight:bold; }
+
+.keywords{ width:948px; height:151px; border:#ECECEC 1px solid; margin-top:10px; background:url(../images/topad.png)}
+.main .ad button{ position:absolute; right:32px; top:46px;width:100px; height:28px; cursor:pointer; background:url(../images/shareb.gif); border:none; color:#FFF; font-weight:bold}
+.space{ width:948px; height:140px; border:#ECECEC 1px solid; margin-top:10px}
+.keywords .keywords-left{ width:780px; float:left}
+.space .space-left{ width:140px; height:140px; float:left}
+.space .space-left .avatar{ width:110px; height:110px; position:relative; top:15px; left:15px}
+.space .space-left .avatar img{ width:110px; height:110px; }
+.space .space-center{ float:left; width:664px}
+.space .space-center .username{ height:70px; width:100%; border-bottom:#666 1px dashed;overflow:hidden}
+.space .space-center .username table{ position:relative; top:20px}
+.space .space-right{ float:left; margin-left:15px; margin-top:20px}
+
+.space .goods-top ul{margin-top:16px;}
+.space .goods-top ul li{ float:left; width:122px; height:30px; line-height:30px; text-align:center; margin-left:10px}
+.space .goods-top ul li a{ color:#666666;font-size:14px; font-weight:bold}
+.space .goods-top ul li.cur{ border:#FF0099 solid 1px}
+.space .goods-top ul li.cur a{ color:#FF0099;}
+
+.goodsTop {
+	width: 100%;
+	overflow: hidden;
+	padding-top: 5px;
+}
+.goodsTop .bbs_hot li {
+	width: 86px;
+	height: 86px;
+	border: 1px solid #ddd;
+	float: left;
+	margin: 2px;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+.goodsTop .bbs_hot li a {
+	width: 86px;
+	height: 86px;
+	float: left;
+}
+.goodsTop .bbs_hot li span {
+	width: 86px;
+	height: 20px;
+	background: #fff;
+	cursor: pointer;
+	display: block;
+	line-height: 20px;
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.goodsTop .gsT_r {
+	width: 910px;
+	padding-left: 10px;
+}
+.goodsTop .gsT_r .gs_key {
+	width: 125px;
+	float: left;
+}
+.goodsTop .gsT_r .gs_key h2 {
+	line-height: 25px;
+	font-size:14px
+}
+.goodsTop .gsT_r .gs_key ul li {
+	width: 55px;
+	height: 21px;
+	float: left;
+	line-height: 21px;
+	overflow: hidden;
+}
+.goodsTop .gsT_r .gs_key ul li.hl a {
+	color: #ff71a1;
+}
+
+.keywords .keywords-right{ width:162px; overflow:hidden}
+
+.good{ width:948px; border-left:1px #ECECEC solid; border-right:1px #ECECEC solid; border-bottom:1px #BBBBBB dashed}
+.good .goods-top{ height:44px; border-bottom:1px #BBBBBB dashed}
+.good .goods-top ul{ position:relative; top:6px; left:10px}
+.good .goods-top ul li{ float:left; width:122px; height:30px; line-height:30px; text-align:center; margin-left:10px}
+.good .goods-top ul li a{ color:#666666;font-size:14px; font-weight:bold}
+.good .goods-top ul li.cur{ border:#FF0099 solid 1px}
+.good .goods-top ul li.cur a{ color:#FF0099;}
+
+.goods ul{ width:938px; height:auto; position:relative; top:10px; left:10px}
+.goods ul li{ width:234px; height:296px; float:left;}
+.goods ul li a.img{ width:224px; height:224px; overflow:hidden; border:#D9D9D9 1px solid; display:block}
+.goods ul li a.img img{ width:224px; height:224px}
+.goods ul li p.name{ height:25px; line-height:25px; color:#6F6F6F; padding-left:5px; font-size:14px; font-weight:bold}
+.goods ul li div.comment{ height:25px; line-height:25px; color:#7D7D7D; padding-left:5px; font-size:14px;}
+.goods ul li div .icon1,.icon2{ color:#666666}
+
+.icon1{ float:left;  height:14px; background:url(../images/icon.gif) no-repeat; overflow:hidden; padding-left:16px;}
+.icon2{ float:left;  height:14px; background:url(../images/icon.gif) 0px -16px no-repeat; overflow:hidden; padding-left:16px; margin-left:6px}
+
+.good .good-left{ width:690px; float:left; position:relative; margin-left:10px;}
+.good .good-left .info{ height:260px; width:100%;}
+.good .good-left .info .img{ width:224px; height:224px; float:left}
+.good .good-left .info .img img{ width:224px; height:224px;}
+.good .good-left .info .more{ width:438px; height:224px; float:left; margin-left:20px; color:#666666;font-size:14px; overflow:hidden }
+.good .good-left .info .more div.title{ margin-bottom:15px}
+.good .good-left .info .more div.price{ margin-bottom:15px}
+.good .good-left .info .more div.link{ margin-bottom:15px}
+.good .good-left .info .more div.like{ margin-bottom:15px}
+.good .good-left .info .more div.comment{ margin-bottom:15px}
+.good .good-left .info .more .title h3{ font-size:14px}
+.good .good-left .info .more .link { height:28px}
+.good .good-left .info .more .link .icon3{ float:left; width:100px; height:28px; background:url(../images/icon.gif) 0px -35px; color:#FFF; font-weight:bold; line-height:28px; text-align:center}
+.good .good-left .info .more .like{background:url(../images/icon.gif) 0px -63px no-repeat ; height:15px; width:50px; padding-left:20px; clear:both;}
+.good .good-left .info .more .comment{ width:438px; background:#F7F7F7; height:88px; overflow:hidden}
+.good .good-left .info .more .comment .avatar{ float:left; width:32px}
+.good .good-left .info .more .comment .avatar img{ width:32px; height:32px}
+.good .good-left .info .more .comment .more{ float:left; margin-left:8px; width:380px}
+.good .good-left .info .more .comment .more .commentwords{ line-height:20px; margin-top:2px}
+.good .good-left .info .more .comment .more .commentwords img{ margin-bottom:-5px}
+.good .good-left .info .tag{ margin-top:10px; clear:both; height:20px}
+.good .good-left .info .tag .tag-left{ float:left; width:350px}
+.good .good-left .info .tag .tag-left span{ margin-right:10px;color:#666666}
+.good .good-left .info .tag .tag-left span a{ color:#666666}
+.good .good-left .info .tag .tag-right{ float:right; width:250px; text-align:right; font-family:'宋体'; height:14px; line-height:14px;}
+.good .good-left .info .tag .tag-right a{ margin-right:5px; float:left; color:#666666}
+
+.s_tx,.s_renren,.s_sina{ background:url(../images/icon.gif) 0px -101px; width:14px; height:14px; display:block; float:left}
+.s_renren{ background-position:-20px -102px;}
+.s_tx{ background-position:-40px -102px;}
+
+.good-left .comments{ width:689px; height:514px; background:url(../images/comments-bg.gif); position:relative}
+.good-left .comments .form{_margin-left:8px; _margin-top:18px; position:relative; top:18px; left:17px}
+.good-left .comments .form .text{ border:#DDDDDD 1px solid; width:557px; height:27px; padding-left:3px; padding-top:3px}
+.good-left .comments .form .submit{ width:56px; height:28px; background:url(../images/icon.gif) -45px -35px no-repeat; border:0px; color:#FFF; font-weight:bold; margin-top:1px; cursor:pointer}
+
+.morecomments ul{ width:666px; margin:auto}
+.morecomments ul li{ border-bottom:1px #DDDDDD dotted; width:666px; margin-bottom:20px; height:46px; overflow:hidden}
+.morecomments ul li .avatar{ float:left; width:32px; height:32px}
+.morecomments ul li .avatar img{ width:32px; height:32px;}
+.morecomments ul li .more{ float:left; margin-left:8px; width:620px; color:#666666;height:42px; overflow:hidden;}
+.morecomments ul li .more .words{margin-top:3px}
+.morecomments ul li .more .words img{ margin-bottom:-5px}
+.morecomments ul li .more .time{margin-left:10px; color:#999999}
+
+.good .good-right{ width:200px; float:left; margin-left:20px}
+.good .good-right h3{ font-size:14px; color:#666666}
+.good .good-right table{ margin-top:5px}
+.good .good-right table img{ width:90px; height:90px}
+.good .good-right table p{ text-align:center; color:#666666}
+
+.remind{ color:#F00; font-weight:bold}
+textarea {  overflow: hidden; z-index: y; clip:  rect(   )}
+
+#expression ul li{ border-left:#3CF 1px solid; border-bottom:#3CF 1px solid;float:left; width:25px; height:25px; overflow:hidden}
+#expression{display:none; position:absolute; top:54px; _top:58px; left:50px; _margin-left:-533px}
+#expression ul{ float:left; z-index:99;TEXT-ALIGN: center; border:#3CF 2px solid;width:494px; background:#FFF; border-bottom:1px #3CF solid; border-left:1px #3CF solid}
+

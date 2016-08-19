@@ -1,0 +1,228 @@
+.mainbody
+{	
+	margin: 0 auto;
+    padding: 0;
+    text-align: left;
+	width:998px;
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	height:950px;
+	margin-top:10px;
+}
+.l {
+	float:left
+}
+.r {
+	float:left
+}
+.wrap-task {
+	margin-top:15px;
+	width:1000px;
+	height:1000px;
+	margin:0 auto;
+	text-align:left
+}
+.aside {
+	width:1000px;
+	float:left;
+}
+.status {
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	width:215px;
+	height:150px;
+	margin-bottom:10px;
+	position:relative;
+	float:left;
+	margin-right:16px;
+}
+.user-msg {
+	width:104px;
+	padding:0 20px;
+	line-height:35px;
+	font-weight:bold;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	float:right;
+}
+.fanli-msg {
+	width:200px;
+	height:80px;
+	padding:6px 0 0 14px;
+	background:url(../../images/flag.alpha.png) no-repeat;
+	color:#fff;
+	position:absolute;
+	left:-14px;
+	margin-top:5px;
+	*margin-top:65px;
+	top:62px;
+	*top:2px;
+}
+.fanli-msg p
+{
+	margin-top:10px;
+}
+.fanli-msg em {
+	font-style:normal;
+	font-size:16px;
+	line-height:35px;
+	text-indent:2em;
+}
+.others {
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	width:1000px;
+	height:38px;
+	float:left;
+	margin-bottom:10px;
+	margin-right:15px;
+}
+.others
+p {
+	background:url(../../images/nafanli.png);
+	width:179px;
+	height:38px;
+	float:left;
+}
+.others
+li {
+	line-height:25px;
+	color:#000
+}
+.main {
+	width:744px;
+	float:left;
+}
+.ad-banner {
+	width:1000px;
+	height:160px;
+	margin-bottom:5px; 
+	margin-top:15px;
+	float:left;
+}
+.iframe {
+	color:#FFF
+}
+.ad2
+{
+	float:left;
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	padding:15px;
+}
+#gundong{width:215px; overflow:hidden; font-size:16px; float:left; margin-left:220px; margin-top:20px;}
+#gundong li{ list-style:none; line-height:15px; height:40px; color:#999}
+#gundong span{ color:#F00;}
+#gundong em{ color:#F0F;font-style:oblique;}
+.scroll_div {
+    overflow: hidden;
+    white-space: nowrap;
+	font-size:16px;
+	height:38px;
+	line-height:38px;
+}
+#scroll_begin, #scroll_end, #scroll_begin ul, #scroll_end ul, #scroll_begin ul li, #scroll_end ul li {
+    display: inline;
+	height:38px;
+	line-height:38px;
+	font-size:12px;
+}
+.yuans
+{
+	width:978px; 
+	height:60px; 
+	border:1px solid #f0d7c1; 
+	background:#feeedf; 
+	float:left; 
+	padding:10px; 
+	font-family:宋体;
+	margin-bottom:10px;
+}
+
+.otherss {
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	width:998px;
+	height:42px;
+	float:left;
+	margin-bottom:5px;
+	margin-right:15px;
+}
+.otherss p {
+	background:#f36519;
+	width:179px;
+	height:42px;
+	float:left;
+	color:#fff;
+	font-size:14px;
+	line-height:42px;
+	text-align:center;
+	font-family:微软雅黑;
+}
+.otherss li {
+	line-height:25px;
+	color:#000
+}
+/*新写css*/
+.statue {
+	border:1px solid #E4E4E4;
+	background:#FFF;
+	width:237px;
+	height:230px;
+	margin-bottom:10px;
+	position:relative;
+	float:right;
+}
+.ver_top
+{
+	float:left; 
+	width:213px; 
+	height:55px; 
+	margin:10px;
+	border-bottom:1px dashed #ccc;
+	padding-bottom:20px;
+}
+.user-mse {
+	width:147px;
+	margin-left:10px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	float:left;
+}
+.user-mse span.user
+{
+	color:#f36519;
+}
+.fanli-mse {
+	width:200px;
+	height:80px;
+	padding:0 10px;
+	color:#333;
+}
+.fanli-mse p
+{
+	margin-top:10px;
+}
+.fanli-mse p.first
+{
+	margin-bottom:20px;
+}
+.fanli-mse p span.xinxi
+{
+	background:#e2e2e2;
+	padding:5px 8px;
+	color:#333;
+	font-size:16px;
+}
+.fanli-mse p span.price
+{
+	color:#d10303;
+}
+.fanli-mse em {
+	font-style:normal;
+	font-size:16px;
+	line-height:35px;
+	text-indent:2em;
+}

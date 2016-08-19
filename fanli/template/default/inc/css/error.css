@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+
+table {border-collapse: collapse;border-spacing: 0;}
+th{text-align: left;}
+td,th,div{word-break:break-all;word-wrap:break-word;}
+form{display:inline;}
+*{/*outline:none*/}
+img{border:0;}
+em,cite{ font-style:normal;}
+blockquote{quotes: none;}
+html{ font-size:12px;}
+/*补丁*/
+.mt10{margin-top:10px;}
+.mb5{margin-bottom:5px;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15px;}
+.mb20{margin-bottom:20px;}
+.mr5{margin-right:5px;}
+.mr10{margin-right:10px;}
+.mr15{margin-right:15px;}
+.mr20{margin-right:20px;}
+.p5{padding:5px;}
+.p10{padding:10px;}
+.p15{padding:15px;}
+.p20{padding:20px;}
+/*清除浮动*/
+.cc{*zoom:1;}
+.cc:after{content:'\20';display:block;height:0;clear:both;visibility: hidden;}
+.c{clear:both;font:0px/0px Arial;overflow:hidden;height:0;width:0;}
+/*通用样式*/
+.b,b{ font-weight:700;}
+.w{white-space:nowrap;}
+.tal{text-align:left}
+.tac{text-align:center}
+.tar{text-align:right}
+.fr{float:right}
+.fl{float:left}
+.pr{position:relative}
+.cp{cursor:pointer;}
+.hidden{display:none;}
+.block{display:block;}
+.vt,.vt td,.vt th{vertical-align:top;}
+
+.divHr{background:#eaeaea;height:1px;overflow:hidden;margin:10px 0;}
+/*通用字体*/
+.f10,small,.small,.f9{font-size:10px;-webkit-text-size-adjust:none;}
+.f12{font-size:12px}
+.f14{font-size:14px}
+.f16{font-size:16px;}
+.f20{font-size:20px;}
+.f24{font-size:24px;}
+.fn,.fn a{font-weight:normal}
+
+.regTitle{border-bottom:1px solid #ededed;padding:0 5px 10px;margin-bottom:30px;}
+.regTitle h5{font-size:16px; font-weight:700;background:none;padding:0;color:#666;}
+.regCorrect,.regIgnore{padding-left:160px;padding-bottom:70px;}
+.regIgnore{ background:url(../images/ignore.png) 60px 0 no-repeat;padding-top:5px;}
+#pw_content{background:#ffffff;border:1px solid #a6cbe7;border-top:2px solid #065792;}
+
+.tuijian{border:#FFD57F 1px solid;width:902px; margin-top:5px; text-align:center; overflow:hidden; background:#FFF; margin:auto; padding-bottom:10px}
+.tuijian table{text-align:left; margin:auto; width:900px}
+.tuijian table td{ text-align:center;}
+.tuijian table .timg{ height:142px;}
+.tuijian table .ttitle{ height:45px; overflow:hidden; width:136px; margin:auto}
+.tuijian table .ttitle a{ text-align:center}
+.tuijian table img{ border:#F60 1px solid;  width:138px; height:138px}
+.tuijian table div.ttitle,div.tfan,div.tprice{margin-top:3px; width:135px;}
+.tuijian table .tfan b{ font-size:16px; color:#FF3300; font-family:"Times New Roman", Times, serif;}
+.tuijian table .tprice b{ font-size:16px; color:#FF3300; font-family:"Times New Roman", Times, serif;}
+.tuijian table .ttitle a:link {	COLOR: #3366cc; FONT-SIZE: 12px; TEXT-DECORATION: none; font-weight:normal}
+.tuijian table .ttitle a:visited {	COLOR: #3366cc; FONT-SIZE: 12px; TEXT-DECORATION: none; font-weight:normal}
+.tuijian table .ttitle a:active {	COLOR: #f30; FONT-SIZE: 12px; TEXT-DECORATION: underline;font-weight:normal}
+.tuijian table .ttitle a:hover {	COLOR: #f30; FONT-SIZE: 12px; TEXT-DECORATION: underline;font-weight:normal}
+.nav{ padding-left:50px;}
+.nav a{ color:#333; font-size:14px; text-decoration:none; font-weight:bold}
+.nav a:hover{ color:#F00; text-decoration:underline; font-size:14px;}

@@ -1,0 +1,54 @@
+/*  宝贝列表开始 */
+.goodsright { width:250px; float:right; margin:10px 0 0 0; padding:0; }
+.goodsright .shopmessage {text-align:left;width:248px;  margin:0 0 10px 0; padding:0; background-color:#ffffff;border: 1px solid #D0210C;}
+.goodsright .shopmessage .shopname{
+	width:228px; 
+	margin:15px 0 10px 10px;
+	padding:0 0 5px 0;
+	line-height:20px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+}
+.goodsright .shopmessage .shoplogo{width:228px;	margin:10px 0 0px 10px;	padding:0 0 5px 0;	line-height:20px;}
+.goodsright .shopmessage .shoplogo .shoplogo-img{ float:left; width:90px; margin:0; padding:0;}
+.goodsright .shopmessage .shoplogo .shoplogo-img img{ width:80px; height:80px;}
+.goodsright .shopmessage .shoplogo .shoplogo-font{float:left; width:138px; margin:0; padding:0; height:50px}
+
+.goodsright .shopmessage .shoplogo .shoplogo-font h3{font-size: 30px;font-style: italic;color:#FF3300;font-weight: bold; margin-top:5px}
+.goodsright .shopmessage .shoptxt{ clear:both;width:228px;margin:0 0 15px 15px;line-height:22px; padding: 10px 0 0 0;}
+.goodsright .shopmessage .shoptxt .shoptxt-img{ vertical-align:bottom;}
+.goodsright .shopmessage .shoptxt b { font-size:12px; margin:5px 0 5px 0; display:block;}
+.goodsright .shopmessage .shoptxt .shoptxt-dt{ width:228px; clear:both; height:25px;}
+.goodsright .shopmessage .shoptxt .title {float:left;}
+.goodsright .shopmessage .shoptxt .shopbutton { margin:10px 0 0 40px; padding:0;}
+.shop_button1 { width:127px; height:30px; display:block;background:url(../images/tubiao.png); background-repeat:no-repeat; background-position:0px -559px;}
+.shop_button1_h { width:127px; height:30px; display:block;background:url(../images/tubiao.png); background-repeat:no-repeat; background-position:0px -589px; cursor:pointer;}
+.goodsleft { width:742px; float:left;margin:10px 0 0 0; padding:0;border-top-style:solid;border-top-width:2px;} 
+.goodsleft .goodslist {text-align:left;width:740px;  margin:0 8px 0 0; padding:0;  background-color:#ffffff;border: 1px solid #D0210C;}
+
+.hot_head_goods{height:34px; line-height:34px; background:url(../images/rbgo.gif); overflow:hidden }
+.hot_head_goods span{float:left;width:120px;font-size:12px;font-weight:bold; color:#c47c09; padding-left:30px; line-height:38px;}
+.catalogs{ width:248px; margin-top:10px}
+.catalogs h5{ font-weight:bold; margin-left:10px; }
+.catalogs ul{ width:200px; height:auto; padding-left:18px}
+.catalogs ul li{ width:180px; height:20px; line-height:20px; margin-left:20px; _margin-left:10px}
+.list_hot .catalogs ul li a:hover{color:#F60; text-decoration:underline;}
+.hot_goods{width:202px; margin:0 auto; overflow:hidden;}
+.hot_goods_list{width:177px; margin:0 auto; padding-top:20px;margin-left:5px;}
+.hot_goods_list_title{width:175px; height:20px; line-height:20px; text-align:center; background:#F2F2F2; position: absolute; margin-top:135px; margin-left:2px; overflow:hidden;filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity: 0.7;opacity: 0.7;}
+.hot_goods_list_title a{color:#333333; text-decoration:none;}
+.hot_goods_list_title a:hover{color:#333333; text-decoration:none;}
+.hot_goods_list_img{width:175px; height:175px; padding:1px; border-top: #b4b4b4 1px solid;border-bottom: #b4b4b4 1px solid;border-left: #b4b4b4 1px solid;border-right: #b4b4b4 1px solid;text-align:center;display:block; margin-left:5px;}
+.hot_goods_list_img_hover{width:175px; height:175px; padding:1px; border: #d00 1px solid; text-align:center;display:block; margin-left:5px;}
+.hot_goods_list_price{width:175px; margin:3px auto; line-height:20px; text-align:center;}
+.hot_goods_list_scprice{text-decoration:line-through}
+.hot_goods_list_tbprice{color:#e20c3a}
+.hot_goods_list_num{color: #009900}
+
+.morecat{width:708px; height:auto; background:url(../images/bg-h2.png) repeat-x; padding-bottom:10px; padding-left:30px; margin-bottom:5px;}
+.morecat ul{ width:700px; height:auto;}
+.morecat ul li{ width:135px;  margin-top:10px; float:left}
+.morecat ul li a{ color:#333; display:block; width:130px;white-space:nowrap; overflow:hidden;font-family:"宋体";}
+.morecat ul li a:hover{ text-decoration:none; color:#F60}
+ /*  宝贝列表结束 */

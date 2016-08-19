@@ -1,0 +1,323 @@
+#main{ padding-top:10px}
+.tbdplist1 {
+	POSITION: relative;
+	margin: 0px auto;
+	border: 1px solid #fff;
+	width: 100%;
+	height: 78px;
+}
+.tbdplist2 {
+	POSITION: relative;
+	margin: 0 auto;
+	border: 1px solid #FF6600;
+	width: 100%;
+	height: 78px;
+}
+.tbdplist3 {
+	POSITION: relative;
+	border: 1px solid #ddd;
+	width: 164px;
+	height: 220px;
+	margin-top: 10px;
+	float: left;
+	margin-left: 10px;
+	overflow: hidden;
+}
+.tbdplist4 {
+	POSITION: relative;
+	border: 1px solid #ddd;
+	width: 164px;
+	height: 220px;
+	margin-top: 10px;
+	float: left;
+	margin-left: 10px;
+	background: #f8f8f8;
+	overflow: hidden;
+}
+.syts {
+	position:absolute;
+	width:62px;
+	height:61px;
+	z-index:3;
+	background-image: url(../images/huan_mai.png);
+	background-repeat: no-repeat;
+}
+.sgq {
+	position:absolute;
+	width:62px;
+	height:61px;
+	z-index:3;
+	background-image: url(../images/huan_guoqi.png);
+	background-repeat: no-repeat;
+}
+.wks {
+	position:absolute;
+	width:62px;
+	height:61px;
+	z-index:3;
+	background-image: url(../images/huan_wks.png);
+	background-repeat: no-repeat;
+}
+.swts {
+	position:absolute;
+	width:62px;
+	height:61px;
+	z-index:3;
+	background-image: url(../images/huan_wan.gif);
+	background-repeat: no-repeat;
+}
+
+#apDiv1 {
+	width: 710px;
+	height: 144px;
+	background-image: url(../images/dui_bg.gif);
+	background-repeat: no-repeat;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #dbdbdb;
+}
+#apDiv0 {
+	width: 320px;
+	font-size: 12px;
+	float: right;
+	margin-top: 5px;
+	color: #999999;
+}
+#apDiv2 {
+	width: 320px;
+	height: 30px;
+	line-height: 30px;
+}
+#apDiv3 {
+	width: 320px;
+	font-size: 12px;
+	line-height: 30px;
+	float: right;
+	margin-top: 20px;
+}
+.apDiv4 {
+	width: 150px;
+	height: 150px;
+	margin-top: 17px;
+	margin-left: 17px;
+}
+#apDiv5 {
+	width: 170px;
+	height: 150px;
+	float: right;
+	margin-right: 5px;
+}
+#apDiv6 {
+	width: 210px;
+	height: 300px;
+	float: left;
+}
+#apDiv7 {
+	width: 720px;
+	float: right;
+	margin-bottom: 10px;
+}
+#apDiv8 {
+	width: 718px;
+	height: 100px;
+	border: 1px solid #dbdbdb;
+	background-image: url(../images/duihuan_ding_bg.png);
+	background-repeat: no-repeat;
+}
+#apDiv9 {
+	width: 208px;
+	height: 100px;
+	border: 1px solid #dbdbdb;
+	background-color: #F4f4f4;
+}
+#apDiv10 {
+	width: 326px;
+	height: 74px;
+	z-index: 3;
+	margin-left: 393px;
+	margin-top: 19px;
+	font-size: 12px;
+	line-height: 25px;
+	color:#666;
+}
+#apDiv11 {
+	width: 56px;
+	height: 56px;
+	margin-left: 18px;
+	margin-top: 21px;
+	float:left;
+	background:#0C6
+}
+#apDiv12 {
+	width: 126px;
+	margin-left: 80px;
+	margin-top: 16px;
+	line-height: 20px;
+	float:right;
+	background:#999
+}
+#apDiv13 {
+	width: 126px;
+	height: 20px;
+	margin-left: 80px;
+	margin-top: 54px;
+	line-height: 20px;
+}
+#apDiv133 {
+	width: 126px;
+	height: 20px;
+	margin-left: 80px;
+	margin-top: 35px;
+	line-height: 20px;
+}
+#apDiv14 {
+	width: 718px;
+	height: 270px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #dbdbdb;
+	border-bottom-color: #dbdbdb;
+	border-left-color: #dbdbdb;
+	background-color: #F4f4f4;
+}
+#apDiv1124 {
+	width: 718px;
+	height:auto;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #dbdbdb;
+	border-bottom-color: #dbdbdb;
+	border-left-color: #dbdbdb;
+	background-color: #F4f4f4;
+	padding-bottom:10px
+}
+#apDiv15 {
+	width: 150px;
+	margin-left: 7px;
+	font-size: 15px;
+	color: #FF3399;
+	text-align: center;
+	overflow: hidden;
+}
+#apDiv16 {
+	width: 150px;
+	height: 25px;
+	margin-left: 7px;
+	font-size: 12px;
+	line-height: 25px;
+	color: #66CC00;
+	text-align: center;
+	overflow: hidden;
+}
+#apDiv17 {
+	width: 208px;
+	height: 55px;
+	margin-top: 10px;
+}
+#apDiv18 {
+	width: 230px;
+	height: 47px;
+	z-index: 1;
+	background-image: url(../images/huan_nav.png);
+	background-repeat: no-repeat;
+	font-size: 16px;
+	line-height: 47px;
+	font-weight: bold;
+	color: #666666;
+	text-align: center;
+}
+#apDiv19 {
+	width: 718px;
+	margin-bottom: 5px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #dbdbdb;
+	border-left-color: #dbdbdb;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #dbdbdb;
+	padding-top:10px;
+	background:#FFF
+}
+#apDiv20 {
+	width: 680px;
+	height: 25px;
+	margin-bottom: 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #CCCCCC;
+	line-height: 25px;
+	font-size: 16px;
+	color: #009999;
+	margin-right: auto;
+	margin-left: auto;
+	font-weight:bold
+}
+#apDiv21 {
+	width: 680px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 12px;
+	line-height: 35px;
+	color: #999999;
+	margin-bottom: 10px;
+}
+#apDiv22 {
+	width: 50px;
+	height: 15px;
+	z-index: 3;
+	margin-left: 18px;
+	margin-top: 9px;
+	background-image: url(../images/fqw_dl_ts.gif);
+	background-repeat: no-repeat;
+}
+#apDiv23 {
+	width: 171px;
+	height: 35px;
+	z-index: 4;
+	margin-left: 22px;
+	margin-top: 21px;
+}
+#apDiv24 {
+	width: 193px;
+	height: 45px;
+	top: 58px;
+	border: 1px solid #CCCCCC;
+	line-height: 45px;
+	text-align: center;
+	padding-left: 15px;
+	margin-top: 10px;
+	background-image: url(../images/99fqw_nav_bg.gif);
+	background-repeat: repeat-x;
+}
+
+.dhbutton{ margin-top:15px}
+.dhbutton button{ width:120px; border:none; height:35px;background:url(../images/yedh.gif); cursor:pointer; font-weight:bold; font-size:14px; color:#FFF; line-height:36px;}
+.dhbutton button.jifen{background:url(../images/jfdh.gif);}
+
+#apDiv9 h3{ font-family:'ËÎÌו'}
+#apDiv9 ul{ width:160px; padding-top:5px; margin-left:40px; margin-top:5px}
+#apDiv9 ul li{ float:none; width:160px; margin-bottom:4px}
+#apDiv9 ul li a:link{ color:#333}
+#apDiv9 ul li a:hover{font-weight:bold}
+#apDiv9 ul li a.current{color:#F30; font-weight:bold}
+
+#apDiv221 {
+	width: 50px;
+	height: 15px;
+	z-index: 3;
+	margin-left: 18px;
+	margin-top: 9px;
+	background-image: url(../images/fqw_dl_ts1.gif);
+	background-repeat: no-repeat;
+}

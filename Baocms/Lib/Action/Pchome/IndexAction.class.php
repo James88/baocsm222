@@ -59,9 +59,14 @@ class IndexAction extends CommonAction {
 
     public function test() {
 
-        //$data = D('Email')->sendMail('email_newpwd', '1442211217@qq.com', '重置密码', array('newpwd' => 123456));
-       // var_dump($data);
-        //var_dump(D('Email')->getEorrer());
+        $map = array('code'=>'weixin');
+        if(!$setting = D('Payment')->where($map)->getField('setting')){
+            $this->error('微信配置错误，请检查');
+        }
+        $setting = unserialize($setting);
+        import('Baocms.wechat.wechat');
+        $wechat = new Wechat($setting);
+        $wechat->createCard($data);
        
     }
 

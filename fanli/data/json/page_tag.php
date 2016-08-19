@@ -1,0 +1,1 @@
+<?php exit;?>{"tao\/zhe":"zhe","tao\/juhuasuan":"juhuasuan","tao\/coupon":"tao_coupon","tao\/jiu":"jiu","huodong\/list":"mall","shop\/list":"tao"}

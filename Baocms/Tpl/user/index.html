@@ -75,7 +75,7 @@
                     <td>昵称</td>
                     <td>会员等级</td>
                     <td>扩展字段</td>
-                    <td>积分</td>
+                    <!--<td>品宣币</td>-->
                     <td>金币</td>
                     <td>账户余额</td>
                     <td>注册时间</td>
@@ -107,8 +107,8 @@
                     </if>
                     </td>
                     <td>
-                        <{:BA('user/integral',array("user_id"=>$var["user_id"]),'积分','load','remberBtn',600,350)}>
-                        <{:BA('user/gold',array("user_id"=>$var["user_id"]),'金块','load','remberBtn',600,350)}>
+                        <{:BA('user/integral',array("user_id"=>$var["user_id"]),'品宣币','load','remberBtn',600,350)}>
+                        <!--<{:BA('user/gold',array("user_id"=>$var["user_id"]),'金块','load','remberBtn',600,350)}>-->
                         <{:BA('user/money',array("user_id"=>$var["user_id"]),'余额','load','remberBtn',600,350)}>
                         <{:BA('user/edit',array("user_id"=>$var["user_id"]),'编辑','load','remberBtn',700,600)}>
                         <{:BA('user/delete',array("user_id"=>$var["user_id"]),'删除','act','remberBtn')}>

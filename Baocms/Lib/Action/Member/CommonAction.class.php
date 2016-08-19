@@ -110,7 +110,10 @@ class CommonAction extends Action {
             $template = strtolower(MODULE_NAME) . $depr . strtolower($template);
         }  
         $file = NOW_PATH . $template . C('TMPL_TEMPLATE_SUFFIX');
+        //echo $file;//lmy
         if(file_exists($file)) return $file;
+        //lmy@20160812 模板路径显示
+        //echo THEME_PATH . $template . C('TMPL_TEMPLATE_SUFFIX');
         return THEME_PATH . $template . C('TMPL_TEMPLATE_SUFFIX');
     }
 

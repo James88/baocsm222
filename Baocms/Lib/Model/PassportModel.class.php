@@ -64,7 +64,7 @@ class PassportModel {
     public function logout() {
         clearUid();
         if ($this->isuc) {
-            uc_user_synlogout();
+            echo uc_user_synlogout();
         }
         return true;
     }
@@ -125,6 +125,7 @@ class PassportModel {
                         'last_ip' => $ip,
                         'token' => $this->token['token'],
                     );
+                    //同步uc用户到自己的表里 by lmy@20160818
                     $user['user_id'] = D('Users')->add($data);
                     D('Users')->prestige($user['user_id'], 'login');
                 } else {
@@ -143,7 +144,7 @@ class PassportModel {
                     }
                 }
                 setUid($user['user_id']);
-                uc_user_synlogin($uid);
+                echo uc_user_synlogin($uid); //by lmy@20160818 之前的代码没写输出，导致不能同步登录
             } else {
                 switch ($uid) {
                     case -1:
@@ -240,6 +241,16 @@ class PassportModel {
             } else {
                 $data['user_id'] = $obj->add($data);
             }
+            
+            //再往 多多表里写下数据 by lmy@20160818
+            $data['ddusername'] = $data['account'];
+            $data['ddpassword'] = $data['password'];
+            $data['ucid'] = $uid;
+            $data['jihuo'] = 1;
+            $data['email'] = isEmail($data['account'])?$data['account']:"";
+            D('Duoduouser')->add($data);
+            echo uc_user_synlogin($uid);
+            
         } else {
             $obj = D('Users');
             $data['password'] = md5($data['password']);

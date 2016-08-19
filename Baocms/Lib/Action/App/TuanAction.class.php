@@ -236,7 +236,7 @@ class TuanAction extends CommonAction {
 							D('Userintegrallogs')->add(array(
 								'user_id' => $uid,
 								'integral' => -$used,
-								'intro' => "订单" . $order_id . "积分抵用",
+								'intro' => "订单" . $order_id . "品宣币抵用",
 								'create_time' => NOW_TIME,
 								'create_ip' => get_client_ip()
 							));

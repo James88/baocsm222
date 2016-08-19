@@ -120,7 +120,7 @@ class UsersModel extends CommonModel{
         return false;
    }
    
-       public function CallDataForMat($items) { //专门针对CALLDATA 标签处理的
+    public function CallDataForMat($items) { //专门针对CALLDATA 标签处理的
         if (empty($items))
             return array();
         $obj = D('Userrank');

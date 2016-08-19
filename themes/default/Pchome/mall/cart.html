@@ -62,7 +62,7 @@
                                 <td width="116">
                                     <div class="ko">
                                         <span data="<{$item.goods_id}>"  class="jian">—</span>
-                                        <input type="text" value="<{$item.buy_num}>" data="<{$item.goods_id}>" rel="<{:round($item['mall_price']/100,2)}>" name="num[<{$item['goods_id']}>]" class="spinner">
+                                        <input type="text" value="<{$item.buy_num}>" data="<{$item.goods_id}>" rel="<{:round($item['mall_price']/100,2)}>" name="num[<{$item['goods_id']}>]" data-pinxuanbi="<{$item['jifen']}>" class="spinner">
                                         <span data="<{$item.goods_id}>" class="jia">+</span>
                                     </div>
                                 </td>
@@ -85,10 +85,14 @@
                         function changealltotal() {
 
                             var total_price = 0;
+                            var total_pinxuanbi = 0;
                             $(".spinner").each(function () {
                                 total_price += Math.round($(this).val() * $(this).attr('rel') * 100) / 100;
+                                total_pinxuanbi += Math.round($(this).val() * $(this).attr('data-pinxuanbi'));
                             });
                             $("#jq_total").html(total_price);
+                            $("#jq_total_yingfu").html(total_price - parseFloat($("#pinxuanbi-diakou-money").html()));
+                            $("#max-use-pinxuanbi").html(total_pinxuanbi);
                         }
                         $(document).ready(function (e) {
                             $(".jian").click(function () {
@@ -140,13 +144,50 @@
                                 });
                                 $('.layui-layer-btn0').css('background', '#2fbdaa');
                             });
-
+                            $("#confirm-use-pinxuanbi").on('click',function(){
+                                var useNum = $('#pinxuanbi').val();
+                                if(useNum == '' || parseFloat(useNum) > parseFloat($("#max-use-pinxuanbi").html())){
+                                    layer.msg('请正确输入使用数量');
+                                }else{
+                                    var dikoumony = parseFloat(useNum) * 0.01;
+                                    $("#pinxuanbi-shuliang").html(useNum);
+                                    $("#pinxuanbi-diakou-money").html(dikoumony);
+                                    $("#dikouarea").show();
+                                    $("#shiyong").hide();
+                                    $("#sureuse").val(1);
+                                    changealltotal();
+                                }
+                            });
                         });
                     </script>
+                    
+                    <if condition="!empty($MEMBER)">
+                    <div class='use-pinxuanbi' style='margin:20px auto;'>
+                        <div class="shiyongle">
+                            
+                        </div>
+                        <br />
+                        <div id="shiyong">
+                        使用品宣币：<input id="pinxuanbi" type='text' name='pinxuanbi' value='' placeholder="自定义使用数量" />
+                        <input id="sureuse" type="hidden" value="0" name="sureuse">
+                        <input id="confirm-use-pinxuanbi" type='button' value='确定'>
+                        
+                        <br />您的品宣币余额：<{$MEMBER["integral"]}>，本单最多可用<span id='max-use-pinxuanbi'><{$total_pinxuanbi}></span>品宣币
+                        </div>
+                    </div>
+                    </if>
+                    
                     <div class="order_p1">
+                        <div id="dikouarea" style='display:none;'>
+                            <div class="order_s3">
+                                订单总额：<span class="rmb">￥</span><label id="jq_total" class="money"><{:round($total_money/100,2)}></label>
+                            </div>
+                            <div class="order_s3" id='pinxuanbi-dikou'>
+                                <span id="pinxuanbi-shuliang">0</span>品宣币抵扣：-<span class="rmb">￥</span><label id="pinxuanbi-diakou-money" class="money">0</label>
+                            </div> 
+                        </div>
                         <div class="order_s3">
-                            应付总额：<span class="rmb">￥</span><label id="jq_total" class="money"><{:round($total_money/100,2)}></label>
-
+                            应付总额：<span class="rmb">￥</span><label id="jq_total_yingfu" class="money"><{:round($total_money/100,2)}></label>
                         </div>       
                         <div class="cha"><a href="javascript:history.go(-1)" class="back">返回上一步</a><input type="submit" value="确认" class="sub"></div>
                     </div>

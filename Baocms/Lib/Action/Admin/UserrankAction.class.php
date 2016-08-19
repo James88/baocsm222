@@ -7,8 +7,8 @@
  * 邮件: youge@baocms.com  QQ 800026911
  */
 class UserrankAction extends CommonAction{
-    private $create_fields = array('rank_name','icon','icon1','prestige','rebate');
-    private $edit_fields = array('rank_name','icon','icon1','prestige','rebate');
+    private $create_fields = array('rank_name','icon','icon1','prestige','rebate','pinxuanbi');
+    private $edit_fields = array('rank_name','icon','icon1','prestige','rebate','pinxuanbi');
     
     public  function index(){
        $Userrank = D('Userrank');

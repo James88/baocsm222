@@ -313,12 +313,16 @@ class MallAction extends CommonAction {
             $goods_ids = array_keys($goods);
             $cart_goods = D('Goods')->itemsByIds($goods_ids);
             $shop_ids = array();
+            $total_pinxuanbi = 0;
             foreach ($cart_goods as $k => $val) {
                 $cart_goods[$k]['buy_num'] = $goods[$k];
                 $shop_ids[$val['shop_id']] = $val['shop_id'];
+                $total_pinxuanbi += $val['jifen']*$goods[$k];
             }
+            //die($total_pinxuanbi);
             $this->assign('cart_shops', D('Shop')->itemsByIds($shop_ids));
             $this->assign('cart_goods', $cart_goods);
+            $this->assign('total_pinxuanbi', $total_pinxuanbi);
             $this->display();
         }
     }
@@ -632,6 +636,11 @@ class MallAction extends CommonAction {
             $this->ajaxLogin();
         }
         $num = $this->_post('num', false);
+//        var_dump($)
+        $is_use_pinxuanbi = $this->_post('sureuse',false);
+        $pinxuanbi = $this->_post('pinxuanbi',false);
+                
+        
         $goods_ids = array();
         foreach ($num as $k => $val) {
             $val = (int) $val;
@@ -654,7 +663,7 @@ class MallAction extends CommonAction {
         if (empty($goods)) {
             $this->baoError('很抱歉，您提交的产品暂时不能购买！');
         }
-        $tprice = 0;
+        $tprice = $max_pinxuanbi_use = $dikou_money = 0;
         $ip = get_client_ip();
         $ordergoods = $total_price = array();
 
@@ -662,6 +671,7 @@ class MallAction extends CommonAction {
             $price = $val['mall_price'] * $num[$val['goods_id']];
             $js_price = $val['settlement_price'] * $num[$val['goods_id']];
             $tprice+= $price;
+            $max_pinxuanbi_use += $val['jifen'] * $num[$val['goods_id']];
             $ordergoods[$val['shop_id']][] = array(
                 'goods_id' => $val['goods_id'],
                 'shop_id' => $val['shop_id'],
@@ -674,7 +684,26 @@ class MallAction extends CommonAction {
             );
             $total_price[$val['shop_id']] += $price;
         }
-
+        //需要抵扣的钱数by lmy@20160816
+        $member = $this->member;
+        if($is_use_pinxuanbi == 1){
+            if($pinxuanbi <= $member['integral'] && $pinxuanbi > $max_pinxuanbi_use){
+                $pinxuanbi = $max_pinxuanbi_use;
+            }
+            $dikou_money = $pinxuanbi;
+             D('Users')->save(array('user_id' => $this->uid, 'integral' => $member['integral']-$pinxuanbi));
+        }
+        $pinxuanbiLogId = 0;
+        //写入品品宣币抵扣日志
+        if($dikou_money > 0){
+            $pinxuanbiLog = D('Userintegrallogs');
+            $data['user_id'] = $this->uid; 
+            $data['integral'] = $pinxuanbi;
+            $data['intro'] = "商城购物";
+            $data['create_time'] = NOW_TIME;
+            $data['create_ip'] = get_client_ip();
+            $pinxuanbiLogId = $pinxuanbiLog->add($data);
+        }
         //总订单
         $order = array(
             'user_id' => $this->uid,
@@ -686,8 +715,11 @@ class MallAction extends CommonAction {
         foreach ($ordergoods as $k => $val) {
             $shop = D('Shop')->find($k);
             $order['shop_id'] = $k;
-            $order['total_price'] = $total_price[$k];
-            $order['is_shop'] = (int) $shop['is_pei']; //是否由商家自己配送
+            $order['total_price'] = $total_price[$k] - $dikou_money;
+            $order['pinxuanbi_logid'] = $pinxuanbiLogId;
+            $order['pinxuanbi_money'] = $dikou_money;
+            $order['total_price_org'] = $total_price[$k];
+            $order['is_shop'] = 1;//(int) $shop['is_pei']; //是否由商家自己配送
 
             if ($order_id = D('Order')->add($order)) {
                 $order_ids[] = $order_id;
@@ -705,12 +737,15 @@ class MallAction extends CommonAction {
                 'order_id' => 0,
                 'order_ids' => join(',', $order_ids),
                 'code' => '',
-                'need_pay' => $tprice,
+                'need_pay' => $tprice - $dikou_money,
                 'create_time' => NOW_TIME,
                 'create_ip' => get_client_ip(),
-                'is_paid' => 0
+                'is_paid' => 0,
+                'pinxuanbi_logid' => $pinxuanbiLogId,
+                'pinxuanbi_money' => $dikou_money
             );
             $logs['log_id'] = D('Paymentlogs')->add($logs);
+           
             $this->baoJump(U('mall/paycode', array('log_id' => $logs['log_id'])));
         } else {
             $this->baoJump(U('mall/pay', array('order_id' => $order_id)));

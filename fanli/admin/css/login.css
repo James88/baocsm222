@@ -1,0 +1,29 @@
+html,body{background:#016AA9}
+.login{margin:0 auto;width:514px;height:268px;background:url('../images/login_bg.gif') no-repeat;}
+.login .relative{margin:0 auto;padding:0;width:514px;height:268px;}
+.login #username{
+	background:url('../images/login_admin_name_bg.gif') no-repeat #fff;
+	width:130px;
+	padding:3px 3px 3px 45px;
+	border:1px solid #555;
+}
+.login #password{
+	background:url('../images/login_admin_password_bg.gif') no-repeat #fff;
+	width:130px;
+	padding:3px 3px 3px 45px;
+	border:1px solid #555;
+}
+.login #yzm{
+	background:url('../images/login_admin_yzm_bg.gif') no-repeat #fff;
+	width:80px;
+	padding:3px 3px 3px 45px;
+	border:1px solid #555;
+}
+.login .submit
+{
+	left:250px;
+	top:150px;
+	width:90px;
+	height:65px;
+	cursor:pointer;
+}

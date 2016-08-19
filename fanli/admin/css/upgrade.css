@@ -1,0 +1,363 @@
+/* CSS Document */
+* {
+	word-wrap: break-word;
+	outline: none;
+}
+body {
+	background: #FFF;
+	text-align: center;
+}
+body, td, input, textarea, select, button {
+	color: #555;
+	font: 12px "Lucida Grande", Verdana, Lucida, Helvetica, Arial, 'Simsun', sans-serif;
+}
+body, ul, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 12px;
+}
+a {
+	color: #2366A8;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: none;
+}
+em, cite, th {
+	font-style: normal;
+	font-weight: normal;
+}
+table {
+	border-collapse: collapse;
+}
+th {
+	text-align: left;
+}
+label, .pointer {
+	cursor: pointer;
+}
+.highlight {
+	color: #C00;
+	font-weight: 700;
+}
+.header, .header td, .header th {
+	border-top: 1px dotted #DEEFFB;
+	font-weight: 700;
+}
+.bold {
+	font-weight: 700;
+}
+.red {
+	color: #F00
+}
+.container {
+	padding: 9px 20px 20px;
+	text-align: left;
+}
+.itemtitle {
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 0 !important;
+*margin-bottom:5px !important;
+	margin-bottom: -5px;
+	line-height: 20px;
+}
+.itemtitle h3 {
+	float: left;
+	margin-right: 20px;
+}
+.itemtitle ul {
+	float: left;
+	line-height: 18px;
+}
+.itemtitle .tab1 {
+	clear: none;
+}
+.itemtitle .tab1 a {
+	line-height: 20px;
+}
+.itemtitle .tab1 a span {
+	padding: 0 7px;
+*padding:1px 7px 0;
+*line-height:19px;
+}
+.itemtitle .tab1 a:hover {
+	background: #F5F5F5 url(btn_block_3.gif) no-repeat 0 -40px;
+	color: #09C;
+}
+.itemtitle .tab1 a:hover span {
+	background: url(btn_block_3.gif) no-repeat right -60px;
+}
+.itemtitle .tab1 .hasdropmenu a:hover {
+	color: #666;
+}
+.itemtitle .tab1 .current a {
+	background: url(btn_block_3.gif) no-repeat 0 0 !important;
+}
+.itemtitle .tab1 .current a span, .itemtitle .tab1 .current a:hover span {
+	background: url(btn_block_3.gif) no-repeat right -20px;
+	color: #FFF;
+}
+.itemtitle .tab1 .dropmenu a {
+	background: none !important;
+}
+.itemtitle .tab1 .dropmenu a:hover, .itemtitle .tab1 .dropmenu a.current {
+	background: #DEEFFA !important;
+}
+/* table */
+.tb {
+	clear: both;
+	width: 100%;
+	margin-top: 8px
+}
+.tb th, .tb td {
+	padding: 5px !important;
+	height: 25px;
+}
+.tb1 {
+}
+.th11, .th12 {
+	width: 60px;
+	font-weight: 700;
+}
+.tb1 .th12 {
+	padding-top: 7px;
+	vertical-align: top;
+}
+.tb1 .tb2 th {
+	padding-top: 0;
+}
+.tb1 .txt {
+	width: 150px;
+}
+.tb1 strong {
+	margin-right: 5px;
+	color: #F60;
+}
+.first td {
+	padding-top: 13px;
+}
+.first .th12 {
+	padding-top: 15px;
+}
+.bdtop td {
+	border-top: 1px dashed #CAE4F7;
+}
+.bdbot td {
+	border-bottom: 1px dashed #CAE4F7;
+}
+.td11 {
+	width: 350px;
+	vertical-align: top;
+}
+.td11 li {
+	float: left;
+	margin: 0 10px 7px 0;
+*margin:-3px 10px 7px 0;
+}
+.td11 .clear {
+	margin: 0;
+}
+.listtitle, .listtitlelong {
+	padding-top: 3px;
+*padding-top:6px;
+	width: 80px;
+	color: #09C;
+}
+.listtitlelong {
+	width: 100px;
+}
+.td11 .txt {
+	width: 70px;
+}
+.td11 .sginput .txt {
+	width: 150px;
+}
+.td12 {
+}
+.td12 li {
+	float: left;
+	margin-right: 10px;
+}
+.td12 .radio {
+	float: left;
+	margin-top: 4px;
+*float:none;
+*margin-top:0;
+}
+.td12 label {
+	float: left;
+	margin-top: 2px;
+*float:none;
+*margin-top:0;
+}
+.td12 .txt {
+	width: 50px;
+}
+.checkboxlist {
+	width: 720px;
+}
+.checkboxlist li {
+	float: left;
+	width: 90px;
+	line-height: 180%;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.longtxt .txt {
+	width: 400px !important;
+}
+.tarea {
+	width: 400px;
+	height: 75px;
+}
+.sml, .sml th, .sml td {
+	font-size: 9px !important;
+	-webkit-text-size-adjust: none;
+}
+/* tb */
+.tb2 {
+}
+.tb2 tr.hover:hover .tips2 {
+	color: #333;
+}
+.tb2 tr.hover:hover td {
+	background: #F2F9FD;
+}
+.tb2 tr.hl {
+	background: #FFFAF3;
+}
+.tb2 tr.hl td {
+	border-top: 1px #F4E4B4 solid;
+	border-bottom: 1px #F4E4B4 solid
+}
+.tb2.tdhover tr:hover td {
+	background: none;
+}
+.tb2.tdhover tr td:hover {
+	background: #F2F9FD;
+}
+.tb2 td {
+	padding: 5px 5px 3px 0;
+	border-top: 1px dotted #DEEFFB;
+}
+.tb2 th {
+	padding: 5px 5px 3px 0;
+	line-height: 21px;
+	font-size: 12px;
+}
+.tb2 .txt, .tb2 .txtnobd {
+	width: 100px;
+	margin-right: 10px;
+}
+.tb2 .smtxt {
+	margin-right: 5px;
+	width: 25px;
+}
+.nowrap {
+	white-space: nowrap;
+}
+.tb3 {
+	margin-top: -15px;
+	border: none;
+}
+.tb3 th {
+	padding: 10px 0 5px;
+}
+.tb3 td {
+	padding: 0;
+	line-height: 180%;
+}
+.btn {
+	margin: 3px 0;
+	padding: 2px 5px;
+*padding:4px 5px 1px;
+	border-color: #ddd #666 #666 #ddd;
+	background: #DDD;
+	color: #000;
+	cursor: pointer;
+	vertical-align: middle;
+}
+.btn:hover {
+	text-decoration: none;
+}
+.files {
+	padding: 1px 0 1px 50px;
+	background: url(../images/bg_repno.gif) no-repeat -260px -150px;
+}
+.currentloca {
+	clear: both;
+	height: 32px;
+	border-left: 1px solid #B5CFD9;
+}
+.currentloca p {
+	padding-left: 10px;
+	line-height: 25px;
+	border-top: 5px solid #FFF;
+	border-bottom: 2px solid #FFF;
+	border-left: 1px solid #FFF;
+	background: #F2F9FD;
+}
+.stepstat {
+*margin-bottom:10px;
+}
+.stepstat li {
+	float: left;
+	margin-right: 15px;
+	color: #CCC;
+}
+.stepstat li a{
+	color:#999;
+	cursor:pointer;
+	text-decoration:underline;
+}
+.stepstat .current {
+	color: #090;
+}
+.stepstat .current a{
+	color: #090;
+}
+.infobox {
+	clear: both;
+	margin-bottom: 10px;
+	padding: 30px;
+	text-align: center;
+	border-top: 4px solid #DEEFFA;
+	border-bottom: 4px solid #DEEEFA;
+	background: #F2F9FD;
+	zoom: 1;
+}
+.infotitle1 {
+	margin-bottom: 10px;
+	color: #09C;
+	font-size: 14px;
+	font-weight: 700;
+}
+.infotitle2 {
+	margin-bottom: 10px;
+	color: #090;
+	font-size: 14px;
+	font-weight: 700;
+}
+.infotitle3 {
+	margin-bottom: 10px;
+	color: #C00;
+	font-size: 14px;
+	font-weight: 700;
+}
+h3 {
+	margin-bottom: 10px;
+	font-size: 14px;
+	color: #09C;
+}
+.marginbot {
+	margin-bottom: 10px;
+}

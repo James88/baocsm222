@@ -1,0 +1,116 @@
+.news_txt{text-align:left;width:742px; margin:0; padding:0; float:left; }
+.news_txt_l{ text-align:left;width:365px;  padding:0; float:left; background-color:#ffffff;border: 1px solid #D0210C; height:370px; margin:0 0 10px 0;}
+.news_txt_r{text-align:left;width:365px;  padding:0; float:right; background-color:#ffffff;border: 1px solid #D0210C;height:370px;margin:0 0 10px 0;}
+.news_txt h3{ font-size:14px; font-weight:bold; float:left; margin:15px 0 0 10px;display:inline;}
+.news_txt .new_txt_more{ float:right;margin:15px 10px 0 0; display:inline; }
+.news_txt ul{ border-top:1px solid #ccc; clear:both;  display:inline;}
+.news_txt ul li{ width:340px;
+margin:0 10px 0 15px;
+	float:left;
+	height:30px;
+	line-height:30px;
+	display:inline;
+	background-image:url(../images/news_back.gif);
+	background-repeat:no-repeat;
+	overflow:hidden;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #E3E3E3;
+	}
+.news_txt li a{ margin:0 0 0 10px; float:left; width:280px; overflow:hidden;}
+.news_txt li span { float:right; color:#006600;}
+.news_txt .news_txt_bt{ height:40px; width:365px; margin:0; border-top-style:solid; border-top-width:2px;}
+
+.news_top{ margin-top:10px; margin-left:15px; float:left; font-family:宋体; color:#666;}
+.news_top a{ color:#666}
+#kong10px{  width:248px; margin:10px 0 0 0; clear:both; padding:0;}
+
+.news_list{ background-color:#ffffff;border: 1px solid #D0210C; width:740px; overflow:auto;}
+.news_list_bt{
+	margin:10px 0 10px 15px;
+	font-size:14px;
+	font-weight:bold;
+	width:710px;
+	height:35px;
+	line-height:35px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #E3E3E3;
+}
+.news_list ul{ clear:both;  display:inline; margin:0 0 20px 0; border-top:1px solid #ccc;}
+.news_list li{
+	width:710px;
+	margin:3px 10px 3px 15px;
+	float:left;
+	height:30px;
+	line-height:30px;
+	display:inline;
+	background-image:url(../images/news_back.gif);
+	background-repeat: no-repeat;
+	overflow:hidden;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #E3E3E3;
+	}
+.news_list li a{ margin:0 0 0 10px; float:left; width:600px; overflow:hidden;}
+.news_list li span { float:right; color:#006600;}
+
+.news_list_fl{ width:248px;background-color:#ffffff;border: 1px solid #D0210C; margin:0 0 10px 0;}
+.news_list_fl .news_list_fl_h3{ height:39px; background-image:url(../images/tubiao.png); background-position:-152px -844px;width:248px; background-repeat:no-repeat; line-height:39px; overflow:hidden; }
+.news_list_fl .news_list_fl_h3 h3{ margin:0 0 0 15px;}
+.news_list_fl ul{ margin:10px 0 10px 0;}
+.news_list_fl li{ height:25px; line-height:25px; margin:0 0 0 20px; }
+.news_list_fl li a{ widows:220px; height:25px;  display:block;}
+.news_list_fl li a:hover{ background:url(../images/flback.gif);}
+.news_txt1{background-color:#ffffff;border: 1px solid #D0210C; width:740px; overflow:auto; min-height:630px}
+.news_txt1 .news_txt_bt1{ margin:50px 0 0 20px; text-align:center; width:700px;border-bottom-width: 1px;	border-bottom-style: solid;	border-bottom-color: #E3E3E3; line-height:30px}
+.news_txt1 .news_txt_bt1 h1{font-size:16px; font-weight:bold; }
+.news_txt1 .news_txt_bt1 span{ color:#666; font-size:12px; font-weight:normal}
+.news_txt1 .news_txt_txt1{ width:700px; line-height:30px; margin:25px 0 15px 20px; min-height:370px;font-size: 14px;}
+.news_txt1 .news_txt_txt1 a { font-size:14px; color:#C60}
+.news_txt1 .news_txt_links{ margin:0 0 20px 20px;}
+.news_txt1 .news_txt_links ul li{ height:25px; line-height:25px;}
+.news_txt1 .news_txt_links ul li span{ color:#006600; float:left;}
+
+/*  相关链接开始 */
+.news_txt_xg{text-align:left;width:248px;  margin:10px 0 10px 0; padding:0; background-color:#ffffff;border: 1px solid #D0210C;}
+.news_txt_xg_bt {
+	margin:0;
+	padding:0;
+	width:248px;
+	height:39px;
+	background-image:url(../images/tubiao.png);
+	background-repeat: no-repeat;
+	background-position: 0px -887px;
+	border-top-style:solid;
+	border-top-width:2px;
+}
+.news_txt_xg h3{ font-size:14px; margin:0; padding:13px 0 0 48px;font-family:Arial, Helvetica, sans-serif;}
+.news_txt_xg ul{margin:10px 0 10px 10px; padding:0; width:230px; background-image:url(../images/tubiao.png);background-repeat: no-repeat;
+	background-position: -384px -79px; }
+.news_txt_xg li {margin:0; padding:0 0 0 30px; height:30px;  line-height:30px; width:175px; overflow:hidden}
+
+/*  相关链接结束 */
+
+.fuleft { width:742px; float:left; margin:10px 0 0 0; padding:0;}
+.furight { width:250px; float:right;margin:10px 0 0 0; padding:0;}
+/*  广告开始 */
+.fuguanggao{text-align:left;width:248px; margin:10px 0 0 0; padding:0; background-color:#ffffff;border: 1px solid #ededed; overflow:hidden;}
+.fuguanggao img { border:0; width:248px;}
+.mall2qa ul
+{
+	padding-bottom:10px;
+	padding-left:11px;
+	border-top:1px solid #ccc;
+}
+.mall2qa ul li.one
+{
+	margin:10px;
+	font-weight:bold;
+}
+.mall2qa ul li
+{
+	margin-left:30px;
+	margin-top:10px;
+	width:208px;
+}

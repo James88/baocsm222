@@ -1,0 +1,66 @@
+.clearfix:after,.container:after{clear:both;content:" ";display:block;font-size:0;height:0;overflow:hidden;visibility:hidden}
+.home-mall-tips{background:#fff;border-bottom:2px solid #ffad21;border-right:2px solid #ffad21;border-left:2px solid #ffad21;height:58px;padding:3px;position:absolute;text-align:center;width:107px;z-index:999;display:none;left:-2px;top:40px}
+.home-mall-tips a.btn-goshop,.home-mall-tips a.btn-gofanl{color:#fff;background:url(../images/bg-home8-alpha.png) no-repeat;display:block;float:left;font-size:14px;height:17px;line-height:16px;overflow:hidden;padding:4px 0 5px;text-indent:20px;width:107px}
+.home-mall-tips a.btn-goshop{background-color:#ffad21;background-position:4px 4px;border-bottom:2px solid #d68c00;margin-right:3px}
+.home-mall-tips a.btn-goshop:hover{background-color:#ffbf28;border-color:#d89e20}
+.home-mall-tips a.btn-gofanl{background-color:#3fc056;background-position:4px -20px;border-bottom:2px solid #2d9d44;margin-top:2px}
+.home-mall-tips a.btn-gofanl:hover{background-color:#49d065;border-color:#3bae51}
+.w1000{width:1000px;margin:0 auto; margin-top:5px}
+.home_left{width:780px;height:200px;float:left}
+.home_left ul li a{height:55px; display:inline-block;}
+.chongzhi{width:210px;height:198px;float:right;border:1px solid #dfdfdf; overflow:hidden; background:#FFF}
+.home_list{height:198px;border:1px solid #dfdfdf;background:#FFF; clear:both;}
+.home_list ul{margin-left:8px;margin-top:15px}
+.home_list li{float:left;width:113px;padding-top:8px;text-align:center;color:#999;height:68px;margin:0 11px 7px 0;}
+.home_list li .img_1{width:90px;height:40px;margin:5px auto;text-align:center; z-index:0;}
+.home-tab{border-bottom:1px solid #DDD;height:40px; display:block; background:#f1f1f1;}
+.home-tab li{float:left;margin-right:10px}
+.home-tab .home-tab-super{display:block; padding:0 40px;height:40px;background:#f9f9f9;font-size:14px; border-bottom:0 none;line-height:40px;text-align:center;color:#999;cursor:pointer;white-space:nowrap;font-family:'Hiragino Sans GB','Microsoft YaHei','SimSun',sans-serif}
+.home-tab .home-tab-super:hover{height:36px;line-height:34px;background:#FFF;cursor:pointer; border-top-width:3px; border-top-style:solid;}
+.home-tab .home-tab-super:hover strong{color:#cf5624;}
+.home-tab .home-tab-super strong{color:#666;font-size:20px}
+.home-tab li.current .home-tab-super{height:37px;line-height:36px;background:#FFF;cursor:default;border-bottom:1px solid #DDD; border-top-width:3px; border-top-style:solid; }
+.home-tab li.current .home-tab-super strong{color:#eb5f24}
+.home-tab li.current .home-tab-super{background:-moz-linear-gradient(top,#fff 50%,#f2f2f2 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(50%,#fff),color-stop(100%,#f2f2f2));background:-webkit-linear-gradient(top,#fff 50%,#f2f2f2 100%);background:-o-linear-gradient(top,#fff 50%,#f2f2f2 100%);background:-ms-linear-gradient(top,#fff 50%,#f2f2f2 100%);background:linear-gradient(to bottom,#fff 50%,#f2f2f2 100%)}
+.home-tab li.current .home-tab-tuan strong{color:#eb5f24}
+.home-shop .item-logo{ position:relative}
+.home-shop .item-logo:hover{border-color:#ffad21}
+.home-shop .arrow-shop-list{background:none repeat scroll 0 0 #c9c9c9;bottom:40px;color:#fff;display:block;font-size:40px;font-weight:bold;height:50px;line-height:54px;overflow:hidden;position:absolute;right:75px;text-align:center;width:36px;top:120px; z-index:0;}
+.ddgoods{ display:none}
+
+#index-goods #tejiaDiv{ margin-top:10px}
+
+.links {text-align:left;width:998px; height:auto; float:left; background-color:#ffffff;border: 1px solid #D0210C;}
+
+.links01 { padding:0; margin: 10px 0 0 0;  width:990px; height:auto; float:right;}
+.links01 ul{padding:0; margin: 0 0 0 0; overflow:hidden; }
+.links01 li{ float:left; margin:0 20px 5px 0; padding:0;word-break:keep-all; line-height:18px}
+.links02 {width:990px; height:auto; float:right; margin-bottom:5px}
+.links02 ul{overflow:hidden; }
+.links02 li{ float:left; margin:0 15px 5px 0; width:95px}
+.links02 li img{ border:0;}
+.linksline { padding:0; margin: 0; width:785px; margin-left:80px}
+.zhanshi { width:600px; float:right; padding:0; margin:0;}
+.zhanshi ul {width:600px; padding:0; margin:0 auto;}
+.zhanshi li {
+	width:150px;
+	padding:0;
+	margin:0 0 8px 0;
+	float:left;
+	line-height: 30px;
+}
+.zhanshi .pailie {
+	padding:0;
+	margin:0 auto;
+	width:135px;
+	height:90px;
+	text-align: center;
+	border: 1px solid #EAEAEA;
+}
+.zhanshi .pailie p{padding:0; margin:0 auto;}
+.zhanshi .pailie a{height:55px; display:inline-block;}
+.zhanshi .pailie img {border:0; margin:0; width:105px; max-height:50px;}
+
+.zhanshi li.tb{ width:120px}
+.zhanshi li.tb .pailie{ width:105px}
+.zhanshi li.tb .pailie img {width:55px; height:55px;}

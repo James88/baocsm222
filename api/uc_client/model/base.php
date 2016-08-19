@@ -71,7 +71,9 @@ class base {
 	function init_db() {
 		require_once UC_ROOT.'lib/db.class.php';
 		$this->db = new ucclient_db();
-		$this->db->connect(UC_DBHOST, UC_DBUSER, UC_DBPW, '', UC_DBCHARSET, UC_DBCONNECT, UC_DBTABLEPRE);
+		//$this->db->connect(UC_DBHOST, UC_DBUSER, UC_DBPW, '', UC_DBCHARSET, UC_DBCONNECT, UC_DBTABLEPRE);
+        //这点 baocms选不到数据库，只能这样了 lmy@20160817
+		$this->db->connect(UC_DBHOST, UC_DBUSER, UC_DBPW, UC_DBNAME, UC_DBCHARSET, UC_DBCONNECT, UC_DBTABLEPRE);
 	}
 
 	function load($model, $base = NULL) {

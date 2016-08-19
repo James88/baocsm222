@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <{$CONFIG['site']['headinfo']}>
-        <title><php>if($config['title'])echo $config['title'];else echo $seo_title;</php></title>
+        <title><php>if($config['title'])echo $config['title'];else if($CONFIG)echo $CONFIG['site']['sitename'];else echo $seo_title;</php></title>
         <meta name="keywords" content="<{$seo_keywords}>" />
         <meta name="description" content="<{$seo_description}>" />
         <link href="__TMPL__statics/css/style.css?v=20150718" rel="stylesheet" type="text/css">

@@ -1,0 +1,391 @@
+@charset "utf-8";
+/* 全局 */
+.other_login h4{height:30px}
+.other_login p{margin-bottom:10px;height:34px}
+.other_login p a{line-height: 34px;background: #f7931d;border-radius:5px;display: block;width:70%;color:#fff}
+.other_login p i{width:30px;height:30px;background:#fff url(../images/icon1.png) 2px 5px no-repeat;float:left;margin:2px 14px 2px 2px;border-radius:3px}
+.other_login p:nth-of-type(2) a{background: #00a2ff}
+.other_login p:nth-of-type(2) a i{background-position: 2px -38px}
+.other_login p:nth-of-type(3) a{background: #f00}
+.other_login p:nth-of-type(3) a i{background-position: 2px -84px}
+.other_login.fanjifen p{margin-left:8%}
+.other_login.fanjifen aside{padding:10px 0 10px 10%}
+.other_login.fanjifen aside a{color:#00a8ff}
+.login,.other_login{margin:10px auto 20px;min-width:300px;max-width:300px}
+/*login E*/
+
+
+body,div,p,ul,li,dl,dt,dd,form,input,table,img,h1,h2,h3,h4,h5,h6,header,section,footer,nav,figure,figcaption,article{margin:0;padding:0}
+header,section,footer,nav,figure,figcaption,article,menu{display:block}
+body{background:#eee;font-size:12px;font-family:"微软雅黑";color:#646464}
+a,a:hover{text-decoration:none;color:#000}
+em,i,cite,var{font-style:normal}
+img{border:none;display: inline-block;vertical-align: top}
+ul{list-style-type:none}
+.l,.left{float:left;display: inline}
+.r,.right{float:right;display: inline}
+.clear:after,section:after{content:".";display:block;visibility:hidden;height:0;clear:both}
+.clear,section{zoom:1}
+h1, h2, h3, h4, h5, h6 {font-size: 12px;font-weight: normal}
+h2 {text-align: right}
+h2 span{float:left;font-weight: bold;text-align: left}
+.hidden{display: none}
+.show{display:block}
+section,header,nav,footer{min-width:320px}
+.w280{min-width:280px;margin:0 5%}
+.w300{min-width:300px;margin:0 3%}
+/*header footer S*/
+header{background: #5a5a5a;padding:10px;overflow: hidden;min-width:300px}
+header h1{width:65px;height:25px;overflow: hidden;float:left}
+header h1 a{background: url(../img/v2logo.png) no-repeat;font:0/0 '';width:65px;height:25px;float:left}
+header p.r a{background: url(../img/v2icon1.png) no-repeat #ff6c57;border-radius: 1px;padding:0 6px 0 24px;margin-left:7px;font:14px/24px "微软雅黑";color:#fff;display: inline-block}
+header p.r a:nth-of-type(1){background-position:0 0}
+header p.r a:nth-of-type(2){background-position:0 -25px}
+header p.r a:nth-of-type(3){background-position:0 -50px}
+footer{text-align: center;font:14px/30px "微软雅黑"}
+footer aside{background: #fff;height:30px}
+footer aside a{margin:0 6px;color:#646464}
+footer aside span.l{padding-left:4px}
+footer aside span.l a:last-child{margin-right:0}
+footer aside span.r a:first-child{margin-left:0}
+footer aside span.r{padding-right:4px}
+footer p{line-height:40px}
+/*header footer E*/
+
+.breadcrumb{position: relative;height:44px;background: #ff6c58;font: 14px/44px "微软雅黑";overflow: hidden;text-align: center;color:#fff;min-width:280px; padding: 0 20px; margin: 0 auto}
+.breadcrumb span{position: absolute;top:12px;left:12px}
+.breadcrumb span a{background:url(../img/v2icon1.png) no-repeat 0 -180px;width:20px;height:20px;float:left}
+.breadcrumb b{position: absolute;top:9px;right:12px;border-radius: 5px;background: #ff5840;height:26px; padding:0 6px;font:14px/26px "微软雅黑"}
+.breadcrumb b a{color:#fff}
+/*deal S*/
+.deals div{padding-bottom:10px;border-bottom:1px solid #c3c3c3;margin-top:10px;overflow: hidden}
+.deals div figure {margin-left:3%;position: relative;margin-right:2%;float:left}
+.deals div figure img{width:102px;height:68px;}
+.deals div figure sup{width:25px;height:25px;background: url(../img/v2icon2.png) 0 0 no-repeat;position: absolute;top:0;left:0}
+.deals div h2{height:36px;overflow: hidden;position: relative;padding-right:35px}
+.deals div h2 span{font:14px/18px "微软雅黑"}
+.deals div h2 sub,.guangdeals div figure sub{position: absolute;top:0px;right:12px;background: url(../img/v2icon1.png) 0 -102px no-repeat;width:23px;height:23px;cursor: pointer}
+.deals div h2 sub.check,.guangdeals div figure sub.check{background-position: 0 -77px}
+.deals div aside{overflow: hidden;height:18px}
+.deals div aside span{float:left;margin-right:4px;font-size:10px;color:#646464}
+.deals div aside i{width:14px;height:12px;float:left;background: url(../img/v2icon1.png) 0 -127px no-repeat;margin-top:2px}
+.deals div aside img{width:10px;height:12px; vertical-align:-1px;margin-right:2px}
+.deals div aside span.i1 i{background-position: 0 -127px}
+.deals div aside span.i2 i{background-position: 0 -140px}
+.deals div aside span.i3 i{background-position: 0 -154px}
+.deals div p{line-height: 14px;position: relative;padding-right:56px}
+.deals div p span{width:56px;float:left;color:#ff4e35;height:14px;overflow: hidden}
+.deals div p span i{font-size:14px}
+.deals div p cite{font-size:10px;color:#646464}
+.deals div p b{height:18px;width:54px;position: absolute;bottom:-2px;right:0;color:#fff;text-align: center;line-height: 18px}
+.deals div p b.i1{background: #ff291e}
+.deals div p b.i2{background: #42a532}
+.deals div p b.i3{background: #606060}
+#concernlist div p b.i1{background: #989898;border-radius: 3px}
+#concernlist div p b.i1 a{color:#d7d7d7}
+#lipinlist div figure sup{background-position: 0 -47px;width:30px;height:14px}
+#lipinlist div p{height:18px;overflow: hidden;line-height: 18px;margin-top:14px}
+#lipinlist div p span{width:auto;height:18px;color:#646464}
+#lipinlist div p b{bottom:0}
+#lipinlist div p b.i1{background: #1e6dff}
+#lipinlist div p b.i2{background: #ff8a00}
+#lipinlist div p b.i3{background: #ff291e}
+.more{font:14px/36px '微软雅黑';text-align: center;position: relative;width:100%;overflow: hidden}
+.more i{position: absolute;top:0;right:4%}
+.more i b{width: 0;height: 0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom: 11px solid #606060;font:0/0 '';float:right;margin-top:13px;margin-left:5px}
+/*deal E*/
+/*index S*/
+#popad{position: fixed;top:0;left:50%; z-index: 99;width:320px;margin-left:-160px;text-align: center;z-index:10000}
+#popad span.close,#indexad span.close{position: absolute;top:6px;right:10px;background: url(../img/v2icon3.png) no-repeat;width:30px;height:30px}
+#popad img,.adA img{width:320px}{width:320px}
+#indexad{text-align: center;width:320px; margin: 0 auto;position: relative}
+#indexad img{width:320px;height:70px}
+.focus{width:320px;overflow:hidden;height:120px;margin:0 auto; position: relative}
+.focus div {left: 0;position: absolute;top: 0;width: 9999px}
+.focus img{width: 320px;height:120px}
+.focus em {left: 0;position: absolute;text-align: center;top: 102px;width: 320px}
+.focus i{background:#ACACAC;border-radius:10px; display: inline-block;height: 8px; margin: 0 7px;overflow: hidden;width: 8px;font:0/0 ""}
+.focus i.cur{background:#30CCD6}
+.focus div a{float:left}
+.tag{background: #ff6c57;overflow: hidden;margin-bottom:15px}
+.tag a{width:33%;float:left;text-align: center;height:26px;color:#fff}
+.tag a span{font:16px/16px "微软雅黑";border-right:1px solid #fff;display: inline-block;width: 100%;margin-top:6px}
+.tag a:last-child{width:34%}
+.tag a:last-child span{border:0}
+.tag a.cur{border-bottom:3px solid #982d2d}
+.tag-child{position: relative; z-index: 1;margin-bottom:10px}
+.tag-child a{width:27%;margin:0 3%;height:24px;line-height: 24px;float:left;color:#646464}
+.tag-child a span{border:1px solid #cecece;background: #fff;text-align: center;float:left;width:100%}
+.tag-child a span.cur{background: #ccc;border:1px solid #ccc}
+.tag-child .tab{position:absolute;width:33%;left:3%;top:27px}
+.tag-child .tab ul{width:98%;border:1px solid #4e4e4e;background: #5a5a5a;float:left;position: relative}
+.tag-child .tab ul li{border-bottom:1px solid #4e4e4e;height:28px;font:14px/28px "微软雅黑";text-align: center}
+.tag-child .tab ul li a{width:100%;margin: 0;height:100%}
+.tag-child .tab ul li a:active{background:#696969}
+.tag-child .tab i{width: 0;height: 0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid #5a5a5a;font:0/0 '';float:left;margin-left:20%;position: relative; z-index: 2;margin-bottom:-1px}
+.guangteam ul{overflow: hidden;margin:-5px auto 0; width:320px}
+.guangteam ul li{width:94px;height:122px;float:left;overflow: hidden;margin-left:9px;margin-bottom:10px}
+.guangteam ul li img{width:94px;height:98px; vertical-align: top}
+.guangteam ul li span{width:94px;height:24px;overflow: hidden;line-height: 24px;text-align: center;float:left}
+.guangdeals{overflow: hidden}
+.guangdeals div{float:left;width:135px;padding:5px 5px 0;margin-left:10px;height:192px;background: #fff;margin-top:10px;overflow: hidden}
+.guangdeals div figure{position: relative;margin-bottom:4px}
+.guangdeals div figure img{width:135px;height:150px}
+.guangdeals div figure i{width:24px;height:11px;background: url(../img/v2icon2.png) no-repeat 0 -36px;display: block;position: absolute;top:0;left:0}
+.guangdeals div figure sub{top:123px;right:4px}
+.guangdeals div aside,.guangdeals div p{height:18px;overflow: hidden;line-height: 18px}
+.guangdeals div aside span{float:left;font:10px/20px "微软雅黑";}
+.guangdeals div aside i{width:24px;height:11px;background: url(../img/v2icon2.png) no-repeat 0 -25px;float:right;margin-top:5px}
+/*index E*/
+
+
+/*login S*/
+
+.login p em{margin-left:10px}
+.login p em a{color:#00a8ff; text-decoration: underline}
+.login p i{display: inline-block;width:32%;}
+.login p i input,.gbtn a{color:#fff; width:100%;border-radius:5px;background:#ff6445;background-image: -moz-linear-gradient(top, #ff6445, #ff3925) ;background-image:-webkit-linear-gradient(top, #ff6445, #ff3925);display: inline-block;height:28px;text-align: center;font:14px/28px "微软雅黑"}
+.login p i input{border:0;cursor:pointer;padding-left:0}
+.login p{height:30px; margin: 5px 0}
+.login input,.userpanel input,address ul li input{border-radius:3px;border:1px solid #cfcfcf;height:24px;font:12px/24px "宋体";width:178px; padding-left: 4px;color:#999}
+.login input:focus, .userpanel input:focus, address ul li input:focus{color:#000}
+.login label{width:50px;display: inline-block}
+.login p:nth-of-type(3){margin-top:10px;text-align:center}
+.login span{color:#FF271C;margin-left:50px}
+
+/*signup S*/
+.userpanel{margin:20px auto;min-width:300px;max-width:300px}
+.userpanel p{margin-bottom:10px}
+.userpanel p .gbtn{width:90px;float:right}
+.userpanel p em{color:#FF271C;margin-left:5px}
+.userpanel p:nth-of-type(1) em{display: block;margin-top:8px;margin-left:0}
+.userpanel article,.userpanel h4{line-height: 18px;margin-bottom:15px}
+.userpanel h4 i{background: #eee;outline:1px solid #616161;border:3px solid #eee;width:8px;height:8px;display: inline-block;margin-right:10px;vertical-align:-1px;cursor: pointer}
+.userpanel h4 i.check{background: #ff6c57}
+.userpanel h6 .gbtn,address h6 .gbtn{width:90px;display: inline-block}
+/*signup E*/
+
+/*fanjifen S*/
+.fanjifen{margin:10px auto;width:300px}
+.fanjifen .title{font-size:14px}
+.fanjifen .title span{color:#ff6c57}
+
+/*fanjifen E*/
+/*jifenduihuan S*/
+.duihuan time{width:100%;height:24px;line-height: 24px;color:#fff;background: #505050;display: block;text-align: center;margin-top:8px;border-top:1px solid #7c7c7c;border-bottom:1px solid #7c7c7c;margin-bottom:5px}
+.duihuan figure,.lipininfo figure{border:1px solid #acacac;width:268px;padding:5px;text-align: center;background: #fff;margin: 0 auto 10px}
+.duihuan figure img,.lipininfo figure img{max-width:268px}
+.duihuan h2{line-height:22px;color:#000;overflow: hidden;margin-bottom:4px}
+.duihuan h2 span i{float:left;margin-right:6px}
+.duihuan h3{line-height: 18px}
+.duihuan h3 i{font:15px/18px "微软雅黑";color:#ff5b45;width:70px;float:left}
+.duihuan article{margin-bottom:10px;line-height: 18px}
+.duihuan article hgroup,.hxiadan hgroup,.lipininfo hgroup,.shaitie hgroup,.jifeninfo hgroup{color:#000; margin: 8px 0}
+.duihuanfoot{background: #2e2e2e;height:24px;width:88%;padding:8px 6%;line-height: 24px; margin: 0 auto}
+.duihuanfoot i{float:right}
+.duihuanfoot i a,.pop-dig aside i a,.duihuanfoot i em{background: url(../img/v2bgx1.png) repeat-x;float:left;width:76px;height:24px;text-align: center;color:#fff;border-radius: 3px;line-height: 24px}
+.duihuanfoot i.i1 a{background-position: 0 0}
+.duihuanfoot i.i2 em{background: url(../img/v2bgx2.png) repeat-x}
+.duihuanfoot i.i3 em{background-position: 0 -25px}
+.huangoufoot,.xiadanfoot{position: fixed;bottom: 0;left:50%;margin-left:-50%}
+.huangoutag{background: #fff;overflow: hidden}
+.huangoutag a{width:50%;float:left;text-align: center;height:36px;color:#606060}
+.huangoutag a span{font:16px/16px "微软雅黑";border-right:1px solid #b5b5b5;display:block;margin-top:10px}
+.huangoutag a:last-child span{border: 0}
+.huangoutag a.cur{border-bottom:3px solid #ff6c57}
+.hgblockA{border-bottom:1px solid #C3C3C3;line-height: 34px;color:#000}
+.hgblockA b{padding-left:3%}
+.deals_a div h2,#subject div h2,#concernlist div h2,#lipinlist div h2{padding:0}
+.deals_a div p span{font:16px/18px "微软雅黑";height:18px;width:68px}
+.deals_a a{outline:none}
+.hxiadan figure img{float:left;width:124px;height:75px;margin-right:10px}
+.hxiadan figure figcaption{height:72px;line-height: 18px;overflow: hidden;margin-bottom:8px;font-weight: bold;color:#000}
+.hxiadan figure aside{line-height: 16px;color:#ff4e35;margin-bottom:10px}
+.hxiadan dl{line-height: 24px;overflow: hidden}
+.hxiadan dl dt{float:left;width:70px}
+.hxiadan dl dd{overflow:hidden}
+.hxiadan dl dd a{padding:0 10px;height:24px;float:left;margin-right:10px;background:#ddd;text-align: center;color:#acacac;margin-bottom:10px}
+.hxiadan dl dd a.cur{background:#ff331e;color:#fff}
+.hxiadan .changeAddress{position:relative}
+.hxiadan article{line-height:20px}
+.hxiadan .changeAddress i.i1 a{position: absolute; top:-3px;right:0;width:60px;height:24px;border-radius: 5px;background: #ff6445;color:#fff;text-align: center;line-height: 24px}
+/*jifenduihuan E*/
+
+/*-----*/
+.z0,.z1,.z2,.z3,.z4,.z5,.z6{width:19px;height:22px;display: inline-block}
+.z0{background: url(../img/z0.png) no-repeat}
+.z1{background: url(../img/z1.png) no-repeat}
+.z2{background: url(../img/z2.png) no-repeat}
+.z3{background: url(../img/z3.png) no-repeat}
+.z4{background: url(../img/z4.png) no-repeat}
+.z5{background: url(../img/z5.png) no-repeat}
+.z6{background: url(../img/z6.png) no-repeat}
+
+/*弹窗*/
+.pop-dig{width:220px;background: #393939;border-radius:5px;border:2px solid #777;position: fixed;top:50%;height:160px;margin-top:-80px;left:50%;margin-left:-120px; padding:6px 10px}
+.pop-dig h3,.pop-dig h4{font:15px/20px "微软雅黑";color:#fff;margin:10px 0;text-align: center}
+.pop-dig article{color:#fff;line-height: 18px;overflow: hidden}
+.pop-dig aside i{font-size:15px}
+.pop-dig aside i a{width:90px}
+.pop-duihuan article,#pop-deleteinfo article{height:90px}
+.pop-duihuan aside{text-align: center}
+.pop-duihuan aside i{display: inline-block;}
+.pop-dig h4{margin-top:30px; height:80px;overflow:hidden}
+.pop-sug h3{color:#ff5b45}
+.pop-error h3{color:#7b7b7b}
+#pop-qiandao,#pop-shaitie{background:rgba(255,100,69,0.8);border:0;height:40px;padding: 0 10px;margin-top:-20px}
+
+/*个人中心*/
+.userinfo hgroup b,#integral hgroup b{line-height: 30px;color:#000;padding-left:10px}
+.userinfo article,#integral article{border: 1px solid #ceced0;border-radius: 10px;overflow: hidden;background: #fff;margin-bottom:10px}
+.userinfo article h2{line-height: 24px; padding:10px;border-bottom:1px solid #ceced0}
+.userinfo article h2 a{background:#ff6445; border-radius:5px;margin-left:20px; padding: 0 6px;color:#fff;display: inline-block}
+.userinfo article .level{padding:10px;color:#000;border-bottom:1px solid #ceced0}
+.userinfo article .level p{text-align: right;font-weight: bold;line-height: 20px}
+.userinfo article .level p span{float:left}
+.userinfo article .level p a{font-size:10px;color:#00b4ff;text-decoration: underline}
+.userinfo article .level div h4{font-size:10px;color:#787878}
+.userinfo article .level div h4:nth-of-type(1){color:#ff6445}
+.userinfo article .level div h4 i{float:left}
+.userinfo article .level div h4 i:nth-of-type(2){float:right}
+.userinfo article .level div span{background:#bebebe;height:12px;overflow: hidden;float:left;width:100%}
+.userinfo article .level div span i{background: #ff3d3d;float:left;height:12px}
+.userinfo article ul li{border-bottom:1px solid #ceced0;width:100%;float:left;overflow: hidden;font:bold 12px/36px "微软雅黑"}
+.userinfo article ul li:last-child{border-bottom:0}
+.userinfo article ul li a{background: url(../img/v2icon4.png) right no-repeat;display: block;padding: 0 10px;}
+.userinfo article .itaobao{padding: 10px;margin-left:-20px}
+.userinfo article .itaobao a{width:73px;height:20px;border-radius:3px;background: url(../img/v2icon1.png) 0 -203px no-repeat #ff6445;float:left;margin-left:20px;color:#fff;text-indent:30px;line-height: 20px;border:3px solid #ff6445}
+.userinfo article .itaobao a:nth-of-type(2){background-position: 3px -227px}
+.userinfo article .itaobao a:nth-of-type(3){background-position: 3px -250px}
+address{margin:10px auto 20px;width:300px;font-style:normal}
+address ul li{margin-bottom:10px;float:left;width:300px}
+address ul li label{width:80px;float:left;line-height: 24px}
+address ul li label i{width:20px;color:#ff271c;float:left;text-align: center}
+address div{color:#d8d8d8;float:left;width:184px}
+address div h4{border-radius:3px;border:1px solid #cfcfcf;height:24px;font:12px/24px "宋体";width:178px; padding-left:4px;background: #fff url(../img/v2icon1.png) right -274px no-repeat;cursor: pointer}
+address div p{position: absolute;top:24px;left:0;background: #fff; width: 182px;border:1px solid #cfcfcf;display: none;height:120px;overflow-x: hidden;overflow-y: auto}
+address div p span{width:182px;float:left;height:24px;line-height: 24px;text-indent: 4px}
+address div p span:hover{background: #eee}
+address div.cur{position: relative}
+address div.cur p{display: block}
+address aside{margin:15px 0}
+.lipininfo h2{overflow: hidden}
+.lipininfo h2 span{color:#000}
+.lipininfo article{line-height: 18px}
+.lipininfo aside{margin:15px 0}
+.lipininfo aside hgroup{margin-bottom:0}
+.lipininfo aside p{font:10px/18px "微软雅黑"}
+
+/*下载中心 S*/
+.downinfo hgroup b,.qiandao article:last-child hgroup b{font:bold 14px/30px "微软雅黑";height: 30px;color:#000}
+.downinfo aside{overflow: hidden; margin: 20px 0 10px}
+.downinfo aside a{border-radius:15px;color:#fff;background: #ff6445;width:144px;text-align: center; padding:9px 0}
+.downinfo aside a i{width:30px;height:44px;background: #ff6445 url(../img/v2icon3.png) 0 -34px no-repeat;display: inline-block;vertical-align: middle;margin-right:5px}
+.downinfo aside a:first-child{float:left}
+.downinfo aside a:last-child{float:right}
+.downinfo aside a:last-child i{background-position: 0 -82px}
+.downinfo p,.subject p,.subjectinfo aside,.subjectinfo aside article{margin-bottom:10px;line-height: 18px;width:100%;word-wrap:break-word;table-layout: fixed;}
+/*下载中心 E*/
+/*活动 S*/
+.subject p{margin-top:10px; margin-bottom: 0}
+.subjectinfo aside,.subjectinfo aside article{margin-top:10px}
+/*活动 E*/
+
+/*晒帖S*/
+.shaitie ul li{padding: 1px;width:56px;height: 56px;border:1px solid #ababab;float:left;margin-left:8px;background: #fff;margin-bottom:10px;position: relative}
+.shaitie ul li em{width:17px;height:17px;position: absolute;top:1px; right:1px;background: url(../img/v2icon7.png) no-repeat; cursor: pointer;opacity: .8}
+.shaitie ul li img{width:56px;height:56px}
+.shaitie ul li.update a{width:56px;height:56px;background: url(../img/v2icon6.png) no-repeat;float:left}
+.shaitie article textarea{resize:none;color:#c4c4c4;font:12px/18px "微软雅黑";border:1px solid #848484;border-radius: 4px;width:99%;height:90px}
+.shaitie article h6{margin: 20px 0 10px;text-align: center}
+.shaitie article h6 span{width:100px;display: inline-block}
+.pop-shaitie article{height:80px;text-align: center;line-height:60px}
+.shaitie article p{color:#FF271C;line-height:30px}
+#imgl {color:#FF271C;line-height:30px}
+/*晒帖E*/
+
+/*签到 S*/
+.qiandao article{margin:15px 0 5px;overflow: hidden}
+.qiandao article .l{width:110px}
+.qiandao article .l var{font-weight: bold;display: block;font-size:10px;text-align: center;color:#000}
+.qiandao article .l var:nth-of-type(2){font-size:36px}
+.qiandao article .l var:last-child{color:#FF4E35}
+.qiandao article .r{width:190px}
+.qiandao article .r p{margin-bottom:4px}
+.qiandao article .r h6 span{margin-top:8px}
+.qiandao article .r h6 span a,.qiandao article .r h6 span{width:80px;background: #ff6445;border-radius:5px;display:inline-block;height:28px;text-align: center;font:14px/28px "微软雅黑";color:#fff}
+.qiandao article .r h6 span.sug{margin-right:10px;background: #8e8e8e}
+.qiandao article:last-child p{font:10px/16px "微软雅黑";margin-bottom:10px}
+.qiandao ul{border:2px solid #c0c0c0;margin-top:20px}
+.qiandao ul hgroup{margin-top:-13px}
+.qiandao ul hgroup span{background: url(../img/v2icon5.png) center top no-repeat;height:28px}
+.qiandao ul li{background:#fff;overflow: hidden;height:40px;width:100%;line-height:40px;border-bottom:1px solid #c0c0c0}
+.qiandao ul li:nth-of-type(1){background: #474747;color:#fff;height:24px;line-height: 24px}
+.qiandao ul li:nth-of-type(1) span i{border-right:1px solid #fff}
+.qiandao ul li:nth-of-type(1) i:nth-of-type(1){height: 24px}
+.qiandao ul span{width:14.2%;float:left;text-align: center}
+.qiandao ul span i{border-right:1px solid #b2b2b2;display: block;height:40px}
+.qiandao ul span:last-child i,.qiandao ul li:nth-of-type(1) span:last-child i,.qiandao ul li:last-child{border:0}
+.qiandao ul span:last-child{width:14.8%}
+.qiandao ul span:nth-of-type(6),.qiandao ul span:nth-of-type(7){color:#ff6445}
+.qiandao ul span.cur{background:#ff6445}
+.qiandao ul span.cur i{line-height:14px;padding-top:6px;height:34px;color:#fff}
+.qiandao ul span.cur i var{display: block;font-size:10px}
+.qiandao aside{text-align: center;margin-bottom:-10px}
+/*签到 E*/
+/*积分 S*/
+#integral .blockA{padding: 10px 10px 10px 16px;text-align: right;font-size:10px}
+#integral .blockA .l{font-size:12px;}
+#integral aside{background: url(../img/v2bgx1.png) 0 -50px repeat-x;height:22px;border:1px solid #CECED0; border-radius:6px;overflow: hidden;margin-bottom:4px}
+#integral aside span{width:25%;float:left;text-align: center;line-height: 22px}
+#integral aside span a{border-right:1px solid #CECED0;display: block;height:22px}
+#integral aside .cur a{background: #ff4e35;color:#fff}
+#integral article ul li{position: relative; padding:10px;border-bottom:1px solid #CECED0}
+#integral article ul li:last-child,#integral aside span:last-child a{border:0}
+#integral article ul li.up i{color:#ff4e35}
+#integral article ul li.down i{color:#646464}
+#integral article ul li p{line-height: 18px;padding-right:50px}
+#integral article ul li p b{display: block;color:#000}
+#integral article ul li i{position: absolute;top:50%;right:10px;margin-top:-9px;height:18px;line-height: 18px}
+.jifeninfo hgroup b{padding-left:3%}
+.jifeninfo ul li{padding:8px 3%;border-top:1px solid #c3c3c3}
+.jifeninfo ul li h3{background: #c3c3c3;line-height: 20px;color:#fff}
+.jifeninfo ul li h3 span{padding-left:12px}
+.jifeninfo ul li h3 i{width:30px;float:right;background: #ff5b44;text-align: center}
+.jifeninfo ul li p{line-height: 18px; padding:4px 12px}
+#trade div h2{padding: 0;height:48px;margin-bottom:6px}
+#trade div article{padding:4px 0 0 3%}
+#trade div article h3 span{display: inline-block}
+#trade div article h3 span:last-child{width:72px;float:right}
+#trade div article h6{line-height: 24px;margin-top:4px; padding-right: 10px}
+#trade div article h6 span{float: right}
+.gbtn2 a{width:60px;background:#FF6445;border-radius: 5px 5px 5px 5px;color: #fff;height: 24px;line-height: 24px;text-align: center;display:block}
+#integral article.guoqi{overflow:hidden}
+#integral article.guoqi li{overflow:hidden;font:14px/24px "微软雅黑";color:#333;text-align: center}
+#integral article.guoqi li:first-child{color:#999}
+#integral article.guoqi li:first-child span:first-child{text-align: center}
+#integral article.guoqi li span:first-child{text-align: left}
+#integral article.guoqi li span{float:left;width:30%}
+#integral article.guoqi li span:nth-of-type(1){width:40%}
+/*积分 E*/
+
+/*---------------------------------------------------------*/
+.subjectinfo aside b,.subjectinfo aside strong{color:#000;font-size:14px}
+.focus,.userpanel h6,address h6,.adA{text-align: center}
+.deals div p b a,.tag-child .tab ul li a,.duihuanfoot span{color:#fff}
+.co1,.guangdeals div aside cite,.qiandao aside a,#integral article.guoqi li span var{color:#ff4e35}
+.f10{font-size:10px}
+.mb10{margin-bottom:10px}
+.qiandao article .r h5 b{color:#000}
+.guangdeals div p span a{color:#646464}
+.deals .more a.endload{color:#646464;cursor:default}
+
+/*404 500*/
+#error404{min-width:180px;max-width:180px}
+#error500{min-width:200px;max-width:200px}
+section.errorinfo{margin:50px auto 0;height:300px}
+section.errorinfo h3 {color:#ff7d6b;background: #fff;width:128px;height:128px;font:bold 50px/128px "Arial";border-radius: 64px;text-align: center;margin: 0 auto}
+section.errorinfo p{line-height: 20px;margin-top:20px;color:#4f4f4f;}
+section.errorinfo p a{color:#4f4f4f;}
+/*无数据*/
+.notdeals{font:16px/30px "微软雅黑";padding:50px 0;text-align: center}

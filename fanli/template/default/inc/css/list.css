@@ -1,0 +1,153 @@
+.goodslist .goodslist_top{ margin:18px 0 0 10px; padding:0; width:720px;overflow: auto; border-bottom-width: 1px;border-bottom-style: solid;	border-bottom-color: #EAEAEA; height:35px;}
+.goodslist .goodslist_hot{ margin:0px; padding:0; width:660px; float:left; overflow: auto; height:20px;overflow:hidden;}
+
+.fufenlei li {
+	float:left;
+	width:60px;
+	border:1px solid #FFCA96;
+	background-color:#FFF1E4;
+	height:24px;
+	margin:0 10px 0 0;
+	line-height:24px;
+	text-align:center;
+	padding:0;
+}
+.fufenlei li.current a {
+	background-color:#FFCA96;
+	display:block;
+}
+.fufenlei a:link,.fufenlei a:visited {
+	font-size:12px;
+	text-decoration:none;
+	color:#333333;
+}
+.fufenlei li a:hover,.fufenlei li a.current {
+	color:#333333;
+	text-decoration:none;
+	background-color:#F30;
+	display:block;
+	line-height:24px;
+	font-weight:bold;
+	color:#FFF;
+}
+
+.goodslist .goodslist_hot h3{ font-size:12px; font-weight:normal}
+.goodslist .goodslist_hot ul {width:660px; }
+.goodslist .goodslist_hot li { float:left; padding:0 10px 10px 0;  }
+.goodslist .goodslist_hot li a { font-size:14px; color:#FF3300; font-weight:bold}
+.goodslist .goodslist_xs{margin:0px; padding:0; width:40px; float:right;overflow:auto;}
+.goodslist .goodslist_xs_1 { margin:0; padding:0; width:16px; height:16px; display:block;background:url(../images/tubiao.png); background-repeat:no-repeat; background-position:0px -622px; cursor:pointer;float:left;}
+.goodslist .goodslist_xs_2{ margin:0; padding:0; width:16px; height:16px; display:block;background:url(../images/tubiao.png); background-repeat:no-repeat; background-position:-16px -622px; cursor:pointer; float:right;}
+.goodslist .goodslist_main { margin:10px 0 0 10px; padding:0; width:720px; overflow:auto;}
+.goodslist .goodslist_main ul{ margin:10px 0 20px 0;}
+.goodslist .goodslist_main li { height:115px; border-bottom-width:1px;border-bottom-style: dashed;border-bottom-color:#CCCCCC; margin:0 0 15px 0;}
+
+.goodslist .goodslist_xs{margin:0px; padding:0; width:40px; float:right;overflow:auto;}
+.goodslist .goodslist_xs_1 { margin:0; padding:0; width:16px; height:16px; display:block;background:url(../images/tubiao.png); background-repeat:no-repeat; background-position:0px -622px; cursor:pointer;float:left;}
+.goodslist .goodslist_xs_2{ margin:0; padding:0; width:16px; height:16px; display:block;background:url(../images/tubiao.png); background-repeat:no-repeat; background-position:-16px -622px; cursor:pointer; float:right;}
+.goodslist .goodslist_main { margin:10px 0 0 10px; padding:0; width:720px; overflow:auto;}
+.goodslist .goodslist_main ul{ margin:10px 0 20px 0;}
+.goodslist .goodslist_main li { height:115px; border-bottom-width:1px;border-bottom-style: dashed;border-bottom-color:#CCCCCC; margin:0 0 15px 0;}
+
+.goodslist .goodslist_main .goodslist_main_left {width:430px; float:left; color:#666666;}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_img{ float:left; width:110px; }
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_img img{ border:0; padding:1px; border:1px solid #CCC; width:100px; height:100px }
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_bt{ height:44px; overflow:hidden}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_bt a{ font-size:14px; line-height:22px;}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_bt a:hover{ color:#F60; text-decoration:underline}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_sell { margin:14px 0 0 0;}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_sell img { vertical-align:bottom;}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_sell span{ color:#FF0000; font-weight:bold;}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_seller { margin:8px 0 0 0;}
+.goodslist .goodslist_main .goodslist_main_left .goodslist_main_left_seller img { vertical-align: middle; border:0;}
+.goodslist .goodslist_main .goodslist_main_right {width:290px; float:right;}
+.goodslist .goodslist_main .goodslist_main_right .goodslist_main_right_price{ float:right; margin:3px 0 0 0; height:60px;}
+.goodslist .goodslist_main .goodslist_main_right .goodslist_main_right_price p {float:left; margin:0 0 0 10px;}
+.goodslist  p span{ color:#FF3300;  font-size:14px;font-weight:bold;}
+.goodslist .goodslist_main .goodslist_main_right .goodslist_main_right_price a:link{ color:#FF6600;  font-size:12px;font-weight:bold;}
+.goodslist .greenfont{color:#4EA205; font-weight:bold; font-size:14px;}
+.goodslist .goodslist_main .goodslist_main_right .goodslist_main_right_tb{ float:right; margin:15px 0 0 0;}
+.goodslist_main_right_bj { cursor:pointer; width:75px; height:25px; display:block; background:url(../images/tubiao.png) #0F9; background-repeat:no-repeat; background-position:0px -644px; float:left; margin:0 10px 0 0;}
+.goodslist_main_right_buy { cursor:pointer;width:65px; height:25px; padding-left:18px; line-height:25px; display:block;background:url(../images/tubiao.png) #F90; background-repeat:no-repeat; background-position:0px -669px; float:left; color:#FFF; overflow:hidden}
+
+
+.goodslist .goodslist_main_2 {margin:10px 0 20px 12px; padding:0; width:728px; overflow:auto;}
+.goodslist .goodslist_main_2 ul { margin:0;}
+.goodslist .goodslist_main_2 li { width:170px; float:left; line-height:23px; margin:0 10px 10px 0;height:330px; overflow:hidden}
+.goodslist .goodslist_main_2 li img {border:0;}
+.goodslist .goodslist_main_2 li .tbcuxiao{ height:25px; overflow:hidden}
+.goodslist .goodslist_main_2 .goodslist_main_left_img_2 img { border: solid 1px #EAEAEA; padding:3px;}
+.goodslist .goodslist_main_2 .goodslist_main_left_bt_2{ width:175px; height:50px; overflow:hidden;  margin:3px 0 0 0;}
+.goodslist .goodslist_main_2 .goodslist_main_left_seller_2 {padding:0;} 
+.goodslist .goodslist_main_2 .goodslist_main_left_seller_2 img {vertical-align: text-bottom;padding:0;}
+.goodslist .goodslist_main_2 .goodslist_main_left_xy_2 img { vertical-align: baseline;padding:0;}
+.goodslist .goodslist_main_2 .goodslist_main_left_xy_2 { margin:3px 0 0 0; padding:0;}
+.goodslist .goodslist_main_2  .goodslist_main_right_tb_2 { margin:5px 0 0 0;}
+
+.small_big{position:absolute;left:130px;top:0px;z-index:100;display:none;}
+.small_big .sell_bg{background:url(../images/s_total.gif) no-repeat -25px -100px;width:16px;height:28px;float:left;position:absolute;left:0px;top:20px; z-index:2}
+.small_big .photo{border:1px solid #ccc;background:#fafafa;margin-left:14px; position:absolute; z-index:1;}
+.small_big .photo img{margin:10px;overflow:hidden;}
+
+#comment .commentleft{width:180px; height:25px; line-height:25px; float:left; font-weight:bold; text-align:center}
+#comment .commentright{width:140px; height:25px; line-height:25px; float:right; font-weight:bold}
+
+#comment li{width:740px; line-height:20px; border-bottom:1px solid #ddd;}
+#comment li .commnetleft{float:left; width:540px; margin-left:10px; margin-top:5px; margin-bottom:5px;}
+#comment li .commnetleft span{ color:#999999}
+#comment li .commnetright{float:right; width:180px; line-height:20px; margin-top:5px; margin-bottom:5px;}
+
+
+.shopxiangguan {
+	text-align:left;
+	width:248px;
+}
+.shopxiangguan ul li img {
+	width:220px;
+	height:220px;
+	border:0;
+	padding:1px;
+	border:1px
+        solid #dddddd;
+}
+.shopxiangguan ul li {
+	width:200px;
+	margin:15px 0 0 12px;
+}
+.shopxiangguan ul li p {
+	width:220px;
+	text-align:center;
+	margin:2px 0
+        0 0;
+	line-height:18px;
+	height:18px;
+	overflow:hidden;
+}
+.shopxiangguan ul li p span {
+	color:#FF3300;
+	font-weight:bold;
+}
+.shopxiangguan ul li p b {
+	color:#329900;
+}
+.shopxiangguan ul {
+	margin:0 0 20px 0;
+}
+.shopxiangguan ul li img:hover {
+	border:1px solid #D0210C;
+}
+.hot_head_goods {
+	height:34px;
+	line-height:34px;
+	background:url(../images/rbgo.gif);
+	overflow:hidden
+}
+.hot_head_goods span {
+	float:left;
+	width:120px;
+	font-size:12px;
+	font-weight:bold;
+	color:#c47c09;
+	padding-left:30px;
+	line-height:38px;
+}

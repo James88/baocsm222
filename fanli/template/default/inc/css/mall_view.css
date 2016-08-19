@@ -1,0 +1,284 @@
+@charset "utf-8";
+/* CSS Document */
+.m_v
+{
+	width:100%;
+	height:auto;
+	float:left;
+}
+.m_v-banner {
+  height: 200px;
+}
+.m_v_container
+{
+	width:1000px;
+	margin:0 auto;
+	text-align:left;
+}
+.m_v-banner .logo-panel {
+  background:#fff;
+  float: left;
+  height: 200px;
+  margin-right: 40px;
+  text-align: center;
+  width: 230px;
+}
+.m_v-banner .logo-box {
+  display: block;
+  padding: 30px 0 30px;
+  height:50px;
+  text-align: center;
+}
+.m_v-banner .logo-box img
+{
+	max-width:105px;
+}
+.m_v-banner .fav-status {
+  background:#e2e2e2;
+  border-radius: 25px;
+  height: 16px;
+  line-height: 16px;
+  margin: 0 auto;
+  padding: 4px 0;
+  width: 150px;
+  margin-bottom:10px;
+}
+.m_v-banner .fav-status a
+{
+  font-size:14px;
+  color:#000;
+  text-decoration:none;
+}
+.m_v-banner .desc-wrap {
+  color: #fff;
+  float: left;
+  font-size: 14px;
+  height: 200px;
+  overflow: hidden;
+  width: 410px;
+}
+.m_v-banner .desc-inner {
+  display: table-cell;
+  height: 200px;
+  vertical-align: middle;
+  width: 410px;
+}
+.m_v-banner .desc-cont {
+  display: inline-block;
+  vertical-align: middle;
+  *margin-top:70px;
+  line-height:25px;
+}
+.m_v-banner .fanli-info {
+  float: left;
+  padding-top: 48px;
+  text-align: center;
+  width: 310px;
+}
+.ad_sm
+{
+	width:1000px;
+	margin:0 auto;
+	margin-top:10px;
+}
+.ad_sm img
+{
+	width:1000px;
+}
+.money {
+  font-family: Helvetica,Arial,"Hiragino Sans GB","Microsoft YaHei","SimSun",sans-serif;
+}
+.m_v-banner .fanli-numb {
+  color: #fff;
+  font-size: 14px;
+  line-height: 60px;
+}
+.m_v-banner .fanli-numb .amount {
+  font-size: 64px;
+  font-weight: normal;
+}
+.m_v-banner .fanli-numb .nofanli {
+  font-size: 32px;
+}
+.m_v-banner .btn-go-shop {
+  background:#fff;
+  border-radius: 40px;
+  color: #c33;
+  display: block;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  width: 186px;
+}
+.logo-panel span
+{
+	margin-left:15px;
+}
+.shop-detail-wrap {
+}
+.detail-info-wrap {
+  background: #fff;
+  border: 1px solid #d2d2d2;
+  line-height: 22px;
+  margin-top: 10px;
+  padding-bottom:10px;
+}
+.detail-info-wrap .t {
+  background:#f6f6f6;
+  display: block;
+  height: 34px;
+  line-height: 34px;
+  padding-left: 10px;
+  font-size:14px;
+  font-weight:bold;
+  border-style:solid;
+  border-width:3px 0 0;
+}
+.detail-info-box {
+  padding: 0 15px;
+}
+.detail-info-nr
+{
+	max-height:230px;
+}
+.detail-info-a
+{
+	color:#0087d5 !important;
+	font-size:14px !important;
+	text-align:center;
+	width:100%;
+	display:inline-block;
+}
+.item-content {
+  clear: both;
+  color: #555;
+  height: auto !important;
+  line-height: 25px;
+  overflow: hidden;
+  position:relative;
+}
+.detail_pp
+{
+	padding:15px;
+}
+.detail_pp .in_text
+{
+	border:0 none;
+	width:856px;
+	height:40px;
+	float:left;
+	line-height:40px;
+	padding-left:10px;
+	border:1px solid #ccc;
+}
+.detail_pp .in_btn
+{
+	width:100px;
+	height:42px;
+	float:right;
+	color:#fff;
+	font-size:14px;
+	border:0 none;
+}
+.detail_pl
+{
+	width:100%;
+	float:left;
+	padding-top:20px;
+	margin-top:20px;
+	border-top:1px dashed #e5e5e5;
+}
+.detail_pl .l
+{
+	float:left;
+	margin-right:20px;
+}
+.detail_pl .l img
+{
+	width:60px;
+	height:60px;
+	border:1px solid #ccc;
+}
+.detail_pl .l p
+{
+	font-size:12px;
+}
+.detail_pl .l p.hyname
+{
+	color:#f36519;
+}
+.detail_pl .l p.time
+{
+	color:#909090;
+}
+.detail_tt
+{
+	width:100%;
+	color:#666;
+	padding:10px 5px;
+	display:inline-block;
+	font-size:16px;
+}
+
+
+
+/*感兴趣的品牌*/
+
+.gxq_pp
+{
+	width:1020px;
+	float:left;
+	height:auto;
+}
+.gxq_pp ul li
+{
+	width:325px;
+	height:100px;
+	float:left;
+	border:1px solid #d2d2d2;
+	margin-right:10px;
+	margin-bottom:10px;
+	background:#fff;
+}
+.gxq_pp ul li img
+{
+	max-width:105px;
+	padding:30px 0 12px 30px;
+}
+.gxq_pp span
+{
+	float:right;
+	height:100px;
+	line-height:100px;
+	margin-right:15px;
+	font-size:14px;
+	color:#999999;
+}
+.wuguan
+{
+	margin-left:-11px;
+}
+table.table-rate {
+  border: 1px solid #d1d1d1;
+  border-collapse: collapse;
+  color: #333;
+  font-size: 13px;
+  width: 100%;
+}
+table.table-rate th, table.table-rate td {
+  border: 1px solid #d1d1d1;
+  padding: 5px;
+}
+th, td, caption {
+  font-weight: normal;
+  text-align: left;
+}
+table.table-rate th {
+  background: #eaeaea;
+  color: #555;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}

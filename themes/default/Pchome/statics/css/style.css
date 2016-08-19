@@ -342,7 +342,7 @@ body{background-color:#fff;}
 .syPub_list .tag_box i.ico_2{ background-position:-49px center;}
 .syPub_list .tag_box i.ico_3{ background-position:-75px center;}
 /*首页外卖部分结束*/
-/*首页本地商城部分开始*/
+/*首页网购商城部分开始*/
 .sy_cityBuy_nr .disct{ overflow:hidden; margin-bottom:20px;}
 .sy_cityBuy_nr .disct>.right{ width:1000px; overflow:hidden;}
 .sy_cityBuy_bt{ position:relative; z-index:1; text-align:center; width:200px;}
@@ -396,7 +396,7 @@ body{background-color:#fff;}
 .sy_cityBuy_nr .syGoods_list_box .syGoods_list li:hover{ background-color:#ea68a2;}
 .sy_cityBuy_nr .syGoods_list_box .syGoods_list li:hover i{ background-image:url(../images/cityBuy2_on.png);} 
 .sy_cityBuy_nr .syGoods_list_box .syGoods_list li:hover p{ color:#fff;} 
-/*首页本地商城部分结束*/
+/*首页网购商城部分结束*/
 .sy_adPosit{ margin:20px auto;}
 .sy_adPosit img:hover{opacity:0.9; filter:alpha(opacity=90);}
 /*首页同城信息部分开始*/

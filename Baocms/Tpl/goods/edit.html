@@ -100,12 +100,23 @@
             <td class="rgTdBt"><input type="text" name="data[settlement_price]" value="<{$detail.settlement_price|default=''}>" class="manageInput" />
 			<code>结算价格必须填写，否则该产品不能设置通过审核。</code>
             </td>
-        </tr><tr>
+        </tr>
+        <!--
+        <tr>
             <td class="lfTdBt">推广佣金：</td>
             <td class="rgTdBt"><input type="text" name="data[commission]" value="<{$detail.commission|default=''}>" class="manageInput" />
                 <code>佣金大于0才会出现在推广列表里，不能为负数</code>
             </td>
-        </tr><tr>
+        </tr>
+        -->
+        <tr>
+            <td class="lfTdBt">可用品宣币：</td>
+             <td class="rgTdBt"><input type="text" name="data[jifen]" value="<{$detail.jifen|default='0'}>" class="manageInput" />
+                <code>为0则不可使用品宣币</code>
+            </td>
+        </tr>
+        
+        <tr>
             <td class="lfTdBt">卖出数量：</td>
             <td class="rgTdBt"><input type="text" name="data[sold_num]" value="<{$detail.sold_num|default=''}>" class="manageInput" />
 

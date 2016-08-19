@@ -23,7 +23,7 @@ class CommonAction extends Action
 				exit();
 			}
 
-			if ($this->uid == 1) {
+			if ($this->uid == 1  &&  2==1) {
 				if ($this->isPost()) {
 					$this->baoError('演示站不提供数据操作!请不要恶意修改演示数据！');
 				}

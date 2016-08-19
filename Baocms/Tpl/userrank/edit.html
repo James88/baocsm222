@@ -21,10 +21,18 @@
                                 <code>可以为空主要防止不同样式</code>
                             </td>
                         </tr>
+                        <!--
                         <tr>
                             <td class="lfTdBt">分享返利（返积分）：</td>
                             <td class="rgTdBt"><input type="text" name="data[rebate]" value="<{$detail.rebate|default=''}>" class="scAddTextName w150" />
                                 <code>暂不支持小数,例如3表示返利3%</code>
+                            </td>
+                        </tr>
+                        -->
+                        <tr>
+                            <td class="lfTdBt">可用品宣币比例：</td>
+                            <td class="rgTdBt"><input type="text" name="data[pinxuanbi]" value="<{$detail.pinxuanbi|default='0'}>" class="scAddTextName w150" />
+                                <code>请输入小于1的比例数如0.9代表90%</code>
                             </td>
                         </tr>
                         <tr>

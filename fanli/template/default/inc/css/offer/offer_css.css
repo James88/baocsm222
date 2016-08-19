@@ -1,0 +1,172 @@
+.mainbody
+{	
+	margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+.l {
+	float:left
+}
+.r {
+	float:left
+}
+.wrap-task {
+	margin-top:15px;
+	width:1000px;
+	margin:0 auto;
+	text-align:left
+}
+.aside {
+	width:215px
+}
+.status {
+	border:1px solid #f4a370;
+	background:#fce1ce;
+	width:215px;
+	height:162px;
+	margin-bottom:10px;
+	position:relative
+}
+.user-msg {
+	width:148px;
+	padding:0 10px;
+	font-size:16px;
+	line-height:56px;
+	font-weight:bold;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+.fanli-msg {
+	width:200px;
+	height:80px;
+	padding:6px 0 0 14px;
+	background:url(../../images/flag.alpha.png) no-repeat;
+	color:#fff;
+	position:absolute;
+	left:-14px;
+}
+.fanli-msg em {
+	font-style:normal;
+	font-size:16px;
+	line-height:35px;
+	text-indent:2em;
+}
+.others {
+	border:1px solid #f4a370;
+	width:215px;
+	height:210px;
+	background:#fce1ce;
+}
+.others
+p {
+	background:url(../../images/nafanli.png);
+	width:179px;
+	height:38px;
+	margin:10px 0 0 18px;
+}
+.others
+ul {
+	padding:10px 0 10px 20px
+}
+.others
+li {
+	line-height:25px;
+	color:#000
+}
+.main {
+	width:744px
+}
+.ad-banner {
+	width:960px;
+	height:128px;
+	margin-bottom:12px; 
+	margin-top:10px;
+}
+.iframe {
+	color:#FFF
+}
+.ad2
+{
+	margin:10px 0 0 0;
+}
+#gundong{width:215px; height:145px;overflow:hidden; font-size:12px;}
+#gundong li{ list-style:none; line-height:15px; height:40px; color:#999}
+#gundong span{ color:#F00;}
+#gundong em{ color:#F0F;font-style:oblique;}
+
+
+/*v8.3*/
+.mainauto
+{
+	width:1010px;
+	margin:0 auto;
+	margin-top:10px;
+}
+.offer_l
+{
+	float:left;
+	background:#fff;
+	width:495px;
+	height:275px;
+	border:1px solid #e8e8e8;
+	padding-bottom:3px;
+	margin-top:7px;
+	margin-right:5px;
+}
+.offer_l img,.offer_l span
+{
+	width:461px;
+	height:204px;
+	display:inline-block;
+	line-height:235px;
+	text-align:center;
+	font-size:36px;
+	font-family:微软雅黑;
+	margin:17px 17px 0 17px;
+}
+.tiyan_btn
+{
+	width:108px;
+	height:34px;
+	float:left;
+	margin-top:9px;
+	margin-left:190px;
+	background:url(../../images/tiyan.jpg) no-repeat;
+}
+.step
+{
+	width:1000px;
+	height:62px;
+	float:left;
+	margin:7px 0;
+	background:url(../../images/step.png) no-repeat;
+}
+.jiaocheng
+{
+	border:1px solid #e8e8e8;
+	width:998px;
+	height:auto;
+	float:left;
+	background:#fff;
+}
+.jc_title
+{
+	height:40px;
+	width:100%;
+	line-height:40px;
+	text-indent:0.5em;
+	float:left;
+	background:#f6f6f6;
+	font-size:20px;
+	font-family:'微软雅黑';
+	font-weight:bold;
+}
+.jc_tp
+{
+	width:100%;
+	height:auto;
+	padding-bottom:10px;
+	float:left;
+	padding:20px 50px;
+}
