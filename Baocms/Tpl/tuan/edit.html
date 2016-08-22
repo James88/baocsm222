@@ -142,7 +142,7 @@
                         <label><span style="margin-left: 20px;">是否精选：</span><input type="checkbox" name="data[is_chose]" <if condition="$detail['is_chose'] eq 1"> checked="checked" </if> value="1" /></label>
                         <label><span style="margin-left: 20px;">是否新单：</span><input type="checkbox" name="data[is_new]" <if condition="$detail['is_new'] eq 1"> checked="checked" </if> value="1" /></label>
                         <label><span style="margin-left: 20px;">是否免预约：</span><input type="checkbox" name="data[freebook]" <if condition="$detail['freebook'] eq 1"> checked="checked" </if> value="1" /></label>
-                        <label><span style="margin-left: 20px;">是否返现1%：</span><input type="checkbox" name="data[is_return_cash]" <if condition="$detail['is_return_cash'] eq 1"> checked="checked" </if> value="1" /></label>
+                        <!--<label><span style="margin-left: 20px;">是否返现1%：</span><input type="checkbox" name="data[is_return_cash]" <if condition="$detail['is_return_cash'] eq 1"> checked="checked" </if> value="1" /></label>-->
                     </td>
                 </tr>
                 <tr>
@@ -155,16 +155,43 @@
                     <td class="rgTdBt"><input type="text" name="data[tuan_price]" value="<{$detail.tuan_price|default=''}>" class="manageInput" />
                     </td>
                 </tr>
+                <!--
                 <tr>
                     <td class="lfTdBt">手机下单优惠价格：</td>
                     <td class="rgTdBt"><input type="text" name="data[mobile_fan]" value="<{$detail.mobile_fan|default=''}>" class="manageInput" />
 
                     </td>
                 </tr>
+                
                 <tr>
                     <td class="lfTdBt">可使用积分：</td>
                     <td class="rgTdBt"><input type="text" name="data[use_integral]" value="<{$detail.use_integral|default=''}>" class="manageInput" />
                         <code>100积分抵用1块钱RMB</code>
+                    </td>
+                </tr>
+                -->
+                <tr>
+                    <td class="lfTdBt">普通会员可用品宣币：</td>
+                     <td class="rgTdBt"><input type="text" name="data[jifen]" value="<{$detail.jifen|default='0'}>" class="manageInput" />
+                        <code>为0则不可使用品宣币</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">银牌会员可用品宣币：</td>
+                     <td class="rgTdBt"><input type="text" name="data[jifen1]" value="<{$detail.jifen1|default='0'}>" class="manageInput" />
+                        <code>为0则不可使用品宣币</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">金牌会员可用品宣币：</td>
+                     <td class="rgTdBt"><input type="text" name="data[jifen2]" value="<{$detail.jifen2|default='0'}>" class="manageInput" />
+                        <code>为0则不可使用品宣币</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lfTdBt">钻石会员可用品宣币：</td>
+                     <td class="rgTdBt"><input type="text" name="data[jifen3]" value="<{$detail.jifen3|default='0'}>" class="manageInput" />
+                        <code>为0则不可使用品宣币</code>
                     </td>
                 </tr>
                 <tr>

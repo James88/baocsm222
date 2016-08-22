@@ -1,0 +1,12 @@
+<div class="nav">
+    <div class="navList">
+        <ul>
+            <li class="navLi"><a <if condition="$ctl eq  'index'"> class="navA  on"<else/>class="navA"</if> title="首页" href="<{:U('pchome/index/index')}>" >首页</a></li>
+            <li class="navLi"><a <if condition="$ctl eq  'mall'"> class="navA  on"<else/>class="navA"</if> title="网购商城" href="<{:U('pchome/mall/index')}>" >网购商城</a></li>
+            <li class="navLi"><a <if condition="$ctl eq  'shop'"> class="navA  on"<else/>class="navA"</if> title="商家" href="<{:U('pchome/shop/index')}>" >商家</a></li>
+            <li class="navLi"><a <if condition="$ctl eq  'tuan'"> class="navA  on"<else/>class="navA"</if> title="抢购" href="<{:U('pchome/tuan/nearby')}>" >抢购</a>
+            <li class="navLi"><a <if condition="$ctl eq  'tuan'"> class="navA  on"<else/>class="navA"</if> title="返利" href="/fanli/" >返品宣币购物</a> </li>
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>

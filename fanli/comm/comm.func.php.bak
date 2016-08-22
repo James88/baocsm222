@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 function dump($var, $echo=true, $label=null, $strict=true) {
 	$label = ($label === null) ? '' : rtrim($label) . ' ';
 	if (!$strict) {

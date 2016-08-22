@@ -9,8 +9,8 @@
 
 class GoodsAction extends CommonAction {
 
-    private $create_fields = array('title', 'photo', 'cate_id', 'price', 'shopcate_id', 'mall_price', 'commission','instructions', 'details', 'end_date');
-    private $edit_fields = array('title', 'photo', 'cate_id', 'price', 'shopcate_id', 'mall_price', 'commission','instructions', 'details', 'end_date');
+    private $create_fields = array('title', 'photo', 'cate_id', 'price', 'shopcate_id', 'mall_price', 'commission','instructions', 'details', 'end_date','jifen','jifen1','jifen2','jifen3');
+    private $edit_fields = array('title', 'photo', 'cate_id', 'price', 'shopcate_id', 'mall_price', 'commission','instructions', 'details', 'end_date','jifen','jifen1','jifen2','jifen3');
 
     public function _initialize() {
         parent::_initialize();

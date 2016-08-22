@@ -9,8 +9,8 @@
 
 class GoodsAction extends CommonAction {
 
-    private $create_fields = array('title', 'shop_id', 'photo', 'cate_id', 'price', 'mall_price','settlement_price','mobile_fan', 'commission', 'sold_num', 'orderby', 'views', 'instructions', 'details', 'end_date', 'orderby','jifen');
-    private $edit_fields = array('title', 'shop_id', 'photo', 'cate_id', 'price', 'mall_price','settlement_price','mobile_fan', 'commission', 'sold_num', 'orderby', 'views', 'instructions', 'details', 'end_date', 'orderby','jifen');
+    private $create_fields = array('title', 'shop_id', 'photo', 'cate_id', 'price', 'mall_price','settlement_price','mobile_fan', 'commission', 'sold_num', 'orderby', 'views', 'instructions', 'details', 'end_date', 'orderby','jifen','jifen1','jifen2','jifen3');
+    private $edit_fields = array('title', 'shop_id', 'photo', 'cate_id', 'price', 'mall_price','settlement_price','mobile_fan', 'commission', 'sold_num', 'orderby', 'views', 'instructions', 'details', 'end_date', 'orderby','jifen','jifen1','jifen2','jifen3');
 
     public function index() {
         $Goods = D('Goods');

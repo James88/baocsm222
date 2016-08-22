@@ -65,8 +65,8 @@ if($domain_url!='localhost'){
 	
 	if($auth_arr['type']==0){
 		if(time()>$auth_arr['etime']){
-			echo '您的免费体验已到期（'.$auth_arr['day'].'天），请购买官方正版授权后获授取权码。<a target="_blank" href="'.$duoduo_auth_url[0].'">购买地址</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.$get_auth_url.'">获取授权码</a>';
-			dd_exit();
+			//echo '您的免费体验已到期（'.$auth_arr['day'].'天），请购买官方正版授权后获授取权码。<a target="_blank" href="'.$duoduo_auth_url[0].'">购买地址</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.$get_auth_url.'">获取授权码</a>';
+			//dd_exit();
 		}
 	}
 	
