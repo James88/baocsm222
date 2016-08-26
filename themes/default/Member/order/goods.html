@@ -42,10 +42,10 @@
                             <{$addrs[$order['addr_id']]['name']}>
                             <{$addrs[$order['addr_id']]['mobile']}> 
                         </td>
-                        <td width="80">
+                        <td width="180">
                             <eq name="order.is_daofu" value="0">
                             <eq name="order.status" value="0">
-                            <a class="myInfor_sx myInfor_sx_fk" href="<{:U('pchome/mall/pay',array('order_id'=>$order['order_id']))}>" target="_blank">去付款</a>
+                            <a class="myInfor_sx myInfor_sx_fk" href="<{:U('pchome/mall/pay',array('order_id'=>$order['order_id']))}>" target="_blank">去付款(<{:round($order[total_price]/100,2)}>元)</a>
                     <else />
                     <{$types[$order['status']]}>
                     </eq>
@@ -68,7 +68,8 @@
                                     <td colspan="2" class="tgdd_nrCtd"><{$products[$good['goods_id']]['title']}></td>
                                     <td class="tgdd_nrCtd" id="price-color">￥<{:round($good['price']/100,2)}></td>
                                     <td class="tgdd_nrCtd"><{$good.num}></td>
-                                    <td class="tgdd_nrCtd" id="price-color">￥<{:round($order['total_price']/100,2)}><if condition="$order['pinxuanbi_money']">(品宣币抵扣:-<{:round($order['pinxuanbi_money']/100,2)}>元)</if></td>
+                                    <!--<td class="tgdd_nrCtd" id="price-color">￥<{:round($good['total_price']/100,2)}><if condition="$order['pinxuanbi_money']">(品宣币抵扣:-<{:round($good['pinxuanbi'],2)}>元)</if></td>-->
+                                    <td class="tgdd_nrCtd" id="price-color">￥<{:round($good['total_price_org']/100,2)}></td>
                                     <td class="tgdd_nrCtd">&nbsp;</td>
                                     <td class="tgdd_nrCtd">&nbsp;</td>
                                 </tr>

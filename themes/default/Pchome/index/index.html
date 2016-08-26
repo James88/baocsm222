@@ -1,4 +1,3 @@
-
 <include file="public:header" /> 
 <include file="public:top"/>
 <include file="public:nav"/>
@@ -173,9 +172,9 @@
 				<div class="more-info-con">
 					<div class="more-info">
 						<ul>
-							<li><i class="fp-iconfont"></i><span>退货保障</span></li>
-							<li><i class="fp-iconfont"></i><span>花呗分期</span></li>
-							<li><i class="fp-iconfont"></i><span>极速退款</span></li>
+							<li><span>退货保障</span></li>
+							<li><span>花呗分期</span></li>
+							<li><span>极速退款</span></li>
 							<li><a class="get-more" href="#">更多特权 &gt;</a></li>
 						</ul>
 					</div>
@@ -259,17 +258,14 @@
         <div class="left sy_FloorBtz"><i class="ico_1"></i><span class="bt cl_1">天天特价<small>送币区</small></span>
             <span class="sy_buy_tab">
                 <php>$i=0;</php>       
-                <foreach name="tuancates" item="item2">
-
-                    <eq name="item2.parent_id" value="0"> 
+                <foreach name="duoduoCates" item="duoduocate">
                     <php>$i++;if($i <= 10){</php>
-                    <a target="_blank" <php>if($i == 1) echo 'class="on"';</php> title="<{$item2.cate_name}>抢购" href="<{:U('tuan/index',array('cat'=>$item2['cate_id']))}>"><{$item2.cate_name}></a>
+                    <a target="_blank" <php>if($i == 1) echo 'class="on"';</php> title="<{$duoduocate.title}>抢购" href="/fanli/index.php?mod=goods&act=index&cid=<{$duoduocate.id}>"><{$duoduocate.title}></a>
                     <php>}</php>    
-                    </eq>
                 </foreach>
             </span>
         </div>
-        <div class="right"><a  title="更多" target="_blank" href="<{:U('tuan/index')}>">更多&gt;&gt;</a></div>
+        <div class="right"><a  title="更多" target="_blank" href="/fanli/">更多&gt;&gt;</a></div>
     </div>
     <div class="sy_buy_nr">
         <div class="left sy_buy_ad">
@@ -281,16 +277,16 @@
         <div class="right sy_buy_list_box">
             <div class="sy_buy_list_box_bg">
                 <php>$i2=0;</php>       
-                <foreach name="tuancates" item="cate">
-                    <eq name="cate.parent_id" value="0"> 
+                <foreach name="duoduoCates" item="duoduocate">
                     <php>$i2++;if($i2 <= 10){</php>
                     <ul class="sy_buy_list" <php>if($i2 == 1) echo 'style="display:block;"';</php>>
-                        <php>$cate_ids = D('Tuancate')->getChildren($cate['cate_id']); $cate_ids = join(',',$cate_ids);</php>
-                        <calldata mdl="Tuan" where="audit = 1 AND closed=0 AND city_id=$city_id AND cate_id IN ($cate_ids)" cache="600" order="orderby asc,sold_num desc" limit="0,10">
+                        <!--top = 2 全局置顶 = 1 本版 =0 不置顶-->
+                        <php>$goods = D('DuoduoGoods')->where(array('cid'=>$duoduocate['id'],'top'=>0))->order(array('id'=>'DESC'))->limit(12)->select();</php>
+                        <foreach name='goods' item='goods_item'>
                             <li>
                                 <div class="syPub_list">
-                                    <a target="_blank" title="<{$item['title']}>" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>"><img src="__ROOT__/attachs/<{$item.photo}>"  width="200" height="112" /></a>
-                                    <h3><a target="_blank" title="<{$item['title']}>" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>" class="overflow_clear"><{:msubstr($item['title'],0,15)}></a></h3>
+                                    <a target="_blank" title="<{$item['title']}>" href="/fanli/index.php?mod=goods&act=view&code=<{$goods_item.code}>&id=<{$goods_item.id}>"><img src="<{$goods_item.img}>"  width="200" height="112" /></a>
+                                    <h3><a target="_blank" title="<{$goods_item['title']}>" href="/fanli/index.php?mod=goods&act=view&code=<{$goods_item.code}>&id=<{$goods_item.id}>" class="overflow_clear"><{:msubstr($goods_item['title'],0,15)}></a></h3>
                                   <!--  <p class="overflow_clear graycl"><{:msubstr($item['intro'],0,18)}></p>-->
                                    	<div class="btn_box">
 										<div class="price">¥<{:round($tuan['price']/100,2)}><del>¥<{:round($tuan['price']/100,2)}></del>
@@ -301,11 +297,10 @@
                                     <div class="btn_box" style="text-align:center;"><a target="_blank" title="<{$item['title']}>" href="<{:U('tuan/detail',array('tuan_id'=>$item['tuan_id']))}>" class="btn">立即抢购</a></div>
                                 </div>
                             </li>
-                        </calldata>
+                        </foreach>
                     </ul>
 
                     <php>}</php> 
-                    </eq>
                 </foreach>
 
             </div>

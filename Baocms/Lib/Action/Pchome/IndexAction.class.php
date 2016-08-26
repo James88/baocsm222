@@ -21,6 +21,9 @@ class IndexAction extends CommonAction {
             header("Location:" . U('mobile/index/index'));
             die;
         }
+        $map['tag'] = 'goods';
+        $duoduoCates = D('DuoduoType')->where($map)->select();
+        $this->assign('duoduoCates',$duoduoCates);
         $this->display();
   
     }

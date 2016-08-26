@@ -10,7 +10,7 @@
 class MallAction extends CommonAction {
 
     protected $goodscate = array();
-
+    protected $pinxuanbiColumn = 'jifen';
     public function _initialize() {
         parent::_initialize();
         $this->goodscate = D('Goodscate')->fetchAll();
@@ -18,6 +18,11 @@ class MallAction extends CommonAction {
         $this->type = D('Keyword')->fetchAll();
         $this->assign('types', $this->type);
         $goods = cookie('goods');
+        //by lmy@20160824 初始化 用户等级对应的积分字段
+        if($this->member){
+            $this->pinxuanbiColumn = 'jifen'.($this->member['rank_id'] - 1?$this->member['rank_id'] - 1:'');
+        }
+        $this->assign('pinxuanbiColumn',$this->pinxuanbiColumn);
         $this->assign('cartnum', (int) array_sum($goods));
     }
 
@@ -317,12 +322,12 @@ class MallAction extends CommonAction {
             foreach ($cart_goods as $k => $val) {
                 $cart_goods[$k]['buy_num'] = $goods[$k];
                 $shop_ids[$val['shop_id']] = $val['shop_id'];
-                $total_pinxuanbi += $val['jifen']*$goods[$k];
+                $total_pinxuanbi += $val[$this->pinxuanbiColumn]*$goods[$k];
             }
             //die($total_pinxuanbi);
             $this->assign('cart_shops', D('Shop')->itemsByIds($shop_ids));
             $this->assign('cart_goods', $cart_goods);
-            $this->assign('total_pinxuanbi', $total_pinxuanbi);
+            $this->assign('total_pinxuanbi', $total_pinxuanbi>$this->member[$this->pinxuanbiColumn]?$this->member[$this->pinxuanbiColumn]:$total_pinxuanbi);
             $this->display();
         }
     }
@@ -636,11 +641,9 @@ class MallAction extends CommonAction {
             $this->ajaxLogin();
         }
         $num = $this->_post('num', false);
-//        var_dump($)
         $is_use_pinxuanbi = $this->_post('sureuse',false);
         $pinxuanbi = $this->_post('pinxuanbi',false);
-                
-        
+        //1.$num  = array('产品ID'=>'数量');
         $goods_ids = array();
         foreach ($num as $k => $val) {
             $val = (int) $val;
@@ -655,6 +658,7 @@ class MallAction extends CommonAction {
         if (empty($goods_ids))
             $this->baoError('很抱歉请填写正确的购买数量');
         $goods = D('Goods')->itemsByIds($goods_ids);
+        //2.$goods  = array('产品ID'=>'产品表里的具体数据');
         foreach ($goods as $key => $val) {
             if ($val['closed'] != 0 || $val['audit'] != 1 || $val['end_date'] < TODAY) {
                 unset($goods[$key]);
@@ -665,34 +669,40 @@ class MallAction extends CommonAction {
         }
         $tprice = $max_pinxuanbi_use = $dikou_money = 0;
         $ip = get_client_ip();
-        $ordergoods = $total_price = array();
+        $ordergoods = $total_price = $total_shop_pinxuanbi = array();
 
         foreach ($goods as $val) {
-            $price = $val['mall_price'] * $num[$val['goods_id']];
-            $js_price = $val['settlement_price'] * $num[$val['goods_id']];
-            $tprice+= $price;
-            $max_pinxuanbi_use += $val['jifen'] * $num[$val['goods_id']];
+            $buyNum = $num[$val['goods_id']];
+            $price = $val['mall_price'] * $buyNum;
+            $js_price = $val['settlement_price'] * $buyNum;
+            $tprice+= $price;//订单总价
+            $max_pinxuanbi_use += $val[$this->pinxuanbiColumn] * $buyNum;
+            
+            //一个店铺的订单弄一起
             $ordergoods[$val['shop_id']][] = array(
                 'goods_id' => $val['goods_id'],
                 'shop_id' => $val['shop_id'],
-                'num' => $num[$val['goods_id']],
+                'num' => $buyNum,
                 'price' => $val['mall_price'],
-                'total_price' => $price,
+                'total_price' => $price-$val[$this->pinxuanbiColumn]*100,
+                'total_price_org' => $price,
                 'js_price' => $js_price,
                 'create_time' => NOW_TIME,
-                'create_ip' => $ip
+                'create_ip' => $ip,
+                'pinxuanbi'=>$val[$this->pinxuanbiColumn],
             );
+            //这个店的所有单的总价
             $total_price[$val['shop_id']] += $price;
+            $total_shop_pinxuanbi[$val['shop_id']] += $val[$this->pinxuanbiColumn];
         }
+        //var_dump($ordergoods);die;
         //需要抵扣的钱数by lmy@20160816
         $member = $this->member;
-        if($is_use_pinxuanbi == 1){
-            if($pinxuanbi <= $member['integral'] && $pinxuanbi > $max_pinxuanbi_use){
-                $pinxuanbi = $max_pinxuanbi_use;
-            }
-            $dikou_money = $pinxuanbi;
-             D('Users')->save(array('user_id' => $this->uid, 'integral' => $member['integral']-$pinxuanbi));
+        if($pinxuanbi > $member['integral'] || $pinxuanbi > $max_pinxuanbi_use){
+            $pinxuanbi = $member['integral']>$max_pinxuanbi_use?$max_pinxuanbi_use:$member['integral'];
         }
+        $dikou_money = $pinxuanbi * 100;
+        D('Users')->save(array('user_id' => $this->uid, 'integral' => $member['integral']-$pinxuanbi));
         $pinxuanbiLogId = 0;
         //写入品品宣币抵扣日志
         if($dikou_money > 0){
@@ -711,16 +721,17 @@ class MallAction extends CommonAction {
             'create_ip' => $ip,
             'total_price' => 0
         );
+        //3.$ordergoods 商家id => 购买的该商家的所有产品
         $order_ids = array();
         foreach ($ordergoods as $k => $val) {
             $shop = D('Shop')->find($k);
             $order['shop_id'] = $k;
-            $order['total_price'] = $total_price[$k] - $dikou_money;
+            $order['total_price'] = $total_price[$k] - $total_shop_pinxuanbi[$k] * 100; //抵扣品轩币后的新价格 
             $order['pinxuanbi_logid'] = $pinxuanbiLogId;
-            $order['pinxuanbi_money'] = $dikou_money;
-            $order['total_price_org'] = $total_price[$k];
+            $order['pinxuanbi_money'] = $total_shop_pinxuanbi[$k] * 100;
+            $order['total_price_org'] = $total_price[$k]; //原始不减去品轩币的价格
             $order['is_shop'] = 1;//(int) $shop['is_pei']; //是否由商家自己配送
-
+            //4.写入每个商家的订单，然后 写入 order goods表
             if ($order_id = D('Order')->add($order)) {
                 $order_ids[] = $order_id;
                 foreach ($val as $k1 => $val1) {

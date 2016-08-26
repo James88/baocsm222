@@ -14,5 +14,13 @@ if($setting = D('Payment')->where($map)->getField('setting')){
 }
 
 
+多多返利
+http://soft.duoduo123.com/portal/buy.html
+    
+订单获取:
+    http://bbs.duoduo123.com/read-1-1-198008.html
+1.商品标：duoduo_goods 商品分类表 duoduo_type;
+已新建 3个多多表的模型 在 model里
+
 ?>
 
